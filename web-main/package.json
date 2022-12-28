@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "build": "vite build",
-    "dev": "vite --port 8080",
+    "dev": "vite --port 9090",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -20,7 +20,8 @@
     "query-string": "^7.1.1",
     "vue": "^3.2.25",
     "vue-router": "^4.0.12",
-    "vuex": "^4.0.2"
+    "vuex": "^4.0.2",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@originjs/vite-plugin-require-context": "^1.0.9",
