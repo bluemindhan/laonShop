@@ -27,4 +27,4 @@ export default {
   beforeUnmount() {},
 };
 </script>
-<style></style>
+<style></style>  
