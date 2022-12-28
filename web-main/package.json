@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "build": "vite build",
-    "dev": "vite --port 8080",
+    "dev": "vite --port 9090",
     "preview": "vite preview"
   },
   "dependencies": {
