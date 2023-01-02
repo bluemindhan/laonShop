@@ -48,3 +48,4 @@ public class UserController extends BaseController {
     return getProfileHandler.execute(user, req);
   }
 }
+

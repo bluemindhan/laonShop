@@ -8,7 +8,10 @@
     A.USR_NM as name ,
     A.USR_EML as email ,
     A.USR_PSSWRD as password ,
-    A.SALT as salt
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
   FROM
     TB_USER A
   WHERE
@@ -21,7 +24,10 @@
     A.SLLR_NM as name ,
     A.PSSWRD as password ,
     A.SLLR_ID as email ,
-    A.SALT as salt
+    A.SALT as salt,
+    A.SLLR_GD as gender,
+    A.SLLR_BIR as birth,
+    A.SLLR_PN as phone
   FROM
     TB_SELLER A
   WHERE
@@ -34,6 +40,9 @@
     USR_NM,
     USR_EML,
     USR_PSSWRD,
+    USR_BIR,
+    USR_GD,
+    USR_PN,
     SALT,
     CRT_DT,
     UPD_DT
@@ -42,6 +51,9 @@
     #{user.name, jdbcType=VARCHAR},
     #{user.email, jdbcType=VARCHAR},
     #{user.password, jdbcType=VARCHAR},
+    #{user.birth, jdbcType=VARCHAR },
+    #{user.gender, jdbcType=VARCHAR},
+    #{user.phone, jdbcType=VARCHAR},
     #{user.salt, jdbcType=VARCHAR},
     SYSDATE,
     SYSDATE
@@ -53,6 +65,9 @@
     SLLR_ID,
     SLLR_NM,
     PSSWRD,
+    SLLR_BIR,
+    SLLR_GD,
+    SLLR_PN,
     SALT,
     CRT_DT,
     UPD_DT
@@ -60,6 +75,9 @@
     #{seller.userId, jdbcType=VARCHAR},
     #{seller.name, jdbcType=VARCHAR},
     #{seller.password, jdbcType=VARCHAR},
+    #{seller.birth, jdbcType=VARCHAR},
+    #{seller.gender, jdbcType=VARCHAR},
+    #{seller.phone, jdbcType=VARCHAR},
     #{seller.salt, jdbcType=VARCHAR},
     SYSDATE,
     SYSDATE

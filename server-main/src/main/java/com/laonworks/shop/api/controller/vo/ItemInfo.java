@@ -23,5 +23,17 @@ public class ItemInfo {
     
     @ApiParam(value = "item price")
     public long value =  0;
+
+    @ApiParam(value = "item comment")
+    public String comment = "";
+
+    @ApiParam(value = "item image")
+    public String image = "";
+
+    @ApiParam(value = "item like")
+    public int likeCnt = 0;
+
+    @ApiParam(value = "item bookMark")
+    public int bookCnt = 0;
 }
 
