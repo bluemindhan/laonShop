@@ -16,6 +16,7 @@ public class AuthUtils {
     // refresh token secret key
 
 
+    // 토근 유효시간
     final static int expiresIn = 60 * 60 * 24 * 1000; // 1 days
 
     public static String generateToken(String userId, int userType) {

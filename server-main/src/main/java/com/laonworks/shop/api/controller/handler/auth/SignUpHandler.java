@@ -32,6 +32,10 @@ public class SignUpHandler extends BaseHandler {
         String password = req.password;
         String name = req.name;
         int userType = req.userType;
+        String birth = req.birth;
+        String gender = req.gender;
+        String phone = req.phone;
+
         try {
             if(userType == UserType.User.getValue()) {
                 UserVo userVo = authMapper.selectUserInfo(email);
@@ -58,7 +62,11 @@ public class SignUpHandler extends BaseHandler {
             userVo.email = email;
             userVo.password = encryptedPassword;
             userVo.name = name;
+            userVo.birth = birth;
+            userVo.gender = gender;
+            userVo.phone = phone;
             userVo.salt = salt;
+            userVo.userType = userType;
             if(userType == UserType.User.getValue()) {
                 authMapper.insertUserInfo(userVo);
             }

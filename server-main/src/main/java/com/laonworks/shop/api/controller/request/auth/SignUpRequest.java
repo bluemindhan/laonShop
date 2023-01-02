@@ -29,6 +29,16 @@ public class SignUpRequest {
     
     @ApiParam(value = "user nick name")
     public String name =  "";
+
+    @ApiParam(value = "user birth", required = true)
+    public String birth = "";
+
+    @ApiParam(value = "user gender", required = true)
+    public String gender = "";
+
+    @ApiParam(value = "phone number", required = true)
+    public String phone = "";
+
     
     
     public boolean valid() {

@@ -20,5 +20,13 @@ public class UserVo {
 
   public String password;
 
+  public String gender;
+
+  public String phone;
+
+  public String birth;
+
   public String salt;
+
+  public int userType;
 }

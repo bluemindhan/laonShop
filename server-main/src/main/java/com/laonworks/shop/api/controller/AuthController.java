@@ -1,5 +1,7 @@
 package com.laonworks.shop.api.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.laonworks.shop.api.controller.handler.*;
@@ -30,7 +32,7 @@ public class AuthController extends BaseController {
   private SignInHandler signInHandler;
 
   @RequestMapping(method = RequestMethod.POST, value = "signin", consumes = MediaType.APPLICATION_JSON_VALUE)
-  @ApiOperation(value = "sign in")
+  @ApiOperation(value = "sing in")
   SignInResponse signIn(@AuthenticationPrincipal Authentication auth, @RequestBody SignInRequest req, HttpServletRequest request) {
     signInHandler.setHttpServletRequest(request);
     CustomUserDetails user = null;
