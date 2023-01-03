@@ -12,15 +12,15 @@ import javax.servlet.http.HttpServletRequest;
 
 
 @RestController
-@RequestMapping(value = "/api/v1/user")
+@RequestMapping(value = "/api/v1/item")
 public class ItemController extends BaseController {
     static Logger logger = LoggerFactory.getLogger(ItemController.class);
 
     @Autowired
     private ItemDetailHandler itemDetailHandler;
 
-    @RequestMapping(method = RequestMethod.GET , value = "getItemDetail")
-    ItemDetailResponse getItemDetail(@RequestBody ItemDetailRequest req, HttpServletRequest request){
+    @RequestMapping(method = RequestMethod.POST , value = "itemDetail")
+    ItemDetailResponse getItemDetail(@RequestBody ItemDetailRequest req,HttpServletRequest request){
 
         itemDetailHandler.setHttpServletRequest(request);
 
