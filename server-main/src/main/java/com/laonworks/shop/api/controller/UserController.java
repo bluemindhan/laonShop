@@ -33,6 +33,7 @@ public class UserController extends BaseController {
   @ApiOperation(value = "get profile")
   GetProfileResponse getProfile(@AuthenticationPrincipal Authentication auth, HttpServletRequest request) {
     getProfileHandler.setHttpServletRequest(request);
+    System.out.println("Authoriztion -->  " + request.getHeader("Authorization"));
     CustomUserDetails user = null;
     if (auth == null) {
       throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);

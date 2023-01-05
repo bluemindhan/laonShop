@@ -12,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Component
@@ -24,13 +25,25 @@ public class ItemDetailHandler extends BaseHandler {
     public ItemDetailResponse excute(ItemDetailRequest req) {
 
         ItemDetailResponse res = new ItemDetailResponse();
-        int ProductNo = req.productNum;
+        int ProductNo = 0;
 
-        ItemVo itemVo = itemMapper.selectItemDetailInfo(ProductNo);
-        List<String> list = itemMapper.selectCommentList(ProductNo);
-        itemVo.setComment(list);
+        if(req != null || !req.equals("")){
+            ProductNo = (int) req.getProductNum();
+        }
 
-        res.itemVo = itemVo;
+        try {
+            ItemVo itemVo = itemMapper.selectItemDetailInfo(ProductNo);
+            if(itemVo == null){
+                res.setCode(ResultCode.Failed);
+                return res;
+            }
+            List<String> list = itemMapper.selectCommentList(ProductNo);
+            itemVo.setComment(list);
+            res.itemVo = itemVo;
+
+        } catch(Exception e){
+            res.setCode(ResultCode.InternalServerError);
+        }
 
         res.setCode(ResultCode.Success);
 

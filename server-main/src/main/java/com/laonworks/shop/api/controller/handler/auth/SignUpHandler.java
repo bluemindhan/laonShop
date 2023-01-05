@@ -12,8 +12,12 @@ import com.laonworks.shop.api.controller.vo.*;
 import com.laonworks.shop.api.controller.ResultCode;
 import com.laonworks.shop.api.mapper.vo.*;
 import com.laonworks.shop.api.mapper.AuthMapper;
+
+import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
+
 import com.laonworks.shop.api.controller.utils.CryptoUtils;
 import com.laonworks.shop.api.controller.utils.AuthUtils;
 @Slf4j
@@ -79,7 +83,10 @@ public class SignUpHandler extends BaseHandler {
             }
             res.userInfo = new UserInfo();
             res.userInfo.set(userVo);
-            res.accessToken = AuthUtils.generateToken(email,userType);
+//            res.accessToken = AuthUtils.generateToken(email,userType);
+            Map<String,String> map = AuthUtils.generateToken(email,userType);
+            res.accessToken = map.get("accessToken");
+
             res.setCode(ResultCode.Success);
             return res;
         }

@@ -83,4 +83,41 @@
     SYSDATE
   )
   </insert>
+  <update id="updateRefreshToken" parameterType="Map">
+    /*insertRefreshToken*/
+    <if test="map.userVo.userType == 1">
+    UPDATE TB_USER
+    SET
+        REFRESH =  #{map.refresh,jdbcType=VARCHAR }
+    WHERE
+        USR_ID = #{map.userVo.userId, jdbcType=VARCHAR}
+    </if>
+
+    <if test="map.userVo.userType == 2">
+      UPDATE TB_SELLER
+      SET
+      REFRESH =  #{map.refresh,jdbcType=VARCHAR }
+      WHERE
+      SLLR_ID = #{map.userVo.userId, jdbcType=VARCHAR}
+    </if>
+
+  </update>
+
+  <select id="selectRefreshToken" parameterType="Map" resultType="String">
+    /*selectRefreshToken*/ SELECT
+    <if test="userType == 1">
+      REFRESH
+      FROM TB_USER
+      WHERE
+      USR_ID = #{userId}
+    </if>
+
+    <if test="userType == 2">
+      REFRESH
+      FROM TB_SELLER
+      WHERE
+      SLLR_ID = #{userId}
+    </if>
+
+  </select>
 </mapper>
