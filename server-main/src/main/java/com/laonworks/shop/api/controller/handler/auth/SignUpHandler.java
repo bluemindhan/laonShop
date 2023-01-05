@@ -60,10 +60,18 @@ public class SignUpHandler extends BaseHandler {
             userVo.name = name;
             userVo.salt = salt;
             if(userType == UserType.User.getValue()) {
-                authMapper.insertUserInfo(userVo);
+                int n = authMapper.insertUserInfo(userVo);
+                if(n <= 0) {
+                    res.setCode(ResultCode.InternalServerError);
+                    return res;
+                }
             }
             else if(userType == UserType.Seller.getValue()) {
-                authMapper.insertSellerInfo(userVo);
+                int n = authMapper.insertSellerInfo(userVo);
+                if(n <= 0) {
+                    res.setCode(ResultCode.InternalServerError);
+                    return res;
+                }
             }
             else {
                 res.setCode(ResultCode.InvalidParameter);
@@ -71,6 +79,7 @@ public class SignUpHandler extends BaseHandler {
             }
             res.userInfo = new UserInfo();
             res.userInfo.set(userVo);
+            res.userInfo.userType = userType;
             res.accessToken = AuthUtils.generateToken(email,userType);
             res.setCode(ResultCode.Success);
             return res;
