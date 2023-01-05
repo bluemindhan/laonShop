@@ -4,12 +4,6 @@ import HomeView from '../views/home/HomeView.vue';
 import AuthLayout from '../components/AuthLayout.vue';
 import SignInView from '../views/auth/SignInView.vue';
 import SignUpView from '../views/auth/SignUpView.vue';
-import SellerLayout from '../components/SellerLayout.vue';
-import SellerMainView from '../views/seller/SellerMainView.vue';
-import UserLayout from '../components/UserLayout.vue';
-import UserMainView from '../views/user/UserMainView.vue';
-import UserProductDetailView from '../views/user/UserProductDetailView.vue';
-
 const routes = [
   {
     path: '/',
@@ -39,37 +33,6 @@ const routes = [
         path: 'signup',
         name: 'SignUpView',
         component: SignUpView,
-      },
-    ],
-  },
-  {
-    path: '/seller',
-    name: 'SellerLayout',
-    component: SellerLayout,
-    redirect: '/seller',
-    children: [
-      {
-        path: '/seller',
-        name: 'SellerMainView',
-        component: SellerMainView,
-      },
-    ],
-  },
-  {
-    path: '/user',
-    name: 'UserLayout',
-    component: UserLayout,
-    redirect: '/user',
-    children: [
-      {
-        path: '/user',
-        name: 'UserMainView',
-        component: UserMainView,
-      },
-      {
-        path: '/user/product/:id',
-        name: 'UserProductDetailView',
-        component: UserProductDetailView,
       },
     ],
   },

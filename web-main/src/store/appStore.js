@@ -3,11 +3,6 @@ export const appStore = {
   namespaced: true,
   state: {
     accessToken: "", // null
-    userInfo: {
-      email: '',
-      name: '',
-      userType: 0,
-    },
   },
   getters: {
     accessToken: (state) => {
@@ -22,9 +17,6 @@ export const appStore = {
       }
       return state.accessToken;
     },
-    userInfo: state => {
-      return state.userInfo;
-    },
   },
   mutations: {
     accessToken: (state, accessToken) => {
@@ -34,9 +26,6 @@ export const appStore = {
         localStorage.setItem("accessToken", JSON.stringify(accessToken));
       }
       state.accessToken = accessToken;
-    },
-    userInfo: (state, userInfo) => {
-      state.userInfo = userInfo;
     },
   },
   actions: appStoreActions,
