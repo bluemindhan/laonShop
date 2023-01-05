@@ -28,6 +28,7 @@ public class UserController extends BaseController {
 
   @Autowired
   private GetProfileHandler getProfileHandler;
+  private GetItemsHandler getItemsHandler;
 
   @RequestMapping(method = RequestMethod.GET, value = "profile")
   @ApiOperation(value = "get profile")
@@ -48,5 +49,16 @@ public class UserController extends BaseController {
     }
     return getProfileHandler.execute(user, req);
   }
+
+  // 전체 판매상품목록 조회(추후 item으로 이동)
+  @RequestMapping(method = RequestMethod.GET, value = "items")
+  @ApiOperation(value = "get items")
+  GetItemsResponse getItems(HttpServletRequest request) { //@AuthenticationPrincipal->스프링 시큐리티에서 Jwt 토큰정보로 필터링 된 SecurityContext 정보를 가져옴
+      logger.info("get items start");
+
+    return getItemsHandler.execute();
+  }
+
+
 }
 
