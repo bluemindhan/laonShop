@@ -59,10 +59,7 @@ export class ApiService {
         }
         console.error(res.status, res.statusText);
         reject(null);
-      })
-      .catch((err) => {
-        reject(err);
-      })
+      });
     });
   }
 }
