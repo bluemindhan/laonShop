@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/laonShop.iml" filepath="$PROJECT_DIR$/.idea/laonShop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LaonShop.iml" filepath="$PROJECT_DIR$/.idea/modules/LaonShop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LaonShop.main.iml" filepath="$PROJECT_DIR$/.idea/modules/LaonShop.main.iml" />
     </modules>
   </component>
 </project>
