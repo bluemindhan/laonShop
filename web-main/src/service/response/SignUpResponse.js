@@ -4,5 +4,6 @@ export default class SignUpResponse extends BaseResponse {
     super();
     this.userInfo = null;
     this.accessToken = '';
+    this.refreshToken = '';
   }
 }

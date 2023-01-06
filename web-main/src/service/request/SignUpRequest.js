@@ -4,5 +4,8 @@ export default class SignUpRequest {
     this.email = '';
     this.password = '';
     this.name = '';
+    this.phone = '';
+    this.birth = '';
+    this.gender = '';
   }
 }
