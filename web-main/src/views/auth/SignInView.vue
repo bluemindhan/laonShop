@@ -95,11 +95,13 @@ export default {
   computed: {
     ...mapGetters({
       accessToken: "appStore/accessToken",
+      refreshToken: "appStore/refreshToken",
     }),
   },
   methods: {
     ...mapMutations({
       setAccessToken: "appStore/accessToken",
+      setRefreshToken: "appStore/refreshToken",
       setUserInfo: "appStore/userInfo",
     }),
     async signin() {
@@ -123,6 +125,7 @@ export default {
         let res = await this.api.signIn(req);
         if (res.code == ResultCode.Success) {
           this.setAccessToken(res.accessToken);
+          this.setRefreshToken(res.refreshToken);
           const userInfo = res.userInfo;
           this.setUserInfo(userInfo);
 
