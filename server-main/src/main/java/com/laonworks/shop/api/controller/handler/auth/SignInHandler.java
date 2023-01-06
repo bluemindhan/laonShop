@@ -78,6 +78,7 @@ public class SignInHandler extends BaseHandler {
             map.put("refresh",res.refreshToken);
             map.put("userVo",userVo);
             int rowCnt = authMapper.updateRefreshToken(map);
+            res.userInfo.userType = userType;
             res.setCode(ResultCode.Success);
             return res;
         }
