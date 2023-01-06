@@ -1,8 +1,8 @@
 package com.laonworks.shop.api.controller;
 
-import com.laonworks.shop.api.controller.handler.auth.ItemDetailHandler;
-import com.laonworks.shop.api.controller.request.auth.ItemDetailRequest;
-import com.laonworks.shop.api.controller.response.auth.ItemDetailResponse;
+import com.laonworks.shop.api.controller.handler.item.ItemDetailHandler;
+import com.laonworks.shop.api.controller.request.item.ItemDetailRequest;
+import com.laonworks.shop.api.controller.response.item.ItemDetailResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
