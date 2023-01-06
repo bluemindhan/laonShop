@@ -1,6 +1,6 @@
 package com.laonworks.shop.api.controller;
 
-import com.laonworks.shop.api.controller.handler.auth.CartInHandler;
+import com.laonworks.shop.api.controller.handler.cart.CartInHandler;
 import com.laonworks.shop.api.controller.request.cart.CartInRequest;
 import com.laonworks.shop.api.controller.response.cart.CartInResponse;
 import org.springframework.beans.factory.annotation.Autowired;
