@@ -8,8 +8,8 @@ import lombok.ToString;
 @Data
 @ToString
 public class RefreshRequest{
+    public String refreshToken = null;
 
-    public String usertype;
-
-    public String userid;
+    public boolean valid(){return refreshToken != null;}
+    public boolean invalid(){return !valid();}
 }

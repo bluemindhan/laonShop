@@ -26,7 +26,9 @@ public class AuthUtils {
     // refresh token secret key
 
     // 토근 유효시간
-    final static int expiresIn = 60 * 60 * 5  * 1000;// 3시간
+    final static int expiresInAccess = 60 * 60 * 1 * 1000;// 1시간
+
+    final static int expiresInRefresh = 60 * 60 * 24 * 14 * 1000; // 2주
 
     public static HashMap<String, String> generateToken(String userId, int userType) {
         HashMap<String,String> tokens = new HashMap<>();
@@ -37,8 +39,8 @@ public class AuthUtils {
         Date expirationRefresh;
 
 
-        expirationAcc = new Date(now.getTime() + expiresIn);
-        expirationRefresh = new Date(now.getTime() + expiresIn );
+        expirationAcc = new Date(now.getTime() + expiresInAccess);
+        expirationRefresh = new Date(now.getTime() + expiresInRefresh);
 
 
         String accessToken = Jwts.builder()
@@ -49,7 +51,7 @@ public class AuthUtils {
                             .compact();
 
         String refreshToken = Jwts.builder()
-
+                            .setHeaderParam("user",userPk)
                             .setIssuedAt(now) // 토큰 발행시간 정보
                             .setExpiration(expirationRefresh) // 만료시간 설정
                             .signWith(SignatureAlgorithm.HS256, ACCESS_TOKEN_SECRET_KEY)
@@ -68,7 +70,7 @@ public class AuthUtils {
         Date expiration;
 
 
-        expiration = new Date(now.getTime() + expiresIn);
+        expiration = new Date(now.getTime() + expiresInAccess);
 
 
         return Jwts.builder()
@@ -79,27 +81,27 @@ public class AuthUtils {
                 .compact();
     }
 
-    public static String createRefresh(HttpServletResponse reponse) {
-
-        Date now = new Date();
-        Date expiration;
-
-        expiration = new Date(now.getTime() + expiresIn * 10);
-
-        String RefreshToken =Jwts.builder()
-                .setIssuedAt(now) // 토큰 발행시간 정보
-                .setExpiration(expiration) // 만료시간 설정
-                .signWith(SignatureAlgorithm.HS256, ACCESS_TOKEN_SECRET_KEY)
-                .compact();
-
-        Cookie cookie = new Cookie("refreshToken",RefreshToken);
-        cookie.setHttpOnly(true);
-        cookie.setPath("/");
-
-        reponse.addCookie(cookie);
-
-        return RefreshToken;
-    }
+//    public static String createRefresh(HttpServletResponse reponse) {
+//
+//        Date now = new Date();
+//        Date expiration;
+//
+//        expiration = new Date(now.getTime() + expiresIn * 10);
+//
+//        String RefreshToken =Jwts.builder()
+//                .setIssuedAt(now) // 토큰 발행시간 정보
+//                .setExpiration(expiration) // 만료시간 설정
+//                .signWith(SignatureAlgorithm.HS256, ACCESS_TOKEN_SECRET_KEY)
+//                .compact();
+//
+//        Cookie cookie = new Cookie("refreshToken",RefreshToken);
+//        cookie.setHttpOnly(true);
+//        cookie.setPath("/");
+//
+//        reponse.addCookie(cookie);
+//
+//        return RefreshToken;
+//    }
 
 
 
@@ -107,7 +109,7 @@ public class AuthUtils {
         try {
             Jws<Claims> claims = Jwts.parser()
                     .setSigningKey(ACCESS_TOKEN_SECRET_KEY)
-                    .parseClaimsJws(token);
+                        .parseClaimsJws(token);
             return claims.getBody().getSubject();
         } catch (Exception e) {
             return null;
@@ -141,6 +143,7 @@ public class AuthUtils {
 //        return Jwts.parser().setSigningKey(ACCESS_TOKEN_SECRET_KEY.getBytes()).parseClaimsJws(token).getBody();
 //    }
     public static String validateRefreshToken(String token){
-        return Jwts.parser().setSigningKey(ACCESS_TOKEN_SECRET_KEY).parseClaimsJws(token).getBody().toString();
+//        return Jwts.parser().setSigningKey(ACCESS_TOKEN_SECRET_KEY).parseClaimsJws(token).getBody().toString();
+        return Jwts.parser().setSigningKey(ACCESS_TOKEN_SECRET_KEY).parseClaimsJws(token).getHeader().get("user").toString();
     }
 }
