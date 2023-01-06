@@ -1,5 +1,6 @@
 package com.laonworks.shop.api.controller.request.user;
 
+import com.laonworks.shop.api.controller.vo.ItemInfo;
 import com.laonworks.shop.api.controller.vo.ProductInfo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiParam;
@@ -12,8 +13,10 @@ import java.util.List;
 @Data
 @ToString
 public class GetItemsRequest {
-
     @ApiParam(value = "items")
+    public List<ItemInfo> items =  null;
+
+
     public boolean valid() {
         return true;
     }

@@ -1,13 +1,14 @@
 package com.laonworks.shop.api.controller.response.user;
 
-import ch.qos.logback.classic.Logger;
 import com.laonworks.shop.api.controller.response.BaseResponse;
 import com.laonworks.shop.api.controller.vo.ProductInfo;
 import com.laonworks.shop.api.mapper.vo.ProductVo;
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
@@ -17,5 +18,7 @@ import java.util.List;
 @Data
 public class GetItemsResponse extends BaseResponse {
 
-    public List<ProductInfo> products=null;
+    public List<ProductVo> products=null;
+
+
 }

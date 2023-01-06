@@ -1,20 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.laonworks.shop.api.mapper.UserMapper">
-    <select id="selectProductList" resultType="ItemVo">
+    <select id="selectProductList" resultType="ProductVo">
        SELECT
              A.PRDT_NO as productId,
              A.CRT_DT as createDate,
              A.UPD_DT as updateDate,
              A.SLLR_ID as sellerId,
-             A.PRDT_PRCE as name,
+             A.PRDT_NM as name,
+             A.PRDT_PRCE as price,
              A.PRDT_DESC as detail,
              B.IMG_URL as image
          FROM
              TB_PRODUCT A,
              TB_PRODUCT_IMAGE B
-       WHERE
+         WHERE
            A.PRDT_NO=B.PRDT_NO
+    </select>
+    <select id="selectBuyList" resultType="BuyVo">
+        <![CDATA[
+        SELECT
+            A.CRT_DT as createDate,
+            A.UPD_DT as updateDate,
+            A.USR_ID as userId,
+            B.PRDT_NM as name,
+            A.PRDT_NO as productId,
+            A.BUY_HIST_NO as buyId,
+            A.BUY_CNT as cnt,
+            A.BUY_AMNT as tntPrice
+        FROM
+            TB_USER_BUY_HISTORY A,
+            TB_PRODUCT B
+        WHERE
+            USR_ID=#{userId, jdbcType=VARCHAR} AND
+            A.PRDT_NO = B.PRDT_NO
+            ORDER BY BUYID ASC
+                            ]]>
     </select>
 
 </mapper>

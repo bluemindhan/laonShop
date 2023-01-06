@@ -5,7 +5,7 @@ import lombok.ToString;
 
 @Data
 @ToString
-public class ProductVo {
+public class ProductVo { //상품 VO
 
     public long productId; // 상품번호
 
