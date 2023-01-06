@@ -13,7 +13,9 @@ import io.jsonwebtoken.UnsupportedJwtException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestClientResponseException;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 
 
@@ -30,13 +32,31 @@ public class RefreshHandler extends BaseHandler {
         RefreshResponse res = new RefreshResponse();
         HashMap<String,String> map = new HashMap<>();
         String adminId = null;
+        String userPk = null;
 
-        String userid = req.getUserid();
-        String usertype = req.getUsertype();
+        if(req.invalid()){
+            res.setCode(ResultCode.InvalidParameter);
+            return res;
+        }
+
+        try {
+            userPk = AuthUtils.validateRefreshToken(req.refreshToken);
+        } catch (Exception e){
+            throw new RestClientResponseException("refreshToken 만료",403,"",null,null,null);
+        }
+
+        String tokens[] = userPk.split(":");
+        String userid = tokens[0];
+        String usertype = tokens[1];
+
         map.put("userType",usertype);
         map.put("userId",userid);
 
         String refreshToken = authMapper.selectRefreshToken(map);
+
+        if(!refreshToken.equals(req.refreshToken)){
+            throw new RestClientResponseException("refreshToken 일치하지 않음",403,"",null,null,null);
+        }
 
         // refreshToken이 존재하지 않을 경우
         if(refreshToken == null){
