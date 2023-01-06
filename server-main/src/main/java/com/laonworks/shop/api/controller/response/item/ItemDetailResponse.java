@@ -1,7 +1,6 @@
-package com.laonworks.shop.api.controller.response.auth;
+package com.laonworks.shop.api.controller.response.item;
 
 import com.laonworks.shop.api.controller.response.BaseResponse;
-import com.laonworks.shop.api.controller.vo.ItemInfo;
 import com.laonworks.shop.api.mapper.vo.ItemVo;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
