@@ -4,6 +4,9 @@ export class ApiService {
   setAccessToken(accessToken) {
     axios.defaults.headers.common['Authorization'] = accessToken;
   }
+  setRefreshToken(refreshToken) {
+    axios.defaults.headers.common['Authorization'] = refreshToken;
+  }
   addCount(req) {
     return new Promise((resolve, reject) => {
       axios.post('/api/v1/add', req).then(res => {
@@ -11,6 +14,7 @@ export class ApiService {
           resolve(res.data);
           return;
         }
+
         console.error(res.status, res.statusText);
         reject(null);
       })
@@ -26,6 +30,7 @@ export class ApiService {
           resolve(res.data);
           return;
         }
+        
         console.error(res.status, res.statusText);
         reject(null);
       })
@@ -57,6 +62,7 @@ export class ApiService {
           resolve(res.data);
           return;
         }
+
         console.error(res.status, res.statusText);
         reject(null);
       })

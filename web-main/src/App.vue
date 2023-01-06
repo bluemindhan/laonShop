@@ -15,6 +15,7 @@ export default {
     // appStore/accessToken
     ...mapGetters({
       accessToken: "appStore/accessToken",
+      refreshToken: "appStore/refreshToken",
     }),
   },
   data() {
@@ -25,10 +26,15 @@ export default {
       console.log("accessToken changed..", val);
       this.api.setAccessToken(val);
     },
+    refreshToken: function (val) {
+      console.log("refreshToken changed..", val);
+      this.api.setRefreshToken(val);
+    }
   },
   methods: {
     ...mapMutations({
       setAccessToken: "appStore/accessToken",
+      setRefreshToken: "appStore/refreshToken",
       setUserInfo: "appStore/userInfo",
     }),
     async loadProfile() {

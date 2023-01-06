@@ -157,10 +157,14 @@ export default {
     accessToken() {
       console.log("accessToken", this.accessToken);
     },
+    refreshToken() {
+      console.log("refreshToken", this.refreshToken);
+    }
   },
   computed: {
     ...mapGetters({
       accessToken: "appStore/accessToken",
+      refreshToken: "appStore/refreshToken",
     }),
     isLogin() {
       return this.accessToken ? true : false;
@@ -169,6 +173,7 @@ export default {
   methods: {
     ...mapMutations({
       setAccessToken: "appStore/accessToken",
+      setRefreshToken: "appStore/refreshToken",
     }),
     signin() {
       console.log("signin");
@@ -182,6 +187,7 @@ export default {
     logout() {
       console.log("logout");
       this.setAccessToken(null);
+      this.setRefreshToken(null);
       this.$router.replace({ name: "HomeView" });
     },
   },
