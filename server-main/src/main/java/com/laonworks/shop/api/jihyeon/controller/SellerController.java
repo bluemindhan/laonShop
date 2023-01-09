@@ -52,7 +52,7 @@ public class SellerController extends BaseController {
     if (checkRoute(RequestMethod.POST, "/api/v1/seller/product", user) == false) {
       throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
     }
-    return addProductHandler.execute(user, req);
+    return addProductHandler.execute(user, req) ;
   }
 
   @Autowired
