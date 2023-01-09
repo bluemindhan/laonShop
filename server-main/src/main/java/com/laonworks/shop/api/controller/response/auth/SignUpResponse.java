@@ -18,4 +18,6 @@ public class SignUpResponse extends BaseResponse {
   public UserInfo userInfo = null;
 
   public String accessToken = "";
+
+  public String refreshToken = "";
 }
