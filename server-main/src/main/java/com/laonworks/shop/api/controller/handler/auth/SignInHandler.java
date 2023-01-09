@@ -12,18 +12,28 @@ import com.laonworks.shop.api.controller.vo.*;
 import com.laonworks.shop.api.controller.ResultCode;
 import com.laonworks.shop.api.mapper.vo.*;
 import com.laonworks.shop.api.mapper.AuthMapper;
+
+import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
+
 import com.laonworks.shop.api.controller.utils.CryptoUtils;
 import com.laonworks.shop.api.controller.utils.AuthUtils;
+
+import javax.servlet.http.HttpServletResponse;
+
 @Slf4j
 @Component
 public class SignInHandler extends BaseHandler {
     @Autowired
     AuthMapper authMapper;
     
-    public SignInResponse execute (SignInRequest req) {
+    public SignInResponse execute (SignInRequest req, HttpServletResponse reponse) {
         SignInResponse res = new SignInResponse();
+        HashMap<String,Object> map = new HashMap<>();
+        Map<String,String> tokens = new HashMap<>();
+
         if(req.invalid()) {
             res.setCode(ResultCode.InvalidParameter);
             return res;
@@ -56,9 +66,19 @@ public class SignInHandler extends BaseHandler {
                 res.setCode(ResultCode.InvalidPassword);
                 return res;
             }
+            userVo.setUserType(userType);
             res.userInfo = new UserInfo();
             res.userInfo.set(userVo);
-            res.accessToken = AuthUtils.generateToken(email,userType);
+//            res.accessToken = AuthUtils.generateToken(email,userType);
+//            res.refreshToken = AuthUtils.createRefresh(reponse);
+            tokens = AuthUtils.generateToken(email,userType);
+            res.accessToken = tokens.get("accessToken");
+            res.refreshToken = tokens.get("refreshToken");
+
+            map.put("refresh",res.refreshToken);
+            map.put("userVo",userVo);
+            int rowCnt = authMapper.updateRefreshToken(map);
+            res.userInfo.userType = userType;
             res.setCode(ResultCode.Success);
             return res;
         }
