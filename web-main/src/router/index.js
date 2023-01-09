@@ -9,6 +9,7 @@ import SellerMainView from '../views/seller/SellerMainView.vue';
 import UserLayout from '../components/UserLayout.vue';
 import UserMainView from '../views/user/UserMainView.vue';
 import UserProductDetailView from '../views/user/UserProductDetailView.vue';
+import UserCartView from '../views/user/UserCartView.vue';
 
 const routes = [
   {
@@ -70,6 +71,11 @@ const routes = [
         path: '/user/product/:id',
         name: 'UserProductDetailView',
         component: UserProductDetailView,
+      },
+      {
+        path: '/user/cart',
+        name: 'UserCartView',
+        component: UserCartView,
       },
     ],
   },
