@@ -17,4 +17,6 @@ public class CartVo {
 
     public int cnt; // 상품 갯수
 
+    public String sum; // 상품의 가격 합
+
 }
