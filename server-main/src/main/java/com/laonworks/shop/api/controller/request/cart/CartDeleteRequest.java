@@ -11,8 +11,5 @@ public class CartDeleteRequest {
     @ApiParam(value = "productNum", required = true)
     public int productNum = 0;
 
-    @ApiParam(value = "userid", required = true)
-    public String userid = "";
-
 
 }
