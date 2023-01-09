@@ -4,5 +4,6 @@ export default class SignInResponse extends BaseResponse {
     super();
     this.userInfo = null;
     this.accessToken = '';
+    this.refreshToken = '';
   }
 }
