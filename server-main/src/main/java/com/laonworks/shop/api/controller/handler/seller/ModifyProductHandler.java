@@ -5,6 +5,7 @@ import com.laonworks.shop.api.controller.classes.AwsService;
 import com.laonworks.shop.api.controller.handler.BaseHandler;
 import com.laonworks.shop.api.controller.request.seller.ModifyProductRequest;
 import com.laonworks.shop.api.controller.response.seller.ModifyProductResponse;
+import com.laonworks.shop.api.jihyeon.mapper.ProductMapper;
 import com.laonworks.shop.api.jihyeon.service.ProductService;
 import com.laonworks.shop.api.jihyeon.vo.ProductVo;
 import com.laonworks.shop.api.mapper.AuthMapper;
@@ -25,9 +26,13 @@ public class ModifyProductHandler extends BaseHandler {
     AwsService awsService;
     @Autowired
     ProductService productService;
+
+    @Autowired
+    ProductMapper productMapper;
     
     public ModifyProductResponse execute (CustomUserDetails user, ModifyProductRequest req) {
         ModifyProductResponse res = new ModifyProductResponse();
+
         if(user == null) {
             res.setCode(ResultCode.Unauthorized);
             return res;
@@ -38,20 +43,21 @@ public class ModifyProductHandler extends BaseHandler {
         }
         String email = user.getUsername();
         int userType = user.getUserType();
+
         try {
             UserVo sellerVo = authMapper.selectSellerInfo(email);
             if(sellerVo == null) {
                 res.setCode(ResultCode.NotFoundSeller);
                 return res;
             }
-            ProductVo productVo = new ProductVo();
-            productVo.prdtNm = req.productName;
-            productVo.prdtDesc = req.productDesc;
-            productVo.prdtPrce = req.productPrice;
-            productVo.sllrId = sellerVo.userId;
-            List<String> urlList = awsService.uploadProductImageList(req.imageList);
-            int n = productService.modifyProduct(productVo,urlList);
-            if(n == 0) {
+            int ProductNo = 0;
+            if(req != null || !req.equals("")){
+                ProductNo = (int) req.getProductNum();
+            }
+            res.productVo.set(sellerVo);
+            res.productVo.setPrdtNo(ProductNo);
+            res.result=productMapper.modifyProduct(res.productVo);
+            if(res.result == 0) {
                 res.setCode(ResultCode.InternalServerError);
                 return res;
             }

@@ -115,14 +115,13 @@
   <!-- 등록된 상품 수정 -->
   <update id="modifyProduct" parameterType="com.laonworks.shop.api.jihyeon.vo.ProductVo">
   <![CDATA[
-    /* modifyProduct */ UPDATE TB_PRODUCT SET
-    SLLR_ID = #{vo.sllrId},
-    PRDT_NO = #{vo.prdtNo} ,
+    /* modifyProduct */ UPDATE TB_PRODUCT SET,
     PRDT_PRCE = #{vo.prdtPrce} ,
     PRDT_NM = #{vo.prdtNm} ,
     PRDT_DESC = #{vo.prdtDesc} ,
-    CRT_DT = SYSDATE,
     UPD_DT = SYSDATE
+FROM TB_PRODUCT
+WHERE SLLR_ID = #{vo.sllrId}
   ]]>
   </update>
 
