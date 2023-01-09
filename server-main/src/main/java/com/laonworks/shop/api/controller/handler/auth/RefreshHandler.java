@@ -60,7 +60,8 @@ public class RefreshHandler extends BaseHandler {
 
         // refreshToken이 존재하지 않을 경우
         if(refreshToken == null){
-            res.setCode(ResultCode.Failed);
+            res.setCode(403);
+            res.setMessage("");
             return res;
         }
         // 존재할 경우
@@ -92,7 +93,7 @@ public class RefreshHandler extends BaseHandler {
             accessToken = AuthUtils.CreateAccessToken(userid, Integer.parseInt(usertype));
         }
 
-//         토큰이 유효하지 않기 때문에 로그인 화면으로 가야함
+//      토큰이 유효하지 않기 때문에 로그인 화면으로 가야함
         if(tokenFl == false){
             res.setCode(ResultCode.Failed);
             return res;

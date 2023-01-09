@@ -33,13 +33,16 @@ public class CartController {
     @RequestMapping(method = RequestMethod.POST, value = "cartin")
     CartInResponse cartin(@RequestBody CartInRequest req, @AuthenticationPrincipal Authentication auth){
 
-        CartInResponse res = new CartInResponse();
-
         if(auth == null) {
             throw new RestClientResponseException("토큰 정보를 불러올 수 없음", HttpStatus.UNAUTHORIZED.value(),"",null,null,null);
         }
+        CustomUserDetails user = (CustomUserDetails) auth.getPrincipal();
+        if(user == null){
+            throw new RestClientResponseException(("토큰 정보를 불러올 수 없음"),HttpStatus.UNAUTHORIZED.value(),"",null, null,null);
 
-        return cartInHandler.excute(req);
+        }
+
+        return cartInHandler.excute(req,user);
     }
 
     @Autowired
@@ -52,8 +55,13 @@ public class CartController {
         if(auth == null) {
             throw new RestClientResponseException("토큰 정보를 불러올 수 없음", HttpStatus.UNAUTHORIZED.value(),"",null,null,null);
         }
+        CustomUserDetails user = (CustomUserDetails) auth.getPrincipal();
+        if(user == null){
+            throw new RestClientResponseException(("토큰 정보를 불러올 수 없음"),HttpStatus.UNAUTHORIZED.value(),"",null, null,null);
 
-        return cartDeleteHandler.excute(req);
+        }
+
+        return cartDeleteHandler.excute(req,user);
 
     }
 
@@ -61,15 +69,19 @@ public class CartController {
     CartUpdateHandler cartUpdateHandler;
 
     @RequestMapping(method = RequestMethod.PUT, value = "cart-update")
-    CartInResponse cartUpdate(@AuthenticationPrincipal Authentication auth, @RequestBody CartUpdateRequest req){
+    GetCartResponse cartUpdate(@AuthenticationPrincipal Authentication auth, @RequestBody CartUpdateRequest req){
 
-        CartInResponse res = new CartInResponse();
 
         if(auth == null){
             throw new RestClientResponseException(("토큰 정보를 불러올 수 없음"),HttpStatus.UNAUTHORIZED.value(),"",null, null,null);
         }
+        CustomUserDetails user = (CustomUserDetails) auth.getPrincipal();
+        if(user == null){
+            throw new RestClientResponseException(("토큰 정보를 불러올 수 없음"),HttpStatus.UNAUTHORIZED.value(),"",null, null,null);
 
-        return cartUpdateHandler.excute(req);
+        }
+
+        return cartUpdateHandler.excute(req,user);
     }
 
     @Autowired
@@ -81,8 +93,12 @@ public class CartController {
         if(auth == null){
             throw new RestClientResponseException("토큰 정보를 불러올 수 없음",HttpStatus.UNAUTHORIZED.value(),"",null,null,null);
         }
-
         CustomUserDetails user = (CustomUserDetails) auth.getPrincipal();
+        if(user == null){
+            throw new RestClientResponseException(("토큰 정보를 불러올 수 없음"),HttpStatus.UNAUTHORIZED.value(),"",null, null,null);
+
+        }
+
         String userid = user.getUsername();
 
 

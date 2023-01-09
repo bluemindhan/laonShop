@@ -1,59 +1,41 @@
 package com.laonworks.shop.api.controller.vo;
 
-import com.laonworks.shop.api.mapper.vo.ProductVo;
-import com.laonworks.shop.api.mapper.vo.UserVo;
+import com.laonworks.shop.api.jihyeon.vo.ProductVo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiParam;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-import java.util.*;
+import java.util.List;
 
-
-@ApiModel(description = "Product info")
+@ApiModel(description = "product info")
 @Data
 @ToString
 public class ProductInfo {
-
-    @ApiParam(value = "product id")
-    public long productId = 0; // 상품번호
-
-    @ApiParam(value = "product createDate")
-    public String createDate = ""; // 생성일자
-
-    @ApiParam(value = "product updateDate")
-    public String updateDate = ""; // 수정일자
-
-    @ApiParam(value = "product sellerId")
-    public String sellerId = ""; // 판매자 아이디
-
-    @ApiParam(value = "product price")
-    public String price = ""; // 상품 가격
-
-    @ApiParam(value = "product image")
-    public String image = ""; // 이미지 url
-
-    @ApiParam(value = "product name")
-    public String name = ""; // 상품 이름
-
-    @ApiParam(value = "product detail")
-    public String detail = ""; // 상품 설명
-
-
+    @ApiParam(value = "")
+    public String sllrId =  "";
+    
+    @ApiParam(value = "")
+    public int prdtNo =  0;
+    
+    @ApiParam(value = "")
+    public String prdtNm =  "";
+    
+    @ApiParam(value = "")
+    public String prdtDesc =  "";
+    
+    @ApiParam(value = "")
+    public double prdtPrce =  0.0;
+    
+    @ApiParam(value = "")
+    public List<String> imageList =  null;
+    
+    
     public void set(ProductVo vo) {
-        this.productId = vo.productId;
-        this.createDate = vo.createDate;
-        this.updateDate = vo.updateDate;
-        this.sellerId = vo.sellerId;
-        this.price = vo.price;
-        this.image = vo.image;
-        this.name = vo.name;
-        this.detail = vo.detail;
-
+        this.sllrId = vo.sllrId;
+        this.prdtNo = vo.prdtNo;
+        this.prdtNm = vo.prdtNm;
+        this.prdtDesc = vo.prdtDesc;
+        this.prdtPrce = vo.prdtPrce;
     }
-
 }
-
-
-
