@@ -12,8 +12,12 @@ import com.laonworks.shop.api.controller.vo.*;
 import com.laonworks.shop.api.controller.ResultCode;
 import com.laonworks.shop.api.mapper.vo.*;
 import com.laonworks.shop.api.mapper.AuthMapper;
+
+import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
+
 import com.laonworks.shop.api.controller.utils.CryptoUtils;
 import com.laonworks.shop.api.controller.utils.AuthUtils;
 @Slf4j
@@ -32,6 +36,10 @@ public class SignUpHandler extends BaseHandler {
         String password = req.password;
         String name = req.name;
         int userType = req.userType;
+        String birth = req.birth;
+        String gender = req.gender;
+        String phone = req.phone;
+
         try {
             if(userType == UserType.User.getValue()) {
                 UserVo userVo = authMapper.selectUserInfo(email);
@@ -58,12 +66,24 @@ public class SignUpHandler extends BaseHandler {
             userVo.email = email;
             userVo.password = encryptedPassword;
             userVo.name = name;
+            userVo.birth = birth;
+            userVo.gender = gender;
+            userVo.phone = phone;
             userVo.salt = salt;
+            userVo.userType = userType;
             if(userType == UserType.User.getValue()) {
-                authMapper.insertUserInfo(userVo);
+                int n = authMapper.insertUserInfo(userVo);
+                if(n <= 0) {
+                    res.setCode(ResultCode.InternalServerError);
+                    return res;
+                }
             }
             else if(userType == UserType.Seller.getValue()) {
-                authMapper.insertSellerInfo(userVo);
+                int n = authMapper.insertSellerInfo(userVo);
+                if(n <= 0) {
+                    res.setCode(ResultCode.InternalServerError);
+                    return res;
+                }
             }
             else {
                 res.setCode(ResultCode.InvalidParameter);
@@ -71,7 +91,11 @@ public class SignUpHandler extends BaseHandler {
             }
             res.userInfo = new UserInfo();
             res.userInfo.set(userVo);
-            res.accessToken = AuthUtils.generateToken(email,userType);
+//            res.accessToken = AuthUtils.generateToken(email,userType);
+            Map<String,String> map = AuthUtils.generateToken(email,userType);
+            res.accessToken = map.get("accessToken");
+
+            res.userInfo.userType = userType;
             res.setCode(ResultCode.Success);
             return res;
         }

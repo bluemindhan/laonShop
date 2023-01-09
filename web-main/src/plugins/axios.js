@@ -12,4 +12,4 @@ if (process.env.NODE_ENV === "development") {
 }
 const _axios = axios.create(config);
 export default _axios;
-//# sourceMappingURL=axios.js.map
+

@@ -49,7 +49,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
                 .apiInfo(this.apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors
-                        .basePackage("com.laonworks.shop.api.controller"))
+                        .basePackage("com.laonworks.shop.api"))
                 .paths(PathSelectors.ant("/api/v1/**"))
                 .build();
     }
@@ -67,7 +67,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
     @Override
     protected void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:3000")
+                .allowedOrigins("http://localhost:3000","http://localhost:9090")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("Content-Type", "X-Requested-With", "accept", "Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", "Authorization")
                 .exposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials")

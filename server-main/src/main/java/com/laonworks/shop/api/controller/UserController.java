@@ -25,14 +25,19 @@ import com.laonworks.shop.api.controller.handler.user.*;
 @RequestMapping("/api/v1/user")
 public class UserController extends BaseController {
   static Logger logger = LoggerFactory.getLogger(UserController.class);
-
   @Autowired
   private GetProfileHandler getProfileHandler;
+  @Autowired
+  private GetItemsHandler getItemsHandler;
+  @Autowired
+  private GetBuysHandler getBuysHandler;
+
 
   @RequestMapping(method = RequestMethod.GET, value = "profile")
   @ApiOperation(value = "get profile")
   GetProfileResponse getProfile(@AuthenticationPrincipal Authentication auth, HttpServletRequest request) {
     getProfileHandler.setHttpServletRequest(request);
+    System.out.println("Authoriztion -->  " + request.getHeader("Authorization"));
     CustomUserDetails user = null;
     if (auth == null) {
       throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
@@ -47,4 +52,38 @@ public class UserController extends BaseController {
     }
     return getProfileHandler.execute(user, req);
   }
+
+
+  // user 권한 전체 판매상품목록 조회(추후 item으로 이동)
+  @RequestMapping(method = RequestMethod.GET, value = "items")
+  @ApiOperation(value = "get items")
+  GetItemsResponse getItems() { //@AuthenticationPrincipal->스프링 시큐리티에서 Jwt 토큰정보로 필터링 된 SecurityContext 정보를 가져옴
+    logger.info("get items start");
+    return getItemsHandler.execute();
+  }
+
+  // login user 구매 이력 조회
+  @RequestMapping(method = RequestMethod.GET,value = "buys")
+  @ApiOperation(value ="get buys")
+  GetBuysResponse getBuys(@AuthenticationPrincipal Authentication auth,HttpServletRequest request){
+    getBuysHandler.setHttpServletRequest(request);
+    System.out.println("Authoriztion -->  " + request.getHeader("Authorization"));
+    CustomUserDetails user = null;
+    if (auth == null) {
+      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+    }
+    user = (CustomUserDetails) auth.getPrincipal();
+    if (user == null) {
+      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+    }
+    GetBuysRequest req = new GetBuysRequest();
+    if (checkRoute(RequestMethod.GET, "/api/v1/user/buys", user) == false) {
+      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+    }
+    return getBuysHandler.execute(user,req);
+
+  }
+
+
 }
+
