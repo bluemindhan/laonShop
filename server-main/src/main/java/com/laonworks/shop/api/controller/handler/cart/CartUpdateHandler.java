@@ -3,12 +3,16 @@ package com.laonworks.shop.api.controller.handler.cart;
 import com.laonworks.shop.api.controller.ResultCode;
 import com.laonworks.shop.api.controller.handler.BaseHandler;
 import com.laonworks.shop.api.controller.request.cart.CartUpdateRequest;
-import com.laonworks.shop.api.controller.response.cart.CartInResponse;
+import com.laonworks.shop.api.controller.response.cart.GetCartResponse;
 import com.laonworks.shop.api.mapper.CartMapper;
 import com.laonworks.shop.api.mapper.vo.CartVo;
+import com.laonworks.shop.api.service.CustomUserDetails;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.HashMap;
+import java.util.List;
 
 @Component
 @Slf4j
@@ -17,17 +21,22 @@ public class CartUpdateHandler extends BaseHandler {
     @Autowired
     CartMapper cartMapper;
 
-    public CartInResponse excute(CartUpdateRequest req) {
+    public GetCartResponse excute(CartUpdateRequest req, CustomUserDetails user) {
 
-        CartInResponse res = new CartInResponse();
+        GetCartResponse res = new GetCartResponse();
+        HashMap<String, Object> map = new HashMap<>();
         CartVo vo = new CartVo();
+        List<CartVo> listvo = null;
 
         if(req.invalid()){
             res.setCode(ResultCode.InvalidParameter);
             return res;
         }
 
-        CartVo cartVo = (CartVo) cartMapper.selectCartInfo(req.getUserid());
+        map.put("request",req);
+        map.put("userid",user.getUsername());
+
+        CartVo cartVo = cartMapper.findByUseridAndProductNo(map);
 
         if(cartVo == null){
             res.setCode(ResultCode.InvalidParameter);
@@ -36,7 +45,7 @@ public class CartUpdateHandler extends BaseHandler {
 
         try{
             vo.setProductNum(req.getProductNum());
-            vo.setUserid(req.getUserid());
+            vo.setUserid(user.getUsername());
             vo.setCnt(req.getCnt());
             cartMapper.updateCart(vo);
 
@@ -45,8 +54,17 @@ public class CartUpdateHandler extends BaseHandler {
             res.setCode(ResultCode.InternalServerError);
         }
 
+        try{
+            listvo = cartMapper.selectCartInfo(user.getUsername());
+
+        } catch(Exception e){
+            log.error(e.getMessage());
+            res.setCode(ResultCode.InternalServerError);
+        }
+
+
         res.setCode(ResultCode.Success);
-        res.setCartVo(vo);
+        res.setVolist(listvo);
 
         return res;
     }

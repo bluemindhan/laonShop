@@ -12,10 +12,7 @@ public class CartUpdateRequest {
     @ApiParam(value = "product Num", required = true)
     private int productNum;
 
-    @ApiParam(value = "userid", required = true)
-    private String userid;
-
-    public boolean valid(){return cnt > 0 && productNum > 0 && userid != null; }
+    public boolean valid(){return cnt > 0 && productNum > 0;}
     public boolean invalid(){return !valid();}
 
 }

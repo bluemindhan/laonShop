@@ -18,4 +18,5 @@ public interface CartMapper {
     int deleteCart(@Param("user") CartVo vo);
 
     int updateCart(@Param("user") CartVo vo);
+
 }

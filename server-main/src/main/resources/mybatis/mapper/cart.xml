@@ -7,7 +7,8 @@
       A.PRDT_NO AS productNum,
       A.PRDT_CNT AS cnt,
       B.PRDT_PRCE AS price,
-      B.PRDT_NM AS productName
+      B.PRDT_NM AS productName,
+      A.PRDT_CNT * B.PRDT_PRCE AS  sum
     FROM
       TB_CART A, TB_PRODUCT B
     WHERE
@@ -28,7 +29,7 @@
     WHERE
       A.PRDT_NO = B.PRDT_NO
     AND
-      A.USR_ID = #{map.request.userid}
+      A.USR_ID = #{map.userid}
     AND
       A.PRDT_NO = #{map.request.productNum}
     </select>
