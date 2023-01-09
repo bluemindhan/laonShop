@@ -49,7 +49,10 @@ public class CartInHandler extends BaseHandler {
             res.setCartVo(cartVo);
             res.setCode(ResultCode.Success);
 
-        } catch (Exception e){log.error(e.getMessage());}
+        } catch (Exception e){
+            log.error(e.getMessage());
+            res.setCode(ResultCode.InternalServerError);
+        }
 
         return res;
 

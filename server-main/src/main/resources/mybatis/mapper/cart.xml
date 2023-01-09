@@ -50,4 +50,24 @@
     )
     </insert>
 
+    <delete id="deleteCart" parameterType="CartVo">
+    /*deleteCart*/ DELETE
+    FROM
+        TB_CART
+    WHERE
+        USR_ID = #{user.userid}
+    AND
+        PRDT_NO = #{user.productNum}
+    </delete>
+
+    <update id="updateCart" parameterType="CartVo">
+    /*updateCart*/   UPDATE TB_CART
+    SET
+        PRDT_CNT = #{user.cnt}
+    WHERE
+        USR_ID = #{user.userid}
+    AND
+        PRDT_NO = #{user.productNum}
+    </update>
+
 </mapper>
