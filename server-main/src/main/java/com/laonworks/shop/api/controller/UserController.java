@@ -33,6 +33,7 @@ public class UserController extends BaseController {
   private GetBuysHandler getBuysHandler;
 
 
+
   @RequestMapping(method = RequestMethod.GET, value = "profile")
   @ApiOperation(value = "get profile")
   GetProfileResponse getProfile(@AuthenticationPrincipal Authentication auth, HttpServletRequest request) {
@@ -54,7 +55,7 @@ public class UserController extends BaseController {
   }
 
 
-  // user 권한 전체 판매상품목록 조회(추후 item으로 이동)
+  // User 권한 전체 판매상품목록 조회(추후 item으로 이동..?)
   @RequestMapping(method = RequestMethod.GET, value = "items")
   @ApiOperation(value = "get items")
   GetItemsResponse getItems() { //@AuthenticationPrincipal->스프링 시큐리티에서 Jwt 토큰정보로 필터링 된 SecurityContext 정보를 가져옴
@@ -62,7 +63,7 @@ public class UserController extends BaseController {
     return getItemsHandler.execute();
   }
 
-  // login user 구매 이력 조회
+  // Login User 구매 이력 조회
   @RequestMapping(method = RequestMethod.GET,value = "buys")
   @ApiOperation(value ="get buys")
   GetBuysResponse getBuys(@AuthenticationPrincipal Authentication auth,HttpServletRequest request){
@@ -83,6 +84,8 @@ public class UserController extends BaseController {
     return getBuysHandler.execute(user,req);
 
   }
+
+
 
 
 }
