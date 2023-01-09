@@ -39,4 +39,3 @@ public class ProductInfo {
         this.prdtPrce = vo.prdtPrce;
     }
 }
-
