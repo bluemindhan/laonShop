@@ -49,7 +49,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
                 .apiInfo(this.apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors
-                        .basePackage("com.laonworks.shop.api.controller"))
+                        .basePackage("com.laonworks.shop.api"))
                 .paths(PathSelectors.ant("/api/v1/**"))
                 .build();
     }
