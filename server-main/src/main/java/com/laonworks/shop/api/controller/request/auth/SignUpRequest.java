@@ -13,23 +13,35 @@ import java.sql.Date;
 import java.sql.Time;
 import com.laonworks.shop.api.framework.libs.FormFile;
 import org.springframework.util.StringUtils;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.Objects;
 @ApiModel(description = "sign up")
 @Data
 @ToString
 public class SignUpRequest {
+
+    @NotNull(message = "user type을 입력해야합니다")
     @ApiParam(value = "user type", required = true)
     public int userType =  0;
-    
+
+    @NotEmpty(message = "email을 입력해야합니다")
+    @Email(message = "비밀번호는 필수 입력 값입니다")
     @ApiParam(value = "user email", required = true)
     public String email =  "";
-    
+
+    @NotEmpty(message = "비밀번호를 입력해야합니다")
+    @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-z])(?=.*\\W)(?=\\S+$)")
     @ApiParam(value = "user password", required = true)
     public String password =  "";
-    
+
     @ApiParam(value = "user nick name")
     public String name =  "";
 
+    @NotEmpty(message = "생년월일을 입력해야합니다")
     @ApiParam(value = "user birth", required = true)
     public String birth = "";
 
