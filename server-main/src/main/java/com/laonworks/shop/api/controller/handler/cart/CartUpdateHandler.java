@@ -2,8 +2,8 @@ package com.laonworks.shop.api.controller.handler.cart;
 
 import com.laonworks.shop.api.controller.ResultCode;
 import com.laonworks.shop.api.controller.handler.BaseHandler;
-import com.laonworks.shop.api.controller.request.cart.CartDeleteRequest;
-import com.laonworks.shop.api.controller.response.BaseResponse;
+import com.laonworks.shop.api.controller.request.cart.CartUpdateRequest;
+import com.laonworks.shop.api.controller.response.cart.CartInResponse;
 import com.laonworks.shop.api.mapper.CartMapper;
 import com.laonworks.shop.api.mapper.vo.CartVo;
 import lombok.extern.slf4j.Slf4j;
@@ -12,33 +12,42 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class CartDeleteHandler extends BaseHandler {
+public class CartUpdateHandler extends BaseHandler {
 
     @Autowired
     CartMapper cartMapper;
 
-    public BaseResponse excute(CartDeleteRequest req) {
+    public CartInResponse excute(CartUpdateRequest req) {
 
-        BaseResponse res = new BaseResponse();
+        CartInResponse res = new CartInResponse();
         CartVo vo = new CartVo();
 
-        if(req == null){
+        if(req.invalid()){
+            res.setCode(ResultCode.InvalidParameter);
+            return res;
+        }
+
+        CartVo cartVo = (CartVo) cartMapper.selectCartInfo(req.getUserid());
+
+        if(cartVo == null){
             res.setCode(ResultCode.InvalidParameter);
             return res;
         }
 
         try{
-            vo.setUserid(req.userid);
-            vo.setProductNum(req.productNum);
-            cartMapper.deleteCart(vo);
-        } catch (Exception e){
+            vo.setProductNum(req.getProductNum());
+            vo.setUserid(req.getUserid());
+            vo.setCnt(req.getCnt());
+            cartMapper.updateCart(vo);
+
+        }catch (Exception e){
             log.error(e.getMessage());
             res.setCode(ResultCode.InternalServerError);
         }
 
         res.setCode(ResultCode.Success);
+        res.setCartVo(vo);
 
         return res;
     }
-
 }

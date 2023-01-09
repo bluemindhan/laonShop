@@ -14,4 +14,8 @@ public interface CartMapper {
     CartVo findByUseridAndProductNo(@Param("map") HashMap<String, Object> map);
 
     int insertCartInfo(@Param("user") CartVo vo);
+
+    int deleteCart(@Param("user") CartVo vo);
+
+    int updateCart(@Param("user") CartVo vo);
 }

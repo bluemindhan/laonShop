@@ -7,14 +7,14 @@ import lombok.ToString;
 @ToString
 public class CartVo {
 
-    public String userid;
+    public String userid; // 유저 아이디
 
-    public int productNum;
+    public int productNum; // 상품 번호
 
-    public String price;
+    public String price; // 상품 가격
 
-    public String productName;
+    public String productName; // 상품 이름
 
-    public int cnt;
+    public int cnt; // 상품 갯수
 
 }
