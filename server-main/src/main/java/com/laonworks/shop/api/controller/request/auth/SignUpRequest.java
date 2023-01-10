@@ -29,12 +29,13 @@ public class SignUpRequest {
     public int userType =  0;
 
     @NotEmpty(message = "email을 입력해야합니다")
-    @Email(message = "비밀번호는 필수 입력 값입니다")
+    @Email(message = "이메일 형식에 맞지 않습니다")
     @ApiParam(value = "user email", required = true)
     public String email =  "";
 
     @NotEmpty(message = "비밀번호를 입력해야합니다")
-    @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-z])(?=.*\\W)(?=\\S+$)")
+    @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-z])(?=.*\\W)(?=\\S+$).{8,16}" ,
+            message = "비밀번호는 영문 대,소문자와 숫자, 특수기호가 적어도 1개 이상씩 포함된 8~20자의 비밀번호여야 합니다")
     @ApiParam(value = "user password", required = true)
     public String password =  "";
 

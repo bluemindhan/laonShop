@@ -20,6 +20,9 @@ import java.util.Map;
 
 import com.laonworks.shop.api.controller.utils.CryptoUtils;
 import com.laonworks.shop.api.controller.utils.AuthUtils;
+import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
+
 @Slf4j
 @Component
 public class SignUpHandler extends BaseHandler {
@@ -91,7 +94,6 @@ public class SignUpHandler extends BaseHandler {
             }
             res.userInfo = new UserInfo();
             res.userInfo.set(userVo);
-//            res.accessToken = AuthUtils.generateToken(email,userType);
             Map<String,String> map = AuthUtils.generateToken(email,userType);
             res.accessToken = map.get("accessToken");
 
@@ -103,6 +105,23 @@ public class SignUpHandler extends BaseHandler {
             res.setCode(ResultCode.InternalServerError);
         }
         return res;
+    }
+
+    public SignUpResponse validateSignup(Errors errors) {
+
+        Map<String, String> errorList = new HashMap<>();
+        SignUpResponse res = new SignUpResponse();
+
+        for(FieldError error : errors.getFieldErrors()){
+            String validKeyName = String.format("valid_%s", error.getField());
+            errorList.put(validKeyName, error.getDefaultMessage());
+        }
+
+        res.setCode(ResultCode.Failed);
+        res.setErrorList(errorList);
+
+        return res;
+
     }
 }
 
