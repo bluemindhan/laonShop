@@ -49,8 +49,9 @@ public class AddProductHandler extends BaseHandler {
             productVo.prdtDesc = req.productDesc;
             productVo.prdtPrce = req.productPrice;
             productVo.sllrId = sellerVo.userId;
-            List<String> urlList = awsService.uploadProductImageList(req.imageList);
-            int n = productService.addProduct(productVo,urlList);
+            //List<String> urlList = awsService.uploadProductImageList(req.imageList);
+            //int n = productService.addProduct(productVo,urlList);
+            int n = productService.addProduct(productVo);
             if(n == 0) {
                 res.setCode(ResultCode.InternalServerError);
                 return res;

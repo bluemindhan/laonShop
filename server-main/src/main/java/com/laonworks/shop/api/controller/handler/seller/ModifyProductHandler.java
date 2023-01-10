@@ -54,7 +54,7 @@ public class ModifyProductHandler extends BaseHandler {
                 res.setCode(ResultCode.Unauthorized);
                 return res;
             }
-            ProductVo productVo=new ProductVo();
+            ProductVo productVo = new ProductVo();
             // 파라미터 setting
             productVo.setSllrId(email);
             productVo.setPrdtNo(productNum);

@@ -2,7 +2,6 @@ package com.laonworks.shop.api.jihyeon.mapper;
 
 import com.laonworks.shop.api.jihyeon.vo.ProductImageVo;
 import com.laonworks.shop.api.jihyeon.vo.ProductVo;
-import com.laonworks.shop.api.mapper.vo.ItemVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -28,6 +27,6 @@ public interface ProductMapper {
 
   // int modifyProductImage(ProductImageVo vo); // 등록 상품 이미지 수정
 
-  int deleteProduct(int prdtNo);                // 등록 상품 삭제
+  int deleteProduct(@Param("vo") ProductVo vo); // 등록 상품 삭제
 
 }
