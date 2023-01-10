@@ -72,9 +72,9 @@ export class ApiService {
       })
     });
   }
-  getItemsList() {
+  getItemsList(req) {
     return new Promise((resolve, reject) => {
-      axios.get('/api/v1/user/items').then(res => {
+      axios.get('/api/v1/user/items', req).then(res => {
         if (res.status === 200) {
           resolve(res.data);
           return;
