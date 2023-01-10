@@ -34,7 +34,7 @@ public class SignUpRequest {
     public String email =  "";
 
     @NotEmpty(message = "비밀번호를 입력해야합니다")
-    @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-z])(?=.*\\W)(?=\\S+$).{8,16}",
+    @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-z])(?=.*\\W)(?=\\S+$).{8,16}" ,
             message = "비밀번호는 영문 대,소문자와 숫자, 특수기호가 적어도 1개 이상씩 포함된 8~20자의 비밀번호여야 합니다")
     @ApiParam(value = "user password", required = true)
     public String password =  "";
