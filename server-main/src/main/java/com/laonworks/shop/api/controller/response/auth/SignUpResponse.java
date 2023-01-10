@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 import com.laonworks.shop.api.controller.vo.UserInfo;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @EqualsAndHashCode(callSuper = true)
 @ApiModel(description = "sign up")
@@ -20,4 +21,6 @@ public class SignUpResponse extends BaseResponse {
   public String accessToken = "";
 
   public String refreshToken = "";
+
+  public Map<String,String> errorList = null;
 }

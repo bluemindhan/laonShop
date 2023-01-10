@@ -19,8 +19,8 @@ public class ItemController extends BaseController {
     @Autowired
     private ItemDetailHandler itemDetailHandler;
 
-    @RequestMapping(method = RequestMethod.POST , value = "item-details")
-    ItemDetailResponse getItemDetail(@RequestBody ItemDetailRequest req,HttpServletRequest request){
+    @RequestMapping(method = RequestMethod.GET , value = "item-details")
+    ItemDetailResponse getItemDetail(ItemDetailRequest req,HttpServletRequest request){
 
         itemDetailHandler.setHttpServletRequest(request);
 
