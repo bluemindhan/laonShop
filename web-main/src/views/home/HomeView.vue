@@ -8,6 +8,7 @@
 
         <p class="mx-auto mt-12 max-w-xl text-xl text-gray-500">Welcome to Laon Shop. This is a shopping mall made with Springboot + VueJs.</p>
       </div>
+      <router-link to="/user">User</router-link>
     </div>
   </div>
 </template>
