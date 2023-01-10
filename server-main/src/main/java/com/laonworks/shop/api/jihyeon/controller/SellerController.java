@@ -83,24 +83,24 @@ public class SellerController extends BaseController {
   @Autowired
   private ModifyProductHandler modifyProductHandler;
 
-  /* 수정 상품 불러오기 */
-  @RequestMapping(method = RequestMethod.GET, value = "product/modify")
-  @ApiOperation(value = "Product Modification")
-  ModifyProductResponse getProduct(@AuthenticationPrincipal Authentication auth, @RequestBody ModifyProductRequest req, HttpServletRequest request) {
-    modifyProductHandler.setHttpServletRequest(request);
-    CustomUserDetails user = null;
-    if (auth == null) {
-      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
-    }
-    user = (CustomUserDetails) auth.getPrincipal();
-    if (user == null) {
-      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
-    }
-    if (checkRoute(RequestMethod.GET, "/api/v1/seller/product/modify", user) == false) {
-      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
-    }
-    return modifyProductHandler.execute(user, req);
-  }
+//  /* 수정 상품 불러오기 */
+//  @RequestMapping(method = RequestMethod.GET, value = "product/modify")
+//  @ApiOperation(value = "Product Modification")
+//  ModifyProductResponse getProduct(@AuthenticationPrincipal Authentication auth, @RequestBody ModifyProductRequest req, HttpServletRequest request) {
+//    modifyProductHandler.setHttpServletRequest(request);
+//    CustomUserDetails user = null;
+//    if (auth == null) {
+//      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+//    }
+//    user = (CustomUserDetails) auth.getPrincipal();
+//    if (user == null) {
+//      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+//    }
+//    if (checkRoute(RequestMethod.GET, "/api/v1/seller/product/modify", user) == false) {
+//      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+//    }
+//    return modifyProductHandler.execute(user, req);
+//  }
 
   /* 등록 상품 수정하기 */
   @RequestMapping(method = RequestMethod.PUT, value = "product/modify")

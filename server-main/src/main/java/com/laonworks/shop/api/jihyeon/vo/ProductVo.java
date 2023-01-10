@@ -23,7 +23,7 @@ public class ProductVo {
   public String updtDt;
 
   public void set(UserVo vo) {
-    this.sllrId = vo.email;
+    this.sllrId = vo.userId;
   }
 
 }
