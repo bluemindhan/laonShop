@@ -34,15 +34,6 @@ public class ProductService {
         return n;
     }
 
-    /* 등록 상품 수정 */
-    public int modifyProduct (ProductVo productVo, List<String> urlList) {
-        int n = productMapper.modifyProduct(productVo);
-        ProductImageVo imageVo = new ProductImageVo();
-        imageVo.prdtNo = productVo.prdtNo;
-        n += productMapper.modifyProductImage(imageVo);
-        return n;
-    }
-
     /* 등록 상품 삭제 */
     public int deleteProduct (int prdtNo) {
         int result = 0;

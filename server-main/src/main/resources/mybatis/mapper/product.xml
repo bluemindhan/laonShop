@@ -114,18 +114,16 @@
 
   <!-- 등록된 상품 수정 -->
   <update id="modifyProduct" parameterType="com.laonworks.shop.api.jihyeon.vo.ProductVo">
-  <![CDATA[
-    /* modifyProduct */ UPDATE TB_PRODUCT SET,
+    <![CDATA[/* modifyProduct */ UPDATE TB_PRODUCT SET
     PRDT_PRCE = #{vo.prdtPrce} ,
     PRDT_NM = #{vo.prdtNm} ,
     PRDT_DESC = #{vo.prdtDesc} ,
     UPD_DT = SYSDATE
-FROM TB_PRODUCT
-WHERE SLLR_ID = #{vo.sllrId}
-  ]]>
+    WHERE SLLR_ID = #{vo.sllrId} AND PRDT_NO= #{vo.prdtNo}
+    ]]>
   </update>
 
-  <!-- 등록된 상품 이미지 수정 -->
+<!--  &lt;!&ndash; 등록된 상품 이미지 수정 &ndash;&gt;
   <update id="modifyProductImage" parameterType="com.laonworks.shop.api.jihyeon.vo.ProductImageVo">
   <![CDATA[
     /* modifyProductImage */ UPDATE TB_PRODUCT_IMAGE SET
@@ -135,7 +133,7 @@ WHERE SLLR_ID = #{vo.sllrId}
     CRT_DT = SYSDATE,
     UPD_DT = SYSDATE
   ]]>
-  </update>
+  </update>-->
 
   <!-- 등록된 상품 삭제-->
   <delete id="deleteProduct" parameterType="com.laonworks.shop.api.jihyeon.vo.ProductVo">
