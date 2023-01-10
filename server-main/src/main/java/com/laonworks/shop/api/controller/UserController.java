@@ -25,13 +25,10 @@ import com.laonworks.shop.api.controller.handler.user.*;
 @RequestMapping("/api/v1/user")
 public class UserController extends BaseController {
   static Logger logger = LoggerFactory.getLogger(UserController.class);
+
+  // Login User 프로필 조회
   @Autowired
   private GetProfileHandler getProfileHandler;
-  @Autowired
-  private GetItemsHandler getItemsHandler;
-  @Autowired
-  private GetBuysHandler getBuysHandler;
-
 
   @RequestMapping(method = RequestMethod.GET, value = "profile")
   @ApiOperation(value = "get profile")
@@ -53,16 +50,59 @@ public class UserController extends BaseController {
     return getProfileHandler.execute(user, req);
   }
 
+  // Login User 프로필 수정
+  @Autowired
+  private PutProfileHandler putProfileHandler;
 
-  // user 권한 전체 판매상품목록 조회(추후 item으로 이동)
-  @RequestMapping(method = RequestMethod.GET, value = "items")
-  @ApiOperation(value = "get items")
-  GetItemsResponse getItems() { //@AuthenticationPrincipal->스프링 시큐리티에서 Jwt 토큰정보로 필터링 된 SecurityContext 정보를 가져옴
-    logger.info("get items start");
-    return getItemsHandler.execute();
+  @RequestMapping(method = RequestMethod.PUT,value = "profile")
+  @ApiOperation(value = "put profile")
+  PutProfileResponse putProfile(@AuthenticationPrincipal Authentication auth,HttpServletRequest request) {
+    putProfileHandler.setHttpServletRequest(request);
+    System.out.println("Authoriztion -->  " + request.getHeader("Authorization"));
+    CustomUserDetails user = null;
+    if (auth == null) {
+      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+    }
+    user = (CustomUserDetails) auth.getPrincipal();
+    if (user == null) {
+      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+    }
+    PutProfileRequest req = new PutProfileRequest();
+    if (checkRoute(RequestMethod.PUT, "/api/v1/user/profile", user) == false) {
+      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+    }
+    return  putProfileHandler.execute(user,req);
   }
 
-  // login user 구매 이력 조회
+
+  // User 권한 전체 판매상품목록 조회(추후 item으로 이동..?)
+  @Autowired
+  private GetItemsHandler getItemsHandler;
+
+  @RequestMapping(method = RequestMethod.GET, value = "items")
+  @ApiOperation(value = "get items")
+  GetItemsResponse getItems(@AuthenticationPrincipal Authentication auth,HttpServletRequest request) {
+    getBuysHandler.setHttpServletRequest(request);
+    System.out.println("Authoriztion -->  " + request.getHeader("Authorization"));
+    CustomUserDetails user=null;
+    if (auth == null) {
+      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+    }
+    user = (CustomUserDetails) auth.getPrincipal();
+    if (user == null) {
+      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+    }
+    GetItemsRequest req = new GetItemsRequest();
+    if (checkRoute(RequestMethod.GET, "/api/v1/user/items", user) == false) {
+      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+    }
+    return getItemsHandler.execute(user,req);
+  }
+
+  // Login User 구매 이력 조회
+  @Autowired
+  private GetBuysHandler getBuysHandler;
+
   @RequestMapping(method = RequestMethod.GET,value = "buys")
   @ApiOperation(value ="get buys")
   GetBuysResponse getBuys(@AuthenticationPrincipal Authentication auth,HttpServletRequest request){
@@ -83,6 +123,8 @@ public class UserController extends BaseController {
     return getBuysHandler.execute(user,req);
 
   }
+
+
 
 
 }

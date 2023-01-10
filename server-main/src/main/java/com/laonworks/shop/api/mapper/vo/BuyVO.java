@@ -5,7 +5,7 @@ import lombok.ToString;
 
 @Data
 @ToString
-public class BuyVO { // 구매이력 VO
+public class BuyVO { // 사용자 구매이력 VO
 
     public long buyId; //  구매 이력 번호
 
