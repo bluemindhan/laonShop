@@ -2,10 +2,14 @@ package com.laonworks.shop.api.controller.handler.user;
 
 import com.laonworks.shop.api.controller.ResultCode;
 import com.laonworks.shop.api.controller.handler.BaseHandler;
+import com.laonworks.shop.api.controller.request.user.GetItemsRequest;
 import com.laonworks.shop.api.controller.response.user.GetItemsResponse;
 import com.laonworks.shop.api.controller.vo.ProductInfo;
+import com.laonworks.shop.api.controller.vo.UserType;
 import com.laonworks.shop.api.mapper.UserMapper;
 import com.laonworks.shop.api.mapper.vo.ProductVo;
+import com.laonworks.shop.api.mapper.vo.UserVo;
+import com.laonworks.shop.api.service.CustomUserDetails;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,17 +26,29 @@ public class GetItemsHandler extends BaseHandler{
     @Autowired
     UserMapper userMapper;
 
-    public GetItemsResponse execute() {
-        log.info("GetItemsResponse Start");
+    public GetItemsResponse execute(CustomUserDetails user, GetItemsRequest req) {
         GetItemsResponse res = new GetItemsResponse();
+        if(user == null) {
+            res.setCode(ResultCode.Unauthorized);
+            return res;
+        }
+        int userType = user.getUserType();
         try {
-            res.products= userMapper.selectProductList();
-            log.info("result.size():"+ res.products.size());
-            if(res.products!=null) {
-                res.setCode(ResultCode.Success);
+            if(userType == UserType.User.getValue()){
+                res.products= userMapper.selectProductList();
+                if(res.products!=null&&res.products.size()!=0) {
+                    res.setCode(ResultCode.Success);
+                }else {
+                    res.setCode(ResultCode.Failed);
+                    return res;
+                }
+            } else if (userType==UserType.Seller.getValue()) {
+                res.setCode(ResultCode.Unauthorized);
                 return res;
-            }else {
-                res.setCode(ResultCode.Failed);
+            }
+            else{
+                res.setCode(ResultCode.InvalidParameter);
+                return res;
             }
         } catch (Exception e) {
             res.setCode(ResultCode.InternalServerError);
