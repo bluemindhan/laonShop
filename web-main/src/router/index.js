@@ -15,6 +15,7 @@ import UserLayout from '../components/UserLayout.vue';
 import UserMainView from '../views/user/UserMainView.vue';
 import UserProductDetailView from '../views/user/UserProductDetailView.vue';
 import UserCartView from '../views/user/UserCartView.vue';
+import UserCheckoutView from '../views/user/UserCheckoutView.vue';
 
 const routes = [
   {
@@ -107,6 +108,11 @@ const routes = [
         name: 'UserCartView',
         component: UserCartView,
       },
+      {
+        path: '/user/checkout',
+        name: 'UserCheckoutView',
+        component: UserCheckoutView,
+      }
     ],
   },
 ];
