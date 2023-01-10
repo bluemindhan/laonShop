@@ -27,8 +27,14 @@
               autocomplete="email"
               required=""
               class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-              placeholder="이메일"
+              placeholder="laonShop@laonShop.co.kr"
+              :class="{ 'input-danger': emailHasError }"
             />
+            <p 
+              v-show="valid.email"
+              class="input-error">
+               이메일 주소를 정확히 입력해주세요.
+            </p>
           </div>
           <div>
             <label for="password" class="sr-only">비밀번호</label>
@@ -40,22 +46,49 @@
                 autocomplete="current-password"
                 required=""
                 class="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                :class="{ 'rounded-b-md': !isSeller }"
+                :class="{ 'rounded-b-md': !isSeller, 'input-danger': passwordHasError }"
+                maxlength="16"
                 placeholder="비밀번호"
             />
+            <p 
+              v-show="valid.password"
+              class="input-error">
+               영문자, 숫자, 특수문자를 조합하여 최소 8자리를 입력해주세요.
+            </p>
+          </div>
+          <div>
+            <label for="passwordCheck" class="sr-only">비밀번호 확인</label>
+            <input
+              v-model="passwordCheck"
+              type="password"
+              autocomplete="current-password"
+              required=""
+              class="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+              :class="{ 'rounded-b-md': !isSeller}"
+              maxlength="16"
+              placeholder="비밀번호 확인"
+              @blur="passwordCheckValid"
+            />
+            <p 
+              v-if="!passwordCheckFlag"
+              class="input-error">
+               비밀번호가 동일하지 않습니다.
+            </p>
           </div>
           <div>
             <label for="phone" class="sr-only">전화번호</label>
             <input
               v-model="phone"
-                id="phone"
-                name="phone"
-                type="phone"
-                autocomplete="phone"
-                required=""
-                class="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                :class="{ 'rounded-b-md': !isSeller }"
-                placeholder="전화번호"
+              id="phone"
+              name="phone"
+              type="phone"
+              autocomplete="phone"
+              required=""
+              class="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+              :class="{ 'rounded-b-md': !isSeller }"
+              placeholder="전화번호"
+              maxlength="13"
+              @keyup="getPhoneMask(phone)"
             />
           </div>
           <div>
@@ -72,28 +105,17 @@
                 placeholder="생년월일"
             />
           </div>
-          <!-- <div>
-            <label for="gender" class="sr-only">성별</label>
-            <input
-              v-model="gender"
-                id="gender"
-                name="gender"
-                type="gender"
-                autocomplete="gender"
-                required=""
-                class="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                :class="{ 'rounded-b-md': !isSeller }"
-                placeholder="성별"
-            />
-          </div> -->
-          <!-- <div>
+          <div>
             <label for="gender" class="sr-only">성별</label>
             <select name="gender" id="gender" v-model="gender" class="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
-              <option selected :value="{name: ''}">성별</option>
-              <option :value="{name: '남자'}">남자</option>
-              <option :value="{name: '여자'}">여자</option>
+              <option 
+              v-for="(item, index) in selectList"
+              :key="index"
+              :value="item.value">
+              {{ item.name }} 
+              </option>
             </select>
-          </div> -->
+          </div>
           <div v-if="isSeller">
             <label for="sellerName" class="sr-only">판매자명</label>
             <input
@@ -150,9 +172,22 @@ export default {
       password: "",
       phone: "",
       birth: "",
-      // gender: "",
+      gender: "",
+      selectList: [
+        { name: "성별을 선택해주세요.", value: "" },
+        { name: "남자", value: "남자" },
+        { name: "여자", value: "여자" },
+      ],
       sellerName: "",
       isSeller: false,
+      valid: {
+        email: false,
+        password: false,
+      },
+      emailHasError: false,
+      passwordHasError: false,
+      passwordCheck: '',
+      passwordCheckFlag: true,
     };
   },
   computed: {
@@ -160,6 +195,14 @@ export default {
       accessToken: "appStore/accessToken",
       refreshToken: "appStore/refreshToken",
     }),
+  },
+  watch: {
+    'email': function() {
+      this.checkEmail()
+    },
+    'password': function() {
+      this.checkPassword()
+    },
   },
   methods: {
     ...mapMutations({
@@ -196,15 +239,15 @@ export default {
         return;
       }
 
-      // if (this.gender == "") {
-      //   alert("성별을 입력해주세요.");
-      //   return;
-      // }
+      if (this.gender == "") {
+        alert("성별을 선택해주세요.");
+        return;
+      }
 
       const req = new SignUpRequest();
       req.birth = this.birth;
       req.email = this.email;
-      // req.gender = this.gender;
+      req.gender = this.gender;
       req.password = this.password;
       req.phone = this.phone;
       
@@ -239,6 +282,85 @@ export default {
         console.error(e);
       }
     },
+    checkEmail() {
+      // 이메일 형식 검사
+    const validateEmail = /^[A-Za-z0-9_\\.\\-]+@[A-Za-z0-9\\-]+\.[A-Za-z0-9\\-]+/
+
+     if (!validateEmail.test(this.email) || !this.email) {
+        this.valid.email = true
+        this.emailHasError = true
+        return
+      } this.valid.email = false
+        this.emailHasError = false
+    },
+    checkPassword() {
+      // 비밀번호 형식 검사(영문, 숫자, 특수문자)
+      const validatePassword = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/
+
+       if (!validatePassword.test(this.password) || !this.password) {
+        this.valid.password = true
+        this.passwordHasError = true
+        return
+      } this.valid.password = false
+        this.passwordHasError = false
+    },
+    passwordCheckValid () {
+      if (this.password === this.passwordCheck) {
+        this.passwordCheckFlag = true
+        return
+      } else {
+        this.passwordCheckFlag = false
+      }
+    },
+    getPhoneMask(val) {
+        let res = this.getMask(val)
+      this.phone = res;
+      this.model.phone =  this.phone.replace(/[^0-9]/g, '')
+    },
+    getMask( phoneNumber ) {
+        if(!phoneNumber) return phoneNumber
+        phoneNumber = phoneNumber.replace(/[^0-9]/g, '')
+    
+        let res = ''
+        if(phoneNumber.length < 3) {
+            res = phoneNumber
+        }
+        else {
+          if(phoneNumber.substr(0, 2) =='02') {
+      
+              if(phoneNumber.length <= 5) {//02-123-5678
+                  res = phoneNumber.substr(0, 2) + '-' + phoneNumber.substr(2, 3)
+              }
+              else if(phoneNumber.length > 5 && phoneNumber.length <= 9) {//02-123-5678
+                  res = phoneNumber.substr(0, 2) + '-' + phoneNumber.substr(2, 3) + '-' + phoneNumber.substr(5)
+              }
+              else if(phoneNumber.length > 9) {//02-1234-5678
+                  res = phoneNumber.substr(0, 2) + '-' + phoneNumber.substr(2, 4) + '-' + phoneNumber.substr(6)
+              }
+      
+          } else {
+              if(phoneNumber.length < 8) {
+                  res = phoneNumber
+              }
+              else if(phoneNumber.length == 8)
+              {
+                  res = phoneNumber.substr(0, 4) + '-' + phoneNumber.substr(4)
+              }
+              else if(phoneNumber.length == 9)
+              {
+                  res = phoneNumber.substr(0, 3) + '-' + phoneNumber.substr(3, 3) + '-' + phoneNumber.substr(6)
+              }
+              else if(phoneNumber.length == 10)
+              {
+                  res = phoneNumber.substr(0, 3) + '-' + phoneNumber.substr(3, 3) + '-' + phoneNumber.substr(6)
+              }
+              else if(phoneNumber.length > 10) { //010-1234-5678
+                  res = phoneNumber.substr(0, 3) + '-' + phoneNumber.substr(3, 4) + '-' + phoneNumber.substr(7)
+              }
+          }
+        }
+        return res
+    },
   },
   created() {
   },
@@ -248,4 +370,16 @@ export default {
   },
 };
 </script>
-<style></style>
+<style>
+.input-error {
+  line-height: 16px;
+  font-size: 11px;
+  color: red;
+}
+.title-danger {
+  color: red;
+}
+.input-danger {
+  border-bottom: 1px solid red !important;
+}
+</style>
