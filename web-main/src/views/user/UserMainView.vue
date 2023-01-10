@@ -50,6 +50,8 @@
 
 <script>
 import GetItemsRequest from "@/service/request/GetItemsRequest.js";
+import {mapGetters, mapMutations} from "vuex";
+import ResultCode from "@/service/ResultCode";
 
 export default {
   name: 'UserMainView',
@@ -63,24 +65,54 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      accessToken: "appStore/accessToken",
+      refreshToken: "appStore/refreshToken",
+    }),
+  },
+  watch: {
+    accessToken: function (val) {
+      console.log("accessToken changed..", val);
+      this.api.setAccessToken(val);
+    },
+    refreshToken: function (val) {
+      console.log("refreshToken changed..", val);
+      this.api.setRefreshToken(val);
+    }
   },
   methods: {
-    // detail(prdNo) {
-    //   console.log("detail", prdNo);
-    // },
+    ...mapMutations({
+      setAccessToken: "appStore/accessToken",
+      setRefreshToken: "appStore/refreshToken",
+      setUserInfo: "appStore/userInfo",
+    }),
     async getItemsList() {
       let req = new GetItemsRequest();
       try {
         let res = await this.api.getItemsList(req);
-        this.products = res.products;
-        console.log(res);
+        if (res.code === ResultCode.Success) {
+          this.products = res.products;
+          console.log(res);
+        }
       } catch (e) {
         console.error(e);
       }
     },
   },
   created() {
-    this.getItemsList();
+    console.log("UserMainView.vue..", this.accessToken);
+    if (this.accessToken == null || this.accessToken == "") {
+      /**
+       * accessToken이 없으면 로그인 페이지로 이동한다.
+       */
+      this.$router.replace({name: "SignInView"});
+    } else {
+      /**
+       * accessToken이 있으면 프로필 정보를 가져온다.
+       */
+      this.api.setAccessToken(this.accessToken);
+      this.getItemsList();
+    }  
   },
   mounted() {
   },
@@ -89,51 +121,5 @@ export default {
 }
 </script>
 
-<script setup>
-import { StarIcon } from '@heroicons/vue/20/solid'
-
-// const products = [
-//   {
-//     id: 1,
-//     name: 'Organize Basic Set (Walnut)',
-//     price: '$149',
-//     rating: 5,
-//     reviewCount: 38,
-//     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-05-image-card-01.jpg',
-//     imageAlt: 'TODO',
-//     href: '#',
-//   },
-//   {
-//     id: 2,
-//     name: 'Organize Pen Holder',
-//     price: '$15',
-//     rating: 5,
-//     reviewCount: 18,
-//     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-05-image-card-02.jpg',
-//     imageAlt: 'TODO',
-//     href: '#',
-//   },
-//   {
-//     id: 3,
-//     name: 'Organize Sticky Note Holder',
-//     price: '$15',
-//     rating: 5,
-//     reviewCount: 14,
-//     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-05-image-card-03.jpg',
-//     imageAlt: 'TODO',
-//     href: '#',
-//   },
-//   {
-//     id: 4,
-//     name: 'Organize Phone Holder',
-//     price: '$15',
-//     rating: 4,
-//     reviewCount: 21,
-//     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-05-image-card-04.jpg',
-//     imageAlt: 'TODO',
-//     href: '#',
-//   },
-// ]
-</script>
 <style>
 </style>
