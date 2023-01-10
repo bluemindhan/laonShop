@@ -5,10 +5,10 @@ import io.swagger.annotations.ApiParam;
 import lombok.Data;
 import lombok.ToString;
 
-@ApiModel(description = "post wishs")
+@ApiModel(description = "delete wishs")
 @Data
 @ToString
-public class PostWishRequest {
+public class DeleteWishRequest {
 
     @ApiParam(value = "product num", required = true)
     public int prdNum =0; // 상품번호

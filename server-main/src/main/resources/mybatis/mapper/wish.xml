@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.laonworks.shop.api.mapper.WishMapper">
+      <insert id="insertWishProduct" parameterType="WishVo">
+         <![CDATA[
+         INSERT INTO TB_USER_WISH(
+             USR_ID ,
+             PRDT_NO ,
+             CRT_DT
+             ) VALUES (
+             #{wish.userId} ,
+             #{wish.productNum} ,
+             SYSDATE
+             )
+        ]]>
+      </insert>
+
+      <select id="selectWishList" resultType="WishVo">
+        <![CDATA[
+        SELECT
+            A.USR_ID as userId,
+            A.PRDT_NO as productNum,
+            B.PRDT_NM as productName,
+            A.CRT_DT as createDate
+        FROM
+            TB_USER_WISH A,
+            TB_PRODUCT B
+        WHERE
+            USR_ID=#{userId, jdbcType=VARCHAR} AND
+            A.PRDT_NO = B.PRDT_NO
+        ]]>
+    </select>
+
+    <delete id="deleteWishProduct" parameterType="WishVo">
+        <![CDATA[
+         DELETE FROM
+             TB_USER_WISH
+         WHERE
+            USR_ID = #{wish.userId} AND
+            PRDT_NO = #{wish.productNum}
+         ]]>
+    </delete>
+
+
+</mapper>
+
+
+
+
+
+
+
