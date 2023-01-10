@@ -1,5 +1,6 @@
 import axios from '../plugins/axios';
 import qs from 'query-string';
+
 export class ApiService {
   setAccessToken(accessToken) {
     axios.defaults.headers.common['Authorization'] = accessToken;
@@ -58,6 +59,22 @@ export class ApiService {
     const url = '/api/v1/user/profile?' + qs.stringify(req);
     return new Promise((resolve, reject) => {
       axios.get(url).then(res => {
+        if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
+  getItemsList() {
+    return new Promise((resolve, reject) => {
+      axios.get('/api/v1/user/items').then(res => {
         if (res.status === 200) {
           resolve(res.data);
           return;

@@ -50,14 +50,17 @@
               <span>Sign up</span>
             </button>
           </div>
-          <div class="hidden md:ml-4 md:flex md:flex-shrink-0 md:items-center">
-            <!-- <button type="button" class="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+          <div class="hidden md:ml-4 md:flex md:flex-shrink-0 md:items-center"
+                v-if="isLogin">
+            <button type="button" class="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
               <span class="sr-only">View notifications</span>
               <BellIcon class="h-6 w-6" aria-hidden="true" />
-            </button> -->
+            </button>
 
             <!-- Profile dropdown -->
-            <!-- <Menu as="div" class="relative ml-3">
+            <Menu as="div" 
+            class="relative ml-3"
+            v-if="isLogin">
               <div>
                 <MenuButton class="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                   <span class="sr-only">Open user menu</span>
@@ -74,7 +77,7 @@
               >
                 <MenuItems class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <MenuItem v-slot="{ active }">
-                    <a href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Your Profile</a>
+                    <a href="/user/home/ProfileView" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Your Profile</a>
                   </MenuItem>
                   <MenuItem v-slot="{ active }">
                     <a href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Settings</a>
@@ -84,7 +87,7 @@
                   </MenuItem>
                 </MenuItems>
               </transition>
-            </Menu> -->
+            </Menu>
           </div>
         </div>
       </div>

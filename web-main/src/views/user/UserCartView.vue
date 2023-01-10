@@ -77,7 +77,7 @@
           <section aria-labelledby="summary-heading" class="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8">
             <h2 id="summary-heading" class="text-lg font-medium text-gray-900">Order summary</h2>
   
-            <dl class="mt-6 space-y-4">
+            <div class="mt-6 space-y-4">
               <div class="flex items-center justify-between">
                 <dt class="text-sm text-gray-600">Subtotal</dt>
                 <dd class="text-sm font-medium text-gray-900">$99.00</dd>
@@ -106,12 +106,11 @@
                 <dt class="text-base font-medium text-gray-900">Order total</dt>
                 <dd class="text-base font-medium text-gray-900">$112.32</dd>
               </div>
-            </dl>
+            </div>
   
             <div class="mt-6">
               <button type="submit" class="w-full rounded-md border border-transparent bg-indigo-600 py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50">Checkout</button>
             </div>
-          </dl>
 
           <div class="mt-6">
             <router-link to="/user/checkout">
@@ -120,7 +119,7 @@
           </div>
         </section>
       </form>
-
+    </div>
     </div>
   </template>
   
