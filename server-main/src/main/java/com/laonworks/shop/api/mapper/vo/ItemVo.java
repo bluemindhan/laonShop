@@ -16,9 +16,10 @@ public class ItemVo {
     public long price;
 
     public String itemDetail;
-    public List<String> comment;
 
-    public String image;
+    public List<CommentVo> commentVoList;
+
+    public List<ImageVo> imageVoList;
 
     public int likeCnt;
 
