@@ -2,31 +2,46 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.laonworks.shop.api.mapper.ItemMapper">
 
-    <select id="selectItemDetailInfo" resultType="ItemVo">
-        /*selectItemDetailInfo*/ SELECT
+    <resultMap id="itemDetailInfo" type="ItemVo">
+        <id column="itemId" property="itemId"/>
+        <result column="price" property="price"/>
+        <result column="name" property="name"/>
+        <result column="itemDetail" property="itemDetail"/>
+        <result column="likeCnt" property="likeCnt"/>
+        <result column="bookCnt" property="bookCnt"/>
+
+        <collection property="imageVoList" resultMap="imageVoResult"></collection>
+        <collection property="commentVoList" resultMap="commentVoResult"></collection>
+    </resultMap>
+
+    <resultMap id="imageVoResult" type="ImageVo">
+        <result  property="image" column="image" />
+    </resultMap>
+    
+    <resultMap id="commentVoResult" type="CommentVo">
+        <result property="comment" column="CMT_CNTT"/>
+    </resultMap>
+
+    <select id="selectItemDetailInfo" resultMap="itemDetailInfo">
+    /*selectItemDetailInfo*/ SELECT
         A.PRDT_NO as itemId,
         A.PRDT_PRCE as price,
         A.PRDT_NM as name,
         A.PRDT_DESC as itemDetail,
         B.IMG_URL as image,
         C.LIKE_CNT as likeCnt,
-        C.MBK_CNT as bookCnt
+        C.MBK_CNT as bookCnt,
+        D.CMT_CNTT
     FROM
-        TB_PRODUCT A,
-        TB_PRODUCT_IMAGE B,
-        TB_PRODUCT_SOCIAL C
+        TB_PRODUCT A
+        LEFT JOIN TB_PRODUCT_IMAGE B
+            ON A.PRDT_NO = B.PRDT_NO
+        LEFT JOIN TB_PRODUCT_SOCIAL C
+            ON B.PRDT_NO = C.PRDT_NO
+        LEFT JOIN TB_PRODUCT_COMMENT D
+            ON C.PRDT_NO = D.PRDT_NO
     WHERE
         A.PRDT_NO = #{pdNum, jdbcType=VARCHAR}
     </select>
 
-    <select id="selectCommentList" resultType="String">
-        <![CDATA[
-        /*selectCommentList*/ SELECT
-        A.CMT_CNTT as "comment"
-    FROM
-        TB_PRODUCT_COMMENT A
-    WHERE
-        PRDT_NO = #{pdNum, jdbcType=VARCHAR}
-                                  ]]>
-    </select>
 </mapper>

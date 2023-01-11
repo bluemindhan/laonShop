@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.laonworks.shop.api.mapper.SearchMapper">
+
+  <select id="findByKeyword" resultType="ProductVo">
+  /*findByKeyword*/  SELECT
+     A.PRDT_NO as productId,
+     A.CRT_DT as createDate,
+     A.UPD_DT as updateDate,
+     A.SLLR_ID as sellerId,
+     A.PRDT_NM as name,
+     A.PRDT_PRCE as price,
+     A.PRDT_DESC as detail,
+     B.IMG_URL as image
+   FROM
+     TB_PRODUCT A,
+     TB_PRODUCT_IMAGE B
+   WHERE
+     A.PRDT_NO=B.PRDT_NO
+  </select>
+</mapper>

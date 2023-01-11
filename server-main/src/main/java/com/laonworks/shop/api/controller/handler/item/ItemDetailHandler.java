@@ -34,11 +34,10 @@ public class ItemDetailHandler extends BaseHandler {
                 res.setCode(ResultCode.Failed);
                 return res;
             }
-            List<String> list = itemMapper.selectCommentList(ProductNo);
-            itemVo.setComment(list);
             res.itemVo = itemVo;
 
         } catch(Exception e){
+            System.out.println(e.getMessage());
             res.setCode(ResultCode.InternalServerError);
         }
 

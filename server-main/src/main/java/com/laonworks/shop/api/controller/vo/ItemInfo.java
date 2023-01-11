@@ -1,5 +1,7 @@
 package com.laonworks.shop.api.controller.vo;
 
+import com.laonworks.shop.api.jihyeon.vo.ProductVo;
+import com.laonworks.shop.api.mapper.vo.ItemVo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiParam;
 import lombok.Data;
@@ -35,5 +37,6 @@ public class ItemInfo {
 
     @ApiParam(value = "item bookMark")
     public int bookCnt = 0;
+
 }
 
