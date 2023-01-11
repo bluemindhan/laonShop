@@ -1,34 +1,16 @@
-<!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
--->
 <template>
   <div class="bg-white">
     <div class="mx-auto max-w-7xl overflow-hidden sm:px-6 lg:px-8">
       <h2 class="sr-only">Products</h2>
 
       <div class="-mx-px grid grid-cols-2 border-l border-gray-200 sm:mx-0 md:grid-cols-3 lg:grid-cols-4">
-        <div v-for="product in products" :key="product.id" class="group relative border-r border-b border-gray-200 p-4 sm:p-6">
+        <div v-for="product in products" :key="product.productId" class="group relative border-r border-b border-gray-200 p-4 sm:p-6">
           <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-200 group-hover:opacity-75">
             <img :src="product.image" :alt="product.image" class="h-full w-full object-cover object-center" />
           </div>
           <div class="pt-10 pb-4 text-center">
             <h3 class="text-sm font-medium text-gray-900">
-              <!-- <a :href="product.href">
-                <span aria-hidden="true" class="absolute inset-0" />
-                {{ product.name }}
-              </a> -->
-              <router-link :to="`/user/product/${ product.productId }`">
+              <router-link :to="`/user/items/${ product.productId }`">
                 <span aria-hidden="true" class="absolute inset-0" />
                 {{ product.name }}
               </router-link>
