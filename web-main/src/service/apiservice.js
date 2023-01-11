@@ -6,7 +6,7 @@ export class ApiService {
     axios.defaults.headers.common['Authorization'] = accessToken;
   }
   setRefreshToken(refreshToken) {
-    axios.defaults.headers.common['Authorization'] = refreshToken;
+    axios.defaults.headers.common["RefreshToken"] = refreshToken;
   }
   addCount(req) {
     return new Promise((resolve, reject) => {
@@ -80,6 +80,22 @@ export class ApiService {
           return;
         }
 
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
+  itemDetail(req) {
+    const url = '/api/v1/item/item-details?' + qs.stringify(req);
+    return new Promise((resolve, reject) => {
+      axios.get(url).then(res => {
+        if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
         console.error(res.status, res.statusText);
         reject(null);
       })
