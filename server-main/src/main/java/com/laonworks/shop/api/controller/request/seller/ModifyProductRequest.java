@@ -7,23 +7,23 @@ import lombok.ToString;
 
 import java.util.List;
 
-@ApiModel(description = "Product Modification")
+@ApiModel(value = "Product Modification")
 @Data
 @ToString
 public class ModifyProductRequest {
-    @ApiParam(value = "")
-    public String productName =  "";
-    
-    @ApiParam(value = "")
-    public String productDesc =  "";
-    
-    @ApiParam(value = "")
-    public int productPrice =  0;
-    
-    @ApiParam(value = "")
-    public List<String> imageList =  null;
-    
-    
+
+    @ApiParam(value = "제품번호")
+    public int productNum = 0;
+
+    @ApiParam(value = "제품이름")
+    public String productName = "";
+
+    @ApiParam(value = "제품설명")
+    public String productDesc = "";
+
+    @ApiParam(value = "제품가격")
+    public int productPrice = 0;
+
     public boolean valid() {
         return true;
     }

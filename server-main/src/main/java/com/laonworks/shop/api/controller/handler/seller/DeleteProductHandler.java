@@ -5,6 +5,8 @@ import com.laonworks.shop.api.controller.classes.AwsService;
 import com.laonworks.shop.api.controller.handler.BaseHandler;
 import com.laonworks.shop.api.controller.request.seller.DeleteProductRequest;
 import com.laonworks.shop.api.controller.response.seller.DeleteProductResponse;
+import com.laonworks.shop.api.controller.vo.UserType;
+import com.laonworks.shop.api.jihyeon.mapper.ProductMapper;
 import com.laonworks.shop.api.jihyeon.service.ProductService;
 import com.laonworks.shop.api.jihyeon.vo.ProductVo;
 import com.laonworks.shop.api.mapper.AuthMapper;
@@ -23,12 +25,11 @@ public class DeleteProductHandler extends BaseHandler {
     @Autowired
     AuthMapper authMapper;
     @Autowired
-    AwsService awsService;
-    @Autowired
-    ProductService productService;
+    ProductMapper productMapper;
     
     public DeleteProductResponse execute (CustomUserDetails user, DeleteProductRequest req) {
         DeleteProductResponse res = new DeleteProductResponse();
+        ProductVo productVo = new ProductVo();
         if(user == null) {
             res.setCode(ResultCode.Unauthorized);
             return res;
@@ -39,16 +40,21 @@ public class DeleteProductHandler extends BaseHandler {
         }
         String email = user.getUsername();
         int userType = user.getUserType();
+        int productNum = req.getProductNum();
+
         try {
-            UserVo sellerVo = authMapper.selectSellerInfo(email);
-            if(sellerVo == null) {
-                res.setCode(ResultCode.NotFoundSeller);
+            UserVo sellerVo;
+            if(userType == UserType.Seller.getValue()) {
+                sellerVo = authMapper.selectSellerInfo(email);
+            }
+            else{
+                res.setCode(ResultCode.Unauthorized);
                 return res;
             }
-            ProductVo productVo = new ProductVo();
-            int result = 0;
-            result = productService.deleteProduct(productVo.getPrdtNo());
-            if(result == 0) {
+            productVo.setSllrId(user.getUsername());
+            productVo.setPrdtNo(req.productNum);
+            productMapper.deleteProduct(productVo);
+            if(sellerVo == null) {
                 res.setCode(ResultCode.InternalServerError);
                 return res;
             }

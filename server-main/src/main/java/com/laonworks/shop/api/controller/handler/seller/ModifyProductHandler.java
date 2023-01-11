@@ -5,6 +5,8 @@ import com.laonworks.shop.api.controller.classes.AwsService;
 import com.laonworks.shop.api.controller.handler.BaseHandler;
 import com.laonworks.shop.api.controller.request.seller.ModifyProductRequest;
 import com.laonworks.shop.api.controller.response.seller.ModifyProductResponse;
+import com.laonworks.shop.api.controller.vo.UserType;
+import com.laonworks.shop.api.jihyeon.mapper.ProductMapper;
 import com.laonworks.shop.api.jihyeon.service.ProductService;
 import com.laonworks.shop.api.jihyeon.vo.ProductVo;
 import com.laonworks.shop.api.mapper.AuthMapper;
@@ -21,10 +23,9 @@ import java.util.List;
 public class ModifyProductHandler extends BaseHandler {
     @Autowired
     AuthMapper authMapper;
+
     @Autowired
-    AwsService awsService;
-    @Autowired
-    ProductService productService;
+    ProductMapper productMapper;
     
     public ModifyProductResponse execute (CustomUserDetails user, ModifyProductRequest req) {
         ModifyProductResponse res = new ModifyProductResponse();
@@ -32,31 +33,45 @@ public class ModifyProductHandler extends BaseHandler {
             res.setCode(ResultCode.Unauthorized);
             return res;
         }
-        if(req.invalid()) {
+        if(req.invalid()) { // 파라미터 유효하지 않음
             res.setCode(ResultCode.InvalidParameter);
             return res;
         }
         String email = user.getUsername();
         int userType = user.getUserType();
+        int productNum = req.getProductNum();
+        String productName = req.getProductName();
+        String productDesc = req.getProductDesc();
+        int productPrice = req.getProductPrice();
+
         try {
-            UserVo sellerVo = authMapper.selectSellerInfo(email);
-            if(sellerVo == null) {
-                res.setCode(ResultCode.NotFoundSeller);
+            UserVo sellerVo;
+            int result=0;
+            if(userType == UserType.Seller.getValue()) {
+                sellerVo = authMapper.selectSellerInfo(email);
+            }
+            else{
+                res.setCode(ResultCode.Unauthorized);
                 return res;
             }
             ProductVo productVo = new ProductVo();
-            productVo.prdtNm = req.productName;
-            productVo.prdtDesc = req.productDesc;
-            productVo.prdtPrce = req.productPrice;
-            productVo.sllrId = sellerVo.userId;
-            List<String> urlList = awsService.uploadProductImageList(req.imageList);
-            int n = productService.modifyProduct(productVo,urlList);
-            if(n == 0) {
+            // 파라미터 setting
+            productVo.setSllrId(email);
+            productVo.setPrdtNo(productNum);
+            productVo.setPrdtNm(productName);
+            productVo.setPrdtDesc(productDesc);
+            productVo.setPrdtPrce(productPrice);
+
+            if(req != null || !req.equals("")){
+               result=productMapper.modifyProduct(productVo);
+               log.info("result:" +result);
+               res.setResult(result);
+               res.setCode(ResultCode.Success);
+            }
+            else if(result == 0) {
                 res.setCode(ResultCode.InternalServerError);
                 return res;
             }
-            res.setCode(ResultCode.Success);
-            return res;
         }
         catch(Exception e) {
             res.setCode(ResultCode.InternalServerError);

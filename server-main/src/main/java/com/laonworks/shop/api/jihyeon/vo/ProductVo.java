@@ -1,5 +1,6 @@
 package com.laonworks.shop.api.jihyeon.vo;
 
+import com.laonworks.shop.api.mapper.vo.UserVo;
 import lombok.Data;
 import lombok.ToString;
 
@@ -20,4 +21,9 @@ public class ProductVo {
   public String crtDt;    // 생성날짜
 
   public String updtDt;
+
+  public void set(UserVo vo) {
+    this.sllrId = vo.userId;
+  }
+
 }
