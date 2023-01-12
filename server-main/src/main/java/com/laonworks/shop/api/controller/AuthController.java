@@ -59,6 +59,7 @@ public class AuthController extends BaseController {
     if (auth != null) {
       user = (CustomUserDetails) auth.getPrincipal();
     }
+
     if (checkRoute(RequestMethod.POST, "/api/v1/auth/signup", user) == false) {
       throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
     }
