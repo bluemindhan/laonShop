@@ -1,5 +1,6 @@
 export default class GetItemsRequest {
     constructor() {
-        this.products = null;
+        this.pageNo = 0;
+        this.pageSize = 0;
     }
 }

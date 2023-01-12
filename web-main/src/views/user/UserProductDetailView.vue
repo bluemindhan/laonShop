@@ -165,6 +165,10 @@
 </template>
 
 <script>
+import ItemDetailRequest from '@/service/request/ItemDetailRequest.js';
+import {mapGetters, mapMutations} from "vuex";
+import ResultCode from "@/service/ResultCode";
+
 export default {
   name: 'UserProductDetailView',
   components: {
@@ -173,6 +177,17 @@ export default {
   },
   data() {
     return {
+      // itemVo: {
+      //   bookCnt: 0,
+      //   comment: [],
+      // },
+      // image: '',
+      // itemDetail: '',
+      // itemId: '',
+      // likeCnt: '',
+      // name: '',
+      // price: '',
+      itemVo: {},
     }
   },
   computed: {
