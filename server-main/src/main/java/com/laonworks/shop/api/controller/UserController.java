@@ -30,7 +30,7 @@ import com.laonworks.shop.api.controller.handler.user.*;
 public class UserController extends BaseController {
   static Logger logger = LoggerFactory.getLogger(UserController.class);
 
-  // Login User 프로필 조회
+  // Login User/Seller 프로필 조회
   @Autowired
   private GetProfileHandler getProfileHandler;
 
@@ -54,7 +54,7 @@ public class UserController extends BaseController {
     return getProfileHandler.execute(user, req);
   }
 
-  // Login User 프로필 수정
+  // Login User/Seller 프로필 수정
   @Autowired
   private PutProfileHandler putProfileHandler;
 
