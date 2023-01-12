@@ -4,6 +4,8 @@ import com.laonworks.shop.api.mapper.vo.UserVo;
 import lombok.Data;
 import lombok.ToString;
 
+import java.util.List;
+
 @Data
 @ToString
 public class ProductVo {
@@ -20,7 +22,9 @@ public class ProductVo {
 
   public String crtDt;    // 생성날짜
 
-  public String updtDt;
+  public String updtDt;   // 수정날짜
+
+  public List<String> imageList;  // 이미지
 
   public void set(UserVo vo) {
     this.sllrId = vo.userId;
