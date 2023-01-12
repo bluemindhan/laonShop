@@ -104,6 +104,25 @@ export class ApiService {
       })
     });
   }
+
+  mainPage() {
+    return new Promise((resolve, reject) => {
+      axios.get('/api/v1/item/mainpage').then(res => {
+        if (res.status === 200) {
+          resolve(res.data);
+          console.log(res.data);
+          return;
+        }
+
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+          .catch((err) => {
+            reject(err);
+          })
+    });
+  }
+
 }
 const _api = new ApiService(axios);
 export default {

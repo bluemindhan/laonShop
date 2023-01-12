@@ -44,6 +44,7 @@
         A.PRDT_NO = #{pdNum, jdbcType=VARCHAR}
     </select>
 
+<<<<<<< HEAD
     <select id="selectProductList" resultType="ProductVo">
         SELECT
             A.PRDT_NO as productId,
@@ -60,4 +61,31 @@
         WHERE
             A.PRDT_NO=B.PRDT_NO
     </select>
+=======
+    <select id = "selectMainPage" resultMap="itemDetailInfo">
+    <![CDATA[
+    /*selectMainPage*/ SELECT A.*
+    FROM(
+        SELECT
+            MAX(A.PRDT_NO) as itemId,
+            MAX(A.PRDT_PRCE) as price,
+            MAX(A.PRDT_NM) as name,
+            MAX(A.PRDT_DESC) as itemDetail,
+            MAX(B.IMG_URL) as image,
+            MAX(C.LIKE_CNT) as likeCnt,
+            MAX(C.MBK_CNT) as bookCnt
+        FROM
+            TB_PRODUCT A
+                LEFT JOIN TB_PRODUCT_IMAGE B
+                          ON A.PRDT_NO = B.PRDT_NO
+                LEFT JOIN TB_PRODUCT_SOCIAL C
+                          ON B.PRDT_NO = C.PRDT_NO
+        GROUP BY A.PRDT_NO
+        ORDER BY bookCnt ASC
+        ) A
+    WHERE ROWNUM <= 3
+    ]]>
+    </select>
+
+>>>>>>> d30866524399b4551e43ea73e42a8e70113c2fc2
 </mapper>
