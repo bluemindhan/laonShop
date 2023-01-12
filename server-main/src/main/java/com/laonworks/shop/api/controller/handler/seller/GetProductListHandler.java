@@ -5,6 +5,7 @@ import com.laonworks.shop.api.controller.handler.BaseHandler;
 import com.laonworks.shop.api.controller.request.seller.GetProductListRequest;
 import com.laonworks.shop.api.controller.response.seller.GetProductListResponse;
 import com.laonworks.shop.api.controller.vo.ProductInfo;
+import com.laonworks.shop.api.controller.vo.UserType;
 import com.laonworks.shop.api.jihyeon.mapper.ProductMapper;
 import com.laonworks.shop.api.jihyeon.vo.ProductVo;
 import com.laonworks.shop.api.mapper.AuthMapper;
@@ -44,6 +45,9 @@ public class  GetProductListHandler extends BaseHandler {
             if(sellerVo == null) {
                 res.setCode(ResultCode.NotFoundSeller);
                 return res;
+            }
+            if (userType == UserType.Seller.getValue()) {
+                sellerVo = authMapper.selectSellerInfo(email);
             }
             int totalCount = productMapper.selectProductCount(sellerVo.userId);
             int begin = (pageNo - 1) * pageSize;
