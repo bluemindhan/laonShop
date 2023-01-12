@@ -48,12 +48,8 @@ export default {
   data() {
     return {
       navigation: [
-        {name: 'Dashboard', icon: HomeIcon, href: '/seller', current: true},
         {name: '상품 목록', icon: ShoppingBagIcon, href: '/seller/products', count: 3, current: false},
         {name: '상품 등록', icon: ShoppingBagIcon, href: '/seller/products/new', count: 3, current: false},
-        {name: '주문 내역', icon: FolderIcon, href: '/seller/orders', count: 4, current: false},
-        {name: '정산', icon: CreditCardIcon, href: '/seller/settlements', current: false},
-        {name: '리포트', icon: ChartBarIcon, href: '/seller/reports', current: false},
       ]
     }
   },
