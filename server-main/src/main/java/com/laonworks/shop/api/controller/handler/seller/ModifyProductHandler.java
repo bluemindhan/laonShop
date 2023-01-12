@@ -8,6 +8,7 @@ import com.laonworks.shop.api.controller.response.seller.ModifyProductResponse;
 import com.laonworks.shop.api.controller.vo.UserType;
 import com.laonworks.shop.api.jihyeon.mapper.ProductMapper;
 import com.laonworks.shop.api.jihyeon.service.ProductService;
+import com.laonworks.shop.api.jihyeon.vo.ProductImageVo;
 import com.laonworks.shop.api.jihyeon.vo.ProductVo;
 import com.laonworks.shop.api.mapper.AuthMapper;
 import com.laonworks.shop.api.mapper.vo.UserVo;
@@ -23,6 +24,12 @@ import java.util.List;
 public class ModifyProductHandler extends BaseHandler {
     @Autowired
     AuthMapper authMapper;
+
+    @Autowired
+    AwsService awsService;
+
+    @Autowired
+    ProductService productService;
 
     @Autowired
     ProductMapper productMapper;
@@ -43,6 +50,7 @@ public class ModifyProductHandler extends BaseHandler {
         String productName = req.getProductName();
         String productDesc = req.getProductDesc();
         int productPrice = req.getProductPrice();
+        List<String> imageList = req.getImageList();
 
         try {
             UserVo sellerVo;
@@ -61,8 +69,10 @@ public class ModifyProductHandler extends BaseHandler {
             productVo.setPrdtNm(productName);
             productVo.setPrdtDesc(productDesc);
             productVo.setPrdtPrce(productPrice);
+            //List<String> urlList = awsService.uploadProductImageList(req.imageList);
 
             if(req != null || !req.equals("")){
+               //result=productService.modifyProduct(productVo, urlList);
                result=productMapper.modifyProduct(productVo);
                log.info("result:" +result);
                res.setResult(result);

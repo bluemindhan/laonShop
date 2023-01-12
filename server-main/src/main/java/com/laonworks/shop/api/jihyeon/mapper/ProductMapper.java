@@ -25,7 +25,7 @@ public interface ProductMapper {
 
   int modifyProduct(@Param("vo") ProductVo vo); // 등록 상품 수정
 
-  // int modifyProductImage(ProductImageVo vo); // 등록 상품 이미지 수정
+  int modifyProductImage(ProductImageVo vo); // 등록 상품 이미지 수정
 
   int deleteProduct(@Param("vo") ProductVo vo); // 등록 상품 삭제
 

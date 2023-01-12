@@ -55,11 +55,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable() // csrf 사용 X
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .authorizeRequests()
-                .anyRequest().permitAll()
+                .authorizeRequests() // 요청에 의한 보안 검사 시작
+                .anyRequest().permitAll() // 어떤 요청에도 보안검사를 한다
                 .and()
                 .addFilterBefore(new JwtAuthenticationFilter(),
-                        UsernamePasswordAuthenticationFilter.class);
+                        UsernamePasswordAuthenticationFilter.class); // 커스텀 필터를 추가 (UsernamePasswordAuthenticationFilter)보다 먼저 실행된다
 
         // 토큰 기반 인증이므로 세션도 사용 X
 //                .and()

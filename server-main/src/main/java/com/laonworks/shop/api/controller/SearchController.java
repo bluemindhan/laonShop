@@ -22,7 +22,6 @@ public class SearchController extends BaseController{
 
         return searchHandler.excute(req);
 
-
     }
 
 

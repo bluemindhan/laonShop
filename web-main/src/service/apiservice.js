@@ -104,22 +104,41 @@ export class ApiService {
       })
     });
   }
+<<<<<<< HEAD
   getProductsList(req) {
     return new Promise((resolve, reject) => {
       axios.get('/api/v1/seller/product/list', req).then(res => {
         if (res.status === 200) {
           resolve(res.data);
+=======
+
+  mainPage() {
+    return new Promise((resolve, reject) => {
+      axios.get('/api/v1/item/mainpage').then(res => {
+        if (res.status === 200) {
+          resolve(res.data);
+          console.log(res.data);
+>>>>>>> d30866524399b4551e43ea73e42a8e70113c2fc2
           return;
         }
 
         console.error(res.status, res.statusText);
         reject(null);
       })
+<<<<<<< HEAD
       .catch((err) => {
         reject(err);
       })
     });
   }
+=======
+          .catch((err) => {
+            reject(err);
+          })
+    });
+  }
+
+>>>>>>> d30866524399b4551e43ea73e42a8e70113c2fc2
 }
 const _api = new ApiService(axios);
 export default {
