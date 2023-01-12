@@ -22,4 +22,8 @@ public class ProductVo { //상품 VO
     public String name; // 상품 이름
 
     public String detail; // 상품 설명
+
+    public int likeCnt; // 좋아요 개수
+
+    public int bookCnt; // 북마크 갯수
 }

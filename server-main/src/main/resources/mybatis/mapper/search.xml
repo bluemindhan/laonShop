@@ -3,19 +3,67 @@
 <mapper namespace="com.laonworks.shop.api.mapper.SearchMapper">
 
   <select id="findByKeyword" resultType="ProductVo">
-  /*findByKeyword*/  SELECT
-     A.PRDT_NO as productId,
-     A.CRT_DT as createDate,
-     A.UPD_DT as updateDate,
-     A.SLLR_ID as sellerId,
-     A.PRDT_NM as name,
-     A.PRDT_PRCE as price,
-     A.PRDT_DESC as detail,
-     B.IMG_URL as image
-   FROM
-     TB_PRODUCT A,
-     TB_PRODUCT_IMAGE B
-   WHERE
-     A.PRDT_NO=B.PRDT_NO
+
+    /*findByKeyword*/  SELECT *
+    FROM(
+        SELECT
+            ROWNUM, A.*
+        FROM(
+            SELECT
+                MAX(A.PRDT_NO) as productId,
+                MAX(A.PRDT_PRCE) as price,
+                MAX(A.PRDT_NM) as name,
+                MAX(B.IMG_URL) as image,
+                MAX(C.LIKE_CNT) as likeCnt,
+                MAX(C.MBK_CNT) as bookCnt
+            FROM
+                TB_PRODUCT A
+                LEFT JOIN TB_PRODUCT_IMAGE B
+                    ON A.PRDT_NO = B.PRDT_NO
+                LEFT JOIN TB_PRODUCT_SOCIAL C
+                    ON B.PRDT_NO = C.PRDT_NO
+            WHERE
+                A.PRDT_NM LIKE '%'||#{search.keyWord}||'%'
+            <if test="search.cateCode != 0">
+            AND
+                A.CATECODE = #{search.cateCode}
+            </if>
+            GROUP BY
+                A.PRDT_NO
+            <if test='search.filter.equals("likeASC")'>
+            ORDER BY
+                likeCnt ASC
+            </if>
+
+            <if test='search.filter.equals("likeDESC")'>
+            ORDER BY
+                likeCnt DESC
+            </if>
+
+            <if test='search.filter.equals("nameASC")'>
+            ORDER BY
+                name ASC
+            </if>
+
+            <if test='search.filter.equals("nameDESC")'>
+            ORDER BY
+                name DESC
+            </if>
+
+            <if test='search.filter.equals("priceASC")'>
+            ORDER BY
+                price ASC
+            </if>
+
+            <if test='search.filter.equals("priceDESC")'>
+            ORDER BY
+                price DESC
+            </if>
+            ) A
+        <![CDATA[
+        WHERE ROWNUM <= 20
+        )
+    ]]>
+      WHERE ROWNUM >= 1
   </select>
 </mapper>

@@ -7,11 +7,11 @@ import lombok.Data;
 @ApiModel(value = "search")
 public class SearchRequest {
 
-    public String keyWord = "";
+    public String keyWord = ""; // 검색
 
-    public int cateCode = 0;
+    public int cateCode = 0; //태블릿 , 핸드폰 등 분류
 
-    public String filter = "";
+    public String filter = ""; // 좋아요 높은 순인지 아닌지 확인
 
 
 }

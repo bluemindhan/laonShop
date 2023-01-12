@@ -20,7 +20,7 @@ import java.util.List;
 
 @Slf4j
 @Component
-public class GetProductListHandler extends BaseHandler {
+public class  GetProductListHandler extends BaseHandler {
     @Autowired
     AuthMapper authMapper;
     @Autowired
