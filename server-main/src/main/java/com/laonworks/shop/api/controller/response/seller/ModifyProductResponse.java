@@ -12,4 +12,5 @@ import lombok.EqualsAndHashCode;
 @Data
 public class ModifyProductResponse extends BaseResponse {
     public int result = 0;
+
 }
