@@ -22,4 +22,6 @@ public interface AuthMapper {
   int selectUserType(@Param("userid") String userid);
 
   String selectRefreshToken(HashMap<String, String> map);
+
+
 }

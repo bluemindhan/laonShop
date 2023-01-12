@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.laonworks.shop.api.mapper.UserMapper">
-    <select id="selectProductList" resultType="ProductVo">
-       SELECT
-             A.PRDT_NO as productId,
-             A.CRT_DT as createDate,
-             A.UPD_DT as updateDate,
-             A.SLLR_ID as sellerId,
-             A.PRDT_NM as name,
-             A.PRDT_PRCE as price,
-             A.PRDT_DESC as detail,
-             B.IMG_URL as image
-         FROM
-             TB_PRODUCT A,
-             TB_PRODUCT_IMAGE B
-         WHERE
-           A.PRDT_NO=B.PRDT_NO
-    </select>
+
     <select id="selectBuyList" resultType="BuyVo">
         <![CDATA[
         SELECT
@@ -35,7 +20,37 @@
             USR_ID=#{userId, jdbcType=VARCHAR} AND
             A.PRDT_NO = B.PRDT_NO
             ORDER BY BUYID ASC
-                            ]]>
+        ]]>
     </select>
+    
+    <update id="updateUserInfo" parameterType="Map">
+        UPDATE
+            TB_USER
+        SET
+            USR_ID =#{map.user.userId, jdbcType=VARCHAR},
+            USR_NM =#{map.user.name, jdbcType=VARCHAR},
+            USR_EML=#{map.user.email, jdbcType=VARCHAR},
+            USR_PSSWRD=#{map.user.password, jdbcType=VARCHAR},
+            USR_BIR=#{map.user.birth, jdbcType=VARCHAR },
+            USR_GD=#{map.user.gender, jdbcType=VARCHAR},
+            USR_PN=#{map.user.phone, jdbcType=VARCHAR},
+            SALT=#{map.user.salt, jdbcType=VARCHAR},
+            UPD_DT=SYSDATE
+        WHERE
+            USR_ID =#{map.userId, jdbcType=VARCHAR}
+    </update>
 
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

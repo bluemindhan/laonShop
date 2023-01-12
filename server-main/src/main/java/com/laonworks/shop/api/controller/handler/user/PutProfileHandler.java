@@ -4,7 +4,10 @@ import com.laonworks.shop.api.controller.ResultCode;
 import com.laonworks.shop.api.controller.handler.BaseHandler;
 import com.laonworks.shop.api.controller.request.user.PutProfileRequest;
 import com.laonworks.shop.api.controller.response.user.PutProfileResponse;
+import com.laonworks.shop.api.controller.utils.CryptoUtils;
+import com.laonworks.shop.api.controller.vo.UserInfo;
 import com.laonworks.shop.api.controller.vo.UserType;
+import com.laonworks.shop.api.mapper.AuthMapper;
 import com.laonworks.shop.api.mapper.UserMapper;
 import com.laonworks.shop.api.mapper.vo.UserVo;
 import com.laonworks.shop.api.service.CustomUserDetails;
@@ -25,22 +28,69 @@ public class PutProfileHandler extends BaseHandler {
 
     public PutProfileResponse execute(CustomUserDetails user, PutProfileRequest req){
         PutProfileResponse res =new PutProfileResponse();
+        if(req.invalid()){
+            res.setCode(ResultCode.InvalidParameter);
+            return res;
+        }
         if(user == null) {
             res.setCode(ResultCode.Unauthorized);
             return res;
         }
-        String email = user.getUsername();
-        int userType = user.getUserType();
-        try {
-            UserVo userVo;
-            if(userType== UserType.User.getValue()){
 
+        try {
+            // parameter setting
+            int userType = user.getUserType();
+            String beforeEmail=user.getUsername();
+            String updateEmail = req.email;
+            String password = req.password;
+            String name= req.name;
+            String birth =req.birth;
+            String gender = req.gender;
+            String phone = req.phone;
+            String salt = CryptoUtils.generateSalt();
+            String encryptedPassword = CryptoUtils.encryptPassword(password,salt);
+
+            UserVo userVo = new UserVo();
+            userVo.userId = updateEmail;
+            userVo.email = updateEmail;
+            userVo.password = encryptedPassword;
+            userVo.name = name;
+            userVo.birth = birth;
+            userVo.gender = gender;
+            userVo.phone = phone;
+            userVo.salt = salt;
+            userVo.userType = userType;
+
+            HashMap<String,Object> map = new HashMap<>();
+            map.put("userId",beforeEmail);
+            map.put("user",userVo);
+
+            if(userType== UserType.User.getValue()){ // login User(buyer) 프로필 수정
+                int result = userMapper.updateUserInfo(map);
+
+                if(result<=0){
+                    res.setCode(ResultCode.InternalServerError);
+                    return res;
+                }
             }
-            else {
+            else if(userType == UserType.Seller.getValue()){ // login User(seller) 프로필 수정
+                int result = userMapper.updateSellerInfo(map);
+                if(result<=0){
+                    res.setCode(ResultCode.InternalServerError);
+                    return res;
+                }
+            }
+            else{
                 res.setCode(ResultCode.Unauthorized);
                 return res;
             }
-        }catch (Exception e){
+            res.userInfo=new UserInfo();
+            res.userInfo.set(userVo);
+            res.userInfo.userType = userType;
+            res.setCode(ResultCode.Success);
+            return res;
+        }
+        catch (Exception e){
             res.setCode(ResultCode.InternalServerError);
         }
         return res;

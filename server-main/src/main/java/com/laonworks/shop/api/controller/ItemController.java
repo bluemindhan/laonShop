@@ -54,7 +54,7 @@ public class ItemController extends BaseController {
             throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
         }
         GetItemsRequest req = new GetItemsRequest();
-        if (checkRoute(RequestMethod.GET, "/api/v1/item/user-items", user) == false) {
+        if (checkRoute(RequestMethod.GET,"/api/v1/item/user-items", user) == false) {
             throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
         }
         return getItemsHandler.execute(user,req);

@@ -19,7 +19,8 @@
   </select>
 
   <select id="selectSellerInfo" resultType="UserVo">
-    /* selectSellerInfo */ SELECT
+    /* selectSellerInfo */
+    SELECT
     A.SLLR_ID as userId ,
     A.SLLR_NM as name ,
     A.PSSWRD as password ,
@@ -35,7 +36,8 @@
   </select>
 
   <insert id="insertUserInfo" parameterType="UserVo">
-    /* insertUserInfo */ INSERT INTO TB_USER (
+    /* insertUserInfo */
+    INSERT INTO TB_USER (
     USR_ID,
     USR_NM,
     USR_EML,
@@ -61,7 +63,8 @@
   </insert>
 
   <insert id="insertSellerInfo" parameterType="UserVo">
-    /* insertSellerInfo */ INSERT INTO TB_SELLER (
+    /* insertSellerInfo */
+    INSERT INTO TB_SELLER (
     SLLR_ID,
     SLLR_NM,
     PSSWRD,
