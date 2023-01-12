@@ -22,9 +22,15 @@ public class SearchHandler extends BaseHandler {
 
         GetItemsResponse res = new GetItemsResponse();
 
-        List<ProductVo> searchList = searchMapper.findByKeyword(req);
+        int currentpage = req.page;
+        int pagesize = 10;
+        int start = (currentpage - 1) * pagesize + 1;
+        int end = start + pagesize - 1;
+
+        List<ProductVo> searchList = searchMapper.findByKeyword(req,start,end);
 
         res.products = searchList;
+
 
 
         return res;

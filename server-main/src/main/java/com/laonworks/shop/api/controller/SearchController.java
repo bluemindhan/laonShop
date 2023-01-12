@@ -2,7 +2,10 @@ package com.laonworks.shop.api.controller;
 
 import com.laonworks.shop.api.controller.handler.search.SearchHandler;
 import com.laonworks.shop.api.controller.request.search.SearchRequest;
+<<<<<<< HEAD
 
+=======
+>>>>>>> d30866524399b4551e43ea73e42a8e70113c2fc2
 import com.laonworks.shop.api.controller.response.item.GetItemsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +25,6 @@ public class SearchController extends BaseController{
         GetItemsResponse res = new GetItemsResponse();
 
         return searchHandler.excute(req);
-
 
     }
 
