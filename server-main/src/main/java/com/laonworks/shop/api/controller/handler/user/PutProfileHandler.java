@@ -40,8 +40,8 @@ public class PutProfileHandler extends BaseHandler {
         try {
             // parameter setting
             int userType = user.getUserType();
-            String beforeEmail=user.getUsername();
-            String updateEmail = req.email;
+            String userId=user.getUsername();
+            String email = req.email;
             String password = req.password;
             String name= req.name;
             String birth =req.birth;
@@ -51,10 +51,11 @@ public class PutProfileHandler extends BaseHandler {
             String encryptedPassword = CryptoUtils.encryptPassword(password,salt);
 
             UserVo userVo = new UserVo();
-            userVo.userId = updateEmail;
-            userVo.email = updateEmail;
+//            userVo.userId = updateEmail;
+//            userVo.email = updateEmail;
             userVo.password = encryptedPassword;
             userVo.name = name;
+            userVo.email= email;
             userVo.birth = birth;
             userVo.gender = gender;
             userVo.phone = phone;
@@ -62,7 +63,7 @@ public class PutProfileHandler extends BaseHandler {
             userVo.userType = userType;
 
             HashMap<String,Object> map = new HashMap<>();
-            map.put("userId",beforeEmail);
+            map.put("userId",userId);
             map.put("user",userVo);
 
             if(userType== UserType.User.getValue()){ // login User(buyer) 프로필 수정

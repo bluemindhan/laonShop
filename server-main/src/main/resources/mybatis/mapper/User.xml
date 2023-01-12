@@ -27,7 +27,6 @@
         UPDATE
             TB_USER
         SET
-            USR_ID =#{map.user.userId, jdbcType=VARCHAR},
             USR_NM =#{map.user.name, jdbcType=VARCHAR},
             USR_EML=#{map.user.email, jdbcType=VARCHAR},
             USR_PSSWRD=#{map.user.password, jdbcType=VARCHAR},

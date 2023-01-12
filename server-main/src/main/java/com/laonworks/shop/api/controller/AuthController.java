@@ -83,6 +83,14 @@ public class AuthController extends BaseController {
     return refreshHandler.excute(req);
   }
 
+  
+  // login User/Seller 계정 삭제
+  @Autowired
+  private WithdrawalHandler withdrawalHandler;
+
+  @RequestMapping(method = RequestMethod.DELETE, value = "withdrawal")
+  @ApiOperation(value = "withdrawal")
+  WithdrawalResponse withdrawal(@AuthenticationPrincipal Authentication a)
 
 
 
