@@ -13,15 +13,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class WithdrawalHandler extends BaseHandler {
 
-    @Autowired
-    AuthMapper authMapper;
+//    @Autowired
+//    AuthMapper authMapper;
 
-    public WithdrawalResponse execute(WithdrawalRequest req){
-        WithdrawalResponse res = new WithdrawalResponse();
-        if(req.invalid()){
-            res.setCode(ResultCode.InvalidParameter);
-            return res;
-        }
-
-    }
+//    public WithdrawalResponse execute(WithdrawalRequest req){
+//        WithdrawalResponse res = new WithdrawalResponse();
+//        if(req.invalid()){
+//            res.setCode(ResultCode.InvalidParameter);
+//            return res;
+//        }
+//
+//    }
 }

@@ -85,6 +85,7 @@ public class AuthController extends BaseController {
   }
 
 }
+
  // login User/Seller 계정 삭제
 //  @Autowired
 //  private WithdrawalHandler withdrawalHandler;
