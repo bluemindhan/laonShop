@@ -12,5 +12,5 @@ public interface ItemMapper {
 
     ItemVo selectItemDetailInfo(@Param("pdNum") int productNo);
 
-    List<String> selectCommentList(@Param("pdNum") int productNo);
+    List<ItemVo> selectMainPage();
 }

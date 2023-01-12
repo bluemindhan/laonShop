@@ -2,10 +2,12 @@ package com.laonworks.shop.api.controller;
 
 import com.laonworks.shop.api.controller.handler.item.ItemDetailHandler;
 import com.laonworks.shop.api.controller.handler.item.GetItemsHandler;
+import com.laonworks.shop.api.controller.handler.item.MainPageHandler;
 import com.laonworks.shop.api.controller.request.item.ItemDetailRequest;
 import com.laonworks.shop.api.controller.request.item.GetItemsRequest;
 import com.laonworks.shop.api.controller.response.item.ItemDetailResponse;
 import com.laonworks.shop.api.controller.response.item.GetItemsResponse;
+import com.laonworks.shop.api.controller.response.item.MainPageResponse;
 import com.laonworks.shop.api.service.CustomUserDetails;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -59,4 +61,16 @@ public class ItemController extends BaseController {
         }
         return getItemsHandler.execute(user,req);
     }
+
+    @Autowired
+    private MainPageHandler mainPageHandler;
+
+    @RequestMapping(method = RequestMethod.GET, value = "mainpage")
+    @ApiOperation(value = "main page")
+    MainPageResponse getMainPage(){
+
+
+        return mainPageHandler.excute();
+    }
+
 }

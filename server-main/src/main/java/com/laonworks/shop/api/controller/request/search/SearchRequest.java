@@ -13,5 +13,7 @@ public class SearchRequest {
 
     public String filter = ""; // 좋아요 높은 순인지 아닌지 확인
 
+    public int page = 0; // 현재 페이지
+
 
 }
