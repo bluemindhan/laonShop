@@ -7,7 +7,6 @@
           <p class="mt-2 text-sm text-gray-500">Check all products and update details or delete products.</p>      </div>
         <div class="mt-16">
           <div class="space-y-20">
-            <div v-for="product in productList" :key="product.productId">
               <table class="mt-4 w-full text-gray-500 sm:mt-6">
                 <thead class="sr-only text-left text-sm text-gray-500 sm:not-sr-only">
                   <tr>
@@ -79,7 +78,6 @@
           </button>
         </div>
       </nav>
-    </div>
 </template>
   
 <script>
@@ -134,18 +132,19 @@
       },
       async nextPage() {
         this.pageNo++;
-        await this.getProductList();
+        await this.ProductList();
       },
       async prevPage() {
         this.pageNo--;
-        await this.getProductList();
+        await this.ProductList();
       },
-      async getProductList() {
+      async ProductList() {
         let req = new GetProductListRequest();
         req.pageNo = this.pageNo;
         req.pageSize = this.pageSize;
+        console.log(req);
         try {
-          let res = await this.api.getProductList(req);
+          let res = await this.api.getProductsList(req);
           this.totalCount = res.totalCount;
           this.pageNo = res.pageNo;
           this.pageSize = res.pageSize;
@@ -156,7 +155,7 @@
           console.log(res);
           }
         } catch (e) {
-          console.error(e);
+          console.log(e);
         }
       },
     },
@@ -167,7 +166,7 @@
       } else {
       // accessToken이 있으면 상품목록을 가져온다.
       this.api.setAccessToken(this.accessToken);
-      this.getProductList();
+      this.ProductList();
       }
     },
     mounted() {
