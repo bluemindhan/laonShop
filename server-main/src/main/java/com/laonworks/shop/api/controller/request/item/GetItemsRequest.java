@@ -1,4 +1,4 @@
-package com.laonworks.shop.api.controller.request.user;
+package com.laonworks.shop.api.controller.request.item;
 
 import com.laonworks.shop.api.controller.vo.ItemInfo;
 import com.laonworks.shop.api.controller.vo.ProductInfo;

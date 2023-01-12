@@ -11,6 +11,11 @@ import com.laonworks.shop.api.service.CustomUserDetails;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Slf4j
 @Component
@@ -38,6 +43,21 @@ public class PutProfileHandler extends BaseHandler {
         }catch (Exception e){
             res.setCode(ResultCode.InternalServerError);
         }
+        return res;
+    }
+
+    public static PutProfileResponse validatePutProfile(Errors errors) {
+        Map<String, String> errorList = new HashMap<>();
+        PutProfileResponse res = new PutProfileResponse();
+
+        for(FieldError error : errors.getFieldErrors()){
+            String validKeyName= String.format("valid_%s",error.getField());
+            errorList.put(validKeyName, error.getDefaultMessage());
+        }
+
+        res.setCode(ResultCode.Failed);
+        res.setErrorList(errorList);
+
         return res;
     }
 
