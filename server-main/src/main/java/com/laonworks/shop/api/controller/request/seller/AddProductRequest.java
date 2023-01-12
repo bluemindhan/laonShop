@@ -20,8 +20,8 @@ public class AddProductRequest {
     @ApiParam(value = "")
     public int productPrice =  0;
     
-//    @ApiParam(value = "")
-//    public List<String> imageList =  null;
+    @ApiParam(value = "")
+    public List<String> imageList =  null;
     
     
     public boolean valid() {
