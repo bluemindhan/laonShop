@@ -1,4 +1,7 @@
 package com.laonworks.shop.api.controller.response.auth;
 
-public class WithdrawalResponse {
+import com.laonworks.shop.api.controller.response.BaseResponse;
+
+public class WithdrawalResponse extends BaseResponse {
+
 }
