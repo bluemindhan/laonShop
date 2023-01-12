@@ -90,7 +90,10 @@ public class AuthController extends BaseController {
 
   @RequestMapping(method = RequestMethod.DELETE, value = "withdrawal")
   @ApiOperation(value = "withdrawal")
-  WithdrawalResponse withdrawal(@AuthenticationPrincipal Authentication a)
+  WithdrawalResponse withdrawal(@AuthenticationPrincipal Authentication auth,WithdrawalRequest req){
+
+    return withdrawalHandler.execute(req);
+  }
 
 
 
