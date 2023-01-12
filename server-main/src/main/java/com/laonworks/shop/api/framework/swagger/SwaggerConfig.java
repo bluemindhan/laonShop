@@ -69,7 +69,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
         registry.addMapping("/**")
                 .allowedOrigins("http://localhost:3000","http://localhost:9090")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedHeaders("Content-Type", "X-Requested-With", "accept", "Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", "Authorization")
+                .allowedHeaders("Content-Type", "X-Requested-With", "accept", "Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", "RefreshToken", "Authorization")
                 .exposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials")
                 .allowCredentials(true).maxAge(3600);
 

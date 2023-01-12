@@ -105,8 +105,9 @@ export class ApiService {
     });
   }
   getProductsList(req) {
+    const url = "/api/v1/seller/product/list?" + qs.stringify(req);
     return new Promise((resolve, reject) => {
-      axios.get('/api/v1/seller/product/list', req).then(res => {
+      axios.get(url).then(res => {
         if (res.status === 200) {
           resolve(res.data);
           return;

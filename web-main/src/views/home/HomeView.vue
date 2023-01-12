@@ -24,7 +24,7 @@
       <div class="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
         <div v-for="post in volist" :key="post.itemId" class="flex flex-col overflow-hidden rounded-lg shadow-lg">
           <div class="flex-shrink-0">
-            <img class="h-48 w-full object-cover" :src="post.imageVoList.image" alt="" />
+            <img class="h-48 w-full object-cover" :src="post.imageVoList[0].image" alt="" />
           </div>
           <div class="flex flex-1 flex-col justify-between bg-white p-6">
             <div class="flex-1">
