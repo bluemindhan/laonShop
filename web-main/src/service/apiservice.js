@@ -104,6 +104,22 @@ export class ApiService {
       })
     });
   }
+  getProductsList(req) {
+    return new Promise((resolve, reject) => {
+      axios.get('/api/v1/seller/product/list', req).then(res => {
+        if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }        
 
   mainPage() {
     return new Promise((resolve, reject) => {
@@ -117,9 +133,9 @@ export class ApiService {
         console.error(res.status, res.statusText);
         reject(null);
       })
-          .catch((err) => {
-            reject(err);
-          })
+      .catch((err) => {
+        reject(err);
+      })
     });
   }
 
