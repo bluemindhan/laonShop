@@ -7,7 +7,7 @@
           <p class="mt-2 text-sm text-gray-500">Check all products and update details or delete products.</p>      </div>
         <div class="mt-16">
           <div class="space-y-20">
-            <div v-for="order in orders" :key="order.number">
+            <div v-for="product in products" :key="product.productId">
               <table class="mt-4 w-full text-gray-500 sm:mt-6">
                 <thead class="sr-only text-left text-sm text-gray-500 sm:not-sr-only">
                   <tr>
@@ -19,23 +19,27 @@
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 border-b border-gray-200 text-sm sm:border-t">
-                  <tr v-for="product in order.products" :key="product.id">
+                  <tr v-for="product in productList" :key="product.productId">
                     <td class="py-6 pr-8">
                       <div class="flex items-center">
-                        <img :src="product.imageSrc" :alt="product.imageAlt" class="mr-6 h-16 w-16 rounded object-cover object-center" />
+                        <img :src="product.image" :alt="product.image" class="mr-6 h-16 w-16 rounded object-cover object-center" />
                         <div>
-                          <div class="font-medium text-gray-900">{{ product.name }}</div>
-                          <div class="mt-1 sm:hidden">{{ product.price }}</div>
+                          <div class="font-medium text-gray-900">{{ product.prdtNo }}</div>
+                          <div class="mt-1 sm:hidden">{{ product.prdtPrce }}</div>
                         </div>
                       </div>
                     </td>
-                    <td class="hidden py-6 pr-8 sm:table-cell">{{ product.price }} 원</td>
-                    <td class="hidden py-6 pr-8 sm:table-cell">{{ product.status }}</td>
-                    <td class="hidden py-6 pr-8 sm:table-cell text-red-600">{{ product.count }} 개</td>
+                    <td class="hidden py-6 pr-8 sm:table-cell">{{ product.prdtPrce }} 원</td>
+                    <td class="hidden py-6 pr-8 sm:table-cell">
+                      <!-- {{ product.crtDt }} -->
+                    </td>
+                    <!-- <td class="hidden py-6 pr-8 sm:table-cell text-red-600">{{ product.count }} 개</td> -->
                     <td class="whitespace-nowrap py-6 text-right font-medium">
-                      <a :href="product.href" class="text-indigo-600">
-                        <span class="hidden lg:inline">수정</span><span class="sr-only"></span>
-                      </a>
+                      <router-link :to="`/seller/product/${ product.productId }`">
+                        <a :href="product.href" class="text-indigo-600">
+                          <span class="hidden lg:inline">수정</span><span class="sr-only"></span>
+                        </a>
+                      </router-link>
                        / 
                       <a :href="product.href" class="text-indigo-600">
                         <span class="hidden lg:inline">삭제</span><span class="sr-only"></span>
@@ -76,57 +80,26 @@
         </div>
       </nav>
     </div>
-  </template>
+</template>
   
-  <script setup>
-  const orders = [
-    {
-      number: 'WU88191111',
-      date: 'January 22, 2021',
-      datetime: '2021-01-22',
-      invoiceHref: '#',
-      products: [
-        {
-          id: 1,
-          name: 'iPhone 13',
-          href: '#',
-          price: '1,090,000',
-          status: 'Jan 25, 2021',
-          count: '43',
-          imageSrc: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/iphone-13-finish-select-202207-6-1inch-pink?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1657641867367',
-          imageAlt: 'Detail of mechanical pencil tip with machined black steel shaft and chrome lead tip.',
-        },
-        {
-          id: 2,
-          name: 'AirPods(3세대)',
-          href: '#',
-          price: '259,000',
-          status: 'Mar 25, 2022',
-          count: '25',
-          imageSrc: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MME73?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1632861342000',
-          imageAlt: 'Detail of mechanical pencil tip with machined black steel shaft and chrome lead tip.',
-        },
-        // More products...
-      ],
-    },
-    // More orders...
-  ]
-  </script>
-  
-  <script>
+<script>
   import GetProductListRequest from "../../service/request/GetProductListRequest";
-  
+  import {mapGetters, mapMutations} from "vuex";
+  import ResultCode from "@/service/ResultCode";
+
   export default {
     name: "SellerProductsView",
-    components: {},
-    props: {},
+    components: {
+    },
+    props: {
+    },
     data() {
       return {
         pageNo: 1,
         pageSize: 10,
         totalPages: 0,
         totalCount: 0,
-        products: [],
+        productList: [],
       };
     },
     computed: {
@@ -136,8 +109,26 @@
       hasPrev() {
         return this.pageNo > 1;
       },
+      ...mapGetters({
+      accessToken: "appStore/accessToken",
+      refreshToken: "appStore/refreshToken",
+    }),
+    },
+    watch: {
+    accessToken: function (val) {
+      console.log("accessToken changed..", val);
+      this.api.setAccessToken(val);
+    },
+    refreshToken: function (val) {
+      console.log("refreshToken changed..", val);
+      this.api.setRefreshToken(val);
+    }
     },
     methods: {
+      ...mapMutations({
+      setAccessToken: "appStore/accessToken",
+      setRefreshToken: "appStore/refreshToken",
+      }),
       detail(prdtNo) {
         console.log("detail", prdtNo);
       },
@@ -160,20 +151,33 @@
           this.pageSize = res.pageSize;
           this.totalPages = Math.ceil(this.totalCount / this.pageSize);
           this.products = res.productList;
+          if (res.code === ResultCode.Success) {
+          this.products = res.products;
           console.log(res);
+          }
         } catch (e) {
           console.error(e);
         }
       },
     },
     created() {
+      if (this.accessToken == null || this.accessToken == "") {
+      // accessToken이 없으면 로그인 페이지로 이동한다.
+      this.$router.replace({name: "SignInView"});
+      } else {
+      // accessToken이 있으면 상품목록을 가져온다.
+      this.api.setAccessToken(this.accessToken);
       this.getProductList();
+      }
     },
     mounted() {
     },
     beforeUnmount() {
     },
   };
-  </script>
-  <style></style>
+</script>
+
+<style>
+
+</style>
   
