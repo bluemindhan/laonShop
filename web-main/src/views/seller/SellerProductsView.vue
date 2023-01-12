@@ -7,7 +7,7 @@
           <p class="mt-2 text-sm text-gray-500">Check all products and update details or delete products.</p>      </div>
         <div class="mt-16">
           <div class="space-y-20">
-            <div v-for="product in products" :key="product.productId">
+            <div v-for="product in productList" :key="product.productId">
               <table class="mt-4 w-full text-gray-500 sm:mt-6">
                 <thead class="sr-only text-left text-sm text-gray-500 sm:not-sr-only">
                   <tr>
@@ -150,9 +150,9 @@
           this.pageNo = res.pageNo;
           this.pageSize = res.pageSize;
           this.totalPages = Math.ceil(this.totalCount / this.pageSize);
-          this.products = res.productList;
+          this.productList = res.productList;
           if (res.code === ResultCode.Success) {
-          this.products = res.products;
+          this.productList = res.productList;
           console.log(res);
           }
         } catch (e) {
