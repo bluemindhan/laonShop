@@ -22,7 +22,7 @@
         <p class="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">편리하게 쇼핑몰을 즐기시기 바랍니다.</p>
       </div>
       <div class="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
-        <div v-for="post in products" :key="post.itemId" class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+        <div v-for="post in volist" :key="post.itemId" class="flex flex-col overflow-hidden rounded-lg shadow-lg">
           <div>{{post.name}}</div>
 
         </div>
@@ -137,7 +137,7 @@ export default {
   },
   data() {
     return {
-      products: [],
+      volist: [],
     }
   },
   computed: {
@@ -148,7 +148,7 @@ export default {
       try {
         let res = await this.api.mainPage();
         if (res.code === ResultCode.Success) {
-          this.products = res.products;
+          this.volist = res.volist;
           console.log(res);
         }
       } catch (e) {
