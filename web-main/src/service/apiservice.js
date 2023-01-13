@@ -88,6 +88,7 @@ export class ApiService {
       })
     });
   }
+
   itemDetail(req) {
     const url = '/api/v1/item/item-details?' + qs.stringify(req);
     return new Promise((resolve, reject) => {
@@ -104,6 +105,7 @@ export class ApiService {
       })
     });
   }
+  
   getProductsList(req) {
     const url = "/api/v1/seller/product/list?" + qs.stringify(req);
     return new Promise((resolve, reject) => {
