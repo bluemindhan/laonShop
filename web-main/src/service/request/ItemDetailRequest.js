@@ -1,5 +1,5 @@
 export default class ItemDetailRequest {
     constructor() {
-        this.productNum = '';
+        this.productNum = 0;
     }
 }
