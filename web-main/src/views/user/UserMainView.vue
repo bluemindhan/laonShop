@@ -10,10 +10,14 @@
           </div>
           <div class="pt-10 pb-4 text-center">
             <h3 class="text-sm font-medium text-gray-900">
-              <router-link :to="`/user/items/${ product.productId }`">
+              <!-- <router-link :to="`/user/items/${ product.productId }`">
                 <span aria-hidden="true" class="absolute inset-0" />
                 {{ product.name }}
-              </router-link>
+              </router-link> -->
+              <div @click="$router.push(`/user/items/${ product.productId }`)">
+                <span aria-hidden="true" class="absolute inset-0" />
+                {{ product.name }}
+              </div>
             </h3>
             <p class="mt-4 text-base font-medium text-gray-900">{{ product.price }}</p>
             <!-- 장바구니 / 구매하기 버튼 -->
