@@ -68,7 +68,7 @@ public class CartController {
     @Autowired
     CartUpdateHandler cartUpdateHandler;
 
-    @RequestMapping(method = RequestMethod.PUT, value = "cart-update")
+    @RequestMapping(method = RequestMethod.PATCH, value = "cart-update")
     GetCartResponse cartUpdate(@AuthenticationPrincipal Authentication auth, @RequestBody CartUpdateRequest req){
 
 
