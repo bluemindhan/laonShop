@@ -21,28 +21,28 @@
             <h2 id="cart-heading" class="sr-only">Items in your shopping cart</h2>
   
             <ul role="list" class="divide-y divide-gray-200 border-t border-b border-gray-200">
-              <li v-for="(product, productIdx) in products" :key="product.id" class="flex py-6 sm:py-10">
-                <div class="flex-shrink-0">
+              <li v-for="(vo, productIdx) in volist" :key="vo.productNum" class="flex py-6 sm:py-10">
+                <!-- <div class="flex-shrink-0">
                   <img :src="product.imageSrc" :alt="product.imageAlt" class="h-24 w-24 rounded-md object-cover object-center sm:h-48 sm:w-48" />
-                </div>
+                </div> -->
   
                 <div class="ml-4 flex flex-1 flex-col justify-between sm:ml-6">
                   <div class="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
                     <div>
                       <div class="flex justify-between">
                         <h3 class="text-sm">
-                          <a :href="product.href" class="font-medium text-gray-700 hover:text-gray-800">{{ product.name }}</a>
+                          <a :href="vo.href" class="font-medium text-gray-700 hover:text-gray-800">{{ vo.productName }}</a>
                         </h3>
                       </div>
-                      <div class="mt-1 flex text-sm">
+                      <!-- <div class="mt-1 flex text-sm">
                         <p class="text-gray-500">{{ product.color }}</p>
                         <p v-if="product.size" class="ml-4 border-l border-gray-200 pl-4 text-gray-500">{{ product.size }}</p>
-                      </div>
-                      <p class="mt-1 text-sm font-medium text-gray-900">{{ product.price }}</p>
+                      </div> -->
+                      <p class="mt-1 text-sm font-medium text-gray-900">{{ vo.price }}</p>
                     </div>
   
                     <div class="mt-4 sm:mt-0 sm:pr-9">
-                      <label :for="`quantity-${productIdx}`" class="sr-only">Quantity, {{ product.name }}</label>
+                      <label :for="`quantity-${productIdx}`" class="sr-only">Quantity, {{ vo.productName }}</label>
                       <select :id="`quantity-${productIdx}`" :name="`quantity-${productIdx}`" class="max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -63,11 +63,11 @@
                     </div>
                   </div>
   
-                  <p class="mt-4 flex space-x-2 text-sm text-gray-700">
+                  <!-- <p class="mt-4 flex space-x-2 text-sm text-gray-700">
                     <CheckIcon v-if="product.inStock" class="h-5 w-5 flex-shrink-0 text-green-500" aria-hidden="true" />
                     <ClockIcon v-else class="h-5 w-5 flex-shrink-0 text-gray-300" aria-hidden="true" />
                     <span>{{ product.inStock ? 'In stock' : `Ships in ${product.leadTime}` }}</span>
-                  </p>
+                  </p> -->
                 </div>
               </li>
             </ul>
@@ -117,46 +117,118 @@
       </form>
     </div>
     </div>
-  </template>
-  
-  <script setup>
-  import { CheckIcon, ClockIcon, QuestionMarkCircleIcon, XMarkIcon } from '@heroicons/vue/20/solid'
-  
-  const products = [
-    {
-      id: 1,
-      name: 'Basic Tee',
-      href: '#',
-      price: '$32.00',
-      color: 'Sienna',
-      inStock: true,
-      size: 'Large',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-01.jpg',
-      imageAlt: "Front of men's Basic Tee in sienna.",
+</template>
+<script>
+import GetCartRequest from "@/service/request/GetCartRequest.js";
+import {mapGetters, mapMutations} from "vuex";
+import ResultCode from "@/service/ResultCode";
+
+export default {
+  name: 'UserCartView',
+  components: {
+  },
+  props: {
+  },
+  data() {
+    return {
+      volist : [],
+    }
+  },
+  computed: {
+    ...mapGetters({
+      accessToken: "appStore/accessToken",
+      refreshToken: "appStore/refreshToken",
+    }),
+  },
+  watch: {
+    accessToken: function (val) {
+      console.log("accessToken changed..", val);
+      this.api.setAccessToken(val);
     },
-    {
-      id: 2,
-      name: 'Basic Tee',
-      href: '#',
-      price: '$32.00',
-      color: 'Black',
-      inStock: false,
-      leadTime: '3–4 weeks',
-      size: 'Large',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-02.jpg',
-      imageAlt: "Front of men's Basic Tee in black.",
-    },
-    {
-      id: 3,
-      name: 'Nomad Tumbler',
-      href: '#',
-      price: '$35.00',
-      color: 'White',
-      inStock: true,
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-03.jpg',
-      imageAlt: 'Insulated bottle with white base and black snap lid.',
-    },
-  ]
+    refreshToken: function (val) {
+      console.log("refreshToken changed..", val);
+      this.api.setRefreshToken(val);
+    }
+  },
+  methods: {
+    ...mapMutations({
+      setAccessToken: "appStore/accessToken",
+      setRefreshToken: "appStore/refreshToken",
+      setUserInfo: "appStore/userInfo",
+    }),
+    async getCartList() {
+      let req = new GetCartRequest();
+
+      try {
+        let res = await this.api.getCartList(req);
+        if (res.code === ResultCode.Success) {
+          this.volist = res.volist;
+          console.log(res);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  },
+  created() {
+    console.log("UserMainView.vue..", this.accessToken);
+    if (this.accessToken == null || this.accessToken == "") {
+      /**
+       * accessToken이 없으면 로그인 페이지로 이동한다.
+       */
+      this.$router.replace({name: "SignInView"});
+    } else {
+      /**
+       * accessToken이 있으면 프로필 정보를 가져온다.
+       */
+      this.api.setAccessToken(this.accessToken);
+      this.getCartList();
+    }  
+  },
+  mounted() {
+  },
+  beforeUnmount() {
+  }
+}
+</script>
+<script setup>
+import { CheckIcon, ClockIcon, QuestionMarkCircleIcon, XMarkIcon } from '@heroicons/vue/20/solid'
+
+// const products = [
+//   {
+//     id: 1,
+//     name: 'Basic Tee',
+//     href: '#',
+//     price: '$32.00',
+//     color: 'Sienna',
+//     inStock: true,
+//     size: 'Large',
+//     imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-01.jpg',
+//     imageAlt: "Front of men's Basic Tee in sienna.",
+//   },
+//   {
+//     id: 2,
+//     name: 'Basic Tee',
+//     href: '#',
+//     price: '$32.00',
+//     color: 'Black',
+//     inStock: false,
+//     leadTime: '3–4 weeks',
+//     size: 'Large',
+//     imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-02.jpg',
+//     imageAlt: "Front of men's Basic Tee in black.",
+//   },
+//   {
+//     id: 3,
+//     name: 'Nomad Tumbler',
+//     href: '#',
+//     price: '$35.00',
+//     color: 'White',
+//     inStock: true,
+//     imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-03.jpg',
+//     imageAlt: 'Insulated bottle with white base and black snap lid.',
+//   },
+// ]
 </script>
 <style>
 </style>
