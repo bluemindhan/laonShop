@@ -3,17 +3,20 @@
 <mapper namespace="com.laonworks.shop.api.mapper.CartMapper">
     <select id="selectCartInfo" resultType="CartVo">
     /*selectCartInfo*/ SELECT
-      A.USR_ID AS userid,
-      A.PRDT_NO AS productNum,
-      A.PRDT_CNT AS cnt,
-      B.PRDT_PRCE AS price,
-      B.PRDT_NM AS productName,
-      A.PRDT_CNT * B.PRDT_PRCE AS  sum
+        MAX(A.USR_ID) AS userid,
+        MAX(A.PRDT_NO) AS productNum,
+        MAX(A.PRDT_CNT) AS cnt,
+        MAX(B.PRDT_PRCE) AS price,
+        MAX(B.PRDT_NM) AS productName,
+        MAX(C.IMG_URL) as image,
+        MAX(A.PRDT_CNT) * MAX(B.PRDT_PRCE) AS  sum
     FROM
-      TB_CART A, TB_PRODUCT B
+      TB_CART A
+        LEFT JOIN TB_PRODUCT B
+            ON A.PRDT_NO = B.PRDT_NO
+        LEFT JOIN TB_PRODUCT_IMAGE C
+            ON B.PRDT_NO = C.PRDT_NO
     WHERE
-      A.PRDT_NO = B.PRDT_NO
-    AND
       A.USR_ID = #{userid}
     </select>
 
@@ -23,7 +26,7 @@
       A.PRDT_NO AS productNum,
       A.PRDT_CNT AS cnt,
       B.PRDT_PRCE AS price,
-      B.PRDT_NM AS productName
+      B.PRDT_NM AS productName,
     FROM
       TB_CART A, TB_PRODUCT B
     WHERE

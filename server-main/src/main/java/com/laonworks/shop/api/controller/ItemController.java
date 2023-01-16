@@ -69,8 +69,8 @@ public class ItemController extends BaseController {
     @ApiOperation(value = "main page")
     MainPageResponse getMainPage(){
 
-
         return mainPageHandler.excute();
+
     }
 
 }

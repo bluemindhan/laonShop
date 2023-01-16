@@ -23,9 +23,9 @@ public class GetCartHandler extends BaseHandler {
 
         try {
             list = cartMapper.selectCartInfo(userid);
-
         } catch (Exception e) {
             res.setCode(ResultCode.InternalServerError);
+            return res;
         }
 
         res.setVolist(list);
