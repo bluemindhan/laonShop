@@ -1,4 +1,4 @@
-export default class GetProfileRequest {
+export default class GetLikeListRequest {
   constructor() {
     this.accessToken = '';
   }
