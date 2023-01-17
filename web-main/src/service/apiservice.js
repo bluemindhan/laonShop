@@ -72,9 +72,9 @@ export class ApiService {
       })
     });
   }
-  getItemsList(req) {
+  getItemsList() {
     return new Promise((resolve, reject) => {
-      axios.get('/api/v1/item/user-items', req).then(res => {
+      axios.get('/api/v1/item/user-items').then(res => {
         if (res.status === 200) {
           resolve(res.data);
           return;
@@ -124,7 +124,7 @@ export class ApiService {
 
   deleteLike(req) {
     return new Promise((resolve, reject) => {
-      axios.delete("/api/v1/user/wishs", req).then(res => {
+      axios.delete("/api/v1/user/wishs", {data : req}).then(res => {
        if (res.status === 200) {
           resolve(res.data);
           return;

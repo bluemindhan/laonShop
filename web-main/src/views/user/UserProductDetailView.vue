@@ -12,9 +12,16 @@
             <div class="mt-4">
               <h2 class="sr-only">Reviews</h2>
               <div class="flex items-center">
-                <p class="text-sm text-gray-700">
+                <!-- <p class="text-sm text-gray-700">
                   좋아요 : {{ itemVo.likeCnt }} / 북마크 : {{ itemVo.bookCnt }}
-                </p>
+                </p> -->
+                <span class="isolate inline-flex rounded-md shadow-sm">
+                  <button type="button" class="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">
+                    <BookmarkIcon class="-ml-1 mr-2 h-5 w-5 text-gray-400" aria-hidden="true" />
+                    bookmark
+                  </button>
+                  <button type="button" class="relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">{{ itemVo.bookCnt }}</button>
+                </span>
               </div>
             </div>
           </div>
@@ -70,15 +77,22 @@
               <div class="sm:flex-col1 mt-10 flex">
                 <button type="submit" class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full">Add to bag</button>
 
-                <button type="button" @click="liked" class="ml-4 flex items-center justify-center rounded-md py-3 px-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500">
+                <button 
+                type="button" 
+                @click="liked" 
+                class="ml-4 flex items-center justify-center rounded-md py-3 px-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500"
+               >
                   <HeartIcon 
-                  class="h-6 w-6 flex-shrink-0" 
-                  aria-hidden="true" 
-                  />
+                  class="h-6 w-6 flex-shrink-0 fill-red-500 text-transparent" 
+                  aria-hidden="true" />
                   <span class="sr-only">찜</span>
                 </button>
 
-                <button type="button" @click="unliked" class="ml-4 flex items-center justify-center rounded-md py-3 px-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500">
+                <button 
+                type="button" 
+                @click="unliked" 
+                class="ml-4 flex items-center justify-center rounded-md py-3 px-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500"
+                >
                   <HeartIcon 
                   class="h-6 w-6 flex-shrink-0" 
                   aria-hidden="true" 
@@ -132,11 +146,10 @@
 <script>
 import ItemDetailRequest from '@/service/request/ItemDetailRequest.js';
 import AddLikeRequest from '@/service/request/AddLikeRequest.js';
-// import GetLikeListRequest from '@/service/request/GetLikeListRequest.js';
+import GetLikeListRequest from '@/service/request/GetLikeListRequest.js';
 import DeleteLikeRequest from '@/service/request/DeleteLikeRequest.js';
 import {mapGetters, mapMutations} from "vuex";
 import ResultCode from "@/service/ResultCode";
-import { HeartIcon } from '@heroicons/vue/24/outline'
 
 export default {
   name: 'UserProductDetailView',
@@ -168,7 +181,7 @@ export default {
     refreshToken: function (val) {
       console.log("refreshToken changed..", val);
       this.api.setRefreshToken(val);
-    }
+    },
   },
   methods: {
     ...mapMutations({
@@ -192,13 +205,13 @@ export default {
     
     async liked() {
       let req = new AddLikeRequest();
-      req.accessToken = this.accessToken;
       req.prdNum = this.id;
       console.log(req);
       try {
         let res = await this.api.addLike(req);
         if (res.code === ResultCode.Success) {
           console.log(res);
+          alert("상품을 찜했어요!")
         } else {
           alert(res.message);
         }
@@ -209,13 +222,14 @@ export default {
 
     async unliked() {
       let req = new DeleteLikeRequest();
-      req.accessToken = this.accessToken;
       req.prdNum = this.id;
       console.log(req);
       try {
         let res = await this.api.deleteLike(req);
+        console.log(res);
         if (res.code === ResultCode.Success) {
           console.log(res);
+          alert("찜 취소 완료!")
         } else {
           alert(res.message);
         }
@@ -263,10 +277,12 @@ export default {
 </script>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { StarIcon } from '@heroicons/vue/20/solid'
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
 import { CurrencyDollarIcon, GlobeAmericasIcon } from '@heroicons/vue/24/outline'
+import { BookmarkIcon } from '@heroicons/vue/20/solid'
+import { HeartIcon } from '@heroicons/vue/24/outline'
 
 const product = {
   name: 'Basic Tee',
