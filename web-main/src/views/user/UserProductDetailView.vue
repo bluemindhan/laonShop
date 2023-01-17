@@ -6,23 +6,22 @@
           <div class="lg:col-span-5 lg:col-start-8">
             <div class="flex justify-between">
               <h1 class="text-xl font-medium text-gray-900">{{ itemVo.name }}</h1>
-              <p class="text-xl font-medium text-gray-900">{{ itemVo.price }}</p>
+              <p class="text-xl font-medium text-gray-900">$ {{ itemVo.price }}</p>
             </div>
             <!-- Reviews -->
             <div class="mt-4">
               <h2 class="sr-only">Reviews</h2>
               <div class="flex items-center">
-                <p class="text-sm text-gray-700">
-                  {{ product.rating }}
-                  <span class="sr-only"> out of 5 stars</span>
-                </p>
-                <div class="ml-1 flex items-center">
-                  <StarIcon v-for="rating in [0, 1, 2, 3, 4]" :key="rating" :class="[product.rating > rating ? 'text-yellow-400' : 'text-gray-200', 'h-5 w-5 flex-shrink-0']" aria-hidden="true" />
-                </div>
-                <div aria-hidden="true" class="ml-4 text-sm text-gray-300">·</div>
-                <div class="ml-4 flex">
-                  <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">See all {{ product.reviewCount }} reviews</a>
-                </div>
+                <!-- <p class="text-sm text-gray-700">
+                  좋아요 : {{ itemVo.likeCnt }} / 북마크 : {{ itemVo.bookCnt }}
+                </p> -->
+                <span class="isolate inline-flex rounded-md shadow-sm">
+                  <button type="button" class="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">
+                    <BookmarkIcon class="-ml-1 mr-2 h-5 w-5 text-gray-400" aria-hidden="true" />
+                    bookmark
+                  </button>
+                  <button type="button" class="relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">{{ itemVo.bookCnt }}</button>
+                </span>
               </div>
             </div>
           </div>
@@ -63,7 +62,8 @@
 
                 <RadioGroup class="mt-2">
                   <RadioGroupLabel class="sr-only"> Choose a size </RadioGroupLabel>
-                  <div class="grid grid-cols-3 gap-3 sm:grid-cols-6">
+                  <div class="grid grid-cols-1 gap-1 2xl:grid-cols-4">
+                  <!-- <div class="grid grid-cols-1 gap-1 sm:grid-cols-6"> -->
                     <RadioGroupOption as="template">
                       <div :class="['cursor-pointer focus:outline-none', 'ring-2 ring-offset-2 ring-indigo-500', 'bg-indigo-600 border-transparent text-white hover:bg-indigo-700', 'border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium uppercase sm:flex-1']">
                         <RadioGroupLabel as="span">One Size</RadioGroupLabel>
@@ -73,7 +73,33 @@
                 </RadioGroup>
               </div>
 
-              <button type="submit" class="mt-8 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add to cart</button>
+              <!-- <button type="submit" class="mt-8 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add to cart</button> -->
+              <div class="sm:flex-col1 mt-10 flex">
+                <button type="submit" class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full">Add to bag</button>
+
+                <button 
+                type="button" 
+                @click="liked" 
+                class="ml-4 flex items-center justify-center rounded-md py-3 px-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500"
+               >
+                  <HeartIcon 
+                  class="h-6 w-6 flex-shrink-0 fill-red-500 text-transparent" 
+                  aria-hidden="true" />
+                  <span class="sr-only">찜</span>
+                </button>
+
+                <button 
+                type="button" 
+                @click="unliked" 
+                class="ml-4 flex items-center justify-center rounded-md py-3 px-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500"
+                >
+                  <HeartIcon 
+                  class="h-6 w-6 flex-shrink-0" 
+                  aria-hidden="true" 
+                  />
+                  <span class="sr-only">찜</span>
+                </button>
+              </div>
             </form>
 
             <!-- Product details -->
@@ -82,7 +108,34 @@
 
               <div class="prose prose-sm mt-4 text-gray-500" v-html="itemVo.itemDetail" />
             </div>
+            <!-- Reviews -->
+            <section aria-labelledby="reviews-heading" class="mt-16 sm:mt-24">
+              <h2 id="reviews-heading" class="text-lg font-medium text-gray-900">상품 리뷰</h2>
 
+              <div class="mt-6 space-y-10 divide-y divide-gray-200 border-t border-b border-gray-200 pb-10">
+                <div class="pt-10 lg:grid lg:grid-cols-12 lg:gap-x-8">
+                  <div class="lg:col-span-8 lg:col-start-5 xl:col-span-9 xl:col-start-4 xl:grid xl:grid-cols-3 xl:items-start xl:gap-x-8">
+                    <div class="flex items-center xl:col-span-1">
+                      <div class="flex items-center">
+                        <!-- <StarIcon v-for="rating in [0, 1, 2, 3, 4]" :key="rating" :class="[review.rating > rating ? 'text-yellow-400' : 'text-gray-200', 'h-5 w-5 flex-shrink-0']" aria-hidden="true" /> -->
+                      </div>
+                      <!-- <p class="ml-3 text-sm text-gray-700">{{ review.rating }}<span class="sr-only"> out of 5 stars</span></p> -->
+                    </div>
+
+                    <div class="mt-4 lg:mt-6 xl:col-span-2 xl:mt-0">
+                      <!-- <h3 class="text-sm font-medium text-gray-900">{{ itemVo.commentVoList[0].comment || 0 }}</h3> -->
+
+                      <!-- <div class="mt-3 space-y-6 text-sm text-gray-500" v-html="itemVo.commentVoList[0].comment || 0 "/> -->
+                    </div>
+                  </div>
+
+                  <!-- <div class="mt-6 flex items-center text-sm lg:col-span-4 lg:col-start-1 lg:row-start-1 lg:mt-0 lg:flex-col lg:items-start xl:col-span-3">
+                    <p class="font-medium text-gray-900">{{ review.author }}</p>
+                    <time :datetime="review.datetime" class="ml-4 border-l border-gray-200 pl-4 text-gray-500 lg:ml-0 lg:mt-2 lg:border-0 lg:pl-0">{{ review.date }}</time>
+                  </div> -->
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </div>
@@ -92,6 +145,9 @@
 
 <script>
 import ItemDetailRequest from '@/service/request/ItemDetailRequest.js';
+import AddLikeRequest from '@/service/request/AddLikeRequest.js';
+import GetLikeListRequest from '@/service/request/GetLikeListRequest.js';
+import DeleteLikeRequest from '@/service/request/DeleteLikeRequest.js';
 import {mapGetters, mapMutations} from "vuex";
 import ResultCode from "@/service/ResultCode";
 
@@ -108,6 +164,7 @@ export default {
         imageVoList: [],
         commentVoList: [],
       },
+      wishList: [],
     }
   },
   computed: {
@@ -124,7 +181,7 @@ export default {
     refreshToken: function (val) {
       console.log("refreshToken changed..", val);
       this.api.setRefreshToken(val);
-    }
+    },
   },
   methods: {
     ...mapMutations({
@@ -145,6 +202,56 @@ export default {
         console.error(e);
       }
     },
+    
+    async liked() {
+      let req = new AddLikeRequest();
+      req.prdNum = this.id;
+      console.log(req);
+      try {
+        let res = await this.api.addLike(req);
+        if (res.code === ResultCode.Success) {
+          console.log(res);
+          alert("상품을 찜했어요!")
+        } else {
+          alert(res.message);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    },
+
+    async unliked() {
+      let req = new DeleteLikeRequest();
+      req.prdNum = this.id;
+      console.log(req);
+      try {
+        let res = await this.api.deleteLike(req);
+        console.log(res);
+        if (res.code === ResultCode.Success) {
+          console.log(res);
+          alert("찜 취소 완료!")
+        } else {
+          alert(res.message);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    },
+
+    // async getLikeList() {
+    //   let req = new GetLikeListRequest();
+    //   req.accessToken = this.accessToken;
+    //   console.log(req);
+    //   try {
+    //     let res = await this.api.getLikeList(req);
+    //     if (res.code === ResultCode.Success) {
+    //       this.wishList = res.wishList;
+    //       console.log(res);
+    //     }
+    //   } catch (e) {
+    //     console.error(e);
+    //   }
+    // }
   },
   created() {
     console.log("ItemDetail.vue..", this.accessToken);
@@ -159,6 +266,7 @@ export default {
        */
       this.api.setAccessToken(this.accessToken);
       this.itemDetail();
+      // this.getLikeList();
     }
   },
   mounted() {
@@ -169,10 +277,12 @@ export default {
 </script>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { StarIcon } from '@heroicons/vue/20/solid'
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
 import { CurrencyDollarIcon, GlobeAmericasIcon } from '@heroicons/vue/24/outline'
+import { BookmarkIcon } from '@heroicons/vue/20/solid'
+import { HeartIcon } from '@heroicons/vue/24/outline'
 
 const product = {
   name: 'Basic Tee',
