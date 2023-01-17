@@ -13,7 +13,7 @@
           </div>
           <div class="flex flex-shrink-0 items-center">
             <img class="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" />
-            <img class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" />
+            <img @click="home" class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" />
           </div>
           <div class="hidden md:ml-6 md:flex md:space-x-8">
             <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
@@ -37,7 +37,7 @@
               v-if="isLogin"
               @click="logout"
               type="button"
-              class="relative inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              class="relative inline-flex items-center rounded-md border border-transparent bg-indigo-600 ml-4 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
               <span>Log out</span>
             </button>
@@ -186,7 +186,12 @@ export default {
     ...mapMutations({
       setAccessToken: "appStore/accessToken",
       setRefreshToken: "appStore/refreshToken",
+      setUserInfo: "appStore/userInfo",
     }),
+    home() {
+      console.log("home");
+      this.$router.go();
+    },
     signin() {
       console.log("signin");
       // replace /signin
