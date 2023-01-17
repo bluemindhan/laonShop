@@ -46,6 +46,5 @@ public class ProductInfo {
         this.prdtPrce = vo.prdtPrce;
         this.crtDt = vo.crtDt;
         this.updDt = vo.updDt;
-        this.imageList = vo.imageList;
     }
 }
