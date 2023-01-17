@@ -81,9 +81,10 @@
                 type="button" 
                 @click="liked" 
                 class="ml-4 flex items-center justify-center rounded-md py-3 px-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500"
+                v-if="isShow"
                >
                   <HeartIcon 
-                  class="h-6 w-6 flex-shrink-0 fill-red-500 text-transparent" 
+                  class="h-6 w-6 flex-shrink-0" 
                   aria-hidden="true" />
                   <span class="sr-only">찜</span>
                 </button>
@@ -92,9 +93,10 @@
                 type="button" 
                 @click="unliked" 
                 class="ml-4 flex items-center justify-center rounded-md py-3 px-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500"
+                v-else
                 >
                   <HeartIcon 
-                  class="h-6 w-6 flex-shrink-0" 
+                  class="h-6 w-6 flex-shrink-0 fill-red-500 text-transparent" 
                   aria-hidden="true" 
                   />
                   <span class="sr-only">찜</span>
@@ -165,6 +167,7 @@ export default {
         commentVoList: [],
       },
       wishList: [],
+      isShow: true,
     }
   },
   computed: {
@@ -212,6 +215,7 @@ export default {
         if (res.code === ResultCode.Success) {
           console.log(res);
           alert("상품을 찜했어요!")
+          this.isShow = false;
         } else {
           alert(res.message);
         }
@@ -230,6 +234,7 @@ export default {
         if (res.code === ResultCode.Success) {
           console.log(res);
           alert("찜 취소 완료!")
+          this.isShow = true;
         } else {
           alert(res.message);
         }
@@ -238,20 +243,28 @@ export default {
       }
     },
 
-    // async getLikeList() {
-    //   let req = new GetLikeListRequest();
-    //   req.accessToken = this.accessToken;
-    //   console.log(req);
-    //   try {
-    //     let res = await this.api.getLikeList(req);
-    //     if (res.code === ResultCode.Success) {
-    //       this.wishList = res.wishList;
-    //       console.log(res);
-    //     }
-    //   } catch (e) {
-    //     console.error(e);
-    //   }
-    // }
+    async getLikeList() {
+      let req = new GetLikeListRequest();
+      req.accessToken = this.accessToken;
+      console.log(req);
+      try {
+        let res = await this.api.getLikeList(req);
+        if (res.code === ResultCode.Success) {
+          this.wishList = res.wishList;
+          console.log(res);
+
+          for(let i = 0; i < this.wishList.length; i++) {
+            if(this.wishList[i].productNum == this.id) {
+              console.log(this.wishList[i].productNum);
+              console.log(this.wishList[i].productNum==this.id? true : false);
+              this.isShow = false;
+            } 
+          }
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
   },
   created() {
     console.log("ItemDetail.vue..", this.accessToken);
@@ -266,7 +279,7 @@ export default {
        */
       this.api.setAccessToken(this.accessToken);
       this.itemDetail();
-      // this.getLikeList();
+      this.getLikeList();
     }
   },
   mounted() {

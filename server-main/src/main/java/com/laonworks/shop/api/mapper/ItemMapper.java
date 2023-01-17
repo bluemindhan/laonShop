@@ -19,4 +19,8 @@ public interface ItemMapper {
 
     List<ItemVo> selectMainPage();
 
+<<<<<<< .merge_file_pXIbUN
+=======
+    int selectWishFlag(String userid, int productNum);
+>>>>>>> .merge_file_y0pxkb
 }

@@ -11,4 +11,6 @@ import lombok.EqualsAndHashCode;
 @ApiModel(description = "아이템 상세화면")
 public class ItemDetailResponse extends BaseResponse {
     public ItemVo itemVo = null;
+
+    public boolean wishFlag = false;
 }
