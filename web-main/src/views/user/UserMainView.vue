@@ -1,7 +1,9 @@
 <template>
-  <div class="bg-white">
+  <div class="bg-white mt-2">
     <div class="mx-auto max-w-7xl overflow-hidden sm:px-6 lg:px-8">
-      <h2 class="sr-only">Products</h2>
+      <div>
+        
+      </div>
 
       <div class="-mx-px grid grid-cols-2 border-l border-gray-200 sm:mx-0 md:grid-cols-3 lg:grid-cols-4">
         <div v-for="product in products" :key="product.productId" class="group relative border-r border-b border-gray-200 p-4 sm:p-6">
@@ -107,5 +109,8 @@ export default {
 }
 </script>
 
+<script setup>
+
+</script>
 <style>
 </style>

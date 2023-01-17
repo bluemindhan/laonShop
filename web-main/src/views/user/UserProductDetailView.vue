@@ -1,5 +1,62 @@
 <template>
-  <div class="bg-white">
+  <div class="bg-white mt-2">
+
+  <!-- Global notification live region, render this permanently at the end of the document -->
+    <div aria-live="assertive" class="pointer-events-none fixed inset-0 flex items-end px-4 py-6 sm:items-start sm:p-6">
+      <div class="flex w-full flex-col items-center space-y-4 sm:items-end">
+        <!-- Notification panel, dynamically insert this into the live region when it needs to be displayed -->
+        <transition enter-active-class="transform ease-out duration-300 transition" enter-from-class="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2" enter-to-class="translate-y-0 opacity-100 sm:translate-x-0" leave-active-class="transition ease-in duration-100" leave-from-class="opacity-100" leave-to-class="opacity-0">
+          <div v-if="show" class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+            <div class="p-4">
+              <div class="flex items-start">
+                <div class="flex-shrink-0">
+                  <CheckCircleIcon class="h-6 w-6 text-green-400" aria-hidden="true" />
+                </div>
+                <div class="ml-3 w-0 flex-1 pt-0.5">
+                  <p class="text-sm font-medium text-gray-900">찜하기 성공!</p>
+                  <!-- <p class="mt-1 text-sm text-gray-500">Anyone with a link can now view this file.</p> -->
+                </div>
+                <div class="ml-4 flex flex-shrink-0">
+                  <button type="button" @click="show = false" class="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                    <span class="sr-only">Close</span>
+                    <XMarkIcon class="h-5 w-5" aria-hidden="true" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </transition>
+      </div>
+    </div>
+
+    <!-- Global notification live region, render this permanently at the end of the document -->
+    <div aria-live="assertive" class="pointer-events-none fixed inset-0 flex items-end px-4 py-6 sm:items-start sm:p-6">
+      <div class="flex w-full flex-col items-center space-y-4 sm:items-end">
+        <!-- Notification panel, dynamically insert this into the live region when it needs to be displayed -->
+        <transition enter-active-class="transform ease-out duration-300 transition" enter-from-class="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2" enter-to-class="translate-y-0 opacity-100 sm:translate-x-0" leave-active-class="transition ease-in duration-100" leave-from-class="opacity-100" leave-to-class="opacity-0">
+          <div v-if="cancel" class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+            <div class="p-4">
+              <div class="flex items-start">
+                <div class="flex-shrink-0">
+                  <CheckCircleIcon class="h-6 w-6 text-green-400" aria-hidden="true" />
+                </div>
+                <div class="ml-3 w-0 flex-1 pt-0.5">
+                  <p class="text-sm font-medium text-gray-900">찜하기 취소</p>
+                  <!-- <p class="mt-1 text-sm text-gray-500">Anyone with a link can now view this file.</p> -->
+                </div>
+                <div class="ml-4 flex flex-shrink-0">
+                  <button type="button" @click="cancel = false" class="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                    <span class="sr-only">Close</span>
+                    <XMarkIcon class="h-5 w-5" aria-hidden="true" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </transition>
+      </div>
+    </div>
+
     <div class="pt-6 pb-16 sm:pb-24">
       <div class="mx-auto mt-8 max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
         <div class="lg:grid lg:auto-rows-min lg:grid-cols-12 lg:gap-x-8">
@@ -15,13 +72,13 @@
                 <!-- <p class="text-sm text-gray-700">
                   좋아요 : {{ itemVo.likeCnt }} / 북마크 : {{ itemVo.bookCnt }}
                 </p> -->
-                <span class="isolate inline-flex rounded-md shadow-sm">
+                <!-- <span class="isolate inline-flex rounded-md shadow-sm">
                   <button type="button" class="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">
                     <BookmarkIcon class="-ml-1 mr-2 h-5 w-5 text-gray-400" aria-hidden="true" />
                     bookmark
                   </button>
                   <button type="button" class="relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">{{ itemVo.bookCnt }}</button>
-                </span>
+                </span> -->
               </div>
             </div>
           </div>
@@ -30,8 +87,10 @@
           <div class="mt-8 lg:col-span-7 lg:col-start-1 lg:row-span-3 lg:row-start-1 lg:mt-0">
             <h2 class="sr-only">Images</h2>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-3 lg:gap-8">
-              <img :src="itemVo.imageVoList[0].image" :class="['lg:col-span-2 lg:row-span-2']" />
+            <div 
+            class="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-3 lg:gap-8"
+            v-for="item in itemVo.imageVoList" :key="item.image">
+              <img :src="item.image" :class="['lg:col-span-2 lg:row-span-2']" />
             </div>
           </div>
 
@@ -168,6 +227,8 @@ export default {
       },
       wishList: [],
       isShow: true,
+      show: false,
+      cancel: false,
     }
   },
   computed: {
@@ -214,8 +275,8 @@ export default {
         let res = await this.api.addLike(req);
         if (res.code === ResultCode.Success) {
           console.log(res);
-          alert("상품을 찜했어요!")
           this.isShow = false;
+          this.show = true
         } else {
           alert(res.message);
         }
@@ -233,8 +294,8 @@ export default {
         console.log(res);
         if (res.code === ResultCode.Success) {
           console.log(res);
-          alert("찜 취소 완료!")
           this.isShow = true;
+          this.cancel = true
         } else {
           alert(res.message);
         }
@@ -296,6 +357,8 @@ import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
 import { CurrencyDollarIcon, GlobeAmericasIcon } from '@heroicons/vue/24/outline'
 import { BookmarkIcon } from '@heroicons/vue/20/solid'
 import { HeartIcon } from '@heroicons/vue/24/outline'
+import { CheckCircleIcon } from '@heroicons/vue/24/outline'
+import { XMarkIcon } from '@heroicons/vue/20/solid'
 
 const product = {
   name: 'Basic Tee',
