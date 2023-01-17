@@ -48,7 +48,7 @@ public class UserController extends BaseController {
       throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
     }
     GetProfileRequest req = new GetProfileRequest();
-    if (checkRoute(RequestMethod.GET, "/api/v1/user/profile", user) == false) {
+    if (!checkRoute(RequestMethod.GET, "/api/v1/user/profile", user)) {
       throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
     }
     return getProfileHandler.execute(user, req);

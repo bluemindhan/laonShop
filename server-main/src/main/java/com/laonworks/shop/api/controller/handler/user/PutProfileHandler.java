@@ -51,8 +51,6 @@ public class PutProfileHandler extends BaseHandler {
             String encryptedPassword = CryptoUtils.encryptPassword(password,salt);
 
             UserVo userVo = new UserVo();
-//            userVo.userId = updateEmail;
-//            userVo.email = updateEmail;
             userVo.password = encryptedPassword;
             userVo.name = name;
             userVo.email= email;
