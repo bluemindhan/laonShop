@@ -33,6 +33,8 @@ public class ItemController extends BaseController {
     @RequestMapping(method = RequestMethod.GET , value = "item-details")
     ItemDetailResponse getItemDetail(ItemDetailRequest req,HttpServletRequest request){
 
+
+
         itemDetailHandler.setHttpServletRequest(request);
 
         return itemDetailHandler.excute(req);

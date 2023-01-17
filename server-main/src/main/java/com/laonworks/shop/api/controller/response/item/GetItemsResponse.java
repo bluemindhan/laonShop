@@ -2,6 +2,7 @@ package com.laonworks.shop.api.controller.response.item;
 
 import com.laonworks.shop.api.controller.response.BaseResponse;
 import com.laonworks.shop.api.controller.vo.ProductInfo;
+import com.laonworks.shop.api.mapper.vo.BigCategoryVo;
 import com.laonworks.shop.api.mapper.vo.ProductVo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiParam;
@@ -19,6 +20,8 @@ import java.util.List;
 public class GetItemsResponse extends BaseResponse {
 
     public List<ProductVo> products=null;
+
+    public List<BigCategoryVo> categoryList = null;
 
 
 }
