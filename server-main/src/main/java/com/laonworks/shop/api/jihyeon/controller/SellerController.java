@@ -1,18 +1,9 @@
 package com.laonworks.shop.api.jihyeon.controller;
 
 import com.laonworks.shop.api.controller.BaseController;
-import com.laonworks.shop.api.controller.handler.seller.AddProductHandler;
-import com.laonworks.shop.api.controller.handler.seller.DeleteProductHandler;
-import com.laonworks.shop.api.controller.handler.seller.GetProductListHandler;
-import com.laonworks.shop.api.controller.handler.seller.ModifyProductHandler;
-import com.laonworks.shop.api.controller.request.seller.AddProductRequest;
-import com.laonworks.shop.api.controller.request.seller.DeleteProductRequest;
-import com.laonworks.shop.api.controller.request.seller.GetProductListRequest;
-import com.laonworks.shop.api.controller.request.seller.ModifyProductRequest;
-import com.laonworks.shop.api.controller.response.seller.AddProductResponse;
-import com.laonworks.shop.api.controller.response.seller.DeleteProductResponse;
-import com.laonworks.shop.api.controller.response.seller.GetProductListResponse;
-import com.laonworks.shop.api.controller.response.seller.ModifyProductResponse;
+import com.laonworks.shop.api.controller.handler.seller.*;
+import com.laonworks.shop.api.controller.request.seller.*;
+import com.laonworks.shop.api.controller.response.seller.*;
 import com.laonworks.shop.api.jihyeon.vo.ProductVo;
 import com.laonworks.shop.api.service.CustomUserDetails;
 import io.swagger.annotations.ApiOperation;
@@ -78,6 +69,28 @@ public class SellerController extends BaseController {
       throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
     }
     return getProductListHandler.execute(user, req);
+  }
+
+  @Autowired
+  private GetProductDetailHandler getProductDetailHandler;
+
+  /* 등록 상품 불러오기 */
+  @RequestMapping(method = RequestMethod.GET, value = "product/modify")
+  @ApiOperation(value = "Get Product Detail")
+  GetProductDetailResponse GetProductDetail(@AuthenticationPrincipal Authentication auth, @RequestBody GetProductDetailRequest req, HttpServletRequest request) {
+    getProductDetailHandler.setHttpServletRequest(request);
+    CustomUserDetails user = null;
+    if (auth == null) {
+      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+    }
+    user = (CustomUserDetails) auth.getPrincipal();
+    if (user == null) {
+      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+    }
+    if (checkRoute(RequestMethod.GET, "/api/v1/seller/product/modify", user) == false) {
+      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+    }
+    return getProductDetailHandler.execute(user, req);
   }
 
   @Autowired
