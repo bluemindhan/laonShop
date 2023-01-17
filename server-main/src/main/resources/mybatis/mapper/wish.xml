@@ -36,7 +36,7 @@
          DELETE FROM
              TB_USER_WISH
          WHERE
-            USR_ID = #{wish.userId, jdbcType=VARCHAR} AND
+            USR_ID = #{wish.userId} AND
             PRDT_NO = #{wish.productNum}
          ]]>
     </delete>
