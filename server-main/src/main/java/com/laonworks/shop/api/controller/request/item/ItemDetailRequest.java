@@ -12,4 +12,6 @@ public class ItemDetailRequest {
 
     @ApiParam(value = "제품번호")
     public int productNum = 0;
+    @ApiParam
+    public String accessToken = null;
 }

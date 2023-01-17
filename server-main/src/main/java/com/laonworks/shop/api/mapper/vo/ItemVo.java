@@ -30,4 +30,5 @@ public class ItemVo {
     public String updateDate; // 수정일자
 
     public String sellerId; // 판매자 아이디
+
 }
