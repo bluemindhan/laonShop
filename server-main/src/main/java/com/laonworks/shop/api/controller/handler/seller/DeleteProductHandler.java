@@ -8,6 +8,7 @@ import com.laonworks.shop.api.controller.response.seller.DeleteProductResponse;
 import com.laonworks.shop.api.controller.vo.UserType;
 import com.laonworks.shop.api.jihyeon.mapper.ProductMapper;
 import com.laonworks.shop.api.jihyeon.service.ProductService;
+import com.laonworks.shop.api.jihyeon.vo.ProductImageVo;
 import com.laonworks.shop.api.jihyeon.vo.ProductVo;
 import com.laonworks.shop.api.mapper.AuthMapper;
 import com.laonworks.shop.api.mapper.vo.UserVo;
@@ -30,6 +31,7 @@ public class DeleteProductHandler extends BaseHandler {
     public DeleteProductResponse execute (CustomUserDetails user, DeleteProductRequest req) {
         DeleteProductResponse res = new DeleteProductResponse();
         ProductVo productVo = new ProductVo();
+        ProductImageVo productImageVo = new ProductImageVo();
         if(user == null) {
             res.setCode(ResultCode.Unauthorized);
             return res;
@@ -53,6 +55,8 @@ public class DeleteProductHandler extends BaseHandler {
             }
             productVo.setSllrId(user.getUsername());
             productVo.setPrdtNo(req.productNum);
+            productImageVo.setPrdtNo(req.productNum);
+            productMapper.deleteProductImg(productNum);
             productMapper.deleteProduct(productVo);
             if(sellerVo == null) {
                 res.setCode(ResultCode.InternalServerError);

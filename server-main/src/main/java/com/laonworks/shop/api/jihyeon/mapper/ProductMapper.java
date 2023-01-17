@@ -29,4 +29,5 @@ public interface ProductMapper {
 
   int deleteProduct(@Param("vo") ProductVo vo); // 등록 상품 삭제
 
+  int deleteProductImg(int productImageVo); // 등록 상품 이미지 삭제
 }
