@@ -86,6 +86,18 @@
     SYSDATE
   )
   </insert>
+
+  <delete id="deleteUserInfo" parameterType="String" statementType="CALLABLE">
+    DECLARE
+    BEGIN
+      DELETE FROM TB_USER_WISH
+      WHERE usr_id = #{userId,jdbcType=VARCHAR };
+
+      DELETE FROM TB_USER
+      WHERE usr_id = #{userId,jdbcType=VARCHAR };
+      END;
+  </delete>
+
   <update id="updateRefreshToken" parameterType="Map">
     /*insertRefreshToken*/
     <if test="map.userVo.userType == 1">

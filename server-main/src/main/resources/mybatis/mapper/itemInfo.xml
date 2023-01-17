@@ -44,7 +44,7 @@
         A.PRDT_NO = #{pdNum, jdbcType=VARCHAR}
     </select>
 
-<<<<<<< HEAD
+
     <select id="selectProductList" resultType="ProductVo">
         SELECT
             A.PRDT_NO as productId,
@@ -61,7 +61,7 @@
         WHERE
             A.PRDT_NO=B.PRDT_NO
     </select>
-=======
+
     <select id = "selectMainPage" resultMap="itemDetailInfo">
     <![CDATA[
     /*selectMainPage*/ SELECT A.*
@@ -87,5 +87,5 @@
     ]]>
     </select>
 
->>>>>>> d30866524399b4551e43ea73e42a8e70113c2fc2
+
 </mapper>
