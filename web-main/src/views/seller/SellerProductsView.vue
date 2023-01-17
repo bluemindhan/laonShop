@@ -13,7 +13,7 @@
                     <th scope="col" class="py-3 pr-8 font-normal sm:w-2/5 lg:w-1/3">상품명</th>
                     <th scope="col" class="hidden w-1/5 py-3 pr-8 font-normal sm:table-cell">가격</th>
                     <th scope="col" class="hidden py-3 pr-8 font-normal sm:table-cell">등록날짜</th>
-                    <th scope="col" class="hidden py-3 pr-8 font-normal sm:table-cell">판매수량</th>
+                    <th scope="col" class="hidden py-3 pr-8 font-normal sm:table-cell">수정날짜</th>
                     <th scope="col" class="w-0 py-3 text-right font-normal"></th>
                   </tr>
                 </thead>
@@ -21,18 +21,20 @@
                   <tr v-for="product in productList" :key="product.productId">
                     <td class="py-6 pr-8">
                       <div class="flex items-center">
-                        <img :src="product.image" :alt="product.image" class="mr-6 h-16 w-16 rounded object-cover object-center" />
+                        <div v-for="item in productList.imageList" :key="item.image">
+                          <img :src="item.image" :alt="item.image" class="mr-6 h-16 w-16 rounded object-cover object-center" />
+                        </div>
                         <div>
-                          <div class="font-medium text-gray-900">{{ product.prdtNo }}</div>
+                          <div class="font-medium text-gray-900">{{ product.prdtNm }} 
+                            <input type="hidden" :value="product.prdtNo">
+                          </div>
                           <div class="mt-1 sm:hidden">{{ product.prdtPrce }}</div>
                         </div>
                       </div>
                     </td>
                     <td class="hidden py-6 pr-8 sm:table-cell">{{ product.prdtPrce }} 원</td>
-                    <td class="hidden py-6 pr-8 sm:table-cell">
-                      <!-- {{ product.crtDt }} -->
-                    </td>
-                    <!-- <td class="hidden py-6 pr-8 sm:table-cell text-red-600">{{ product.count }} 개</td> -->
+                    <td class="hidden py-6 pr-8 sm:table-cell">{{ product.crtDt }}</td>
+                    <td class="hidden py-6 pr-8 sm:table-cell">{{ product.updDt }}</td>
                     <td class="whitespace-nowrap py-6 text-right font-medium">
                       <router-link :to="`/seller/product/${ product.productId }`">
                         <a :href="product.href" class="text-indigo-600">
@@ -97,7 +99,9 @@
         pageSize: 10,
         totalPages: 0,
         totalCount: 0,
-        productList: [],
+        productList: {
+          imageList: [],
+        },
       };
     },
     computed: {
