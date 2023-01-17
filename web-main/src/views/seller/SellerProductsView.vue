@@ -3,8 +3,8 @@
       <div class="bg-white">
       <div class="mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:px-8 lg:pb-24">
         <div class="max-w-xl">
-          <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Product List</h1>
-          <p class="mt-2 text-sm text-gray-500">Check all products and update details or delete products.</p>      </div>
+          <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">상품 목록</h1>
+        </div>
         <div class="mt-16">
           <div class="space-y-20">
               <table class="mt-4 w-full text-gray-500 sm:mt-6">
@@ -28,7 +28,6 @@
                           <div class="font-medium text-gray-900">{{ product.prdtNm }} 
                             <input type="hidden" :value="product.prdtNo">
                           </div>
-                          <div class="mt-1 sm:hidden">{{ product.prdtPrce }}</div>
                         </div>
                       </div>
                     </td>
@@ -36,7 +35,7 @@
                     <td class="hidden py-6 pr-8 sm:table-cell">{{ product.crtDt }}</td>
                     <td class="hidden py-6 pr-8 sm:table-cell">{{ product.updDt }}</td>
                     <td class="whitespace-nowrap py-6 text-right font-medium">
-                      <router-link :to="`/seller/product/${ product.productId }`">
+                      <router-link :to="`/seller/product/${ product.prdtNo }`">
                         <a :href="product.href" class="text-indigo-600">
                           <span class="hidden lg:inline">수정</span><span class="sr-only"></span>
                         </a>
@@ -103,6 +102,11 @@
           imageList: [],
         },
       };
+    },
+    filters: {
+      comma(val) {
+        return String(val).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
     },
     computed: {
       hasNext() {

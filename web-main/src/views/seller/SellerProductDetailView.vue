@@ -9,10 +9,9 @@
           <div class="sm:col-span-12">
             <label for="product" class="block text-sm font-medium text-gray-700">상품명</label>
             <div class="mt-1 flex rounded-md shadow-sm">
-              <input type="text" name="product" id="product" v-model="productName" class="block w-full min-w-0 flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+              <input type="text" :value="productVo.productName" name="product" id="product" class="block w-full min-w-0 flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
             </div>
           </div>
-
           <div class="sm:col-span-12">
             <label for="about" class="block text-sm font-medium text-gray-700">상품설명</label>
             <div class="mt-1">
@@ -64,7 +63,6 @@
 </template>
 
 <script>
-import UpdateProduct from "../../service/request/UpdateProductRequest";
 import {mapGetters, mapMutations} from "vuex";
 import ResultCode from "@/service/ResultCode";
 import UpdateProductRequest from '../../service/request/UpdateProductRequest';
@@ -77,6 +75,8 @@ export default {
   },
   data() {
     return {
+      id: this.$route.params.id,
+      productVo: {},
       productName: "",
       productDesc: "",
       productPrice: 0,
@@ -128,7 +128,7 @@ export default {
               src: b64,
             };
             console.log(item);
-            vm.imgList.push(item);
+            vm.imageList.push(item);
           };
           img.src = b64;
         };
@@ -150,17 +150,18 @@ export default {
         return;
       }
 
-      if (this.imgList.length === 0) {
+      if (this.imageList.length === 0) {
         alert("상품 이미지를 등록해주세요.");
         return;
       }
 
       let req = new UpdateProductRequest();
+      req.productNum = this.id;
       req.productName = this.productName;
       req.productDesc = this.productDesc;
       req.productPrice = this.productPrice;
       req.imageList = [];
-      this.imgList.forEach((item) => {
+      this.imageList.forEach((item) => {
         req.imageList.push(item.src);
       });
 
@@ -184,7 +185,7 @@ export default {
       } else {
       // accessToken이 있으면 상품목록을 가져온다.
       this.api.setAccessToken(this.accessToken);
-      this.ProductList();
+      this.save();
       }
   },
 };

@@ -150,7 +150,7 @@ export class ApiService {
       })
     });
   }
-  AddProduct(req) {
+  addProduct(req) {
     return new Promise((resolve, reject) => {
       axios.post('/api/v1/seller/product', req).then(res => { 
         if (res.status === 200) {
@@ -183,9 +183,26 @@ export class ApiService {
       })
     });
   } 
+  productsDetail(req) {
+    const url = "/api/v1/seller/product/modify?" + qs.stringify(req);
+    return new Promise((resolve, reject) => {
+      axios.get(url).then(res => {
+        if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
   productsUpdate(req) {
     return new Promise((resolve, reject) => {
-      axios.put('/api/v1/seller/product/mpdify', req).then(res => {
+      axios.put('/api/v1/seller/product/modify', req).then(res => {
         if (res.status === 200) {
           resolve(res.data);
           return;
