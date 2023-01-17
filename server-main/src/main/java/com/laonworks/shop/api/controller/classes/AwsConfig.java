@@ -37,16 +37,16 @@ public class AwsConfig {
                 .build();
     }
 
-    @Bean
-    public AmazonSimpleEmailService amazonSimpleEmailService() {
-        final BasicAWSCredentials basicAWSCredentials = new BasicAWSCredentials(accessKey, secretKey);
-        final AWSStaticCredentialsProvider awsStaticCredentialsProvider = new AWSStaticCredentialsProvider(
-                basicAWSCredentials);
-
-        return AmazonSimpleEmailServiceClientBuilder.standard()
-                .withCredentials(awsStaticCredentialsProvider)
-                .withRegion("ap-northeast-2")
-                .build();
-    }
+//    @Bean
+//    public AmazonSimpleEmailService amazonSimpleEmailService() {
+//        final BasicAWSCredentials basicAWSCredentials = new BasicAWSCredentials(accessKey, secretKey);
+//        final AWSStaticCredentialsProvider awsStaticCredentialsProvider = new AWSStaticCredentialsProvider(
+//                basicAWSCredentials);
+//
+//        return AmazonSimpleEmailServiceClientBuilder.standard()
+//                .withCredentials(awsStaticCredentialsProvider)
+//                .withRegion("ap-northeast-2")
+//                .build();
+//    }
 
 }

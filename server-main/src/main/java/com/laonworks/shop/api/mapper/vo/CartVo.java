@@ -8,6 +8,8 @@ import lombok.ToString;
 public class CartVo {
 
     public String userid; // 유저 아이디
+    
+    public String image; // 상품이미지
 
     public int productNum; // 상품 번호
 
