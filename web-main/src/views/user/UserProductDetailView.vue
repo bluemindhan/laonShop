@@ -175,7 +175,7 @@
 
               <div class="mt-6 space-y-10 divide-y divide-gray-200 border-t border-b border-gray-200 pb-10">
                 <div class="pt-10 lg:grid lg:grid-cols-12 lg:gap-x-8">
-                  <div class="lg:col-span-8 lg:col-start-5 xl:col-span-9 xl:col-start-4 xl:grid xl:grid-cols-3 xl:items-start xl:gap-x-8">
+                  <div class="lg:col-span-8 lg:col-start-5 xl:col-span-9 xl:grid xl:items-start xl:gap-x-8">
                     <div class="flex items-center xl:col-span-1">
                       <div class="flex items-center">
                         <!-- <StarIcon v-for="rating in [0, 1, 2, 3, 4]" :key="rating" :class="[review.rating > rating ? 'text-yellow-400' : 'text-gray-200', 'h-5 w-5 flex-shrink-0']" aria-hidden="true" /> -->
@@ -183,10 +183,11 @@
                       <!-- <p class="ml-3 text-sm text-gray-700">{{ review.rating }}<span class="sr-only"> out of 5 stars</span></p> -->
                     </div>
 
-                    <div class="mt-4 lg:mt-6 xl:col-span-2 xl:mt-0">
-                      <!-- <h3 class="text-sm font-medium text-gray-900">{{ itemVo.commentVoList[0].comment || 0 }}</h3> -->
+                    <div class="mt-4 lg:mt-6 xl:col-span-2 xl:mt-0 ml-6"
+                    v-for="item in itemVo.commentVoList" :key="item.comment">
+                      <h3 class="text-sm font-medium text-gray-900">{{ item.comment || 0 }}</h3>
 
-                      <!-- <div class="mt-3 space-y-6 text-sm text-gray-500" v-html="itemVo.commentVoList[0].comment || 0 "/> -->
+                      <!-- <div class="mt-3 space-y-6 text-sm text-gray-500" v-html="item.comment || 0"/> -->
                     </div>
                   </div>
 
