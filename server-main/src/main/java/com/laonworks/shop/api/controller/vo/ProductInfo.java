@@ -29,10 +29,10 @@ public class ProductInfo {
     public double prdtPrce =  0.0;
 
     @ApiParam(value = "")
-    public Date crtDt = null;
+    public String crtDt = "";
 
     @ApiParam(value = "")
-    public Date updtDt = null;
+    public String updtDt = "";
     
     @ApiParam(value = "")
     public List<String> imageList =  null;

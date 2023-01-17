@@ -21,9 +21,9 @@ public class ProductVo {
 
   public String prdtDesc; // 상품설명
 
-  public Date crtDt;    // 생성날짜
+  public String crtDt;    // 생성날짜
 
-  public Date updtDt;   // 수정날짜
+  public String updtDt;   // 수정날짜
 
   public List<String> imageList;  // 이미지
 

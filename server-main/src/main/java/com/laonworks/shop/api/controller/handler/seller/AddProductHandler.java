@@ -52,8 +52,8 @@ public class AddProductHandler extends BaseHandler {
             List<String> urlList = awsService.uploadProductImageList(req.imageList);
             System.out.println("urlList --> " + urlList.toString());
 
-            //int n = productService.addProduct(productVo,urlList);
-            int n = productService.addProduct(productVo);
+            int n = productService.addProduct(productVo,urlList);
+            //int n = productService.addProduct(productVo);
             if(n == 0) {
                 res.setCode(ResultCode.InternalServerError);
                 return res;
