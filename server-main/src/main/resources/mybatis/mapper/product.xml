@@ -75,7 +75,7 @@
   ]]>
   </select>
 
-  <!-- 등록된 상품 불러오기-->
+  <!-- 등록된 상품리스트 불러오기-->
   <select id="selectProductList" resultType="com.laonworks.shop.api.jihyeon.vo.ProductVo">
   <![CDATA[
     /* selectProductList */ SELECT * FROM (
@@ -99,7 +99,7 @@
   ]]>
   </select>
 
-  <!-- 등록된 상품 이미지 불러오기-->
+  <!-- 등록된 상품리스트 이미지 불러오기-->
   <select id="selectProductImageList" resultType="com.laonworks.shop.api.jihyeon.vo.ProductImageVo">
   <![CDATA[
     /* selectProductImageList */ SELECT
@@ -108,6 +108,24 @@
     A.IMG_URL as prdtImgUrl
   FROM
     TB_PRODUCT_IMAGE A
+  WHERE
+    A.PRDT_NO = #{prdtNo}
+  ]]>
+  </select>
+
+  <!-- 등록된 상품 불러오기-->
+  <select id="selectProductDetail" resultType="com.laonworks.shop.api.jihyeon.vo.ProductVo">
+  <![CDATA[
+    /* selectProductDetail */ SELECT
+    A.PRDT_NO as prdtNo ,
+    A.PRDT_PRCE as prdtPrce ,
+    A.PRDT_NM as prdtNm ,
+    A.PRDT_DESC as prdtDesc ,
+    B.IMG_URL as image
+  FROM
+    TB_PRODUCT A
+    LEFT JOIN TB_PRODUCT_IMAGE B
+        ON A.PRDT_NO = B.PRDT_NO
   WHERE
     A.PRDT_NO = #{prdtNo}
   ]]>
