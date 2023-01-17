@@ -19,4 +19,7 @@ public interface ItemMapper {
 
     List<ItemVo> selectMainPage();
 
+
+    int selectWishFlag(String userid, int productNum);
+
 }

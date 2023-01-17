@@ -23,10 +23,15 @@ public interface ProductMapper {
 
   List<ProductImageVo> selectProductImageList(@Param("prdtNo") int prdtNo);
 
+  ProductVo selectProductDetail(@Param("prdtNo") int prdtNo); // 등록 상품 상세 불러오기
+
   int modifyProduct(@Param("vo") ProductVo vo); // 등록 상품 수정
 
   int modifyProductImage(ProductImageVo vo); // 등록 상품 이미지 수정
 
   int deleteProduct(@Param("vo") ProductVo vo); // 등록 상품 삭제
+
+  int deleteProductImg(int productImageVo); // 등록 상품 이미지 삭제
+
 
 }

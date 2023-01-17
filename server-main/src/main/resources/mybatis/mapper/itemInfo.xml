@@ -8,8 +8,6 @@
         <result column="name" property="name"/>
         <result column="itemDetail" property="itemDetail"/>
         <result column="likeCnt" property="likeCnt"/>
-        <result column="bookCnt" property="bookCnt"/>
-
         <collection property="imageVoList" resultMap="imageVoResult"></collection>
         <collection property="commentVoList" resultMap="commentVoResult"></collection>
     </resultMap>
@@ -30,7 +28,6 @@
         A.PRDT_DESC as itemDetail,
         B.IMG_URL as image,
         C.LIKE_CNT as likeCnt,
-        C.MBK_CNT as bookCnt,
         D.CMT_CNTT
     FROM
         TB_PRODUCT A
@@ -72,8 +69,7 @@
             MAX(A.PRDT_NM) as name,
             MAX(A.PRDT_DESC) as itemDetail,
             MAX(B.IMG_URL) as image,
-            MAX(C.LIKE_CNT) as likeCnt,
-            MAX(C.MBK_CNT) as bookCnt
+            MAX(C.LIKE_CNT) as likeCnt
         FROM
             TB_PRODUCT A
                 LEFT JOIN TB_PRODUCT_IMAGE B
@@ -87,5 +83,16 @@
     ]]>
     </select>
 
+
+    <select id="selectWishFlag" resultType="int">
+    /*selectWishFlag*/ SELECT
+        COUNT(*)
+    FROM
+        TB_USER_WISH
+    WHERE
+        USR_ID = #{userid}
+    AND
+        PRDT_NO = #{productNum}
+    </select>
 
 </mapper>
