@@ -12,6 +12,7 @@ import UserMainView from '../views/user/UserMainView.vue';
 import UserProductDetailView from '../views/user/UserProductDetailView.vue';
 import UserCartView from '../views/user/UserCartView.vue';
 import UserCheckoutView from '../views/user/UserCheckoutView.vue';
+import ProfileView from '../views/home/ProfileView.vue';
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
         path: '/home',
         name: 'HomeView',
         component: HomeView,
+      },
+      {
+        path: '/profile',
+        name: 'ProfileView',
+        component: ProfileView,
       },
     ],
   },

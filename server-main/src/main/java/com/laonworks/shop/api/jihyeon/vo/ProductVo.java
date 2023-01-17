@@ -4,6 +4,7 @@ import com.laonworks.shop.api.mapper.vo.UserVo;
 import lombok.Data;
 import lombok.ToString;
 
+import java.util.Date;
 import java.util.List;
 
 @Data
