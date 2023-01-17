@@ -69,11 +69,11 @@ public class ModifyProductHandler extends BaseHandler {
             productVo.setPrdtNm(productName);
             productVo.setPrdtDesc(productDesc);
             productVo.setPrdtPrce(productPrice);
-            //List<String> urlList = awsService.uploadProductImageList(req.imageList);
+            List<String> urlList = awsService.uploadProductImageList(req.imageList);
 
             if(req != null || !req.equals("")){
-               //result=productService.modifyProduct(productVo, urlList);
-               result=productMapper.modifyProduct(productVo);
+               result=productService.modifyProduct(productVo, urlList);
+               //result=productMapper.modifyProduct(productVo);
                log.info("result:" +result);
                res.setResult(result);
                res.setCode(ResultCode.Success);

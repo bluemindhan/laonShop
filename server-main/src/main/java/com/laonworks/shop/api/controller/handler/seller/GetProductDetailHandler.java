@@ -1,14 +1,11 @@
 package com.laonworks.shop.api.controller.handler.seller;
 
 import com.laonworks.shop.api.controller.ResultCode;
-import com.laonworks.shop.api.controller.classes.AwsService;
 import com.laonworks.shop.api.controller.handler.BaseHandler;
-import com.laonworks.shop.api.controller.request.seller.DeleteProductRequest;
-import com.laonworks.shop.api.controller.response.seller.DeleteProductResponse;
+import com.laonworks.shop.api.controller.request.seller.GetProductDetailRequest;
+import com.laonworks.shop.api.controller.response.seller.GetProductDetailResponse;
 import com.laonworks.shop.api.controller.vo.UserType;
 import com.laonworks.shop.api.jihyeon.mapper.ProductMapper;
-import com.laonworks.shop.api.jihyeon.service.ProductService;
-import com.laonworks.shop.api.jihyeon.vo.ProductImageVo;
 import com.laonworks.shop.api.jihyeon.vo.ProductVo;
 import com.laonworks.shop.api.mapper.AuthMapper;
 import com.laonworks.shop.api.mapper.vo.UserVo;
@@ -17,21 +14,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Collections;
-import java.util.List;
-
 @Slf4j
-@Component // 재사용이 가능한 독립된 모듈
-public class DeleteProductHandler extends BaseHandler {
+@Component
+public class GetProductDetailHandler extends BaseHandler {
     @Autowired
     AuthMapper authMapper;
     @Autowired
     ProductMapper productMapper;
     
-    public DeleteProductResponse execute (CustomUserDetails user, DeleteProductRequest req) {
-        DeleteProductResponse res = new DeleteProductResponse();
-        ProductVo productVo = new ProductVo();
-        ProductImageVo productImageVo = new ProductImageVo();
+    public GetProductDetailResponse execute (CustomUserDetails user, GetProductDetailRequest req) {
+        GetProductDetailResponse res = new GetProductDetailResponse();
         if(user == null) {
             res.setCode(ResultCode.Unauthorized);
             return res;
@@ -42,23 +34,18 @@ public class DeleteProductHandler extends BaseHandler {
         }
         String email = user.getUsername();
         int userType = user.getUserType();
-        int productNum = req.getProductNum();
-
         try {
-            UserVo sellerVo;
-            if(userType == UserType.Seller.getValue()) {
-                sellerVo = authMapper.selectSellerInfo(email);
-            }
-            else{
-                res.setCode(ResultCode.Unauthorized);
+            UserVo sellerVo = authMapper.selectSellerInfo(email);
+            if(sellerVo == null) {
+                res.setCode(ResultCode.NotFoundSeller);
                 return res;
             }
-            productVo.setSllrId(user.getUsername());
-            productVo.setPrdtNo(req.productNum);
-            productImageVo.setPrdtNo(req.productNum);
-            productMapper.deleteProductImg(productNum);
-            productMapper.deleteProduct(productVo);
-            if(sellerVo == null) {
+            if (userType == UserType.Seller.getValue()) {
+                sellerVo = authMapper.selectSellerInfo(email);
+            }
+            int prdtNo = 0;
+            ProductVo productVo = productMapper.selectProductDetail(prdtNo);
+            if(productVo == null) {
                 res.setCode(ResultCode.InternalServerError);
                 return res;
             }

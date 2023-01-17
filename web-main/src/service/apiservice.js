@@ -72,9 +72,9 @@ export class ApiService {
       })
     });
   }
-  getItemsList(req) {
+  getItemsList() {
     return new Promise((resolve, reject) => {
-      axios.get('/api/v1/item/user-items', req).then(res => {
+      axios.get('/api/v1/item/user-items').then(res => {
         if (res.status === 200) {
           resolve(res.data);
           return;
@@ -105,7 +105,56 @@ export class ApiService {
       })
     });
   }
-  
+
+  addLike(req) {
+    return new Promise((resolve, reject) => {
+      axios.post("/api/v1/user/wishs", req).then(res => {
+        if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
+
+  deleteLike(req) {
+    return new Promise((resolve, reject) => {
+      axios.delete("/api/v1/user/wishs", {data : req}).then(res => {
+       if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
+
+  getLikeList(req) {
+    return new Promise((resolve, reject) => {
+      axios.get("/api/v1/user/wishs", req).then(res => {
+        if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
+   
   getProductsList(req) {
     const url = "/api/v1/seller/product/list?" + qs.stringify(req);
     return new Promise((resolve, reject) => {
@@ -122,8 +171,25 @@ export class ApiService {
         reject(err);
       })
     });
-  }        
+  }    
+  
+  getCartList(req) {
+    return new Promise((resolve, reject) => {
+      axios.get('/api/v1/cart/cart-info', req).then(res => {
+        if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
 
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
+  
   mainPage() {
     return new Promise((resolve, reject) => {
       axios.get('/api/v1/item/mainpage').then(res => {
