@@ -32,7 +32,7 @@ public class ProductInfo {
     public String crtDt = "";
 
     @ApiParam(value = "")
-    public String updtDt = "";
+    public String updDt = "";
     
     @ApiParam(value = "")
     public List<String> imageList =  null;
@@ -45,6 +45,7 @@ public class ProductInfo {
         this.prdtDesc = vo.prdtDesc;
         this.prdtPrce = vo.prdtPrce;
         this.crtDt = vo.crtDt;
-        this.updtDt = vo.updtDt;
+        this.updDt = vo.updDt;
+        this.imageList = vo.imageList;
     }
 }
