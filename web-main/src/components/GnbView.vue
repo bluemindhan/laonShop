@@ -27,6 +27,14 @@
           <div class="flex-shrink-0">
             <button
               v-if="isLogin"
+              type="button"
+              @click="cart"
+              class="relative inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            >
+              <span>cart</span>
+            </button>
+            <button
+              v-if="isLogin"
               @click="logout"
               type="button"
               class="relative inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
@@ -194,6 +202,10 @@ export default {
       this.setRefreshToken(null);
       this.$router.replace({ name: "HomeView" });
     },
+    cart() {
+      console.log("cart");
+      this.$router.replace({ name: "UserCartView" });
+    }
     getProfile() {
       console.log("profile");
       this.$router.replace({ name : "ProfileView" });
