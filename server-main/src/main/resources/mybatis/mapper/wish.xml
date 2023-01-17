@@ -4,13 +4,13 @@
       <insert id="insertWishProduct" parameterType="WishVo">
          <![CDATA[
          INSERT INTO TB_USER_WISH(
-             USR_ID ,
-             PRDT_NO ,
-             CRT_DT
+                 USR_ID ,
+                 PRDT_NO ,
+                 CRT_DT
              ) VALUES (
-             #{wish.userId} ,
-             #{wish.productNum} ,
-             SYSDATE
+                 #{wish.userId} ,
+                 #{wish.productNum} ,
+                 SYSDATE
              )
         ]]>
       </insert>

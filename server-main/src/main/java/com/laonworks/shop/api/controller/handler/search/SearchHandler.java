@@ -4,6 +4,7 @@ import com.laonworks.shop.api.controller.handler.BaseHandler;
 import com.laonworks.shop.api.controller.request.search.SearchRequest;
 import com.laonworks.shop.api.controller.response.item.GetItemsResponse;
 import com.laonworks.shop.api.mapper.SearchMapper;
+import com.laonworks.shop.api.mapper.vo.BigCategoryVo;
 import com.laonworks.shop.api.mapper.vo.ItemVo;
 import com.laonworks.shop.api.mapper.vo.ProductVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +28,11 @@ public class SearchHandler extends BaseHandler {
         int start = (currentpage - 1) * pagesize + 1;
         int end = start + pagesize - 1;
 
+        List<BigCategoryVo> catelist = searchMapper.selectCateList();
         List<ProductVo> searchList = searchMapper.findByKeyword(req,start,end);
 
         res.products = searchList;
-
+        res.categoryList = catelist;
 
 
         return res;

@@ -13,4 +13,6 @@ public interface ItemMapper {
     ItemVo selectItemDetailInfo(@Param("pdNum") int productNo);
 
     List<ItemVo> selectMainPage();
+
+    int selectWishFlag(String userid, int productNum);
 }
