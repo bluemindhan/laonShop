@@ -72,9 +72,9 @@ export class ApiService {
       })
     });
   }
-  getItemsList(req) {
+  getItemsList() {
     return new Promise((resolve, reject) => {
-      axios.get('/api/v1/item/user-items', req).then(res => {
+      axios.get('/api/v1/item/user-items').then(res => {
         if (res.status === 200) {
           resolve(res.data);
           return;
@@ -104,13 +104,60 @@ export class ApiService {
       })
     });
   }
-  AddProduct(req) {
+  addLike(req) {
     return new Promise((resolve, reject) => {
-      axios.post('/api/v1/seller/product', req).then(res => {
+      axios.post("/api/v1/user/wishs", req).then(res => {
         if (res.status === 200) {
           resolve(res.data);
           return;
         }
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
+  deleteLike(req) {
+    return new Promise((resolve, reject) => {
+      axios.delete("/api/v1/user/wishs", {data : req}).then(res => {
+       if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
+  getLikeList(req) {
+    return new Promise((resolve, reject) => {
+      axios.get("/api/v1/user/wishs", req).then(res => {
+        if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
+  AddProduct(req) {
+    return new Promise((resolve, reject) => {
+      axios.post('/api/v1/seller/product', req).then(res => { 
+        if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+
         console.error(res.status, res.statusText);
         reject(null);
       })
@@ -185,7 +232,7 @@ export class ApiService {
       })
     });
   }
-
+  
   mainPage() {
     return new Promise((resolve, reject) => {
       axios.get('/api/v1/item/mainpage').then(res => {

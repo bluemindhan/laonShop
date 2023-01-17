@@ -1,3 +1,5 @@
 export default class GetProfileRequest {
-  constructor() {}
+  constructor() {
+    this.accessToken = '';
+  }
 }
