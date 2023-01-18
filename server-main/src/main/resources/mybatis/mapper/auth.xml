@@ -87,7 +87,7 @@
   )
   </insert>
 
-  <delete id="deleteUserInfo" parameterType="String" statementType="CALLABLE">
+  <select id="deleteUserInfo" parameterType="String" statementType="CALLABLE">
     DECLARE
     BEGIN
       DELETE FROM TB_USER_WISH
@@ -96,7 +96,7 @@
       DELETE FROM TB_USER
       WHERE usr_id = #{userId,jdbcType=VARCHAR };
       END;
-  </delete>
+  </select>
 
   <update id="updateRefreshToken" parameterType="Map">
     /*insertRefreshToken*/

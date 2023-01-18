@@ -44,10 +44,10 @@ public class WithdrawalHandler extends BaseHandler {
         String email= user.getUsername();
         String plainPassword = req.password;
 
-
+        int result=0;
         try {
             UserVo uservo;
-
+            System.out.println(email);
             if(userType ==UserType.User.getValue()){
                 uservo = authMapper.selectUserInfo(email);
             }
@@ -58,29 +58,20 @@ public class WithdrawalHandler extends BaseHandler {
                 res.setCode(ResultCode.InvalidParameter);
                 return res;
             }
-
             String encryptedPassword = CryptoUtils.encryptPassword(plainPassword,uservo.salt);
-            if(!uservo.password.equals(encryptedPassword)){ // 비밀번호가 일치하지 않으면 에러코드 return
-                res.setCode(ResultCode.InvalidPassword);
-                return res;
-            }
-            int result=0;
+
             if (userType ==UserType.User.getValue()) {
                 result =authMapper.deleteUserInfo(email);
+
             } else {
                result =authMapper.deleteSellerInfo(email);
-            }
-            if(result>=0){
-                res.setResult(result);
-            }
-            else{
-                res.setCode(ResultCode.InternalServerError);
-                return res;
             }
             return res;
         }catch (Exception e){
             res.setCode(ResultCode.InternalServerError);
         }
+        res.setCode(ResultCode.Success);
+        res.result=1;
         return  res;
    }
 

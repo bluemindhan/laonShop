@@ -27,6 +27,4 @@ public interface AuthMapper {
 
   String selectRefreshToken(HashMap<String, String> map);
 
-
-
 }
