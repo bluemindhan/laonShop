@@ -24,19 +24,34 @@
     </select>
     
     <update id="updateUserInfo" parameterType="Map">
+        <![CDATA[
         UPDATE
             TB_USER
         SET
             USR_NM =#{map.user.name, jdbcType=VARCHAR},
             USR_EML=#{map.user.email, jdbcType=VARCHAR},
-            USR_PSSWRD=#{map.user.password, jdbcType=VARCHAR},
             USR_BIR=#{map.user.birth, jdbcType=VARCHAR },
             USR_GD=#{map.user.gender, jdbcType=VARCHAR},
             USR_PN=#{map.user.phone, jdbcType=VARCHAR},
-            SALT=#{map.user.salt, jdbcType=VARCHAR},
             UPD_DT=SYSDATE
         WHERE
             USR_ID =#{map.userId, jdbcType=VARCHAR}
+        ]]>
+    </update>
+
+    <update id="updateSellerInfo" parameterType="Map">
+        <![CDATA[
+        UPDATE
+            TB_SELLER
+        SET
+            SlLR_NM =#{map.user.name, jdbcType=VARCHAR},
+            UPD_DT=SYSDATE,
+            SlLR_GD =#{map.user.gender,jdbcType=VARCHAR},
+            SlLR_BIR=#{map.user.birth, jdbcType=VARCHAR },
+            SlLR_PN=#{map.user.phone, jdbcType=VARCHAR}
+        WHERE
+            SLLR_ID =#{map.userId, jdbcType=VARCHAR}
+        ]]>
     </update>
 
 </mapper>

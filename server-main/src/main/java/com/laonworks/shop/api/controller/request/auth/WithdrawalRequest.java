@@ -15,6 +15,8 @@ public class WithdrawalRequest {
     @ApiParam(value ="user password", required = true)
     public String password="";
 
+
+
     public boolean valid() {return StringUtils.hasText(password);}
     public boolean invalid(){return !valid(); }
 }
