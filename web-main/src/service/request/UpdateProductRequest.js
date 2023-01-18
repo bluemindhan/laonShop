@@ -1,10 +1,9 @@
-export default class AddProductRequest {
+export default class UpdateProductRequest {
   constructor() {
+    this.productNum = 0;
     this.productName = '';
     this.productDesc = '';
     this.productPrice = 0;
-    this.productCreateDate = '';
-    this.productUpdateDate = '';
     this.imageList = null;
   }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.laonworks.shop.api.jihyeon.mapper.ProductMapper">
+
   <!-- 다음 상품 시퀀스 값-->
   <select id="selectPrdtNextVal" resultType="int">
   <![CDATA[
@@ -121,6 +122,8 @@
     A.PRDT_PRCE as prdtPrce ,
     A.PRDT_NM as prdtNm ,
     A.PRDT_DESC as prdtDesc ,
+    A.CRT_DT as crtDt,
+    A.UPD_DT as updDt,
     B.IMG_URL as image
   FROM
     TB_PRODUCT A
