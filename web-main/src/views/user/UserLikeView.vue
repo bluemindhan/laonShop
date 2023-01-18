@@ -25,13 +25,13 @@
                 </tr>
               </thead>
               <tbody class="bg-white">
-                <tr v-for="(wish, wishIdx) in wishList" :key="wish.createDate" @click="$router.push(`/user/items/${ wish.productNum }`)">
+                <tr v-for="(wish, wishIdx) in wishList" :key="wish.createDate" >
                   <td :class="[wishIdx !== wish.length - 1 ? 'border-b border-gray-200' : '', 'whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8']">{{ wishIdx + 1 }}</td>
-                  <td :class="[wishIdx !== wish.length - 1 ? 'border-b border-gray-200' : '', 'whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8']">{{ wish.productName }}</td>
+                  <td :class="[wishIdx !== wish.length - 1 ? 'border-b border-gray-200' : '', 'whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8']" @click="$router.push(`/user/items/${ wish.productNum }`)">{{ wish.productName }}</td>
                   <td :class="[wishIdx !== wish.length - 1 ? 'border-b border-gray-200' : '', 'whitespace-nowrap px-3 py-4 text-sm text-gray-500 hidden sm:table-cell']">{{ wish.createDate }}</td>
                   <td :class="[wishIdx !== wish.length - 1 ? 'border-b border-gray-200' : '', 'relative whitespace-nowrap py-4 pr-4 pl-3 text-right text-sm font-medium sm:pr-6 lg:pr-8']">
-                    <a href="#" class="text-indigo-600 hover:text-indigo-900"
-                      >삭제<span class="sr-only">, {{ wish.productName }}</span></a
+                    <button type="button" @click="unliked(wish.productNum)" class="text-indigo-600 hover:text-indigo-900"
+                      >삭제<span class="sr-only">, {{ wish.productName }}</span></button
                     >
                   </td>
                 </tr>
@@ -46,6 +46,7 @@
 
 <script>
 import GetLikeListRequest from '@/service/request/GetLikeListRequest.js';
+import DeleteLikeRequest from '@/service/request/DeleteLikeRequest.js';
 import {mapGetters, mapMutations} from "vuex";
 import ResultCode from "@/service/ResultCode";
 import HeroSection from '@/components/HeroSection.vue'
@@ -97,7 +98,24 @@ export default {
       } catch (e) {
         console.error(e);
       }
-    }
+    },
+    async unliked(val) {
+      let req = new DeleteLikeRequest();
+      req.prdNum = val;
+      console.log(req);
+      try {
+        let res = await this.api.deleteLike(req);
+
+        if (res.code === ResultCode.Success) {
+          console.log(res);
+          this.$router.go();
+        } else {
+          alert(res.message);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    },
   },
   created() {
     console.log("ItemDetail.vue..", this.accessToken);

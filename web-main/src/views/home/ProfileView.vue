@@ -13,6 +13,26 @@
   ```
 -->
 <template>
+ <nav class="flex justify-center mt-20" aria-label="Breadcrumb">
+    <ol role="list" class="flex items-center space-x-4">
+      <li>
+        <div>
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+            <HomeIcon class="h-5 w-5 flex-shrink-0" aria-hidden="true" />
+            <span class="sr-only">Home</span>
+          </a>
+        </div>
+      </li>
+      <li v-for="page in pages" :key="page.name">
+        <div class="flex items-center">
+          <svg class="h-5 w-5 flex-shrink-0 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
+          </svg>
+          <router-link :to="page.href" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700" :aria-current="page.current ? 'page' : undefined">{{ page.name }}</router-link>
+        </div>
+      </li>
+    </ol>
+  </nav>
   <form class="space-y-8 divide-y divide-gray-200 mx-40">
     <div class="space-y-8 divide-y divide-gray-200 p-20 mx-40">
       <div class="pt-8">
@@ -32,25 +52,12 @@
               autocomplete="name"
               :value="userInfo.name"
               class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-              required/>
+              required>
             </div>
           </div>
-
-          <!-- <div class="sm:col-span-4" v-if="isSeller">
-            <label for="name" class="block text-sm font-medium text-gray-700">판매자명</label>
-            <input
-                v-model="userInfo.name"
-                id="name"
-                name="name"
-                type="name"
-                required=""
-                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                placeholder="판매자명"
-            />
-          </div> -->
-
+          
           <div class="sm:col-span-4">
-            <label for="email" class="block text-sm font-medium text-gray-700">이메일/아이디</label>
+            <label for="email" class="block text-sm font-medium text-gray-700">이메일</label>
             <div class="mt-1">
               <input 
               id="email" 
@@ -77,7 +84,7 @@
                 <option value="">성별을 선택해주세요</option>
                 <option value="남자">남자</option>
                 <option value="여자">여자</option>
-                <option :value="userInfo.gender" selected v-show="false">{{ userInfo.gender }}</option>
+                <option selected v-show="false">{{ userInfo.gender }}</option>
               </select>
             </div>
           </div>
@@ -141,16 +148,18 @@
           </div> -->
 
           <div class="sm:col-span-4">
-            <label for="password" class="block text-sm font-medium text-gray-700">비밀번호 수정</label>
+            <label for="password" class="block text-sm font-medium text-gray-700">비밀번호 확인</label>
             <div class="mt-1">
               <input 
               id="password" 
               name="password" 
-              type="password" 
+              type="password"
+              v-model="password" 
               autocomplete="password" 
               class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
               required/>
             </div>
+            
           </div>
         </div>
       </div>
@@ -161,7 +170,7 @@
         <button type="button" 
         class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         @click="$router.back()">취소</button>
-        <button @click="save" type="button" class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        <button @click="updateProfile" type="submit" class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         >저장</button>
       </div>
     </div>
@@ -170,7 +179,8 @@
 
 <script>
 import {mapGetters, mapMutations} from "vuex";
-import GetProfileRequest from "@/service/request/GetProfileRequest";
+import GetProfileRequest from "@/service/request/GetProfileRequest.js";
+import UpdateProfileRequest from "@/service/request/UpdateProfileRequest.js";
 import ResultCode from "@/service/ResultCode";
 
 export default {
@@ -181,11 +191,11 @@ export default {
     return {
       userInfo: {},
       password: '',
-      name: '',
-      email: '',
-      gender: '',
-      birth: '',
-      phone: '',
+      // name: '',
+      // email: '',
+      // gender: '',
+      // birth: '',
+      // phone: '',
       // sellerName: "",
       // isSeller: false,
     };
@@ -228,6 +238,59 @@ export default {
         console.error(e);
       }
     },
+    async updateProfile() {
+      if (document.getElementById("name").value == "") {
+        alert("이름을 입력해주세요.");
+        return;
+      }
+
+      if (document.getElementById("email").value == "") {
+        alert("이메일을 입력해주세요.");
+        return;
+      }
+
+      if (this.password == "") {
+        alert("비밀번호를 입력해주세요.");
+        return;
+      }
+
+      if (document.getElementById("phone").value == "") {
+        alert("전화번호를 입력해주세요.");
+        return;
+      }
+
+      if (document.getElementById("birth").value == "") {
+        alert("생년월일을 입력해주세요.");
+        return;
+      }
+
+      if (document.getElementById("gender").value == "") {
+        alert("성별을 선택해주세요.");
+        return;
+      }
+      
+      let req = new UpdateProfileRequest();
+      let target = document.getElementById("gender");
+
+      req.birth = document.getElementById("birth").value;
+      req.email = document.getElementById("email").value;
+      req.gender = target.options[target.selectedIndex].value;
+      req.name = document.getElementById("name").value;
+      req.password = this.password;
+      req.phone = document.getElementById("phone").value;
+      console.log(req);
+      
+      try {
+        let res = await this.api.updateProfile(req);
+        if (res.code == ResultCode.Success) {
+          this.userInfo = res.userInfo;
+          console.log(res);
+          // this.$router.go();
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    },
    
    },
    beforeDestroy() {
@@ -257,6 +320,15 @@ export default {
 };
 </script>
 
+<script setup>
+import { HomeIcon } from '@heroicons/vue/20/solid'
+
+const pages = [
+  { name: '회원정보수정', href: '/profile', current: false },
+  // { name: '회원탈퇴', href: '/withdraw', current: true },
+  { name: '회원탈퇴', href: '#', current: true },
+]
+</script>
 <style>
 
 </style>

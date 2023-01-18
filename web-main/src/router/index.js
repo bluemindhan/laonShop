@@ -75,6 +75,11 @@ const routes = [
         name: 'SellerProductsNewView',
         component: SellerProductsNewView,
       },
+      // {
+      //   path: '/seller/profile',
+      //   name: 'ProfileView',
+      //   component: ProfileView,
+      // },
     ],
   },
   {
@@ -113,6 +118,11 @@ const routes = [
         name: 'UserLikeView',
         component: UserLikeView,
       },
+      // {
+      //   path: '/user/profile',
+      //   name: 'ProfileView',
+      //   component: ProfileView,
+      // },
     ],
   },
 ];

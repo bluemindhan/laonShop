@@ -85,7 +85,7 @@
         <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <div class="flex items-center justify-between space-x-4">
             <h2 class="text-lg font-medium text-gray-900">Customers also viewed</h2>
-            <a href="#" class="whitespace-nowrap text-sm font-medium text-indigo-600 hover:text-indigo-500">
+            <a href="/user/main" class="whitespace-nowrap text-sm font-medium text-indigo-600 hover:text-indigo-500">
               View all
               <span aria-hidden="true"> &rarr;</span>
             </a>
