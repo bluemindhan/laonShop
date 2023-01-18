@@ -231,23 +231,6 @@ export class ApiService {
       })
     });
   }
-  deleteProduct(req) {
-    const url = "/api/v1/seller/product/delete?" + qs.stringify(req);
-    return new Promise((resolve, reject) => {
-      axios.get(url).then(res => {
-        if (res.status === 200) {
-          resolve(res.data);
-          return;
-        }
-
-        console.error(res.status, res.statusText);
-        reject(null);
-      })
-      .catch((err) => {
-        reject(err);
-      })
-    });
-  } 
   getCartList(req) {
     return new Promise((resolve, reject) => {
       axios.get('/api/v1/cart/cart-info', req).then(res => {
