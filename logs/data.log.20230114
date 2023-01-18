@@ -1,0 +1,1859 @@
+2023-01-14 00:32:09 [WARN ] [DispatcherServlet.java]noHandlerFound(1275) : No mapping for GET /
+2023-01-14 00:32:09 [WARN ] [AbstractSerializableParameter.java]getExample(421) : Illegal DefaultValue  for parameter type integer
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Long.parseLong(Long.java:702)
+	at java.base/java.lang.Long.valueOf(Long.java:1144)
+	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412)
+	at jdk.internal.reflect.GeneratedMethodAccessor88.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:689)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serializeContents(IndexedListSerializer.java:119)
+	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serialize(IndexedListSerializer.java:79)
+	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serialize(IndexedListSerializer.java:18)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serializeFields(MapSerializer.java:808)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serializeWithoutTypeInfo(MapSerializer.java:764)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serialize(MapSerializer.java:720)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serialize(MapSerializer.java:35)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:480)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:319)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4487)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:3742)
+	at springfox.documentation.spring.web.json.JsonSerializer.toJson(JsonSerializer.java:38)
+	at springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(Swagger2Controller.java:105)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:228)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:204)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1723)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2023-01-14 00:32:09 [WARN ] [DispatcherServlet.java]noHandlerFound(1275) : No mapping for GET /csrf
+2023-01-14 00:32:09 [WARN ] [AbstractSerializableParameter.java]getExample(421) : Illegal DefaultValue  for parameter type integer
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Long.parseLong(Long.java:702)
+	at java.base/java.lang.Long.valueOf(Long.java:1144)
+	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412)
+	at jdk.internal.reflect.GeneratedMethodAccessor88.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:689)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serializeContents(IndexedListSerializer.java:119)
+	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serialize(IndexedListSerializer.java:79)
+	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serialize(IndexedListSerializer.java:18)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serializeFields(MapSerializer.java:808)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serializeWithoutTypeInfo(MapSerializer.java:764)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serialize(MapSerializer.java:720)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serialize(MapSerializer.java:35)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:480)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:319)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4487)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:3742)
+	at springfox.documentation.spring.web.json.JsonSerializer.toJson(JsonSerializer.java:38)
+	at springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(Swagger2Controller.java:105)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:228)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:204)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1723)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2023-01-14 00:32:15 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+161. /*selectMainPage*/ SELECT A.*
+    FROM(
+        SELECT
+            MAX(A.PRDT_NO) as itemId,
+            MAX(A.PRDT_PRCE) as price,
+            MAX(A.PRDT_NM) as name,
+            MAX(A.PRDT_DESC) as itemDetail,
+            MAX(B.IMG_URL) as image,
+            MAX(C.LIKE_CNT) as likeCnt,
+            MAX(C.MBK_CNT) as bookCnt
+        FROM
+            TB_PRODUCT A
+                LEFT JOIN TB_PRODUCT_IMAGE B
+                          ON A.PRDT_NO = B.PRDT_NO
+                LEFT JOIN TB_PRODUCT_SOCIAL C
+                          ON B.PRDT_NO = C.PRDT_NO
+        GROUP BY A.PRDT_NO
+        ORDER BY bookCnt ASC
+        ) A
+    WHERE ROWNUM <= 3
+ {executed in 2 msec}
+2023-01-14 00:32:15 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|-------|-------|----------|-----------|-----------|--------|--------|
+|itemid |price  |name      |itemdetail |image      |likecnt |bookcnt |
+|-------|-------|----------|-----------|-----------|--------|--------|
+|22     |458970 |HP 게이밍모니터 |최신 모니터     |22번상품이미지주소 |1       |1       |
+|2      |10000  |아이패드      |아이패드 최신형   |2번상품이미지주소  |[null]  |[null]  |
+|21     |300000 |맥북        |m2 512gb   |21번상품이미지주소 |[null]  |[null]  |
+|-------|-------|----------|-----------|-----------|--------|--------|
+
+2023-01-14 00:47:33 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+161. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = 'abcd@naver.com'
+ {executed in 1 msec}
+2023-01-14 00:47:33 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|-------|-----|------|---------|-----|-------|------|------|
+|userid |name |email |password |salt |gender |birth |phone |
+|-------|-----|------|---------|-----|-------|------|------|
+|-------|-----|------|---------|-----|-------|------|------|
+
+2023-01-14 00:47:33 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+161. /* insertUserInfo */
+    INSERT INTO TB_USER (
+    USR_ID,
+    USR_NM,
+    USR_EML,
+    USR_PSSWRD,
+    USR_BIR,
+    USR_GD,
+    USR_PN,
+    SALT,
+    CRT_DT,
+    UPD_DT
+  ) VALUES (
+    'abcd@naver.com',
+    '',
+    'abcd@naver.com',
+    'a57794b4a0906f5e27697bf3ddb7007fa7963812783f8e3e5fb10332a8d23386b854a54e20fb9e4ec0010e017a3da963bc477a7cfd49362244ab5f026ea390279883072181992ed6344dadd372a6ce306af86c16824bf400d67d5d16582de8481b4c46bae6db1ed49f8b6eb58ce1f24ec05f6537667576318763a8a5be47be48',
+    '2023-01-14',
+    '남자',
+    '010-1234-1235',
+    'bbdce93b4fad0a57a8a32577e10221e9',
+    SYSDATE,
+    SYSDATE
+  )
+ {executed in 2 msec}
+2023-01-14 00:47:33 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+161. SELECT
+            A.PRDT_NO as productId,
+            A.CRT_DT as createDate,
+            A.UPD_DT as updateDate,
+            A.SLLR_ID as sellerId,
+            A.PRDT_NM as name,
+            A.PRDT_PRCE as price,
+            A.PRDT_DESC as detail,
+            B.IMG_URL as image
+        FROM
+            TB_PRODUCT A,
+            TB_PRODUCT_IMAGE B
+        WHERE
+            A.PRDT_NO=B.PRDT_NO
+ {executed in 1 msec}
+2023-01-14 00:47:33 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|----------|--------------------|--------------------|---------------------|----------|-------|-------------|-----------|
+|productid |createdate          |updatedate          |sellerid             |name      |price  |detail       |image      |
+|----------|--------------------|--------------------|---------------------|----------|-------|-------------|-----------|
+|22        |2023-01-04 12:04:08 |2023-01-04 12:04:08 |jiwoong423@gmail.com |HP 게이밍모니터 |458970 |최신 모니터       |22번상품이미지주소 |
+|2         |2023-01-02 15:24:28 |2023-01-02 15:24:28 |primespace@naver.com |아이패드      |10000  |아이패드 최신형     |2번상품이미지주소  |
+|11        |2023-01-02 15:27:13 |2023-01-02 15:27:13 |primespace@naver.com |z플립       |20000  |z플립 최신형      |11번상품이미지주소 |
+|21        |2023-01-04 12:00:34 |2023-01-04 12:00:34 |jiwoong423@gmail.com |맥북        |300000 |m2 512gb     |21번상품이미지주소 |
+|23        |2023-01-04 12:05:03 |2023-01-04 12:05:03 |jiwoong423@gmail.com |키보드       |100000 |알루미늄 RGB 핫스왑 |23번상품이미지주소 |
+|----------|--------------------|--------------------|---------------------|----------|-------|-------------|-----------|
+
+2023-01-14 06:01:40 [WARN ] [HikariPool.java]run(788) : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h26m34s902ms44µs400ns).
+2023-01-14 10:08:38 [WARN ] [HikariPool.java]run(788) : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4h4m25s919ms446µs300ns).
+2023-01-14 11:31:57 [WARN ] [DispatcherServlet.java]noHandlerFound(1275) : No mapping for GET /
+2023-01-14 11:31:57 [WARN ] [DispatcherServlet.java]noHandlerFound(1275) : No mapping for GET /csrf
+2023-01-14 11:31:57 [WARN ] [AbstractSerializableParameter.java]getExample(421) : Illegal DefaultValue  for parameter type integer
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Long.parseLong(Long.java:702)
+	at java.base/java.lang.Long.valueOf(Long.java:1144)
+	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412)
+	at jdk.internal.reflect.GeneratedMethodAccessor88.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:689)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serializeContents(IndexedListSerializer.java:119)
+	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serialize(IndexedListSerializer.java:79)
+	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serialize(IndexedListSerializer.java:18)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serializeFields(MapSerializer.java:808)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serializeWithoutTypeInfo(MapSerializer.java:764)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serialize(MapSerializer.java:720)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serialize(MapSerializer.java:35)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:480)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:319)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4487)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:3742)
+	at springfox.documentation.spring.web.json.JsonSerializer.toJson(JsonSerializer.java:38)
+	at springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(Swagger2Controller.java:105)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:228)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:204)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1723)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2023-01-14 11:31:57 [WARN ] [AbstractSerializableParameter.java]getExample(421) : Illegal DefaultValue  for parameter type integer
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Long.parseLong(Long.java:702)
+	at java.base/java.lang.Long.valueOf(Long.java:1144)
+	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412)
+	at jdk.internal.reflect.GeneratedMethodAccessor88.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:689)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serializeContents(IndexedListSerializer.java:119)
+	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serialize(IndexedListSerializer.java:79)
+	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serialize(IndexedListSerializer.java:18)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serializeFields(MapSerializer.java:808)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serializeWithoutTypeInfo(MapSerializer.java:764)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serialize(MapSerializer.java:720)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serialize(MapSerializer.java:35)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:480)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:319)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4487)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:3742)
+	at springfox.documentation.spring.web.json.JsonSerializer.toJson(JsonSerializer.java:38)
+	at springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(Swagger2Controller.java:105)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:228)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:204)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1723)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2023-01-14 11:45:26 [INFO ] [HikariDataSource.java]close(350) : HikariPool-1 - Shutdown initiated...
+2023-01-14 11:45:26 [INFO ] [HikariDataSource.java]close(352) : HikariPool-1 - Shutdown completed.
+2023-01-14 11:45:59 [INFO ] [StartupInfoLogger.java]logStarting(55) : Starting LaonShopApplication using Java 11.0.12 on DESKTOP-N6NE9Q6 with PID 3532 (D:\Spring\laonShop\server-main\build\classes\java\main started by Jiwoong in D:\Spring\laonShop)
+2023-01-14 11:45:59 [INFO ] [SpringApplication.java]logStartupProfileInfo(659) : No active profile set, falling back to default profiles: default
+2023-01-14 11:45:59 [INFO ] [DeferredLog.java]logTo(255) : The Class-Path manifest attribute in C:\Users\choig\.gradle\caches\modules-2\files-2.1\com.oracle.ojdbc\ojdbc8\19.3.0.0\967c0b1a2d5b1435324de34a9b8018d294f8f47b\ojdbc8-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/ojdbc8/19.3.0.0/967c0b1a2d5b1435324de34a9b8018d294f8f47b/oraclepki.jar
+2023-01-14 11:45:59 [INFO ] [DeferredLog.java]logTo(255) : The Class-Path manifest attribute in C:\Users\choig\.gradle\caches\modules-2\files-2.1\com.oracle.ojdbc\oraclepki\19.3.0.0\e52a34f271c6c62ee1a73b71cc19da5459b709f\oraclepki-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/e52a34f271c6c62ee1a73b71cc19da5459b709f/osdt_core.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/e52a34f271c6c62ee1a73b71cc19da5459b709f/osdt_cert.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/oracle.osdt/osdt_core.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/oracle.osdt/osdt_cert.jar
+2023-01-14 11:45:59 [INFO ] [DeferredLog.java]logTo(255) : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-01-14 11:45:59 [INFO ] [DeferredLog.java]logTo(255) : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-01-14 11:46:09 [WARN ] [EC2MetadataUtils.java]getItems(414) : Unable to retrieve the requested metadata (/latest/meta-data/instance-id). Failed to connect to service endpoint: 
+com.amazonaws.SdkClientException: Failed to connect to service endpoint: 
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:100)
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:70)
+	at com.amazonaws.internal.InstanceMetadataServiceResourceFetcher.readResource(InstanceMetadataServiceResourceFetcher.java:75)
+	at com.amazonaws.internal.EC2ResourceFetcher.readResource(EC2ResourceFetcher.java:66)
+	at com.amazonaws.util.EC2MetadataUtils.getItems(EC2MetadataUtils.java:407)
+	at com.amazonaws.util.EC2MetadataUtils.getData(EC2MetadataUtils.java:376)
+	at org.springframework.cloud.aws.context.support.env.AwsCloudEnvironmentCheckUtils.isRunningOnCloudEnvironment(AwsCloudEnvironmentCheckUtils.java:38)
+	at org.springframework.cloud.aws.context.annotation.OnAwsCloudEnvironmentCondition.matches(OnAwsCloudEnvironmentCondition.java:38)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:108)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:489)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:140)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:129)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:343)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.laonworks.shop.api.LaonShopApplication.main(LaonShopApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method)
+	at java.base/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:107)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)
+	at java.base/java.net.Socket.connect(Socket.java:608)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1253)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1232)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1015)
+	at com.amazonaws.internal.ConnectionUtils.connectToEndpoint(ConnectionUtils.java:95)
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:80)
+	... 29 common frames omitted
+2023-01-14 11:46:09 [INFO ] [TomcatWebServer.java]initialize(108) : Tomcat initialized with port(s): 6060 (http)
+2023-01-14 11:46:09 [INFO ] [DirectJDKLog.java]log(173) : Starting service [Tomcat]
+2023-01-14 11:46:09 [INFO ] [DirectJDKLog.java]log(173) : Starting Servlet engine: [Apache Tomcat/9.0.50]
+2023-01-14 11:46:09 [INFO ] [DirectJDKLog.java]log(173) : Initializing Spring embedded WebApplicationContext
+2023-01-14 11:46:09 [INFO ] [ServletWebServerApplicationContext.java]prepareWebApplicationContext(290) : Root WebApplicationContext: initialization completed in 10105 ms
+2023-01-14 11:46:10 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/css/**'] with []
+2023-01-14 11:46:10 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/js/**'] with []
+2023-01-14 11:46:10 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/img/**'] with []
+2023-01-14 11:46:10 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/lib/*8'] with []
+2023-01-14 11:46:10 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/v2/api-docs'] with []
+2023-01-14 11:46:10 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/configuration/ui'] with []
+2023-01-14 11:46:10 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger-resources'] with []
+2023-01-14 11:46:10 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/configuration/security'] with []
+2023-01-14 11:46:10 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger-ui.html'] with []
+2023-01-14 11:46:10 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='webjars/**'] with []
+2023-01-14 11:46:10 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger/**'] with []
+2023-01-14 11:46:10 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@28d2bc8d, org.springframework.security.web.context.SecurityContextPersistenceFilter@4e05983e, org.springframework.security.web.header.HeaderWriterFilter@98e1bdf, org.springframework.security.web.authentication.logout.LogoutFilter@669262a7, com.laonworks.shop.api.framework.security.jwt.JwtAuthenticationFilter@4b3b105, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@520736ad, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@35dbd613, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@63af617e, org.springframework.security.web.session.SessionManagementFilter@3a5c29e5, org.springframework.security.web.access.ExceptionTranslationFilter@c51e2d7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4b027aa4]
+2023-01-14 11:46:10 [INFO ] [PropertySourcedRequestMappingHandlerMapping.java]initHandlerMethods(69) : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-01-14 11:46:10 [INFO ] [OptionalLiveReloadServer.java]startServer(58) : LiveReload server is running on port 35729
+2023-01-14 11:46:11 [WARN ] [ThymeleafAutoConfiguration.java]checkTemplateLocationExists(105) : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2023-01-14 11:46:11 [INFO ] [TomcatWebServer.java]start(220) : Tomcat started on port(s): 6060 (http) with context path ''
+2023-01-14 11:46:11 [INFO ] [DocumentationPluginsBootstrapper.java]start(160) : Context refreshed
+2023-01-14 11:46:11 [INFO ] [DocumentationPluginsBootstrapper.java]start(163) : Found 1 custom documentation plugin(s)
+2023-01-14 11:46:11 [INFO ] [ApiListingReferenceScanner.java]scan(41) : Scanning for api listing references
+2023-01-14 11:46:11 [INFO ] [StartupInfoLogger.java]logStarted(61) : Started LaonShopApplication in 12.014 seconds (JVM running for 14.819)
+2023-01-14 11:49:23 [INFO ] [DirectJDKLog.java]log(173) : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-14 11:49:23 [INFO ] [FrameworkServlet.java]initServletBean(525) : Initializing Servlet 'dispatcherServlet'
+2023-01-14 11:49:23 [INFO ] [FrameworkServlet.java]initServletBean(547) : Completed initialization in 2 ms
+2023-01-14 11:49:23 [WARN ] [DispatcherServlet.java]noHandlerFound(1275) : No mapping for GET /
+2023-01-14 11:49:24 [WARN ] [DispatcherServlet.java]noHandlerFound(1275) : No mapping for GET /csrf
+2023-01-14 11:49:24 [WARN ] [AbstractSerializableParameter.java]getExample(421) : Illegal DefaultValue  for parameter type integer
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Long.parseLong(Long.java:702)
+	at java.base/java.lang.Long.valueOf(Long.java:1144)
+	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412)
+	at jdk.internal.reflect.GeneratedMethodAccessor89.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:689)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serializeContents(IndexedListSerializer.java:119)
+	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serialize(IndexedListSerializer.java:79)
+	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serialize(IndexedListSerializer.java:18)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serializeFields(MapSerializer.java:808)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serializeWithoutTypeInfo(MapSerializer.java:764)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serialize(MapSerializer.java:720)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serialize(MapSerializer.java:35)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:480)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:319)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4487)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:3742)
+	at springfox.documentation.spring.web.json.JsonSerializer.toJson(JsonSerializer.java:38)
+	at springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(Swagger2Controller.java:105)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:228)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:204)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1723)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2023-01-14 11:49:24 [WARN ] [AbstractSerializableParameter.java]getExample(421) : Illegal DefaultValue  for parameter type integer
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Long.parseLong(Long.java:702)
+	at java.base/java.lang.Long.valueOf(Long.java:1144)
+	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412)
+	at jdk.internal.reflect.GeneratedMethodAccessor89.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:689)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serializeContents(IndexedListSerializer.java:119)
+	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serialize(IndexedListSerializer.java:79)
+	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serialize(IndexedListSerializer.java:18)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serializeFields(MapSerializer.java:808)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serializeWithoutTypeInfo(MapSerializer.java:764)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serialize(MapSerializer.java:720)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serialize(MapSerializer.java:35)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:480)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:319)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4487)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:3742)
+	at springfox.documentation.spring.web.json.JsonSerializer.toJson(JsonSerializer.java:38)
+	at springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(Swagger2Controller.java:105)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:228)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:204)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1723)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2023-01-14 11:49:54 [INFO ] [HikariDataSource.java]getConnection(110) : HikariPool-1 - Starting...
+2023-01-14 11:49:54 [INFO ] [HikariDataSource.java]getConnection(123) : HikariPool-1 - Start completed.
+2023-01-14 11:49:54 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = 'abcd@naver.com'
+ {executed in 40 msec}
+2023-01-14 11:49:54 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|userid         |name |email          |password                                                                                                                                                                                                                                                         |salt                             |gender |birth      |phone         |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|abcd@naver.com |null |abcd@naver.com |a57794b4a0906f5e27697bf3ddb7007fa7963812783f8e3e5fb10332a8d23386b854a54e20fb9e4ec0010e017a3da963bc477a7cfd49362244ab5f026ea390279883072181992ed6344dadd372a6ce306af86c16824bf400d67d5d16582de8481b4c46bae6db1ed49f8b6eb58ce1f24ec05f6537667576318763a8a5be47be48 |bbdce93b4fad0a57a8a32577e10221e9 |남자     |2023-01-14 |010-1234-1235 |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+
+2023-01-14 11:49:54 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. /*insertRefreshToken*/
+
+    UPDATE TB_USER
+    SET
+        REFRESH =  'eyJ1c2VyIjoiYWJjZEBuYXZlci5jb206MSIsImFsZyI6IkhTMjU2In0.eyJpYXQiOjE2NzM2NjQ1OTQsImV4cCI6MTY3NDg3NDE5NH0.FRisi16oXMdYgyiAFTY8MF_AMwE-1TGKTJofdFt9s00'
+    WHERE
+        USR_ID = 'abcd@naver.com'
+ {executed in 1 msec}
+2023-01-14 11:49:54 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT
+            A.PRDT_NO as productId,
+            A.CRT_DT as createDate,
+            A.UPD_DT as updateDate,
+            A.SLLR_ID as sellerId,
+            A.PRDT_NM as name,
+            A.PRDT_PRCE as price,
+            A.PRDT_DESC as detail,
+            B.IMG_URL as image
+        FROM
+            TB_PRODUCT A,
+            TB_PRODUCT_IMAGE B
+        WHERE
+            A.PRDT_NO=B.PRDT_NO
+ {executed in 10 msec}
+2023-01-14 11:49:54 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|----------|--------------------|--------------------|---------------------|----------|-------|-------------|-----------|
+|productid |createdate          |updatedate          |sellerid             |name      |price  |detail       |image      |
+|----------|--------------------|--------------------|---------------------|----------|-------|-------------|-----------|
+|22        |2023-01-04 12:04:08 |2023-01-04 12:04:08 |jiwoong423@gmail.com |HP 게이밍모니터 |458970 |최신 모니터       |22번상품이미지주소 |
+|2         |2023-01-02 15:24:28 |2023-01-02 15:24:28 |primespace@naver.com |아이패드      |10000  |아이패드 최신형     |2번상품이미지주소  |
+|11        |2023-01-02 15:27:13 |2023-01-02 15:27:13 |primespace@naver.com |z플립       |20000  |z플립 최신형      |11번상품이미지주소 |
+|21        |2023-01-04 12:00:34 |2023-01-04 12:00:34 |jiwoong423@gmail.com |맥북        |300000 |m2 512gb     |21번상품이미지주소 |
+|23        |2023-01-04 12:05:03 |2023-01-04 12:05:03 |jiwoong423@gmail.com |키보드       |100000 |알루미늄 RGB 핫스왑 |23번상품이미지주소 |
+|----------|--------------------|--------------------|---------------------|----------|-------|-------------|-----------|
+
+2023-01-14 11:50:39 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = NULL
+ {executed in 1 msec}
+2023-01-14 11:50:39 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|-------|-----|------|---------|-----|-------|------|------|
+|userid |name |email |password |salt |gender |birth |phone |
+|-------|-----|------|---------|-----|-------|------|------|
+|-------|-----|------|---------|-----|-------|------|------|
+
+2023-01-14 20:18:36 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+171. /*selectMainPage*/ SELECT A.*
+    FROM(
+        SELECT
+            MAX(A.PRDT_NO) as itemId,
+            MAX(A.PRDT_PRCE) as price,
+            MAX(A.PRDT_NM) as name,
+            MAX(A.PRDT_DESC) as itemDetail,
+            MAX(B.IMG_URL) as image,
+            MAX(C.LIKE_CNT) as likeCnt,
+            MAX(C.MBK_CNT) as bookCnt
+        FROM
+            TB_PRODUCT A
+                LEFT JOIN TB_PRODUCT_IMAGE B
+                          ON A.PRDT_NO = B.PRDT_NO
+                LEFT JOIN TB_PRODUCT_SOCIAL C
+                          ON B.PRDT_NO = C.PRDT_NO
+        GROUP BY A.PRDT_NO
+        ORDER BY bookCnt ASC
+        ) A
+    WHERE ROWNUM <= 3
+ {executed in 4 msec}
+2023-01-14 20:18:36 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|-------|-------|----------|-----------|-----------|--------|--------|
+|itemid |price  |name      |itemdetail |image      |likecnt |bookcnt |
+|-------|-------|----------|-----------|-----------|--------|--------|
+|22     |458970 |HP 게이밍모니터 |최신 모니터     |22번상품이미지주소 |1       |1       |
+|2      |10000  |아이패드      |아이패드 최신형   |2번상품이미지주소  |[null]  |[null]  |
+|21     |300000 |맥북        |m2 512gb   |21번상품이미지주소 |[null]  |[null]  |
+|-------|-------|----------|-----------|-----------|--------|--------|
+
+2023-01-14 20:18:50 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+171. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = 'abcd@naver.com'
+ {executed in 1 msec}
+2023-01-14 20:18:50 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|userid         |name |email          |password                                                                                                                                                                                                                                                         |salt                             |gender |birth      |phone         |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|abcd@naver.com |null |abcd@naver.com |a57794b4a0906f5e27697bf3ddb7007fa7963812783f8e3e5fb10332a8d23386b854a54e20fb9e4ec0010e017a3da963bc477a7cfd49362244ab5f026ea390279883072181992ed6344dadd372a6ce306af86c16824bf400d67d5d16582de8481b4c46bae6db1ed49f8b6eb58ce1f24ec05f6537667576318763a8a5be47be48 |bbdce93b4fad0a57a8a32577e10221e9 |남자     |2023-01-14 |010-1234-1235 |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+
+2023-01-14 20:18:50 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+171. /*insertRefreshToken*/
+
+    UPDATE TB_USER
+    SET
+        REFRESH =  'eyJ1c2VyIjoiYWJjZEBuYXZlci5jb206MSIsImFsZyI6IkhTMjU2In0.eyJpYXQiOjE2NzM2OTUxMzAsImV4cCI6MTY3NDkwNDczMH0.Rz6Gy632qV3_lo1HZbxmwUeqdxLS7X3ngI0-RVopj8k'
+    WHERE
+        USR_ID = 'abcd@naver.com'
+ {executed in 4 msec}
+2023-01-14 20:18:50 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+171. SELECT
+            A.PRDT_NO as productId,
+            A.CRT_DT as createDate,
+            A.UPD_DT as updateDate,
+            A.SLLR_ID as sellerId,
+            A.PRDT_NM as name,
+            A.PRDT_PRCE as price,
+            A.PRDT_DESC as detail,
+            B.IMG_URL as image
+        FROM
+            TB_PRODUCT A,
+            TB_PRODUCT_IMAGE B
+        WHERE
+            A.PRDT_NO=B.PRDT_NO
+ {executed in 1 msec}
+2023-01-14 20:18:50 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|----------|--------------------|--------------------|---------------------|----------|-------|-------------|-----------|
+|productid |createdate          |updatedate          |sellerid             |name      |price  |detail       |image      |
+|----------|--------------------|--------------------|---------------------|----------|-------|-------------|-----------|
+|22        |2023-01-04 12:04:08 |2023-01-04 12:04:08 |jiwoong423@gmail.com |HP 게이밍모니터 |458970 |최신 모니터       |22번상품이미지주소 |
+|2         |2023-01-02 15:24:28 |2023-01-02 15:24:28 |primespace@naver.com |아이패드      |10000  |아이패드 최신형     |2번상품이미지주소  |
+|11        |2023-01-02 15:27:13 |2023-01-02 15:27:13 |primespace@naver.com |z플립       |20000  |z플립 최신형      |11번상품이미지주소 |
+|21        |2023-01-04 12:00:34 |2023-01-04 12:00:34 |jiwoong423@gmail.com |맥북        |300000 |m2 512gb     |21번상품이미지주소 |
+|23        |2023-01-04 12:05:03 |2023-01-04 12:05:03 |jiwoong423@gmail.com |키보드       |100000 |알루미늄 RGB 핫스왑 |23번상품이미지주소 |
+|----------|--------------------|--------------------|---------------------|----------|-------|-------------|-----------|
+
+2023-01-14 20:19:25 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+171. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = NULL
+ {executed in 0 msec}
+2023-01-14 20:19:25 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|-------|-----|------|---------|-----|-------|------|------|
+|userid |name |email |password |salt |gender |birth |phone |
+|-------|-----|------|---------|-----|-------|------|------|
+|-------|-----|------|---------|-----|-------|------|------|
+
+2023-01-14 20:35:18 [INFO ] [HikariDataSource.java]close(350) : HikariPool-1 - Shutdown initiated...
+2023-01-14 20:35:18 [INFO ] [HikariDataSource.java]close(352) : HikariPool-1 - Shutdown completed.
+2023-01-14 20:35:29 [INFO ] [StartupInfoLogger.java]logStarting(55) : Starting LaonShopApplication using Java 11.0.12 on DESKTOP-N6NE9Q6 with PID 16144 (D:\Spring\laonShop\server-main\build\classes\java\main started by Jiwoong in D:\Spring\laonShop)
+2023-01-14 20:35:29 [INFO ] [SpringApplication.java]logStartupProfileInfo(659) : No active profile set, falling back to default profiles: default
+2023-01-14 20:35:29 [INFO ] [DeferredLog.java]logTo(255) : The Class-Path manifest attribute in C:\Users\choig\.gradle\caches\modules-2\files-2.1\com.oracle.ojdbc\ojdbc8\19.3.0.0\967c0b1a2d5b1435324de34a9b8018d294f8f47b\ojdbc8-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/ojdbc8/19.3.0.0/967c0b1a2d5b1435324de34a9b8018d294f8f47b/oraclepki.jar
+2023-01-14 20:35:29 [INFO ] [DeferredLog.java]logTo(255) : The Class-Path manifest attribute in C:\Users\choig\.gradle\caches\modules-2\files-2.1\com.oracle.ojdbc\oraclepki\19.3.0.0\e52a34f271c6c62ee1a73b71cc19da5459b709f\oraclepki-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/e52a34f271c6c62ee1a73b71cc19da5459b709f/osdt_core.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/e52a34f271c6c62ee1a73b71cc19da5459b709f/osdt_cert.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/oracle.osdt/osdt_core.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/oracle.osdt/osdt_cert.jar
+2023-01-14 20:35:29 [INFO ] [DeferredLog.java]logTo(255) : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-01-14 20:35:29 [INFO ] [DeferredLog.java]logTo(255) : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-01-14 20:35:39 [WARN ] [EC2MetadataUtils.java]getItems(414) : Unable to retrieve the requested metadata (/latest/meta-data/instance-id). Failed to connect to service endpoint: 
+com.amazonaws.SdkClientException: Failed to connect to service endpoint: 
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:100)
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:70)
+	at com.amazonaws.internal.InstanceMetadataServiceResourceFetcher.readResource(InstanceMetadataServiceResourceFetcher.java:75)
+	at com.amazonaws.internal.EC2ResourceFetcher.readResource(EC2ResourceFetcher.java:66)
+	at com.amazonaws.util.EC2MetadataUtils.getItems(EC2MetadataUtils.java:407)
+	at com.amazonaws.util.EC2MetadataUtils.getData(EC2MetadataUtils.java:376)
+	at org.springframework.cloud.aws.context.support.env.AwsCloudEnvironmentCheckUtils.isRunningOnCloudEnvironment(AwsCloudEnvironmentCheckUtils.java:38)
+	at org.springframework.cloud.aws.context.annotation.OnAwsCloudEnvironmentCondition.matches(OnAwsCloudEnvironmentCondition.java:38)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:108)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:489)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:140)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:129)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:343)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.laonworks.shop.api.LaonShopApplication.main(LaonShopApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method)
+	at java.base/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:107)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)
+	at java.base/java.net.Socket.connect(Socket.java:608)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1253)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1232)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1015)
+	at com.amazonaws.internal.ConnectionUtils.connectToEndpoint(ConnectionUtils.java:95)
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:80)
+	... 29 common frames omitted
+2023-01-14 20:35:39 [INFO ] [TomcatWebServer.java]initialize(108) : Tomcat initialized with port(s): 6060 (http)
+2023-01-14 20:35:39 [INFO ] [DirectJDKLog.java]log(173) : Starting service [Tomcat]
+2023-01-14 20:35:39 [INFO ] [DirectJDKLog.java]log(173) : Starting Servlet engine: [Apache Tomcat/9.0.50]
+2023-01-14 20:35:39 [INFO ] [DirectJDKLog.java]log(173) : Initializing Spring embedded WebApplicationContext
+2023-01-14 20:35:39 [INFO ] [ServletWebServerApplicationContext.java]prepareWebApplicationContext(290) : Root WebApplicationContext: initialization completed in 10210 ms
+2023-01-14 20:35:40 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/css/**'] with []
+2023-01-14 20:35:40 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/js/**'] with []
+2023-01-14 20:35:40 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/img/**'] with []
+2023-01-14 20:35:40 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/lib/*8'] with []
+2023-01-14 20:35:40 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/v2/api-docs'] with []
+2023-01-14 20:35:40 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/configuration/ui'] with []
+2023-01-14 20:35:40 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger-resources'] with []
+2023-01-14 20:35:40 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/configuration/security'] with []
+2023-01-14 20:35:40 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger-ui.html'] with []
+2023-01-14 20:35:40 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='webjars/**'] with []
+2023-01-14 20:35:40 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger/**'] with []
+2023-01-14 20:35:40 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@335a62b1, org.springframework.security.web.context.SecurityContextPersistenceFilter@5a536ac7, org.springframework.security.web.header.HeaderWriterFilter@6e6595b0, org.springframework.security.web.authentication.logout.LogoutFilter@38f12efc, com.laonworks.shop.api.framework.security.jwt.JwtAuthenticationFilter@6b12ed22, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@169a47da, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3ce72d48, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e7ff8f8, org.springframework.security.web.session.SessionManagementFilter@5981222e, org.springframework.security.web.access.ExceptionTranslationFilter@38335e03, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3f380c48]
+2023-01-14 20:35:40 [INFO ] [PropertySourcedRequestMappingHandlerMapping.java]initHandlerMethods(69) : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-01-14 20:35:41 [INFO ] [OptionalLiveReloadServer.java]startServer(58) : LiveReload server is running on port 35729
+2023-01-14 20:35:41 [WARN ] [ThymeleafAutoConfiguration.java]checkTemplateLocationExists(105) : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2023-01-14 20:35:41 [INFO ] [TomcatWebServer.java]start(220) : Tomcat started on port(s): 6060 (http) with context path ''
+2023-01-14 20:35:41 [INFO ] [DocumentationPluginsBootstrapper.java]start(160) : Context refreshed
+2023-01-14 20:35:41 [INFO ] [DocumentationPluginsBootstrapper.java]start(163) : Found 1 custom documentation plugin(s)
+2023-01-14 20:35:41 [INFO ] [ApiListingReferenceScanner.java]scan(41) : Scanning for api listing references
+2023-01-14 20:35:41 [INFO ] [StartupInfoLogger.java]logStarted(61) : Started LaonShopApplication in 12.55 seconds (JVM running for 14.466)
+2023-01-14 20:35:47 [INFO ] [DirectJDKLog.java]log(173) : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-14 20:35:47 [INFO ] [FrameworkServlet.java]initServletBean(525) : Initializing Servlet 'dispatcherServlet'
+2023-01-14 20:35:47 [INFO ] [FrameworkServlet.java]initServletBean(547) : Completed initialization in 1 ms
+2023-01-14 20:37:28 [INFO ] [HikariDataSource.java]getConnection(110) : HikariPool-1 - Starting...
+2023-01-14 20:37:28 [INFO ] [HikariDataSource.java]getConnection(123) : HikariPool-1 - Start completed.
+2023-01-14 20:37:28 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = NULL
+ {executed in 35 msec}
+2023-01-14 20:37:28 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|-------|-----|------|---------|-----|-------|------|------|
+|userid |name |email |password |salt |gender |birth |phone |
+|-------|-----|------|---------|-----|-------|------|------|
+|-------|-----|------|---------|-----|-------|------|------|
+
+2023-01-14 20:37:29 [INFO ] [HikariDataSource.java]close(350) : HikariPool-1 - Shutdown initiated...
+2023-01-14 20:37:29 [INFO ] [HikariDataSource.java]close(352) : HikariPool-1 - Shutdown completed.
+2023-01-14 20:37:34 [INFO ] [StartupInfoLogger.java]logStarting(55) : Starting LaonShopApplication using Java 11.0.12 on DESKTOP-N6NE9Q6 with PID 16548 (D:\Spring\laonShop\server-main\build\classes\java\main started by Jiwoong in D:\Spring\laonShop)
+2023-01-14 20:37:34 [INFO ] [SpringApplication.java]logStartupProfileInfo(659) : No active profile set, falling back to default profiles: default
+2023-01-14 20:37:34 [INFO ] [DeferredLog.java]logTo(255) : The Class-Path manifest attribute in C:\Users\choig\.gradle\caches\modules-2\files-2.1\com.oracle.ojdbc\ojdbc8\19.3.0.0\967c0b1a2d5b1435324de34a9b8018d294f8f47b\ojdbc8-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/ojdbc8/19.3.0.0/967c0b1a2d5b1435324de34a9b8018d294f8f47b/oraclepki.jar
+2023-01-14 20:37:34 [INFO ] [DeferredLog.java]logTo(255) : The Class-Path manifest attribute in C:\Users\choig\.gradle\caches\modules-2\files-2.1\com.oracle.ojdbc\oraclepki\19.3.0.0\e52a34f271c6c62ee1a73b71cc19da5459b709f\oraclepki-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/e52a34f271c6c62ee1a73b71cc19da5459b709f/osdt_core.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/e52a34f271c6c62ee1a73b71cc19da5459b709f/osdt_cert.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/oracle.osdt/osdt_core.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/oracle.osdt/osdt_cert.jar
+2023-01-14 20:37:34 [INFO ] [DeferredLog.java]logTo(255) : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-01-14 20:37:34 [INFO ] [DeferredLog.java]logTo(255) : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-01-14 20:37:44 [WARN ] [EC2MetadataUtils.java]getItems(414) : Unable to retrieve the requested metadata (/latest/meta-data/instance-id). Failed to connect to service endpoint: 
+com.amazonaws.SdkClientException: Failed to connect to service endpoint: 
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:100)
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:70)
+	at com.amazonaws.internal.InstanceMetadataServiceResourceFetcher.readResource(InstanceMetadataServiceResourceFetcher.java:75)
+	at com.amazonaws.internal.EC2ResourceFetcher.readResource(EC2ResourceFetcher.java:66)
+	at com.amazonaws.util.EC2MetadataUtils.getItems(EC2MetadataUtils.java:407)
+	at com.amazonaws.util.EC2MetadataUtils.getData(EC2MetadataUtils.java:376)
+	at org.springframework.cloud.aws.context.support.env.AwsCloudEnvironmentCheckUtils.isRunningOnCloudEnvironment(AwsCloudEnvironmentCheckUtils.java:38)
+	at org.springframework.cloud.aws.context.annotation.OnAwsCloudEnvironmentCondition.matches(OnAwsCloudEnvironmentCondition.java:38)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:108)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:489)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:140)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:129)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:343)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.laonworks.shop.api.LaonShopApplication.main(LaonShopApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method)
+	at java.base/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:107)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)
+	at java.base/java.net.Socket.connect(Socket.java:608)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1253)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1232)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1015)
+	at com.amazonaws.internal.ConnectionUtils.connectToEndpoint(ConnectionUtils.java:95)
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:80)
+	... 29 common frames omitted
+2023-01-14 20:37:44 [INFO ] [TomcatWebServer.java]initialize(108) : Tomcat initialized with port(s): 6060 (http)
+2023-01-14 20:37:44 [INFO ] [DirectJDKLog.java]log(173) : Starting service [Tomcat]
+2023-01-14 20:37:44 [INFO ] [DirectJDKLog.java]log(173) : Starting Servlet engine: [Apache Tomcat/9.0.50]
+2023-01-14 20:37:44 [INFO ] [DirectJDKLog.java]log(173) : Initializing Spring embedded WebApplicationContext
+2023-01-14 20:37:44 [INFO ] [ServletWebServerApplicationContext.java]prepareWebApplicationContext(290) : Root WebApplicationContext: initialization completed in 9865 ms
+2023-01-14 20:37:45 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/css/**'] with []
+2023-01-14 20:37:45 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/js/**'] with []
+2023-01-14 20:37:45 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/img/**'] with []
+2023-01-14 20:37:45 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/lib/*8'] with []
+2023-01-14 20:37:45 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/v2/api-docs'] with []
+2023-01-14 20:37:45 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/configuration/ui'] with []
+2023-01-14 20:37:45 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger-resources'] with []
+2023-01-14 20:37:45 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/configuration/security'] with []
+2023-01-14 20:37:45 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger-ui.html'] with []
+2023-01-14 20:37:45 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='webjars/**'] with []
+2023-01-14 20:37:45 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger/**'] with []
+2023-01-14 20:37:45 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7f0acfab, org.springframework.security.web.context.SecurityContextPersistenceFilter@5cb47bc4, org.springframework.security.web.header.HeaderWriterFilter@69976b3d, org.springframework.security.web.authentication.logout.LogoutFilter@2bb99acc, com.laonworks.shop.api.framework.security.jwt.JwtAuthenticationFilter@61d4363f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6c955907, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@54e8073a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@56932fb5, org.springframework.security.web.session.SessionManagementFilter@6f62776f, org.springframework.security.web.access.ExceptionTranslationFilter@45e01b2e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@28af7cda]
+2023-01-14 20:37:45 [INFO ] [PropertySourcedRequestMappingHandlerMapping.java]initHandlerMethods(69) : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-01-14 20:37:45 [INFO ] [OptionalLiveReloadServer.java]startServer(58) : LiveReload server is running on port 35729
+2023-01-14 20:37:45 [WARN ] [ThymeleafAutoConfiguration.java]checkTemplateLocationExists(105) : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2023-01-14 20:37:45 [INFO ] [TomcatWebServer.java]start(220) : Tomcat started on port(s): 6060 (http) with context path ''
+2023-01-14 20:37:45 [INFO ] [DocumentationPluginsBootstrapper.java]start(160) : Context refreshed
+2023-01-14 20:37:45 [INFO ] [DocumentationPluginsBootstrapper.java]start(163) : Found 1 custom documentation plugin(s)
+2023-01-14 20:37:45 [INFO ] [ApiListingReferenceScanner.java]scan(41) : Scanning for api listing references
+2023-01-14 20:37:46 [INFO ] [StartupInfoLogger.java]logStarted(61) : Started LaonShopApplication in 12.005 seconds (JVM running for 12.949)
+2023-01-14 20:37:55 [INFO ] [DirectJDKLog.java]log(173) : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-14 20:37:55 [INFO ] [FrameworkServlet.java]initServletBean(525) : Initializing Servlet 'dispatcherServlet'
+2023-01-14 20:37:55 [INFO ] [FrameworkServlet.java]initServletBean(547) : Completed initialization in 0 ms
+2023-01-14 20:37:55 [INFO ] [HikariDataSource.java]getConnection(110) : HikariPool-1 - Starting...
+2023-01-14 20:37:56 [INFO ] [HikariDataSource.java]getConnection(123) : HikariPool-1 - Start completed.
+2023-01-14 20:37:56 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = 'abcd@naver.com'
+ {executed in 41 msec}
+2023-01-14 20:37:56 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|userid         |name |email          |password                                                                                                                                                                                                                                                         |salt                             |gender |birth      |phone         |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|abcd@naver.com |null |abcd@naver.com |a57794b4a0906f5e27697bf3ddb7007fa7963812783f8e3e5fb10332a8d23386b854a54e20fb9e4ec0010e017a3da963bc477a7cfd49362244ab5f026ea390279883072181992ed6344dadd372a6ce306af86c16824bf400d67d5d16582de8481b4c46bae6db1ed49f8b6eb58ce1f24ec05f6537667576318763a8a5be47be48 |bbdce93b4fad0a57a8a32577e10221e9 |남자     |2023-01-14 |010-1234-1235 |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+
+2023-01-14 20:38:59 [INFO ] [HikariDataSource.java]close(350) : HikariPool-1 - Shutdown initiated...
+2023-01-14 20:38:59 [INFO ] [HikariDataSource.java]close(352) : HikariPool-1 - Shutdown completed.
+2023-01-14 20:39:03 [INFO ] [StartupInfoLogger.java]logStarting(55) : Starting LaonShopApplication using Java 11.0.12 on DESKTOP-N6NE9Q6 with PID 13972 (D:\Spring\laonShop\server-main\build\classes\java\main started by Jiwoong in D:\Spring\laonShop)
+2023-01-14 20:39:03 [INFO ] [SpringApplication.java]logStartupProfileInfo(659) : No active profile set, falling back to default profiles: default
+2023-01-14 20:39:03 [INFO ] [DeferredLog.java]logTo(255) : The Class-Path manifest attribute in C:\Users\choig\.gradle\caches\modules-2\files-2.1\com.oracle.ojdbc\ojdbc8\19.3.0.0\967c0b1a2d5b1435324de34a9b8018d294f8f47b\ojdbc8-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/ojdbc8/19.3.0.0/967c0b1a2d5b1435324de34a9b8018d294f8f47b/oraclepki.jar
+2023-01-14 20:39:03 [INFO ] [DeferredLog.java]logTo(255) : The Class-Path manifest attribute in C:\Users\choig\.gradle\caches\modules-2\files-2.1\com.oracle.ojdbc\oraclepki\19.3.0.0\e52a34f271c6c62ee1a73b71cc19da5459b709f\oraclepki-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/e52a34f271c6c62ee1a73b71cc19da5459b709f/osdt_core.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/e52a34f271c6c62ee1a73b71cc19da5459b709f/osdt_cert.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/oracle.osdt/osdt_core.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/oracle.osdt/osdt_cert.jar
+2023-01-14 20:39:03 [INFO ] [DeferredLog.java]logTo(255) : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-01-14 20:39:03 [INFO ] [DeferredLog.java]logTo(255) : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-01-14 20:39:13 [WARN ] [EC2MetadataUtils.java]getItems(414) : Unable to retrieve the requested metadata (/latest/meta-data/instance-id). Failed to connect to service endpoint: 
+com.amazonaws.SdkClientException: Failed to connect to service endpoint: 
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:100)
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:70)
+	at com.amazonaws.internal.InstanceMetadataServiceResourceFetcher.readResource(InstanceMetadataServiceResourceFetcher.java:75)
+	at com.amazonaws.internal.EC2ResourceFetcher.readResource(EC2ResourceFetcher.java:66)
+	at com.amazonaws.util.EC2MetadataUtils.getItems(EC2MetadataUtils.java:407)
+	at com.amazonaws.util.EC2MetadataUtils.getData(EC2MetadataUtils.java:376)
+	at org.springframework.cloud.aws.context.support.env.AwsCloudEnvironmentCheckUtils.isRunningOnCloudEnvironment(AwsCloudEnvironmentCheckUtils.java:38)
+	at org.springframework.cloud.aws.context.annotation.OnAwsCloudEnvironmentCondition.matches(OnAwsCloudEnvironmentCondition.java:38)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:108)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:489)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:140)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:129)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:343)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.laonworks.shop.api.LaonShopApplication.main(LaonShopApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method)
+	at java.base/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:107)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)
+	at java.base/java.net.Socket.connect(Socket.java:608)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1253)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1232)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1015)
+	at com.amazonaws.internal.ConnectionUtils.connectToEndpoint(ConnectionUtils.java:95)
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:80)
+	... 29 common frames omitted
+2023-01-14 20:39:13 [INFO ] [TomcatWebServer.java]initialize(108) : Tomcat initialized with port(s): 6060 (http)
+2023-01-14 20:39:13 [INFO ] [DirectJDKLog.java]log(173) : Starting service [Tomcat]
+2023-01-14 20:39:13 [INFO ] [DirectJDKLog.java]log(173) : Starting Servlet engine: [Apache Tomcat/9.0.50]
+2023-01-14 20:39:13 [INFO ] [DirectJDKLog.java]log(173) : Initializing Spring embedded WebApplicationContext
+2023-01-14 20:39:13 [INFO ] [ServletWebServerApplicationContext.java]prepareWebApplicationContext(290) : Root WebApplicationContext: initialization completed in 9866 ms
+2023-01-14 20:39:14 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/css/**'] with []
+2023-01-14 20:39:14 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/js/**'] with []
+2023-01-14 20:39:14 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/img/**'] with []
+2023-01-14 20:39:14 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/lib/*8'] with []
+2023-01-14 20:39:14 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/v2/api-docs'] with []
+2023-01-14 20:39:14 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/configuration/ui'] with []
+2023-01-14 20:39:14 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger-resources'] with []
+2023-01-14 20:39:14 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/configuration/security'] with []
+2023-01-14 20:39:14 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger-ui.html'] with []
+2023-01-14 20:39:14 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='webjars/**'] with []
+2023-01-14 20:39:14 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger/**'] with []
+2023-01-14 20:39:14 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@d6a2683, org.springframework.security.web.context.SecurityContextPersistenceFilter@296c84d0, org.springframework.security.web.header.HeaderWriterFilter@3dac8a77, org.springframework.security.web.authentication.logout.LogoutFilter@2813266, com.laonworks.shop.api.framework.security.jwt.JwtAuthenticationFilter@1e4572e5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1b9f41a2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4aa82e0c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5419c45e, org.springframework.security.web.session.SessionManagementFilter@4faf0b9c, org.springframework.security.web.access.ExceptionTranslationFilter@e1a24ba, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@474c33b6]
+2023-01-14 20:39:14 [INFO ] [PropertySourcedRequestMappingHandlerMapping.java]initHandlerMethods(69) : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-01-14 20:39:14 [INFO ] [OptionalLiveReloadServer.java]startServer(58) : LiveReload server is running on port 35729
+2023-01-14 20:39:14 [WARN ] [ThymeleafAutoConfiguration.java]checkTemplateLocationExists(105) : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2023-01-14 20:39:15 [INFO ] [TomcatWebServer.java]start(220) : Tomcat started on port(s): 6060 (http) with context path ''
+2023-01-14 20:39:15 [INFO ] [DocumentationPluginsBootstrapper.java]start(160) : Context refreshed
+2023-01-14 20:39:15 [INFO ] [DocumentationPluginsBootstrapper.java]start(163) : Found 1 custom documentation plugin(s)
+2023-01-14 20:39:15 [INFO ] [ApiListingReferenceScanner.java]scan(41) : Scanning for api listing references
+2023-01-14 20:39:15 [INFO ] [StartupInfoLogger.java]logStarted(61) : Started LaonShopApplication in 11.863 seconds (JVM running for 12.952)
+2023-01-14 20:39:16 [INFO ] [DirectJDKLog.java]log(173) : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-14 20:39:16 [INFO ] [FrameworkServlet.java]initServletBean(525) : Initializing Servlet 'dispatcherServlet'
+2023-01-14 20:39:16 [INFO ] [FrameworkServlet.java]initServletBean(547) : Completed initialization in 2 ms
+2023-01-14 20:39:16 [INFO ] [HikariDataSource.java]getConnection(110) : HikariPool-1 - Starting...
+2023-01-14 20:39:17 [INFO ] [HikariDataSource.java]getConnection(123) : HikariPool-1 - Start completed.
+2023-01-14 20:39:17 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = 'abcd@naver.com'
+ {executed in 39 msec}
+2023-01-14 20:39:17 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|userid         |name |email          |password                                                                                                                                                                                                                                                         |salt                             |gender |birth      |phone         |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|abcd@naver.com |null |abcd@naver.com |a57794b4a0906f5e27697bf3ddb7007fa7963812783f8e3e5fb10332a8d23386b854a54e20fb9e4ec0010e017a3da963bc477a7cfd49362244ab5f026ea390279883072181992ed6344dadd372a6ce306af86c16824bf400d67d5d16582de8481b4c46bae6db1ed49f8b6eb58ce1f24ec05f6537667576318763a8a5be47be48 |bbdce93b4fad0a57a8a32577e10221e9 |남자     |2023-01-14 |010-1234-1235 |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+
+2023-01-14 20:39:23 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = 'abcd@naver.com'
+ {executed in 1 msec}
+2023-01-14 20:39:23 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|userid         |name |email          |password                                                                                                                                                                                                                                                         |salt                             |gender |birth      |phone         |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|abcd@naver.com |null |abcd@naver.com |a57794b4a0906f5e27697bf3ddb7007fa7963812783f8e3e5fb10332a8d23386b854a54e20fb9e4ec0010e017a3da963bc477a7cfd49362244ab5f026ea390279883072181992ed6344dadd372a6ce306af86c16824bf400d67d5d16582de8481b4c46bae6db1ed49f8b6eb58ce1f24ec05f6537667576318763a8a5be47be48 |bbdce93b4fad0a57a8a32577e10221e9 |남자     |2023-01-14 |010-1234-1235 |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+
+2023-01-14 20:39:27 [INFO ] [HikariDataSource.java]close(350) : HikariPool-1 - Shutdown initiated...
+2023-01-14 20:39:27 [INFO ] [HikariDataSource.java]close(352) : HikariPool-1 - Shutdown completed.
+2023-01-14 20:39:31 [INFO ] [StartupInfoLogger.java]logStarting(55) : Starting LaonShopApplication using Java 11.0.12 on DESKTOP-N6NE9Q6 with PID 23240 (D:\Spring\laonShop\server-main\build\classes\java\main started by Jiwoong in D:\Spring\laonShop)
+2023-01-14 20:39:31 [INFO ] [SpringApplication.java]logStartupProfileInfo(659) : No active profile set, falling back to default profiles: default
+2023-01-14 20:39:31 [INFO ] [DeferredLog.java]logTo(255) : The Class-Path manifest attribute in C:\Users\choig\.gradle\caches\modules-2\files-2.1\com.oracle.ojdbc\ojdbc8\19.3.0.0\967c0b1a2d5b1435324de34a9b8018d294f8f47b\ojdbc8-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/ojdbc8/19.3.0.0/967c0b1a2d5b1435324de34a9b8018d294f8f47b/oraclepki.jar
+2023-01-14 20:39:31 [INFO ] [DeferredLog.java]logTo(255) : The Class-Path manifest attribute in C:\Users\choig\.gradle\caches\modules-2\files-2.1\com.oracle.ojdbc\oraclepki\19.3.0.0\e52a34f271c6c62ee1a73b71cc19da5459b709f\oraclepki-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/e52a34f271c6c62ee1a73b71cc19da5459b709f/osdt_core.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/e52a34f271c6c62ee1a73b71cc19da5459b709f/osdt_cert.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/oracle.osdt/osdt_core.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/oracle.osdt/osdt_cert.jar
+2023-01-14 20:39:31 [INFO ] [DeferredLog.java]logTo(255) : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-01-14 20:39:31 [INFO ] [DeferredLog.java]logTo(255) : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-01-14 20:39:40 [WARN ] [EC2MetadataUtils.java]getItems(414) : Unable to retrieve the requested metadata (/latest/meta-data/instance-id). Failed to connect to service endpoint: 
+com.amazonaws.SdkClientException: Failed to connect to service endpoint: 
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:100)
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:70)
+	at com.amazonaws.internal.InstanceMetadataServiceResourceFetcher.readResource(InstanceMetadataServiceResourceFetcher.java:75)
+	at com.amazonaws.internal.EC2ResourceFetcher.readResource(EC2ResourceFetcher.java:66)
+	at com.amazonaws.util.EC2MetadataUtils.getItems(EC2MetadataUtils.java:407)
+	at com.amazonaws.util.EC2MetadataUtils.getData(EC2MetadataUtils.java:376)
+	at org.springframework.cloud.aws.context.support.env.AwsCloudEnvironmentCheckUtils.isRunningOnCloudEnvironment(AwsCloudEnvironmentCheckUtils.java:38)
+	at org.springframework.cloud.aws.context.annotation.OnAwsCloudEnvironmentCondition.matches(OnAwsCloudEnvironmentCondition.java:38)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:108)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:489)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:140)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:129)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:343)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.laonworks.shop.api.LaonShopApplication.main(LaonShopApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method)
+	at java.base/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:107)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)
+	at java.base/java.net.Socket.connect(Socket.java:608)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1253)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1232)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1015)
+	at com.amazonaws.internal.ConnectionUtils.connectToEndpoint(ConnectionUtils.java:95)
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:80)
+	... 29 common frames omitted
+2023-01-14 20:39:41 [INFO ] [TomcatWebServer.java]initialize(108) : Tomcat initialized with port(s): 6060 (http)
+2023-01-14 20:39:41 [INFO ] [DirectJDKLog.java]log(173) : Starting service [Tomcat]
+2023-01-14 20:39:41 [INFO ] [DirectJDKLog.java]log(173) : Starting Servlet engine: [Apache Tomcat/9.0.50]
+2023-01-14 20:39:41 [INFO ] [DirectJDKLog.java]log(173) : Initializing Spring embedded WebApplicationContext
+2023-01-14 20:39:41 [INFO ] [ServletWebServerApplicationContext.java]prepareWebApplicationContext(290) : Root WebApplicationContext: initialization completed in 10005 ms
+2023-01-14 20:39:42 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/css/**'] with []
+2023-01-14 20:39:42 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/js/**'] with []
+2023-01-14 20:39:42 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/img/**'] with []
+2023-01-14 20:39:42 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/lib/*8'] with []
+2023-01-14 20:39:42 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/v2/api-docs'] with []
+2023-01-14 20:39:42 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/configuration/ui'] with []
+2023-01-14 20:39:42 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger-resources'] with []
+2023-01-14 20:39:42 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/configuration/security'] with []
+2023-01-14 20:39:42 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger-ui.html'] with []
+2023-01-14 20:39:42 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='webjars/**'] with []
+2023-01-14 20:39:42 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger/**'] with []
+2023-01-14 20:39:42 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3f8b5fee, org.springframework.security.web.context.SecurityContextPersistenceFilter@4e547f09, org.springframework.security.web.header.HeaderWriterFilter@71fefdce, org.springframework.security.web.authentication.logout.LogoutFilter@5fb43699, com.laonworks.shop.api.framework.security.jwt.JwtAuthenticationFilter@37446e8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2f15ad8f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@283b9da4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4d620b24, org.springframework.security.web.session.SessionManagementFilter@548db897, org.springframework.security.web.access.ExceptionTranslationFilter@4cfd7888, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@45f574d]
+2023-01-14 20:39:42 [INFO ] [PropertySourcedRequestMappingHandlerMapping.java]initHandlerMethods(69) : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-01-14 20:39:42 [INFO ] [OptionalLiveReloadServer.java]startServer(58) : LiveReload server is running on port 35729
+2023-01-14 20:39:43 [WARN ] [ThymeleafAutoConfiguration.java]checkTemplateLocationExists(105) : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2023-01-14 20:39:43 [INFO ] [TomcatWebServer.java]start(220) : Tomcat started on port(s): 6060 (http) with context path ''
+2023-01-14 20:39:43 [INFO ] [DocumentationPluginsBootstrapper.java]start(160) : Context refreshed
+2023-01-14 20:39:43 [INFO ] [DocumentationPluginsBootstrapper.java]start(163) : Found 1 custom documentation plugin(s)
+2023-01-14 20:39:43 [INFO ] [ApiListingReferenceScanner.java]scan(41) : Scanning for api listing references
+2023-01-14 20:39:43 [INFO ] [DirectJDKLog.java]log(173) : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-14 20:39:43 [INFO ] [FrameworkServlet.java]initServletBean(525) : Initializing Servlet 'dispatcherServlet'
+2023-01-14 20:39:43 [INFO ] [FrameworkServlet.java]initServletBean(547) : Completed initialization in 2 ms
+2023-01-14 20:39:43 [INFO ] [HikariDataSource.java]getConnection(110) : HikariPool-1 - Starting...
+2023-01-14 20:39:43 [INFO ] [StartupInfoLogger.java]logStarted(61) : Started LaonShopApplication in 12.913 seconds (JVM running for 14.228)
+2023-01-14 20:39:43 [INFO ] [HikariDataSource.java]getConnection(123) : HikariPool-1 - Start completed.
+2023-01-14 20:39:43 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = 'abcd@naver.com'
+ {executed in 30 msec}
+2023-01-14 20:39:43 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|userid         |name |email          |password                                                                                                                                                                                                                                                         |salt                             |gender |birth      |phone         |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|abcd@naver.com |null |abcd@naver.com |a57794b4a0906f5e27697bf3ddb7007fa7963812783f8e3e5fb10332a8d23386b854a54e20fb9e4ec0010e017a3da963bc477a7cfd49362244ab5f026ea390279883072181992ed6344dadd372a6ce306af86c16824bf400d67d5d16582de8481b4c46bae6db1ed49f8b6eb58ce1f24ec05f6537667576318763a8a5be47be48 |bbdce93b4fad0a57a8a32577e10221e9 |남자     |2023-01-14 |010-1234-1235 |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+
+2023-01-14 20:39:50 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = 'abcd@naver.com'
+ {executed in 1 msec}
+2023-01-14 20:39:50 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|userid         |name |email          |password                                                                                                                                                                                                                                                         |salt                             |gender |birth      |phone         |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|abcd@naver.com |null |abcd@naver.com |a57794b4a0906f5e27697bf3ddb7007fa7963812783f8e3e5fb10332a8d23386b854a54e20fb9e4ec0010e017a3da963bc477a7cfd49362244ab5f026ea390279883072181992ed6344dadd372a6ce306af86c16824bf400d67d5d16582de8481b4c46bae6db1ed49f8b6eb58ce1f24ec05f6537667576318763a8a5be47be48 |bbdce93b4fad0a57a8a32577e10221e9 |남자     |2023-01-14 |010-1234-1235 |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+
+2023-01-14 20:39:51 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = 'abcd@naver.com'
+ {executed in 1 msec}
+2023-01-14 20:39:51 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|userid         |name |email          |password                                                                                                                                                                                                                                                         |salt                             |gender |birth      |phone         |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|abcd@naver.com |null |abcd@naver.com |a57794b4a0906f5e27697bf3ddb7007fa7963812783f8e3e5fb10332a8d23386b854a54e20fb9e4ec0010e017a3da963bc477a7cfd49362244ab5f026ea390279883072181992ed6344dadd372a6ce306af86c16824bf400d67d5d16582de8481b4c46bae6db1ed49f8b6eb58ce1f24ec05f6537667576318763a8a5be47be48 |bbdce93b4fad0a57a8a32577e10221e9 |남자     |2023-01-14 |010-1234-1235 |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+
+2023-01-14 20:39:51 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = 'abcd@naver.com'
+ {executed in 0 msec}
+2023-01-14 20:39:51 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|userid         |name |email          |password                                                                                                                                                                                                                                                         |salt                             |gender |birth      |phone         |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|abcd@naver.com |null |abcd@naver.com |a57794b4a0906f5e27697bf3ddb7007fa7963812783f8e3e5fb10332a8d23386b854a54e20fb9e4ec0010e017a3da963bc477a7cfd49362244ab5f026ea390279883072181992ed6344dadd372a6ce306af86c16824bf400d67d5d16582de8481b4c46bae6db1ed49f8b6eb58ce1f24ec05f6537667576318763a8a5be47be48 |bbdce93b4fad0a57a8a32577e10221e9 |남자     |2023-01-14 |010-1234-1235 |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+
+2023-01-14 20:39:51 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = 'abcd@naver.com'
+ {executed in 1 msec}
+2023-01-14 20:39:51 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|userid         |name |email          |password                                                                                                                                                                                                                                                         |salt                             |gender |birth      |phone         |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|abcd@naver.com |null |abcd@naver.com |a57794b4a0906f5e27697bf3ddb7007fa7963812783f8e3e5fb10332a8d23386b854a54e20fb9e4ec0010e017a3da963bc477a7cfd49362244ab5f026ea390279883072181992ed6344dadd372a6ce306af86c16824bf400d67d5d16582de8481b4c46bae6db1ed49f8b6eb58ce1f24ec05f6537667576318763a8a5be47be48 |bbdce93b4fad0a57a8a32577e10221e9 |남자     |2023-01-14 |010-1234-1235 |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+
+2023-01-14 20:39:52 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = 'abcd@naver.com'
+ {executed in 0 msec}
+2023-01-14 20:39:52 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|userid         |name |email          |password                                                                                                                                                                                                                                                         |salt                             |gender |birth      |phone         |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|abcd@naver.com |null |abcd@naver.com |a57794b4a0906f5e27697bf3ddb7007fa7963812783f8e3e5fb10332a8d23386b854a54e20fb9e4ec0010e017a3da963bc477a7cfd49362244ab5f026ea390279883072181992ed6344dadd372a6ce306af86c16824bf400d67d5d16582de8481b4c46bae6db1ed49f8b6eb58ce1f24ec05f6537667576318763a8a5be47be48 |bbdce93b4fad0a57a8a32577e10221e9 |남자     |2023-01-14 |010-1234-1235 |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+
+2023-01-14 20:39:59 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = 'abcd@naver.com'
+ {executed in 1 msec}
+2023-01-14 20:39:59 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|userid         |name |email          |password                                                                                                                                                                                                                                                         |salt                             |gender |birth      |phone         |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|abcd@naver.com |null |abcd@naver.com |a57794b4a0906f5e27697bf3ddb7007fa7963812783f8e3e5fb10332a8d23386b854a54e20fb9e4ec0010e017a3da963bc477a7cfd49362244ab5f026ea390279883072181992ed6344dadd372a6ce306af86c16824bf400d67d5d16582de8481b4c46bae6db1ed49f8b6eb58ce1f24ec05f6537667576318763a8a5be47be48 |bbdce93b4fad0a57a8a32577e10221e9 |남자     |2023-01-14 |010-1234-1235 |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+
+2023-01-14 20:40:53 [WARN ] [HikariPool.java]run(788) : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m9s282ms937µs500ns).
+2023-01-14 20:42:47 [WARN ] [HikariPool.java]run(788) : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=50s663ms275µs500ns).
+2023-01-14 20:42:47 [INFO ] [HikariDataSource.java]close(350) : HikariPool-1 - Shutdown initiated...
+2023-01-14 20:42:47 [INFO ] [HikariDataSource.java]close(352) : HikariPool-1 - Shutdown completed.
+2023-01-14 20:42:52 [INFO ] [StartupInfoLogger.java]logStarting(55) : Starting LaonShopApplication using Java 11.0.12 on DESKTOP-N6NE9Q6 with PID 24436 (D:\Spring\laonShop\server-main\build\classes\java\main started by Jiwoong in D:\Spring\laonShop)
+2023-01-14 20:42:52 [INFO ] [SpringApplication.java]logStartupProfileInfo(659) : No active profile set, falling back to default profiles: default
+2023-01-14 20:42:52 [INFO ] [DeferredLog.java]logTo(255) : The Class-Path manifest attribute in C:\Users\choig\.gradle\caches\modules-2\files-2.1\com.oracle.ojdbc\ojdbc8\19.3.0.0\967c0b1a2d5b1435324de34a9b8018d294f8f47b\ojdbc8-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/ojdbc8/19.3.0.0/967c0b1a2d5b1435324de34a9b8018d294f8f47b/oraclepki.jar
+2023-01-14 20:42:52 [INFO ] [DeferredLog.java]logTo(255) : The Class-Path manifest attribute in C:\Users\choig\.gradle\caches\modules-2\files-2.1\com.oracle.ojdbc\oraclepki\19.3.0.0\e52a34f271c6c62ee1a73b71cc19da5459b709f\oraclepki-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/e52a34f271c6c62ee1a73b71cc19da5459b709f/osdt_core.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/e52a34f271c6c62ee1a73b71cc19da5459b709f/osdt_cert.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/oracle.osdt/osdt_core.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/oracle.osdt/osdt_cert.jar
+2023-01-14 20:42:52 [INFO ] [DeferredLog.java]logTo(255) : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-01-14 20:42:52 [INFO ] [DeferredLog.java]logTo(255) : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-01-14 20:43:01 [WARN ] [EC2MetadataUtils.java]getItems(414) : Unable to retrieve the requested metadata (/latest/meta-data/instance-id). Failed to connect to service endpoint: 
+com.amazonaws.SdkClientException: Failed to connect to service endpoint: 
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:100)
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:70)
+	at com.amazonaws.internal.InstanceMetadataServiceResourceFetcher.readResource(InstanceMetadataServiceResourceFetcher.java:75)
+	at com.amazonaws.internal.EC2ResourceFetcher.readResource(EC2ResourceFetcher.java:66)
+	at com.amazonaws.util.EC2MetadataUtils.getItems(EC2MetadataUtils.java:407)
+	at com.amazonaws.util.EC2MetadataUtils.getData(EC2MetadataUtils.java:376)
+	at org.springframework.cloud.aws.context.support.env.AwsCloudEnvironmentCheckUtils.isRunningOnCloudEnvironment(AwsCloudEnvironmentCheckUtils.java:38)
+	at org.springframework.cloud.aws.context.annotation.OnAwsCloudEnvironmentCondition.matches(OnAwsCloudEnvironmentCondition.java:38)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:108)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:489)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:140)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:129)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:343)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.laonworks.shop.api.LaonShopApplication.main(LaonShopApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method)
+	at java.base/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:107)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)
+	at java.base/java.net.Socket.connect(Socket.java:608)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1253)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1232)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1015)
+	at com.amazonaws.internal.ConnectionUtils.connectToEndpoint(ConnectionUtils.java:95)
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:80)
+	... 29 common frames omitted
+2023-01-14 20:43:02 [INFO ] [TomcatWebServer.java]initialize(108) : Tomcat initialized with port(s): 6060 (http)
+2023-01-14 20:43:02 [INFO ] [DirectJDKLog.java]log(173) : Starting service [Tomcat]
+2023-01-14 20:43:02 [INFO ] [DirectJDKLog.java]log(173) : Starting Servlet engine: [Apache Tomcat/9.0.50]
+2023-01-14 20:43:02 [INFO ] [DirectJDKLog.java]log(173) : Initializing Spring embedded WebApplicationContext
+2023-01-14 20:43:02 [INFO ] [ServletWebServerApplicationContext.java]prepareWebApplicationContext(290) : Root WebApplicationContext: initialization completed in 10029 ms
+2023-01-14 20:43:03 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/css/**'] with []
+2023-01-14 20:43:03 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/js/**'] with []
+2023-01-14 20:43:03 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/img/**'] with []
+2023-01-14 20:43:03 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/lib/*8'] with []
+2023-01-14 20:43:03 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/v2/api-docs'] with []
+2023-01-14 20:43:03 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/configuration/ui'] with []
+2023-01-14 20:43:03 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger-resources'] with []
+2023-01-14 20:43:03 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/configuration/security'] with []
+2023-01-14 20:43:03 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger-ui.html'] with []
+2023-01-14 20:43:03 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='webjars/**'] with []
+2023-01-14 20:43:03 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger/**'] with []
+2023-01-14 20:43:03 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2c349f95, org.springframework.security.web.context.SecurityContextPersistenceFilter@61e994f4, org.springframework.security.web.header.HeaderWriterFilter@6fbfcff7, org.springframework.security.web.authentication.logout.LogoutFilter@2093e01e, com.laonworks.shop.api.framework.security.jwt.JwtAuthenticationFilter@2afbe2f4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@36945b72, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@e909a00, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@268a99c1, org.springframework.security.web.session.SessionManagementFilter@22dea1a1, org.springframework.security.web.access.ExceptionTranslationFilter@1c3344a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1c3ab4dd]
+2023-01-14 20:43:03 [INFO ] [PropertySourcedRequestMappingHandlerMapping.java]initHandlerMethods(69) : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-01-14 20:43:03 [INFO ] [OptionalLiveReloadServer.java]startServer(58) : LiveReload server is running on port 35729
+2023-01-14 20:43:03 [WARN ] [ThymeleafAutoConfiguration.java]checkTemplateLocationExists(105) : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2023-01-14 20:43:03 [INFO ] [TomcatWebServer.java]start(220) : Tomcat started on port(s): 6060 (http) with context path ''
+2023-01-14 20:43:03 [INFO ] [DocumentationPluginsBootstrapper.java]start(160) : Context refreshed
+2023-01-14 20:43:03 [INFO ] [DocumentationPluginsBootstrapper.java]start(163) : Found 1 custom documentation plugin(s)
+2023-01-14 20:43:03 [INFO ] [ApiListingReferenceScanner.java]scan(41) : Scanning for api listing references
+2023-01-14 20:43:03 [INFO ] [StartupInfoLogger.java]logStarted(61) : Started LaonShopApplication in 12.177 seconds (JVM running for 13.22)
+2023-01-14 20:43:24 [INFO ] [DirectJDKLog.java]log(173) : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-14 20:43:24 [INFO ] [FrameworkServlet.java]initServletBean(525) : Initializing Servlet 'dispatcherServlet'
+2023-01-14 20:43:24 [INFO ] [FrameworkServlet.java]initServletBean(547) : Completed initialization in 1 ms
+2023-01-14 20:43:24 [INFO ] [HikariDataSource.java]getConnection(110) : HikariPool-1 - Starting...
+2023-01-14 20:43:24 [INFO ] [HikariDataSource.java]getConnection(123) : HikariPool-1 - Start completed.
+2023-01-14 20:43:25 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = 'abcd@naver.com'
+ {executed in 33 msec}
+2023-01-14 20:43:25 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|userid         |name |email          |password                                                                                                                                                                                                                                                         |salt                             |gender |birth      |phone         |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|abcd@naver.com |null |abcd@naver.com |a57794b4a0906f5e27697bf3ddb7007fa7963812783f8e3e5fb10332a8d23386b854a54e20fb9e4ec0010e017a3da963bc477a7cfd49362244ab5f026ea390279883072181992ed6344dadd372a6ce306af86c16824bf400d67d5d16582de8481b4c46bae6db1ed49f8b6eb58ce1f24ec05f6537667576318763a8a5be47be48 |bbdce93b4fad0a57a8a32577e10221e9 |남자     |2023-01-14 |010-1234-1235 |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+
+2023-01-14 20:43:33 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = 'abcd@naver.com'
+ {executed in 2 msec}
+2023-01-14 20:43:33 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|userid         |name |email          |password                                                                                                                                                                                                                                                         |salt                             |gender |birth      |phone         |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|abcd@naver.com |null |abcd@naver.com |a57794b4a0906f5e27697bf3ddb7007fa7963812783f8e3e5fb10332a8d23386b854a54e20fb9e4ec0010e017a3da963bc477a7cfd49362244ab5f026ea390279883072181992ed6344dadd372a6ce306af86c16824bf400d67d5d16582de8481b4c46bae6db1ed49f8b6eb58ce1f24ec05f6537667576318763a8a5be47be48 |bbdce93b4fad0a57a8a32577e10221e9 |남자     |2023-01-14 |010-1234-1235 |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+
+2023-01-14 20:43:43 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = 'abcd@naver.com'
+ {executed in 1 msec}
+2023-01-14 20:43:43 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|userid         |name |email          |password                                                                                                                                                                                                                                                         |salt                             |gender |birth      |phone         |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|abcd@naver.com |null |abcd@naver.com |a57794b4a0906f5e27697bf3ddb7007fa7963812783f8e3e5fb10332a8d23386b854a54e20fb9e4ec0010e017a3da963bc477a7cfd49362244ab5f026ea390279883072181992ed6344dadd372a6ce306af86c16824bf400d67d5d16582de8481b4c46bae6db1ed49f8b6eb58ce1f24ec05f6537667576318763a8a5be47be48 |bbdce93b4fad0a57a8a32577e10221e9 |남자     |2023-01-14 |010-1234-1235 |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+
+2023-01-14 20:44:50 [WARN ] [HikariPool.java]run(788) : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m25s99ms257µs).
+2023-01-14 20:44:51 [INFO ] [HikariDataSource.java]close(350) : HikariPool-1 - Shutdown initiated...
+2023-01-14 20:44:51 [INFO ] [HikariDataSource.java]close(352) : HikariPool-1 - Shutdown completed.
+2023-01-14 20:44:55 [INFO ] [StartupInfoLogger.java]logStarting(55) : Starting LaonShopApplication using Java 11.0.12 on DESKTOP-N6NE9Q6 with PID 19952 (D:\Spring\laonShop\server-main\build\classes\java\main started by Jiwoong in D:\Spring\laonShop)
+2023-01-14 20:44:55 [INFO ] [SpringApplication.java]logStartupProfileInfo(659) : No active profile set, falling back to default profiles: default
+2023-01-14 20:44:55 [INFO ] [DeferredLog.java]logTo(255) : The Class-Path manifest attribute in C:\Users\choig\.gradle\caches\modules-2\files-2.1\com.oracle.ojdbc\ojdbc8\19.3.0.0\967c0b1a2d5b1435324de34a9b8018d294f8f47b\ojdbc8-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/ojdbc8/19.3.0.0/967c0b1a2d5b1435324de34a9b8018d294f8f47b/oraclepki.jar
+2023-01-14 20:44:55 [INFO ] [DeferredLog.java]logTo(255) : The Class-Path manifest attribute in C:\Users\choig\.gradle\caches\modules-2\files-2.1\com.oracle.ojdbc\oraclepki\19.3.0.0\e52a34f271c6c62ee1a73b71cc19da5459b709f\oraclepki-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/e52a34f271c6c62ee1a73b71cc19da5459b709f/osdt_core.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/e52a34f271c6c62ee1a73b71cc19da5459b709f/osdt_cert.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/oracle.osdt/osdt_core.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/oracle.osdt/osdt_cert.jar
+2023-01-14 20:44:55 [INFO ] [DeferredLog.java]logTo(255) : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-01-14 20:44:55 [INFO ] [DeferredLog.java]logTo(255) : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-01-14 20:45:05 [WARN ] [EC2MetadataUtils.java]getItems(414) : Unable to retrieve the requested metadata (/latest/meta-data/instance-id). Failed to connect to service endpoint: 
+com.amazonaws.SdkClientException: Failed to connect to service endpoint: 
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:100)
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:70)
+	at com.amazonaws.internal.InstanceMetadataServiceResourceFetcher.readResource(InstanceMetadataServiceResourceFetcher.java:75)
+	at com.amazonaws.internal.EC2ResourceFetcher.readResource(EC2ResourceFetcher.java:66)
+	at com.amazonaws.util.EC2MetadataUtils.getItems(EC2MetadataUtils.java:407)
+	at com.amazonaws.util.EC2MetadataUtils.getData(EC2MetadataUtils.java:376)
+	at org.springframework.cloud.aws.context.support.env.AwsCloudEnvironmentCheckUtils.isRunningOnCloudEnvironment(AwsCloudEnvironmentCheckUtils.java:38)
+	at org.springframework.cloud.aws.context.annotation.OnAwsCloudEnvironmentCondition.matches(OnAwsCloudEnvironmentCondition.java:38)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:108)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:489)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:140)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:129)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:343)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.laonworks.shop.api.LaonShopApplication.main(LaonShopApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method)
+	at java.base/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:107)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)
+	at java.base/java.net.Socket.connect(Socket.java:608)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1253)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1232)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1015)
+	at com.amazonaws.internal.ConnectionUtils.connectToEndpoint(ConnectionUtils.java:95)
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:80)
+	... 29 common frames omitted
+2023-01-14 20:45:05 [INFO ] [TomcatWebServer.java]initialize(108) : Tomcat initialized with port(s): 6060 (http)
+2023-01-14 20:45:05 [INFO ] [ServletWebServerApplicationContext.java]prepareWebApplicationContext(290) : Root WebApplicationContext: initialization completed in 9976 ms
+2023-01-14 20:45:07 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/css/**'] with []
+2023-01-14 20:45:07 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/js/**'] with []
+2023-01-14 20:45:07 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/img/**'] with []
+2023-01-14 20:45:07 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/lib/*8'] with []
+2023-01-14 20:45:07 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/v2/api-docs'] with []
+2023-01-14 20:45:07 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/configuration/ui'] with []
+2023-01-14 20:45:07 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger-resources'] with []
+2023-01-14 20:45:07 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/configuration/security'] with []
+2023-01-14 20:45:07 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger-ui.html'] with []
+2023-01-14 20:45:07 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='webjars/**'] with []
+2023-01-14 20:45:07 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger/**'] with []
+2023-01-14 20:45:07 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@593ae352, org.springframework.security.web.context.SecurityContextPersistenceFilter@17d6327e, org.springframework.security.web.header.HeaderWriterFilter@26b0a22f, org.springframework.security.web.authentication.logout.LogoutFilter@426ac9d9, com.laonworks.shop.api.framework.security.jwt.JwtAuthenticationFilter@72e0ed88, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@54e8073a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@47f9e9c7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3afe94e4, org.springframework.security.web.session.SessionManagementFilter@829d882, org.springframework.security.web.access.ExceptionTranslationFilter@3f22c213, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@cdfdf21]
+2023-01-14 20:45:07 [INFO ] [PropertySourcedRequestMappingHandlerMapping.java]initHandlerMethods(69) : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-01-14 20:45:07 [INFO ] [OptionalLiveReloadServer.java]startServer(58) : LiveReload server is running on port 35729
+2023-01-14 20:45:07 [WARN ] [ThymeleafAutoConfiguration.java]checkTemplateLocationExists(105) : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2023-01-14 20:45:07 [INFO ] [TomcatWebServer.java]start(220) : Tomcat started on port(s): 6060 (http) with context path ''
+2023-01-14 20:45:07 [INFO ] [DocumentationPluginsBootstrapper.java]start(160) : Context refreshed
+2023-01-14 20:45:07 [INFO ] [DocumentationPluginsBootstrapper.java]start(163) : Found 1 custom documentation plugin(s)
+2023-01-14 20:45:07 [INFO ] [ApiListingReferenceScanner.java]scan(41) : Scanning for api listing references
+2023-01-14 20:45:08 [INFO ] [StartupInfoLogger.java]logStarted(61) : Started LaonShopApplication in 12.762 seconds (JVM running for 13.732)
+2023-01-14 20:45:12 [INFO ] [StartupInfoLogger.java]logStarting(55) : Starting LaonShopApplication using Java 11.0.12 on DESKTOP-N6NE9Q6 with PID 22224 (D:\Spring\laonShop\server-main\build\classes\java\main started by Jiwoong in D:\Spring\laonShop)
+2023-01-14 20:45:12 [INFO ] [SpringApplication.java]logStartupProfileInfo(659) : No active profile set, falling back to default profiles: default
+2023-01-14 20:45:12 [INFO ] [DeferredLog.java]logTo(255) : The Class-Path manifest attribute in C:\Users\choig\.gradle\caches\modules-2\files-2.1\com.oracle.ojdbc\ojdbc8\19.3.0.0\967c0b1a2d5b1435324de34a9b8018d294f8f47b\ojdbc8-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/ojdbc8/19.3.0.0/967c0b1a2d5b1435324de34a9b8018d294f8f47b/oraclepki.jar
+2023-01-14 20:45:12 [INFO ] [DeferredLog.java]logTo(255) : The Class-Path manifest attribute in C:\Users\choig\.gradle\caches\modules-2\files-2.1\com.oracle.ojdbc\oraclepki\19.3.0.0\e52a34f271c6c62ee1a73b71cc19da5459b709f\oraclepki-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/e52a34f271c6c62ee1a73b71cc19da5459b709f/osdt_core.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/e52a34f271c6c62ee1a73b71cc19da5459b709f/osdt_cert.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/oracle.osdt/osdt_core.jar,file:/C:/Users/choig/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/oracle.osdt/osdt_cert.jar
+2023-01-14 20:45:12 [INFO ] [DeferredLog.java]logTo(255) : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-01-14 20:45:12 [INFO ] [DeferredLog.java]logTo(255) : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-01-14 20:45:21 [WARN ] [EC2MetadataUtils.java]getItems(414) : Unable to retrieve the requested metadata (/latest/meta-data/instance-id). Failed to connect to service endpoint: 
+com.amazonaws.SdkClientException: Failed to connect to service endpoint: 
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:100)
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:70)
+	at com.amazonaws.internal.InstanceMetadataServiceResourceFetcher.readResource(InstanceMetadataServiceResourceFetcher.java:75)
+	at com.amazonaws.internal.EC2ResourceFetcher.readResource(EC2ResourceFetcher.java:66)
+	at com.amazonaws.util.EC2MetadataUtils.getItems(EC2MetadataUtils.java:407)
+	at com.amazonaws.util.EC2MetadataUtils.getData(EC2MetadataUtils.java:376)
+	at org.springframework.cloud.aws.context.support.env.AwsCloudEnvironmentCheckUtils.isRunningOnCloudEnvironment(AwsCloudEnvironmentCheckUtils.java:38)
+	at org.springframework.cloud.aws.context.annotation.OnAwsCloudEnvironmentCondition.matches(OnAwsCloudEnvironmentCondition.java:38)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:108)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$TrackedConditionEvaluator.shouldSkip(ConfigurationClassBeanDefinitionReader.java:489)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:140)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:129)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:343)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.laonworks.shop.api.LaonShopApplication.main(LaonShopApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method)
+	at java.base/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:107)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)
+	at java.base/java.net.Socket.connect(Socket.java:608)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1253)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1232)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1015)
+	at com.amazonaws.internal.ConnectionUtils.connectToEndpoint(ConnectionUtils.java:95)
+	at com.amazonaws.internal.EC2ResourceFetcher.doReadResource(EC2ResourceFetcher.java:80)
+	... 29 common frames omitted
+2023-01-14 20:45:22 [INFO ] [TomcatWebServer.java]initialize(108) : Tomcat initialized with port(s): 6060 (http)
+2023-01-14 20:45:22 [INFO ] [DirectJDKLog.java]log(173) : Starting service [Tomcat]
+2023-01-14 20:45:22 [INFO ] [DirectJDKLog.java]log(173) : Starting Servlet engine: [Apache Tomcat/9.0.50]
+2023-01-14 20:45:22 [INFO ] [DirectJDKLog.java]log(173) : Initializing Spring embedded WebApplicationContext
+2023-01-14 20:45:22 [INFO ] [ServletWebServerApplicationContext.java]prepareWebApplicationContext(290) : Root WebApplicationContext: initialization completed in 10025 ms
+2023-01-14 20:45:23 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/css/**'] with []
+2023-01-14 20:45:23 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/js/**'] with []
+2023-01-14 20:45:23 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/img/**'] with []
+2023-01-14 20:45:23 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/lib/*8'] with []
+2023-01-14 20:45:23 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/v2/api-docs'] with []
+2023-01-14 20:45:23 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/configuration/ui'] with []
+2023-01-14 20:45:23 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger-resources'] with []
+2023-01-14 20:45:23 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/configuration/security'] with []
+2023-01-14 20:45:23 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger-ui.html'] with []
+2023-01-14 20:45:23 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='webjars/**'] with []
+2023-01-14 20:45:23 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure Ant [pattern='/swagger/**'] with []
+2023-01-14 20:45:23 [INFO ] [DefaultSecurityFilterChain.java]<init>(51) : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@8a9d8ff, org.springframework.security.web.context.SecurityContextPersistenceFilter@32dd860b, org.springframework.security.web.header.HeaderWriterFilter@6265acca, org.springframework.security.web.authentication.logout.LogoutFilter@1d891777, com.laonworks.shop.api.framework.security.jwt.JwtAuthenticationFilter@2f34b075, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7a9d5300, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@13b68b78, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6f787864, org.springframework.security.web.session.SessionManagementFilter@1ba1e486, org.springframework.security.web.access.ExceptionTranslationFilter@1be6e03b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2a275a58]
+2023-01-14 20:45:23 [INFO ] [PropertySourcedRequestMappingHandlerMapping.java]initHandlerMethods(69) : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-01-14 20:45:23 [INFO ] [OptionalLiveReloadServer.java]startServer(58) : LiveReload server is running on port 35729
+2023-01-14 20:45:23 [WARN ] [ThymeleafAutoConfiguration.java]checkTemplateLocationExists(105) : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2023-01-14 20:45:23 [INFO ] [TomcatWebServer.java]start(220) : Tomcat started on port(s): 6060 (http) with context path ''
+2023-01-14 20:45:23 [INFO ] [DocumentationPluginsBootstrapper.java]start(160) : Context refreshed
+2023-01-14 20:45:23 [INFO ] [DocumentationPluginsBootstrapper.java]start(163) : Found 1 custom documentation plugin(s)
+2023-01-14 20:45:23 [INFO ] [ApiListingReferenceScanner.java]scan(41) : Scanning for api listing references
+2023-01-14 20:45:24 [INFO ] [StartupInfoLogger.java]logStarted(61) : Started LaonShopApplication in 12.266 seconds (JVM running for 13.675)
+2023-01-14 20:45:32 [INFO ] [DirectJDKLog.java]log(173) : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-14 20:45:32 [INFO ] [FrameworkServlet.java]initServletBean(525) : Initializing Servlet 'dispatcherServlet'
+2023-01-14 20:45:32 [INFO ] [FrameworkServlet.java]initServletBean(547) : Completed initialization in 1 ms
+2023-01-14 20:45:32 [INFO ] [HikariDataSource.java]getConnection(110) : HikariPool-1 - Starting...
+2023-01-14 20:45:32 [INFO ] [HikariDataSource.java]getConnection(123) : HikariPool-1 - Start completed.
+2023-01-14 20:45:32 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = 'abcd@naver.com'
+ {executed in 31 msec}
+2023-01-14 20:45:32 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|userid         |name |email          |password                                                                                                                                                                                                                                                         |salt                             |gender |birth      |phone         |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|abcd@naver.com |null |abcd@naver.com |a57794b4a0906f5e27697bf3ddb7007fa7963812783f8e3e5fb10332a8d23386b854a54e20fb9e4ec0010e017a3da963bc477a7cfd49362244ab5f026ea390279883072181992ed6344dadd372a6ce306af86c16824bf400d67d5d16582de8481b4c46bae6db1ed49f8b6eb58ce1f24ec05f6537667576318763a8a5be47be48 |bbdce93b4fad0a57a8a32577e10221e9 |남자     |2023-01-14 |010-1234-1235 |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+
+2023-01-14 20:45:50 [DEBUG] [Slf4jSpyLogDelegator.java]sqlTimingOccurred(368) :  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. /* selectUserInfo */ SELECT
+    A.USR_ID as userId ,
+    A.USR_NM as name ,
+    A.USR_EML as email ,
+    A.USR_PSSWRD as password ,
+    A.SALT as salt,
+    A.USR_GD as gender,
+    A.USR_BIR as birth,
+    A.USR_PN as phone
+  FROM
+    TB_USER A
+  WHERE
+    A.USR_ID = 'abcd@naver.com'
+ {executed in 1 msec}
+2023-01-14 20:45:50 [INFO ] [Slf4jSpyLogDelegator.java]resultSetCollected(610) : 
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|userid         |name |email          |password                                                                                                                                                                                                                                                         |salt                             |gender |birth      |phone         |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+|abcd@naver.com |null |abcd@naver.com |a57794b4a0906f5e27697bf3ddb7007fa7963812783f8e3e5fb10332a8d23386b854a54e20fb9e4ec0010e017a3da963bc477a7cfd49362244ab5f026ea390279883072181992ed6344dadd372a6ce306af86c16824bf400d67d5d16582de8481b4c46bae6db1ed49f8b6eb58ce1f24ec05f6537667576318763a8a5be47be48 |bbdce93b4fad0a57a8a32577e10221e9 |남자     |2023-01-14 |010-1234-1235 |
+|---------------|-----|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|-----------|--------------|
+
+2023-01-14 20:47:37 [WARN ] [HikariPool.java]run(788) : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m4s488ms568µs300ns).

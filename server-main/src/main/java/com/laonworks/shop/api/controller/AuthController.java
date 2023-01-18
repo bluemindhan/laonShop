@@ -1,5 +1,6 @@
 package com.laonworks.shop.api.controller;
 
+import com.laonworks.shop.api.controller.handler.user.PutProfileHandler;
 import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +29,7 @@ import com.laonworks.shop.api.controller.handler.auth.*;
 public class AuthController extends BaseController {
   static Logger logger = LoggerFactory.getLogger(AuthController.class);
 
+  // login
   @Autowired
   private SignInHandler signInHandler;
 
@@ -39,19 +41,20 @@ public class AuthController extends BaseController {
     if (auth != null) {
       user = (CustomUserDetails) auth.getPrincipal();
     }
-    if (checkRoute(RequestMethod.POST, "/api/v1/auth/signin", user) == false) {
+    if (!checkRoute(RequestMethod.POST, "/api/v1/auth/signin", user)) {
       throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
     }
-    return signInHandler.execute(req,reponse);
+    return signInHandler.execute(req, reponse);
   }
 
+  // signUp
   @Autowired
   private SignUpHandler signUpHandler;
 
   @RequestMapping(method = RequestMethod.POST, value = "signup", consumes = MediaType.APPLICATION_JSON_VALUE)
   @ApiOperation(value = "sign up")
   SignUpResponse signUp(@AuthenticationPrincipal Authentication auth, @RequestBody @Valid SignUpRequest req,
-                        @ApiParam(value="errors", hidden=true, required=false)  Errors errors, HttpServletRequest request) {
+                        @ApiParam(value = "errors", hidden = true, required = false) Errors errors, HttpServletRequest request) {
     signUpHandler.setHttpServletRequest(request);
     CustomUserDetails user = null;
 
@@ -60,11 +63,11 @@ public class AuthController extends BaseController {
       user = (CustomUserDetails) auth.getPrincipal();
     }
 
-    if (checkRoute(RequestMethod.POST, "/api/v1/auth/signup", user) == false) {
+    if (!checkRoute(RequestMethod.POST, "/api/v1/auth/signup", user)) {
       throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
     }
 
-    if(errors.hasErrors()){
+    if (errors.hasErrors()) {
       return signUpHandler.validateSignup(errors);
     }
 
@@ -74,19 +77,51 @@ public class AuthController extends BaseController {
   @Autowired
   private RefreshHandler refreshHandler;
 
-  @PostMapping(value="refresh")
+  @PostMapping(value = "refresh")
   RefreshResponse JwtTokenRefresh(@AuthenticationPrincipal Authentication auth, @RequestBody RefreshRequest req) throws Exception {
 
-    if(auth == null){
-      throw new RestClientResponseException("",403,"",null,null,null);
+    if (auth == null) {
+      throw new RestClientResponseException("", 403, "", null, null, null);
     }
 
     return refreshHandler.excute(req);
   }
+  
+  // login User/Seller 계정 탈퇴
+  @Autowired
+  WithdrawalHandler withdrawalHandler;
 
-
+  @RequestMapping(method = RequestMethod.DELETE, value = "withdrawal")
+  @ApiOperation(value = "withdrawal")
+  WithdrawalResponse withdrawal(@AuthenticationPrincipal Authentication auth,@RequestBody @Valid WithdrawalRequest req,
+                                @ApiParam(value = "errors",hidden = true,required = false) Errors errors,HttpServletRequest request){
+    withdrawalHandler.setHttpServletRequest(request);
+    System.out.println("Authoriztion -->  " + request.getHeader("Authorization"));
+    CustomUserDetails user = null;
+    if (auth == null) {
+      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+    }
+    user = (CustomUserDetails) auth.getPrincipal();
+    if (user == null) {
+      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+    }
+    if (!checkRoute(RequestMethod.DELETE, "/api/v1/auth/withdrawal", user)) {
+      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+    }
+    if(errors.hasErrors()){
+      return withdrawalHandler.validateWithdrawal(errors);
+    }
+    return withdrawalHandler.execute(user,req);
+   }
 
 
 
 
 }
+
+
+
+
+
+
+

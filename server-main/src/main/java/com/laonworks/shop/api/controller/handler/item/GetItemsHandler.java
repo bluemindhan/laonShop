@@ -5,6 +5,7 @@ import com.laonworks.shop.api.controller.handler.BaseHandler;
 import com.laonworks.shop.api.controller.request.item.GetItemsRequest;
 import com.laonworks.shop.api.controller.response.item.GetItemsResponse;
 import com.laonworks.shop.api.controller.vo.UserType;
+import com.laonworks.shop.api.mapper.ItemMapper;
 import com.laonworks.shop.api.mapper.UserMapper;
 import com.laonworks.shop.api.service.CustomUserDetails;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class GetItemsHandler extends BaseHandler{
 
     @Autowired
-    UserMapper userMapper;
+    ItemMapper itemMapper;
 
     public GetItemsResponse execute(CustomUserDetails user, GetItemsRequest req) {
         GetItemsResponse res = new GetItemsResponse();
@@ -27,8 +28,8 @@ public class GetItemsHandler extends BaseHandler{
         int userType = user.getUserType();
         try {
             if(userType == UserType.User.getValue()){
-                res.products= userMapper.selectProductList();
-                if(res.products!=null&&res.products.size()!=0) {
+                res.products= itemMapper.selectProductList();
+                if(res.products!=null && res.products.size()!=0) {
                     res.setCode(ResultCode.Success);
                 }else {
                     res.setCode(ResultCode.Failed);

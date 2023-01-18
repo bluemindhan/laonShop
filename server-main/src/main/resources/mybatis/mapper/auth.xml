@@ -19,7 +19,8 @@
   </select>
 
   <select id="selectSellerInfo" resultType="UserVo">
-    /* selectSellerInfo */ SELECT
+    /* selectSellerInfo */
+    SELECT
     A.SLLR_ID as userId ,
     A.SLLR_NM as name ,
     A.PSSWRD as password ,
@@ -35,7 +36,8 @@
   </select>
 
   <insert id="insertUserInfo" parameterType="UserVo">
-    /* insertUserInfo */ INSERT INTO TB_USER (
+    /* insertUserInfo */
+    INSERT INTO TB_USER (
     USR_ID,
     USR_NM,
     USR_EML,
@@ -61,7 +63,8 @@
   </insert>
 
   <insert id="insertSellerInfo" parameterType="UserVo">
-    /* insertSellerInfo */ INSERT INTO TB_SELLER (
+    /* insertSellerInfo */
+    INSERT INTO TB_SELLER (
     SLLR_ID,
     SLLR_NM,
     PSSWRD,
@@ -83,6 +86,18 @@
     SYSDATE
   )
   </insert>
+
+  <select id="deleteUserInfo" parameterType="String" statementType="CALLABLE">
+    DECLARE
+    BEGIN
+      DELETE FROM TB_USER_WISH
+      WHERE usr_id = #{userId,jdbcType=VARCHAR };
+
+      DELETE FROM TB_USER
+      WHERE usr_id = #{userId,jdbcType=VARCHAR };
+      END;
+  </select>
+
   <update id="updateRefreshToken" parameterType="Map">
     /*insertRefreshToken*/
     <if test="map.userVo.userType == 1">

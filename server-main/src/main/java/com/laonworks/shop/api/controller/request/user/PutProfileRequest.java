@@ -2,6 +2,7 @@ package com.laonworks.shop.api.controller.request.user;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiParam;
+import org.springframework.util.StringUtils;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -11,8 +12,8 @@ import javax.validation.constraints.Pattern;
 @ApiModel(description = "put profile")
 public class PutProfileRequest {
 
-    @NotEmpty(message = "아이디를 입력해 주세요")
-    @Email(message = "이메일 형식에 맞지 않습니다.")
+    @NotEmpty(message ="이메일을 입력해 주세요.")
+    @Email(message = "이메일 형식이 맞지 않습니다.")
     @ApiParam(value = "user email",required = true)
     public String email="";
 
@@ -37,6 +38,13 @@ public class PutProfileRequest {
     @NotEmpty(message = "전화번호를 입력해주세요")
     @ApiParam(value = "phone number",required = true)
     public String phone="";
+
+    public boolean valid() {
+        return StringUtils.hasText(email) || StringUtils.hasText(password) || StringUtils.hasText(name) || StringUtils.hasText(birth) || StringUtils.hasText(gender)||StringUtils.hasText(phone);
+    }
+    public boolean invalid() {
+        return !valid();
+    }
 
 
 

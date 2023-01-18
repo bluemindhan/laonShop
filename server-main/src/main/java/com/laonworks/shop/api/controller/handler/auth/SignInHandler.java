@@ -62,7 +62,7 @@ public class SignInHandler extends BaseHandler {
                 return res;
             }
             String encryptedPassword = CryptoUtils.encryptPassword(plainPassword,userVo.salt);
-            if(userVo.password.equals(encryptedPassword) == false) {
+            if(!userVo.password.equals(encryptedPassword)) {
                 res.setCode(ResultCode.InvalidPassword);
                 return res;
             }
