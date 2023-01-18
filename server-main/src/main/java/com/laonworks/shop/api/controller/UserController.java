@@ -3,26 +3,21 @@ package com.laonworks.shop.api.controller;
 import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.laonworks.shop.api.controller.handler.*;
 import com.laonworks.shop.api.controller.request.user.*;
 import com.laonworks.shop.api.controller.response.user.*;
 import com.laonworks.shop.api.service.CustomUserDetails;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.Errors;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestClientResponseException;
-import org.springframework.web.multipart.MultipartFile;
-import com.laonworks.shop.api.framework.libs.FormFile;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.List;
+
 import com.laonworks.shop.api.controller.handler.user.*;
 
 @RestController
@@ -56,13 +51,13 @@ public class UserController extends BaseController {
 
   // Login User/Seller 프로필 수정
   @Autowired
-  private PutProfileHandler putProfileHandler;
+  private PatchProfileHandler patchProfileHandler;
 
-  @RequestMapping(method = RequestMethod.PUT,value = "profile")
-  @ApiOperation(value = "put profile")
-  PutProfileResponse putProfile(@AuthenticationPrincipal Authentication auth, @RequestBody @Valid PutProfileRequest req,
-                                @ApiParam(value="errors", hidden=true, required=false) Errors errors, HttpServletRequest request) {
-    putProfileHandler.setHttpServletRequest(request);
+  @RequestMapping(method = RequestMethod.PATCH,value = "profile")
+  @ApiOperation(value = "patch profile")
+  PatchProfileResponse putProfile(@AuthenticationPrincipal Authentication auth, @RequestBody @Valid PatchProfileRequest req,
+                                  @ApiParam(value="errors", hidden=true, required=false) Errors errors, HttpServletRequest request) {
+    patchProfileHandler.setHttpServletRequest(request);
     System.out.println("Authoriztion -->  " + request.getHeader("Authorization"));
     CustomUserDetails user = null;
     if (auth == null) {
@@ -72,13 +67,13 @@ public class UserController extends BaseController {
     if (user == null) {
       throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
     }
-    if (checkRoute(RequestMethod.PUT, "/api/v1/user/profile", user) == false) {
+    if (checkRoute(RequestMethod.PATCH, "/api/v1/user/profile", user) == false) {
       throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
     }
     if(errors.hasErrors()){
-      return PutProfileHandler.validatePutProfile(errors);
+      return PatchProfileHandler.validatePutProfile(errors);
     }
-    return  putProfileHandler.execute(user,req);
+    return  patchProfileHandler.execute(user,req);
   }
 
 
