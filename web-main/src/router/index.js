@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import HomeLayout from '../components/HomeLayout.vue';
 import HomeView from '../views/home/HomeView.vue';
 import AuthLayout from '../components/AuthLayout.vue';
@@ -127,7 +127,7 @@ const routes = [
   },
 ];
 const router = createRouter( {
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
 })
 export default router;

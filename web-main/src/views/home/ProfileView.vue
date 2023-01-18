@@ -154,7 +154,6 @@
               id="password" 
               name="password" 
               type="password"
-              v-model="password" 
               autocomplete="password" 
               class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
               required/>
@@ -190,7 +189,7 @@ export default {
   data() {
     return {
       userInfo: {},
-      password: '',
+      // password: '',
       // name: '',
       // email: '',
       // gender: '',
@@ -249,7 +248,7 @@ export default {
         return;
       }
 
-      if (this.password == "") {
+      if (document.getElementById("password").value == "") {
         alert("비밀번호를 입력해주세요.");
         return;
       }
@@ -276,7 +275,7 @@ export default {
       req.email = document.getElementById("email").value;
       req.gender = target.options[target.selectedIndex].value;
       req.name = document.getElementById("name").value;
-      req.password = this.password;
+      req.password = document.getElementById("password").value;
       req.phone = document.getElementById("phone").value;
       console.log(req);
       
@@ -285,7 +284,6 @@ export default {
         if (res.code == ResultCode.Success) {
           this.userInfo = res.userInfo;
           console.log(res);
-          // this.$router.go();
         }
       } catch (e) {
         console.error(e);
