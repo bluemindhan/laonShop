@@ -28,6 +28,8 @@
         WHERE
             USR_ID=#{userId, jdbcType=VARCHAR} AND
             A.PRDT_NO = B.PRDT_NO
+        ORDER BY
+            A.CRT_DT desc
         ]]>
     </select>
 

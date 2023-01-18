@@ -11,7 +11,7 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @ApiModel(description = "put profile")
 @Data
-public class PutProfileResponse extends BaseResponse {
+public class PatchProfileResponse extends BaseResponse {
 
     public UserInfo userInfo = null;
 

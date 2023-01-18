@@ -59,7 +59,10 @@ public class WithdrawalHandler extends BaseHandler {
                 return res;
             }
             String encryptedPassword = CryptoUtils.encryptPassword(plainPassword,uservo.salt);
-
+            if(!uservo.password.equals(encryptedPassword)){
+                res.setCode(ResultCode.InvalidPassword);
+                return res;
+            }
             if (userType ==UserType.User.getValue()) {
                 result =authMapper.deleteUserInfo(email);
 

@@ -29,7 +29,7 @@ public class ResultCode {
 
   public static final int BadParams = 10100; // 파라미터가 유효하지 않습니다.
 
-  public static final int InvalidPassword = 10020; // 비밀번호가 유효하지 않습니다.
+  public static final int InvalidPassword = 10020; // 비밀번호가 일치하지 않습니다.
 
   public static final int DbFailed = 99999; // DB 실패
 
@@ -48,7 +48,7 @@ public class ResultCode {
       case 1004: return "이미 찜한 상품입니다.";
       case 10010: return "이미 사용중인 이메일입니다.";
       case 10100: return "파라미터가 유효하지 않습니다.";
-      case 10020: return "비밀번호가 유효하지 않습니다.";
+      case 10020: return "비밀번호가 일치하지 않습니다.";
       case 99999: return "DB 실패";
     }
     return "Uknown";
