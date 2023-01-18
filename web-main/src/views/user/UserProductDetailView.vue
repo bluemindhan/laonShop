@@ -134,7 +134,7 @@
 
               <!-- <button type="submit" class="mt-8 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add to cart</button> -->
               <div class="sm:flex-col1 mt-10 flex">
-                <button type="submit" class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full">Add to bag</button>
+                <button type="button" @click="addCart" class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full">Add to bag</button>
 
                 <button 
                 type="button" 
@@ -212,6 +212,7 @@ import GetLikeListRequest from '@/service/request/GetLikeListRequest.js';
 import DeleteLikeRequest from '@/service/request/DeleteLikeRequest.js';
 import {mapGetters, mapMutations} from "vuex";
 import ResultCode from "@/service/ResultCode";
+import AddCartRequest from "@/service/request/AddCartRequest.js";
 
 export default {
   name: 'UserProductDetailView',
@@ -326,7 +327,25 @@ export default {
       } catch (e) {
         console.error(e);
       }
-    }
+    },
+
+    async addCart() {
+      let req = new AddCartRequest();
+      req.cnt += 1;
+      req.productNum = this.id;
+      console.log(req);
+      try {
+        let res = await this.api.addCart(req);
+        if (res.code === ResultCode.Success) {
+          console.log(res);
+        } else {
+          alert(res.message);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    },
+
   },
   created() {
     console.log("ItemDetail.vue..", this.accessToken);

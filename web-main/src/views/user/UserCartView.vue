@@ -24,7 +24,7 @@
           <ul role="list" class="divide-y divide-gray-200 border-t border-b border-gray-200">
             <li v-for="(vo, productIdx) in volist" :key="vo.productNum" class="flex py-6 sm:py-10">
               <div class="flex-shrink-0">
-                <img :src="vo.imange" class="h-24 w-24 rounded-lg object-cover object-center sm:h-32 sm:w-32" />
+                <img :src="vo.image" class="h-24 w-24 rounded-lg object-cover object-center sm:h-32 sm:w-32" />
               </div>
 
               <div class="relative ml-4 flex flex-1 flex-col justify-between sm:ml-6">
@@ -38,12 +38,12 @@
                       <p v-if="product.size" class="mt-1 text-sm text-gray-500">{{ product.size }}</p> -->
                     </div>
 
-                    <p class="text-right text-sm font-medium text-gray-900">{{ vo.price }}</p>
+                    <p class="text-right text-sm font-medium text-gray-900">{{ vo.price }} 원</p>
                   </div>
 
                   <div class="mt-4 flex items-center sm:absolute sm:top-0 sm:left-1/2 sm:mt-0 sm:block">
                     <label :for="`quantity-${productIdx}`" class="sr-only">Quantity, {{ vo.productName }}</label>
-                    <select :id="`quantity-${productIdx}`" :name="`quantity-${productIdx}`" :value="vo.sum" class="block max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
+                    <select :id="`quantity-${productIdx}`" :name="`quantity-${productIdx}`" :value="vo.cnt" class="block max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -56,7 +56,7 @@
                       <option value="10">10</option>
                     </select>
 
-                    <button type="button" class="ml-4 text-sm font-medium text-indigo-600 hover:text-indigo-500 sm:ml-0 sm:mt-3">
+                    <button type="button" @click="deleteCart" :value="vo.productNum" class="ml-4 text-sm font-medium text-indigo-600 hover:text-indigo-500 sm:ml-0 sm:mt-3">
                       <span>Remove</span>
                     </button>
                   </div>
@@ -105,6 +105,7 @@
 import GetCartRequest from "@/service/request/GetCartRequest.js";
 import {mapGetters, mapMutations} from "vuex";
 import ResultCode from "@/service/ResultCode";
+import DeleteCartRequest from "@/service/request/DeleteCartRequest.js";
 
 export default {
   name: 'UserCartView',
@@ -114,6 +115,7 @@ export default {
   },
   data() {
     return {
+      id: this.$route.params.id,
       volist : [],
     }
   },
@@ -147,6 +149,21 @@ export default {
         if (res.code === ResultCode.Success) {
           this.volist = res.volist;
           console.log(res);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    },
+    async deleteCart() {
+      let req = new DeleteCartRequest();
+      req.productNum = this.id;
+      console.log(req);
+      try {
+        let res = await this.api.deleteCart(req);
+        if (res.code === ResultCode.Success) {
+          console.log(res);
+        } else {
+          alert(res.message);
         }
       } catch (e) {
         console.error(e);
