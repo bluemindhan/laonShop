@@ -3,8 +3,8 @@
       <div class="bg-white">
       <div class="mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:px-8 lg:pb-24">
         <div class="max-w-xl">
-          <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Product List</h1>
-          <p class="mt-2 text-sm text-gray-500">Check all products and update details or delete products.</p>      </div>
+          <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">상품 목록</h1>
+        </div>
         <div class="mt-16">
           <div class="space-y-20">
               <table class="mt-4 w-full text-gray-500 sm:mt-6">
@@ -13,7 +13,7 @@
                     <th scope="col" class="py-3 pr-8 font-normal sm:w-2/5 lg:w-1/3">상품명</th>
                     <th scope="col" class="hidden w-1/5 py-3 pr-8 font-normal sm:table-cell">가격</th>
                     <th scope="col" class="hidden py-3 pr-8 font-normal sm:table-cell">등록날짜</th>
-                    <th scope="col" class="hidden py-3 pr-8 font-normal sm:table-cell">판매수량</th>
+                    <th scope="col" class="hidden py-3 pr-8 font-normal sm:table-cell">수정날짜</th>
                     <th scope="col" class="w-0 py-3 text-right font-normal"></th>
                   </tr>
                 </thead>
@@ -21,20 +21,21 @@
                   <tr v-for="product in productList" :key="product.productId">
                     <td class="py-6 pr-8">
                       <div class="flex items-center">
-                        <img :src="product.image" :alt="product.image" class="mr-6 h-16 w-16 rounded object-cover object-center" />
+                        <div v-for="item in productList.imageList" :key="item.image">
+                          <img :src="item.image" :alt="item.image" class="mr-6 h-16 w-16 rounded object-cover object-center" />
+                        </div>
                         <div>
-                          <div class="font-medium text-gray-900">{{ product.prdtNo }}</div>
-                          <div class="mt-1 sm:hidden">{{ product.prdtPrce }}</div>
+                          <div class="font-medium text-gray-900">{{ product.prdtNm }} 
+                            <input type="hidden" :value="product.prdtNo">
+                          </div>
                         </div>
                       </div>
                     </td>
                     <td class="hidden py-6 pr-8 sm:table-cell">{{ product.prdtPrce }} 원</td>
-                    <td class="hidden py-6 pr-8 sm:table-cell">
-                      <!-- {{ product.crtDt }} -->
-                    </td>
-                    <!-- <td class="hidden py-6 pr-8 sm:table-cell text-red-600">{{ product.count }} 개</td> -->
+                    <td class="hidden py-6 pr-8 sm:table-cell">{{ product.crtDt }}</td>
+                    <td class="hidden py-6 pr-8 sm:table-cell">{{ product.updDt }}</td>
                     <td class="whitespace-nowrap py-6 text-right font-medium">
-                      <router-link :to="`/seller/product/${ product.productId }`">
+                      <router-link :to="`/seller/product/${ product.prdtNo }`">
                         <a :href="product.href" class="text-indigo-600">
                           <span class="hidden lg:inline">수정</span><span class="sr-only"></span>
                         </a>
@@ -97,8 +98,15 @@
         pageSize: 10,
         totalPages: 0,
         totalCount: 0,
-        productList: [],
+        productList: {
+          imageList: [],
+        },
       };
+    },
+    filters: {
+      comma(val) {
+        return String(val).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
     },
     computed: {
       hasNext() {

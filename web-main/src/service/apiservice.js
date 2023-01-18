@@ -88,7 +88,6 @@ export class ApiService {
       })
     });
   }
-
   itemDetail(req) {
     const url = '/api/v1/item/item-details?' + qs.stringify(req);
     return new Promise((resolve, reject) => {
@@ -105,7 +104,6 @@ export class ApiService {
       })
     });
   }
-
   addLike(req) {
     return new Promise((resolve, reject) => {
       axios.post("/api/v1/user/wishs", req).then(res => {
@@ -121,7 +119,6 @@ export class ApiService {
       })
     });
   }
-
   deleteLike(req) {
     return new Promise((resolve, reject) => {
       axios.delete("/api/v1/user/wishs", {data : req}).then(res => {
@@ -137,7 +134,6 @@ export class ApiService {
       })
     });
   }
-
   getLikeList(req) {
     return new Promise((resolve, reject) => {
       axios.get("/api/v1/user/wishs", req).then(res => {
@@ -154,7 +150,22 @@ export class ApiService {
       })
     });
   }
-   
+  addProduct(req) {
+    return new Promise((resolve, reject) => {
+      axios.post('/api/v1/seller/product', req).then(res => { 
+        if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
   getProductsList(req) {
     const url = "/api/v1/seller/product/list?" + qs.stringify(req);
     return new Promise((resolve, reject) => {
@@ -171,8 +182,57 @@ export class ApiService {
         reject(err);
       })
     });
-  }    
-  
+  } 
+  productsDetail(req) {
+    const url = "/api/v1/seller/product/modify?" + qs.stringify(req);
+    return new Promise((resolve, reject) => {
+      axios.get(url).then(res => {
+        if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
+  productsUpdate(req) {
+    return new Promise((resolve, reject) => {
+      axios.put('/api/v1/seller/product/modify', req).then(res => {
+        if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
+  deleteProduct(req) {
+    const url = "/api/v1/seller/product/delete?" + qs.stringify(req);
+    return new Promise((resolve, reject) => {
+      axios.get(url).then(res => {
+        if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  } 
   getCartList(req) {
     return new Promise((resolve, reject) => {
       axios.get('/api/v1/cart/cart-info', req).then(res => {
