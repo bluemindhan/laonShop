@@ -250,6 +250,10 @@ export class ApiService {
     });
   }
   
+  cartIn(req) {
+
+  }
+
   mainPage() {
     return new Promise((resolve, reject) => {
       axios.get('/api/v1/item/mainpage').then(res => {
