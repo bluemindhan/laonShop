@@ -6,6 +6,7 @@
         <id column="itemId" property="itemId"/>
         <result column="price" property="price"/>
         <result column="name" property="name"/>
+        <result column="cateName" property="cateName"/>
         <result column="itemDetail" property="itemDetail"/>
         <result column="likeCnt" property="likeCnt"/>
         <collection property="imageVoList" resultMap="imageVoResult"></collection>
@@ -68,6 +69,7 @@
             MAX(A.PRDT_PRCE) as price,
             MAX(A.PRDT_NM) as name,
             MAX(A.PRDT_DESC) as itemDetail,
+            MAX(F.CATENAME) as cateName,
             MAX(B.IMG_URL) as image,
             MAX(C.LIKE_CNT) as likeCnt
         FROM
@@ -76,8 +78,12 @@
                           ON A.PRDT_NO = B.PRDT_NO
                 LEFT JOIN TB_PRODUCT_SOCIAL C
                           ON B.PRDT_NO = C.PRDT_NO
+                LEFT JOIN TB_PRODUCT_CATEGORY D
+                          ON A.CATECODE = D.CATECODE
+                INNER JOIN TB_PRODUCT_BIGCATEGORY F
+                          ON D.CATECODEREF = F.CATECODEREF
         GROUP BY A.PRDT_NO
-        ORDER BY bookCnt ASC
+        ORDER BY likeCnt ASC
         ) A
     WHERE ROWNUM <= 3
     ]]>

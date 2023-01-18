@@ -7,12 +7,15 @@ import SignUpView from '../views/auth/SignUpView.vue';
 import SellerLayout from '../components/SellerLayout.vue';
 import SellerProductsView from '../views/seller/SellerProductsView.vue';
 import SellerProductsNewView from '../views/seller/SellerProductsNewView.vue';
+import SellerProductDetailView from '../views/seller/SellerProductDetailView.vue';
 import UserLayout from '../components/UserLayout.vue';
 import UserMainView from '../views/user/UserMainView.vue';
 import UserProductDetailView from '../views/user/UserProductDetailView.vue';
 import UserCartView from '../views/user/UserCartView.vue';
 import UserCheckoutView from '../views/user/UserCheckoutView.vue';
 import ProfileView from '../views/home/ProfileView.vue';
+import UserSearchView from '../views/user/UserSearchView.vue';
+import UserLikeView from '../views/user/UserLikeView.vue';
 
 const routes = [
   {
@@ -62,11 +65,11 @@ const routes = [
         name: 'SellerProductsView',
         component: SellerProductsView,
       },
-      // {
-      //   path: '/seller/product/:id',  // 상품상세
-      //   name: 'SellerProductDetailView',
-      //   component: SellerProductDetailView,
-      // },
+      {
+        path: '/seller/product/:id',  // 상품상세수정
+        name: 'SellerProductDetailView',
+        component: SellerProductDetailView,
+      },
       {
         path: '/seller/products/new',  // 상품등록
         name: 'SellerProductsNewView',
@@ -99,7 +102,17 @@ const routes = [
         path: '/user/checkout',
         name: 'UserCheckoutView',
         component: UserCheckoutView,
-      }
+      },
+      {
+        path: '/user/search',
+        name: 'UserSearchView',
+        component: UserSearchView,
+      },
+      {
+        path: '/user/like',
+        name: 'UserLikeView',
+        component: UserLikeView,
+      },
     ],
   },
 ];

@@ -5,6 +5,8 @@ export default class ProductInfo {
     this.prdtNm = '';
     this.prdtDesc = '';
     this.prdtPrce = 0;
+    this.crtDt = null;
+    this.updDt = null;
     this.imageList = null;
   }
 }

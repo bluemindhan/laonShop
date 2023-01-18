@@ -15,6 +15,8 @@ public class ItemVo {
 
     public long price; // 상품 가격
 
+    public String cateName; // 카테고리 이름
+
     public String itemDetail; // 상품 상세정보
 
     public List<CommentVo> commentVoList; // 댓글
