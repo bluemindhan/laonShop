@@ -1,18 +1,9 @@
 package com.laonworks.shop.api.jihyeon.controller;
 
 import com.laonworks.shop.api.controller.BaseController;
-import com.laonworks.shop.api.controller.handler.seller.AddProductHandler;
-import com.laonworks.shop.api.controller.handler.seller.DeleteProductHandler;
-import com.laonworks.shop.api.controller.handler.seller.GetProductListHandler;
-import com.laonworks.shop.api.controller.handler.seller.ModifyProductHandler;
-import com.laonworks.shop.api.controller.request.seller.AddProductRequest;
-import com.laonworks.shop.api.controller.request.seller.DeleteProductRequest;
-import com.laonworks.shop.api.controller.request.seller.GetProductListRequest;
-import com.laonworks.shop.api.controller.request.seller.ModifyProductRequest;
-import com.laonworks.shop.api.controller.response.seller.AddProductResponse;
-import com.laonworks.shop.api.controller.response.seller.DeleteProductResponse;
-import com.laonworks.shop.api.controller.response.seller.GetProductListResponse;
-import com.laonworks.shop.api.controller.response.seller.ModifyProductResponse;
+import com.laonworks.shop.api.controller.handler.seller.*;
+import com.laonworks.shop.api.controller.request.seller.*;
+import com.laonworks.shop.api.controller.response.seller.*;
 import com.laonworks.shop.api.jihyeon.vo.ProductVo;
 import com.laonworks.shop.api.service.CustomUserDetails;
 import io.swagger.annotations.ApiOperation;
@@ -81,26 +72,19 @@ public class SellerController extends BaseController {
   }
 
   @Autowired
-  private ModifyProductHandler modifyProductHandler;
+  private GetProductDetailHandler getProductDetailHandler;
 
-//  /* 수정 상품 불러오기 */
-//  @RequestMapping(method = RequestMethod.GET, value = "product/modify")
-//  @ApiOperation(value = "Product Modification")
-//  ModifyProductResponse getProduct(@AuthenticationPrincipal Authentication auth, @RequestBody ModifyProductRequest req, HttpServletRequest request) {
-//    modifyProductHandler.setHttpServletRequest(request);
-//    CustomUserDetails user = null;
-//    if (auth == null) {
-//      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
-//    }
-//    user = (CustomUserDetails) auth.getPrincipal();
-//    if (user == null) {
-//      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
-//    }
-//    if (checkRoute(RequestMethod.GET, "/api/v1/seller/product/modify", user) == false) {
-//      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
-//    }
-//    return modifyProductHandler.execute(user, req);
-//  }
+  /* 등록 상품 불러오기 */
+  @RequestMapping(method = RequestMethod.GET, value = "product/modify")
+  @ApiOperation(value = "Get Product Detail")
+  GetProductDetailResponse GetProductDetail(GetProductDetailRequest req, HttpServletRequest request) {
+    getProductDetailHandler.setHttpServletRequest(request);
+
+    return getProductDetailHandler.execute(req);
+  }
+
+  @Autowired
+  private ModifyProductHandler modifyProductHandler;
 
   /* 등록 상품 수정하기 */
   @RequestMapping(method = RequestMethod.PUT, value = "product/modify")

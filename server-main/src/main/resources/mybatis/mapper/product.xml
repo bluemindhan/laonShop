@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.laonworks.shop.api.jihyeon.mapper.ProductMapper">
+
   <!-- 다음 상품 시퀀스 값-->
   <select id="selectPrdtNextVal" resultType="int">
   <![CDATA[
@@ -12,14 +13,14 @@
   </select>
 
   <!-- 다음 이미지 시퀀스 값-->
-<!--  <select id="selectPrdtImgNextVal" resultType="int">-->
-<!--  <![CDATA[-->
-<!--    /* selectPrdtImgNextVal */ SELECT-->
-<!--    SQ_PRDT_IMG_NO.NEXTVAL-->
-<!--  FROM-->
-<!--    DUAL-->
-<!--  ]]>-->
-<!--  </select>-->
+  <select id="selectPrdtImgNextVal" resultType="int">
+  <![CDATA[
+    /* selectPrdtImgNextVal */ SELECT
+    SQ_PRDT_IMG_NO.NEXTVAL
+  FROM
+    DUAL
+  ]]>
+  </select>
 
   <!-- 상품등록 -->
   <insert id="insertProduct" parameterType="com.laonworks.shop.api.jihyeon.vo.ProductVo">
@@ -45,23 +46,23 @@
   </insert>
 
   <!-- 상품이미지등록-->
-<!--  <insert id="insertProductImage" parameterType="com.laonworks.shop.api.jihyeon.vo.ProductImageVo">-->
-<!--  <![CDATA[-->
-<!--    /* insertProductImage */ INSERT INTO TB_PRODUCT_IMAGE(-->
-<!--    PRDT_NO ,-->
-<!--    PRDT_IMG_NO ,-->
-<!--    IMG_URL,-->
-<!--    CRT_DT,-->
-<!--    UPD_DT-->
-<!--  ) VALUES (-->
-<!--    #{vo.prdtNo} ,-->
-<!--    #{vo.prdtImgNo} ,-->
-<!--    #{vo.prdtImgUrl, jdbcType=VARCHAR} ,-->
-<!--    SYSDATE,-->
-<!--    SYSDATE-->
-<!--  )-->
-<!--  ]]>-->
-<!--  </insert>-->
+  <insert id="insertProductImage" parameterType="com.laonworks.shop.api.jihyeon.vo.ProductImageVo">
+  <![CDATA[
+    /* insertProductImage */ INSERT INTO TB_PRODUCT_IMAGE(
+    PRDT_NO ,
+    PRDT_IMG_NO ,
+    IMG_URL,
+    CRT_DT,
+    UPD_DT
+  ) VALUES (
+    #{vo.prdtNo} ,
+    #{vo.prdtImgNo} ,
+    #{vo.prdtImgUrl, jdbcType=VARCHAR} ,
+    SYSDATE,
+    SYSDATE
+  )
+  ]]>
+  </insert>
 
   <!--상품 갯수-->
   <select id="selectProductCount" resultType="int">
@@ -75,7 +76,7 @@
   ]]>
   </select>
 
-  <!-- 등록된 상품 불러오기-->
+  <!-- 등록된 상품리스트 불러오기-->
   <select id="selectProductList" resultType="com.laonworks.shop.api.jihyeon.vo.ProductVo">
   <![CDATA[
     /* selectProductList */ SELECT * FROM (
@@ -99,19 +100,39 @@
   ]]>
   </select>
 
-  <!-- 등록된 상품 이미지 불러오기-->
-<!--  <select id="selectProductImageList" resultType="com.laonworks.shop.api.jihyeon.vo.ProductImageVo">-->
-<!--  <![CDATA[-->
-<!--    /* selectProductImageList */ SELECT-->
-<!--    A.PRDT_NO as prdtNo ,-->
-<!--    A.PRDT_IMG_NO as prdtImgNo ,-->
-<!--    A.IMG_URL as prdtImgUrl-->
-<!--  FROM-->
-<!--    TB_PRODUCT_IMAGE A-->
-<!--  WHERE-->
-<!--    A.PRDT_NO = #{prdtNo}-->
-<!--  ]]>-->
-<!--  </select>-->
+  <!-- 등록된 상품리스트 이미지 불러오기-->
+  <select id="selectProductImageList" resultType="com.laonworks.shop.api.jihyeon.vo.ProductImageVo">
+  <![CDATA[
+    /* selectProductImageList */ SELECT
+    A.PRDT_NO as prdtNo ,
+    A.PRDT_IMG_NO as prdtImgNo ,
+    A.IMG_URL as prdtImgUrl
+  FROM
+    TB_PRODUCT_IMAGE A
+  WHERE
+    A.PRDT_NO = #{prdtNo}
+  ]]>
+  </select>
+
+  <!-- 등록된 상품 불러오기-->
+  <select id="selectProductDetail" resultType="com.laonworks.shop.api.jihyeon.vo.ProductVo">
+  <![CDATA[
+    /* selectProductDetail */ SELECT
+    A.PRDT_NO as prdtNo ,
+    A.PRDT_PRCE as prdtPrce ,
+    A.PRDT_NM as prdtNm ,
+    A.PRDT_DESC as prdtDesc ,
+    A.CRT_DT as crtDt,
+    A.UPD_DT as updDt,
+    B.IMG_URL as image
+  FROM
+    TB_PRODUCT A
+    LEFT JOIN TB_PRODUCT_IMAGE B
+        ON A.PRDT_NO = B.PRDT_NO
+  WHERE
+    A.PRDT_NO = #{prdtNo}
+  ]]>
+  </select>
 
   <!-- 등록된 상품 수정 -->
   <update id="modifyProduct" parameterType="com.laonworks.shop.api.jihyeon.vo.ProductVo">
@@ -125,16 +146,16 @@
   </update>
 
   <!-- 등록된 상품 이미지 수정 -->
-<!--  <update id="modifyProductImage" parameterType="com.laonworks.shop.api.jihyeon.vo.ProductImageVo">-->
-<!--  <![CDATA[-->
-<!--    /* modifyProductImage */ UPDATE TB_PRODUCT_IMAGE SET-->
-<!--    PRDT_NO = #{vo.prdtNo} ,-->
-<!--    PRDT_IMG_NO = #{vo.prdtImagNo} ,-->
-<!--    IMG_URL = #{vo.prdtImgUrl},-->
-<!--    CRT_DT = SYSDATE,-->
-<!--    UPD_DT = SYSDATE-->
-<!--  ]]>-->
-<!--  </update>-->
+  <update id="modifyProductImage" parameterType="com.laonworks.shop.api.jihyeon.vo.ProductImageVo">
+  <![CDATA[
+    /* modifyProductImage */ UPDATE TB_PRODUCT_IMAGE SET
+    PRDT_NO = #{vo.prdtNo} ,
+    PRDT_IMG_NO = #{vo.prdtImagNo} ,
+    IMG_URL = #{vo.prdtImgUrl},
+    CRT_DT = SYSDATE,
+    UPD_DT = SYSDATE
+  ]]>
+  </update>
 
   <!-- 등록된 상품 삭제-->
   <delete id="deleteProduct" parameterType="com.laonworks.shop.api.jihyeon.vo.ProductVo">
@@ -142,6 +163,14 @@
     /* deleteProduct */ DELETE FROM TB_PRODUCT
     WHERE SLLR_ID = #{vo.sllrId} AND PRDT_NO = #{vo.prdtNo}
   ]]>
+  </delete>
+
+  <!-- 등록된 상품 이미지 삭제-->
+  <delete id="deleteProductImg" parameterType="com.laonworks.shop.api.jihyeon.vo.ProductVo">
+  <![CDATA[
+    /* deleteProductImg */ DELETE FROM TB_PRODUCT_IMAGE
+    WHERE PRDT_NO = #{vo.prdtNo}
+    ]]>
   </delete>
 
 </mapper>

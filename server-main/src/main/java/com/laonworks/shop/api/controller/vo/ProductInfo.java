@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiParam;
 import lombok.Data;
 import lombok.ToString;
 
+import java.util.Date;
 import java.util.List;
 
 @ApiModel(description = "product info")
@@ -26,6 +27,12 @@ public class ProductInfo {
     
     @ApiParam(value = "")
     public double prdtPrce =  0.0;
+
+    @ApiParam(value = "")
+    public String crtDt = "";
+
+    @ApiParam(value = "")
+    public String updDt = "";
     
     @ApiParam(value = "")
     public List<String> imageList =  null;
@@ -37,5 +44,7 @@ public class ProductInfo {
         this.prdtNm = vo.prdtNm;
         this.prdtDesc = vo.prdtDesc;
         this.prdtPrce = vo.prdtPrce;
+        this.crtDt = vo.crtDt;
+        this.updDt = vo.updDt;
     }
 }

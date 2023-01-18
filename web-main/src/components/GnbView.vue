@@ -13,7 +13,7 @@
           </div>
           <div class="flex flex-shrink-0 items-center">
             <img class="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" />
-            <img class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" />
+            <img @click="home" class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" />
           </div>
           <div class="hidden md:ml-6 md:flex md:space-x-8">
             <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
@@ -27,6 +27,7 @@
           <div class="flex-shrink-0">
             <button
               v-if="isLogin"
+              v-show="isShow"
               type="button"
               @click="cart"
               class="relative inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
@@ -37,7 +38,7 @@
               v-if="isLogin"
               @click="logout"
               type="button"
-              class="relative inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              class="relative inline-flex items-center rounded-md border border-transparent bg-indigo-600 ml-4 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
               <span>Log out</span>
             </button>
@@ -85,13 +86,13 @@
               >
                 <MenuItems class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <MenuItem v-slot="{ active }">
-                    <a href="/user/home/ProfileView" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Your Profile</a>
+                    <a @click="like" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">내가 찜한 목록</a>
                   </MenuItem>
                   <MenuItem v-slot="{ active }">
-                    <a href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Settings</a>
+                    <a @click="profile" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">회원 정보 수정</a>
                   </MenuItem>
                   <MenuItem v-slot="{ active }">
-                    <a href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Sign out</a>
+                    <a @click="logout" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">로그아웃</a>
                   </MenuItem>
                 </MenuItems>
               </transition>
@@ -100,44 +101,22 @@
         </div>
       </div>
     </div>
-
-    <DisclosurePanel class="md:hidden">
-      <div class="space-y-1 pt-2 pb-3">
-        <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" -->
-        <!-- <DisclosureButton as="a" href="#" class="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700 sm:pl-5 sm:pr-6">Dashboard</DisclosureButton>
-        <DisclosureButton as="a" href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6">Team</DisclosureButton>
-        <DisclosureButton as="a" href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6">Projects</DisclosureButton>
-        <DisclosureButton as="a" href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6">Calendar</DisclosureButton> -->
-      </div>
-      <div class="border-t border-gray-200 pt-4 pb-3">
-        <div class="flex items-center px-4 sm:px-6">
-          <div class="flex-shrink-0">
-            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-          </div>
-          <div class="ml-3">
-            <div class="text-base font-medium text-gray-800">Tom Cook</div>
-            <div class="text-sm font-medium text-gray-500">tom@example.com</div>
-          </div>
-          <button type="button" class="ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-            <span class="sr-only">View notifications</span>
-            <BellIcon class="h-6 w-6" aria-hidden="true" />
-          </button>
-        </div>
-        <div class="mt-3 space-y-1">
-          <DisclosureButton as="a" href="#" class="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800 sm:px-6">Your Profile</DisclosureButton>
-          <DisclosureButton as="a" href="#" class="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800 sm:px-6">Settings</DisclosureButton>
-          <DisclosureButton as="a" href="#" class="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800 sm:px-6">Sign out</DisclosureButton>
-        </div>
-      </div>
-    </DisclosurePanel>
   </Disclosure>
 </template>
+
+<script setup>
+import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid'
+</script>
+
 
 <script>
 import { mapGetters, mapMutations } from "vuex";
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/vue/24/outline";
 import { PlusIcon } from "@heroicons/vue/20/solid";
+import GetProfileRequest from "@/service/request/GetProfileRequest";
+import ResultCode from "@/service/ResultCode";
+
 export default {
   name: "GnbView",
   components: {
@@ -162,6 +141,10 @@ export default {
         // { name: "Projects", href: "#", current: false },
         // { name: "Calendar", href: "#", current: false },
       ],
+      userInfo: {
+      },
+      isShow: false,
+      url: "",
     };
   },
   watch: {
@@ -185,7 +168,12 @@ export default {
     ...mapMutations({
       setAccessToken: "appStore/accessToken",
       setRefreshToken: "appStore/refreshToken",
+      setUserInfo: "appStore/userInfo",
     }),
+    home() {
+      console.log("home");
+      this.$router.replace(this.url);
+    },
     signin() {
       console.log("signin");
       // replace /signin
@@ -204,9 +192,45 @@ export default {
     cart() {
       console.log("cart");
       this.$router.replace({ name: "UserCartView" });
+    },
+    async getProfile() {
+      console.log("getProfile");
+
+      let req = new GetProfileRequest();
+      req.accessToken = this.accessToken;
+
+      try {
+        let res = await this.api.getProfile(req);
+        if (res.code == ResultCode.Success) {
+          const userInfo = res.userInfo;
+          this.setUserInfo(userInfo);
+          
+          if (userInfo.userType == 1) {
+            // 일반 사용자
+            this.isShow = true;
+            this.url = "/user";
+          } else if (userInfo.userType == 2) {
+            // 판매자
+            this.isShow = false;
+            this.url = "/seller";
+          } else {
+            console.log(userInfo);
+          }
+        }
+      } catch (e) {
+        console.error(e);
+      } 
+    },
+    profile() {
+      this.$router.replace({ name : "ProfileView" });
+    },
+    like() {
+      this.$router.replace({ name : "UserLikeView" });
     }
   },
-  created() {},
+  created() {
+    this.getProfile();
+  },
   mounted() {},
   beforeUnmount() {},
 };

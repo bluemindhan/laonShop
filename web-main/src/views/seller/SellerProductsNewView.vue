@@ -42,13 +42,6 @@
           </div>
 
           <div class="sm:col-span-12">
-            <label for="count" class="block text-sm font-medium text-gray-700">재고수량</label>
-            <div class="mt-1 flex rounded-md shadow-sm">
-              <input type="text" name="count" id="count" v-model.number="productCount" class="block w-full min-w-0 flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
-            </div>
-          </div>
-
-          <div class="sm:col-span-12">
             <label class="block text-sm font-medium text-gray-700">상품 이미지</label>
             <div class="grid grid-cols-4 gap-2">
               <div v-for="item in imgList" :key="item.name" class="w-32 h-32 bg-red-100">
@@ -98,7 +91,6 @@ export default {
       productName: "",
       productDesc: "",
       productPrice: 0,
-      productCount: 0,
       imgList: [],
     };
   },
@@ -150,11 +142,6 @@ export default {
         return;
       }
 
-      if (this.productCount <= 0) {
-        alert("재고수량을 입력해주세요.");
-        return;
-      }
-
       if (this.imgList.length === 0) {
         alert("상품 이미지를 등록해주세요.");
         return;
@@ -164,7 +151,6 @@ export default {
       req.productName = this.productName;
       req.productDesc = this.productDesc;
       req.productPrice = this.productPrice;
-      req.productCount = this.productCount;  // 재고수량 추가
       req.imageList = [];
       this.imgList.forEach((item) => {
         req.imageList.push(item.src);
@@ -188,4 +174,5 @@ export default {
   beforeUnmount() {},
 };
 </script>
-<style></style>
+<style>
+</style>

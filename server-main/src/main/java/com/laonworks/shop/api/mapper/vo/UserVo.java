@@ -29,4 +29,5 @@ public class UserVo {
   public String salt;
 
   public int userType;
+
 }

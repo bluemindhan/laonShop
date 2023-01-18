@@ -2,109 +2,106 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.laonworks.shop.api.mapper.SearchMapper">
 
-<!--  <select id="findByKeyword" resultType="ProductVo">-->
+  <select id="findByKeyword" resultType="ProductVo">
 
-<!--    /*findByKeyword*/  SELECT *-->
-<!--    FROM(-->
-<!--        SELECT-->
-<!--            ROWNUM, A.*-->
-<!--        FROM(-->
-<!--            SELECT-->
-<!--                MAX(A.PRDT_NO) as productId,-->
-<!--                MAX(A.PRDT_PRCE) as price,-->
-<!--                MAX(A.PRDT_NM) as name,-->
-<!--                MAX(B.IMG_URL) as image,-->
-<!--                MAX(C.LIKE_CNT) as likeCnt,-->
-<!--                MAX(C.MBK_CNT) as bookCnt-->
-<!--            FROM-->
-<!--                TB_PRODUCT A-->
-<!--                LEFT JOIN TB_PRODUCT_IMAGE B-->
-<!--                    ON A.PRDT_NO = B.PRDT_NO-->
-<!--                LEFT JOIN TB_PRODUCT_SOCIAL C-->
-<!--                    ON B.PRDT_NO = C.PRDT_NO-->
-<!--            WHERE-->
-<!--                A.PRDT_NM LIKE '%'||#{search.keyWord}||'%'-->
-<!--            <if test="search.cateCode != 0">-->
-<!--            AND-->
-<!--                A.CATECODE = #{search.cateCode}-->
-<!--            </if>-->
-<!--            GROUP BY-->
-<!--                A.PRDT_NO-->
-<!--            <if test='search.filter.equals("likeASC")'>-->
-<!--            ORDER BY-->
-<!--                likeCnt ASC-->
-<!--            </if>-->
+    /*findByKeyword*/  SELECT *
+    FROM(
+        SELECT
+            ROWNUM, A.*
+        FROM(
+            SELECT
+                MAX(A.PRDT_NO) as productId,
+                MAX(A.PRDT_PRCE) as price,
+                MAX(A.PRDT_NM) as name,
+                MAX(B.IMG_URL) as image,
+                MAX(C.LIKE_CNT) as likeCnt
+            FROM
+                TB_PRODUCT A
+                LEFT JOIN TB_PRODUCT_IMAGE B
+                    ON A.PRDT_NO = B.PRDT_NO
+                LEFT JOIN TB_PRODUCT_SOCIAL C
+                    ON B.PRDT_NO = C.PRDT_NO
+            WHERE
+                A.PRDT_NM LIKE '%'||#{search.keyWord}||'%'
 
-<!--            <if test='search.filter.equals("likeDESC")'>-->
-<!--            ORDER BY-->
-<!--                likeCnt DESC-->
-<!--            </if>-->
-
-<!--            <if test='search.filter.equals("nameASC")'>-->
-<!--            ORDER BY-->
-<!--                name ASC-->
-<!--            </if>-->
-
-<!--            <if test='search.filter.equals("nameDESC")'>-->
-<!--            ORDER BY-->
-<!--                name DESC-->
-<!--            </if>-->
-
-<!--            <if test='search.filter.equals("priceASC")'>-->
-<!--            ORDER BY-->
-<!--                price ASC-->
-<!--            </if>-->
-
-<!--            <if test='search.filter.equals("priceDESC")'>-->
-<!--            ORDER BY-->
-<!--                price DESC-->
-<!--            </if>-->
-<!--            ) A-->
-<!--        <![CDATA[-->
-<!--        WHERE ROWNUM <= #{end}-->
-<!--        )-->
-
-<!--      WHERE ROWNUM >= #{start}-->
-<!--    ]]>-->
-<!--  </select>-->
-
-    <select id="findByKeyword" resultType="ProductVo">
-    /*findByKeyword*/
-     <![CDATA[
-        SELECT D.*,
-            B.IMG_URL as image,
-            C.LIKE_CNT as likeCnt,
-            C.MBK_CNT as bookCnt
-        FROM
-            (
-            SELECT *
-            FROM(
-                SELECT ROWNUM rm , A.*
-                FROM(
-                    SELECT
-                    PRDT_NO as item,
-                    PRDT_PRCE as price,
-                    PRDT_NM
-                    FROM
-                    TB_PRODUCT
-                )  A
-                 WHERE ROWNUM <= #{end}
-            )
-            WHERE rm >= #{start}
-        ) D
-        LEFT JOIN TB_PRODUCT_IMAGE B
-            ON D.PRDT_NO = B.PRDT_NO
-        LEFT JOIN TB_PRODUCT_SOCIAL C
-            ON D.PRDT_NO = C.PRDT_NO
+            <if test="search.cateCode != 0">
+            AND
+                A.CATECODE = #{search.cateCode}
+            </if>
+            GROUP BY
+                A.PRDT_NO
+            <choose>
+              <when test='search.filter.equals("likeASC")'>
+                  ORDER BY
+                  likeCnt ASC
+              </when>
+              <when test='search.filter.equals("likeDESC")'>
+                  ORDER BY
+                  likeCnt DESC
+              </when>
+              <when test ='search.filter.equals("nameASC")'>
+                  ORDER BY
+                  name ASC
+              </when>
+              <when test ='search.filter.equals("nameDESC")'>
+                  ORDER BY
+                  name DESC
+              </when>
+              <when test='search.filter.equals("priceASC")'>
+                  ORDER BY
+                  D.PRDT_PRCE ASC
+              </when>
+              <when test='search.filter.equals("priceDESC")'>
+                  ORDER BY
+                  D.PRDT_PRCE DESC
+              </when>
+            </choose>
+            ) A
+        <![CDATA[
+        WHERE ROWNUM <= #{end}
+        )
+      WHERE ROWNUM >= #{start}
     ]]>
-        WHERE
-            D.PRDT_NM LIKE '%'||#{search.keyWord}||'%'
+  </select>
 
-        <if test="search.cateCode != 0">
-        AND
-            D.CATECODE = #{search.cateCode}
-        </if>
+<!--    <select id="findByKeyword" resultType="ProductVo">-->
+<!--    /*findByKeyword*/-->
+<!--     <![CDATA[-->
+<!--        SELECT D.*,-->
+<!--            B.IMG_URL as image,-->
+<!--            C.LIKE_CNT as likeCnt,-->
+<!--            C.MBK_CNT as bookCnt-->
+<!--        FROM-->
+<!--            (-->
+<!--            SELECT *-->
+<!--            FROM(-->
+<!--                SELECT ROWNUM rm , A.*-->
+<!--                FROM(-->
+<!--                    SELECT-->
+<!--                    PRDT_NO as productId,-->
+<!--                    PRDT_PRCE as price,-->
+<!--                    PRDT_NM as name,-->
+<!--                    CATECODE-->
+<!--                    FROM-->
+<!--                    TB_PRODUCT-->
+<!--                )  A-->
+<!--                 WHERE ROWNUM <= #{end}-->
+<!--            )-->
+<!--            WHERE rm >= #{start}-->
+<!--        ) D-->
+<!--        LEFT JOIN TB_PRODUCT_IMAGE B-->
+<!--            ON D.productId = B.PRDT_NO-->
+<!--        LEFT JOIN TB_PRODUCT_SOCIAL C-->
+<!--            ON D.productId = C.PRDT_NO-->
+<!--    ]]>-->
+<!--        WHERE-->
+<!--            D.name LIKE '%'||#{search.keyWord}||'%'-->
 
+<!--        <if test="search.cateCode != 0">-->
+<!--        AND-->
+<!--            D.CATECODE = #{search.cateCode}-->
+<!--        </if>-->
+<!--
         <choose>
             <when test='search.filter.equals("likeASC")'>
                 ORDER BY
@@ -130,7 +127,31 @@
                 ORDER BY
                 D.PRDT_PRCE DESC
             </when>
-        </choose>
+        </choose>-->
 
-  </select>
+<!--  </select>-->
+
+    <resultMap id="cateList" type="BigCategoryVo">
+        <id column="ref" property="catecodeRef"/>
+        <result column="refname" property="refname"/>
+        <collection property="catgorylist" resultMap="cateVoResult"></collection>
+    </resultMap>
+
+    <resultMap id="cateVoResult" type="CategoryVo">
+        <result  property="code" column="code" />
+        <result  property="name" column="CATENAME" />
+    </resultMap>
+
+    <select id="selectCateList" resultMap="cateList">
+    /*selectCateList*/ SELECT
+        A.CATECODEREF as ref,
+        A.CATENAME as refname,
+        B.CATECODE as code,
+        B.CATENAME
+    FROM
+        TB_PRODUCT_BIGCATEGORY A
+           LEFT JOIN TB_PRODUCT_CATEGORY B
+                     ON A.CATECODEREF = B.CATECODEREF
+    ORDER BY A.CATECODEREF
+    </select>
 </mapper>

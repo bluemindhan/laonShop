@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(description = "post wishs")
+@ApiModel(description = "delete wishs")
 @Data
 public class DeleteWishResponse extends BaseResponse {
 

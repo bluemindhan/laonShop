@@ -37,30 +37,30 @@ export default {
       setRefreshToken: "appStore/refreshToken",
       setUserInfo: "appStore/userInfo",
     }),
-    async loadProfile() {
+    // async loadProfile() {
 
-      let req = new GetProfileRequest();
+    //   let req = new GetProfileRequest();
 
-      try {
-        let res = await this.api.getProfile(req);
-        if (res.code === ResultCode.Success) {
-          const userInfo = res.userInfo;
-          this.setUserInfo(userInfo);
+    //   try {
+    //     let res = await this.api.getProfile(req);
+    //     if (res.code === ResultCode.Success) {
+    //       const userInfo = res.userInfo;
+    //       this.setUserInfo(userInfo);
 
-          if (userInfo.userType === UserType.User) {
-            this.$router.replace({name: "UserMainView"});
-          } else if (userInfo.userType === UserType.Seller) {
-            this.$router.replace({name: "SellerMainView"});
-          } else {
-            this.$router.replace({name: 'SignUpView'});
-          }
-        } else {
-          this.$router.replace({name: "SignInView"});
-        }
-      } catch (err) {
-        this.$router.replace({name: "SignInView"});
-      }
-    }
+    //       if (userInfo.userType === UserType.User) {
+    //         this.$router.replace({name: "UserMainView"});
+    //       } else if (userInfo.userType === UserType.Seller) {
+    //         this.$router.replace({name: "SellerMainView"});
+    //       } else {
+    //         this.$router.replace({name: 'SignUpView'});
+    //       }
+    //     } else {
+    //       this.$router.replace({name: "SignInView"});
+    //     }
+    //   } catch (err) {
+    //     this.$router.replace({name: "SignInView"});
+    //   }
+    // }
   },
   created() {
     console.log("App.vue..", this.accessToken);
@@ -74,7 +74,7 @@ export default {
        * accessToken이 있으면 프로필 정보를 가져온다.
        */
       this.api.setAccessToken(this.accessToken);
-      this.loadProfile();
+      // this.loadProfile();
     }
   },
 };

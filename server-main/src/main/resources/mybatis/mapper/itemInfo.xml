@@ -6,10 +6,9 @@
         <id column="itemId" property="itemId"/>
         <result column="price" property="price"/>
         <result column="name" property="name"/>
+        <result column="cateName" property="cateName"/>
         <result column="itemDetail" property="itemDetail"/>
         <result column="likeCnt" property="likeCnt"/>
-        <result column="bookCnt" property="bookCnt"/>
-
         <collection property="imageVoList" resultMap="imageVoResult"></collection>
         <collection property="commentVoList" resultMap="commentVoResult"></collection>
     </resultMap>
@@ -30,7 +29,6 @@
         A.PRDT_DESC as itemDetail,
         B.IMG_URL as image,
         C.LIKE_CNT as likeCnt,
-        C.MBK_CNT as bookCnt,
         D.CMT_CNTT
     FROM
         TB_PRODUCT A
@@ -44,6 +42,24 @@
         A.PRDT_NO = #{pdNum, jdbcType=VARCHAR}
     </select>
 
+
+    <select id="selectProductList" resultType="ProductVo">
+        SELECT
+            A.PRDT_NO as productId,
+            A.CRT_DT as createDate,
+            A.UPD_DT as updateDate,
+            A.SLLR_ID as sellerId,
+            A.PRDT_NM as name,
+            A.PRDT_PRCE as price,
+            A.PRDT_DESC as detail,
+            B.IMG_URL as image
+        FROM
+            TB_PRODUCT A,
+            TB_PRODUCT_IMAGE B
+        WHERE
+            A.PRDT_NO=B.PRDT_NO
+    </select>
+
     <select id = "selectMainPage" resultMap="itemDetailInfo">
     <![CDATA[
     /*selectMainPage*/ SELECT A.*
@@ -53,20 +69,33 @@
             MAX(A.PRDT_PRCE) as price,
             MAX(A.PRDT_NM) as name,
             MAX(A.PRDT_DESC) as itemDetail,
+            MAX(F.CATENAME) as cateName,
             MAX(B.IMG_URL) as image,
-            MAX(C.LIKE_CNT) as likeCnt,
-            MAX(C.MBK_CNT) as bookCnt
+            MAX(C.LIKE_CNT) as likeCnt
         FROM
             TB_PRODUCT A
                 LEFT JOIN TB_PRODUCT_IMAGE B
                           ON A.PRDT_NO = B.PRDT_NO
                 LEFT JOIN TB_PRODUCT_SOCIAL C
                           ON B.PRDT_NO = C.PRDT_NO
+                LEFT JOIN TB_PRODUCT_CATEGORY D
+                          ON A.CATECODE = D.CATECODE
+                INNER JOIN TB_PRODUCT_BIGCATEGORY F
+                          ON D.CATECODEREF = F.CATECODEREF
         GROUP BY A.PRDT_NO
-        ORDER BY bookCnt ASC
+        ORDER BY likeCnt ASC
         ) A
     WHERE ROWNUM <= 3
     ]]>
     </select>
-
+    <select id="selectWishFlag" resultType="int">
+    /*selectWishFlag*/ SELECT
+        COUNT(*)
+    FROM
+        TB_USER_WISH
+    WHERE
+        USR_ID = #{userid}
+    AND
+        PRDT_NO = #{productNum}
+    </select>
 </mapper>
