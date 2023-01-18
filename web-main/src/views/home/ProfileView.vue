@@ -13,8 +13,8 @@
   ```
 -->
 <template>
-  <form class="space-y-8 divide-y divide-gray-200">
-    <div class="space-y-8 divide-y divide-gray-200 p-20">
+  <form class="space-y-8 divide-y divide-gray-200 mx-40">
+    <div class="space-y-8 divide-y divide-gray-200 p-20 mx-40">
       <div class="pt-8">
         <div>
           <h3 class="text-lg font-medium leading-6 text-gray-900">회원정보수정</h3>
@@ -141,7 +141,7 @@
           </div> -->
 
           <div class="sm:col-span-4">
-            <label for="password" class="block text-sm font-medium text-gray-700">비밀번호 확인</label>
+            <label for="password" class="block text-sm font-medium text-gray-700">비밀번호 수정</label>
             <div class="mt-1">
               <input 
               id="password" 
