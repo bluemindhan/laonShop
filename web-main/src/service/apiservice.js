@@ -72,6 +72,22 @@ export class ApiService {
       })
     });
   }
+  updateProfile(req) {
+    return new Promise((resolve, reject) => {
+      axios.patch('/api/v1/user/profile', req).then(res => {
+        if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
   getItemsList() {
     return new Promise((resolve, reject) => {
       axios.get('/api/v1/item/user-items').then(res => {
