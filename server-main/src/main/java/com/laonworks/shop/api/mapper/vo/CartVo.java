@@ -3,13 +3,15 @@ package com.laonworks.shop.api.mapper.vo;
 import lombok.Data;
 import lombok.ToString;
 
+import java.util.List;
+
 @Data
 @ToString
 public class CartVo {
 
     public String userid; // 유저 아이디
     
-    public String image; // 상품이미지
+    public List<ImageVo> imageList; // 상품이미지
 
     public int productNum; // 상품 번호
 

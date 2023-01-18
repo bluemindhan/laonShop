@@ -1,23 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.laonworks.shop.api.mapper.CartMapper">
-    <select id="selectCartInfo" resultType="CartVo">
+    <resultMap id="cartList" type="CartVo">
+        <result column="userid" property="userid"/>
+        <result column="productNum" property="productNum"/>
+        <result column="cnt" property="cnt"/>
+        <result column="price" property="price"/>
+        <result column="productName" property="productName"/>
+        <result column="sum" property="sum"/>
+        <collection property="imageList" resultMap="imageVoList"/>
+    </resultMap>
+    <resultMap id="imageVoList" type="imageVo">
+        <result column="image" property="image"/>
+    </resultMap>
+
+    <select id="selectCartInfo" resultMap="cartList">
     /*selectCartInfo*/ SELECT
-        MAX(A.USR_ID) AS userid,
-        MAX(A.PRDT_NO) AS productNum,
-        MAX(A.PRDT_CNT) AS cnt,
-        MAX(B.PRDT_PRCE) AS price,
-        MAX(B.PRDT_NM) AS productName,
-        MAX(C.IMG_URL) as image,
-        MAX(A.PRDT_CNT) * MAX(B.PRDT_PRCE) AS  sum
+        A.USR_ID AS userid,
+        A.PRDT_NO AS productNum,
+        A.PRDT_CNT AS cnt,
+        B.PRDT_PRCE AS price,
+        B.PRDT_NM AS productName,
+        C.IMG_URL AS image,
+        A.PRDT_CNT * B.PRDT_PRCE AS sum
     FROM
       TB_CART A
-        LEFT JOIN TB_PRODUCT B
+        INNER JOIN TB_PRODUCT B
             ON A.PRDT_NO = B.PRDT_NO
-        LEFT JOIN TB_PRODUCT_IMAGE C
+        INNER JOIN TB_PRODUCT_IMAGE C
             ON B.PRDT_NO = C.PRDT_NO
     WHERE
       A.USR_ID = #{userid}
+
     </select>
 
     <select id="findByUseridAndProductNo" resultType="CartVo" parameterType="Map">

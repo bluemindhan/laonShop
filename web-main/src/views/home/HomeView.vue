@@ -1,16 +1,3 @@
-<!--<template>-->
-<!--  <div class="bg-white">-->
-<!--    <div class="mx-auto max-w-7xl py-16 px-4 sm:py-24 sm:px-6 lg:px-8">-->
-<!--      <div class="text-center">-->
-<!--        <p class="mt-1 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">Laon Shop</p>-->
-<!--        &lt;!&ndash; [ko-KR] Laon Shop 에 오신것을 환영합니다. Springboot + VueJs로 만드는 쇼핑몰입니다. &ndash;&gt;-->
-<!--        &lt;!&ndash; [en-US] Welcome to Laon Shop. This is a shopping mall made with Springboot + VueJs. &ndash;&gt;-->
-<!--        -->
-<!--        <p class="mx-auto mt-12 max-w-xl text-xl text-gray-500">Welcome to Laon Shop. This is a shopping mall made with Springboot + VueJs.</p>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</template>-->
 <template>
   <div class="relative bg-white">
     <!-- Background image and overlap -->
@@ -85,7 +72,7 @@
         <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <div class="flex items-center justify-between space-x-4">
             <h2 class="text-lg font-medium text-gray-900">Customers also viewed</h2>
-            <a href="#" class="whitespace-nowrap text-sm font-medium text-indigo-600 hover:text-indigo-500">
+            <a href="/user" class="whitespace-nowrap text-sm font-medium text-indigo-600 hover:text-indigo-500">
               View all
               <span aria-hidden="true"> &rarr;</span>
             </a>
