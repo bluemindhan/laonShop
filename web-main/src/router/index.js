@@ -15,6 +15,7 @@ import UserCartView from '../views/user/UserCartView.vue';
 import UserCheckoutView from '../views/user/UserCheckoutView.vue';
 import ProfileView from '../views/home/ProfileView.vue';
 import UserSearchView from '../views/user/UserSearchView.vue';
+import UserLikeView from '../views/user/UserLikeView.vue';
 
 const routes = [
   {
@@ -106,6 +107,11 @@ const routes = [
         path: '/user/search',
         name: 'UserSearchView',
         component: UserSearchView,
+      },
+      {
+        path: '/user/like',
+        name: 'UserLikeView',
+        component: UserLikeView,
       },
     ],
   },
