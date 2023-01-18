@@ -9,24 +9,25 @@
           <div class="sm:col-span-12">
             <label for="product" class="block text-sm font-medium text-gray-700">상품명</label>
             <div class="mt-1 flex rounded-md shadow-sm">
-              <input type="text" :value="productVo.productName" name="product" id="product" class="block w-full min-w-0 flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+              <input type="text" :value="productVo.prdtNm" name="productName" id="productName" :v-model="productName" class="block w-full min-w-0 flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
             </div>
           </div>
           <div class="sm:col-span-12">
             <label for="about" class="block text-sm font-medium text-gray-700">상품설명</label>
             <div class="mt-1">
-              <textarea id="about" name="about" rows="3" v-model="productDesc" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+              <textarea id="about" name="about" rows="3" :value="productVo.prdtDesc" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
             </div>
           </div>
 
           <div class="sm:col-span-12">
             <label for="price" class="block text-sm font-medium text-gray-700">상품가격</label>
             <div class="mt-1 flex rounded-md shadow-sm">
-              <input type="text" name="price" id="price" v-model.number="productPrice" class="block w-full min-w-0 flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+              <!-- <input type="text" name="price" id="price" v-model.number="productPrice" class="block w-full min-w-0 flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" /> -->
+              <input type="text" name="price" id="price" :value="productVo.prdtPrce"  class="block w-full min-w-0 flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
             </div>
           </div>
 
-          <div class="sm:col-span-12">
+          <!-- <div class="sm:col-span-12">
             <label class="block text-sm font-medium text-gray-700">상품 이미지</label>
             <div class="grid grid-cols-4 gap-2">
               <div v-for="item in imageList" :key="item.name" class="w-32 h-32 bg-red-100">
@@ -48,7 +49,7 @@
                 <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -66,6 +67,7 @@
 import {mapGetters, mapMutations} from "vuex";
 import ResultCode from "@/service/ResultCode";
 import UpdateProductRequest from '../../service/request/UpdateProductRequest';
+import GetProductDetailRequest from '../../service/request/GetProductDetailRequest.js';
 
 export default {
   name: "SellerProductDetailView",
@@ -177,6 +179,23 @@ export default {
         console.error(err);
       }
     },
+
+    async productsDetail() {
+      let req = new GetProductDetailRequest();
+      req.prdtNo = this.id;
+
+      try {
+        let res = await this.api.productsDetail(req);
+        if (res.resultCode === ResultCode.SUCCESS) {
+          console.log(res);
+          this.productVo = res.productVo; 
+        } else {
+          alert(res.resultMsg);
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    },
   },
   created() {
       if (this.accessToken == null || this.accessToken == "") {
@@ -185,7 +204,7 @@ export default {
       } else {
       // accessToken이 있으면 상품목록을 가져온다.
       this.api.setAccessToken(this.accessToken);
-      this.save();
+      this.productsDetail();
       }
   },
 };

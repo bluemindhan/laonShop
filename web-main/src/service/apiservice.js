@@ -183,6 +183,21 @@ export class ApiService {
       })
     });
   } 
+  deleteProduct(req) {
+    return new Promise((resolve, reject) => {
+      axios.delete("/api/v1/seller/product/delete", {req}).then(res => {
+       if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
   productsDetail(req) {
     const url = "/api/v1/seller/product/modify?" + qs.stringify(req);
     return new Promise((resolve, reject) => {
