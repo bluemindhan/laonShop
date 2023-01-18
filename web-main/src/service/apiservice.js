@@ -140,6 +140,10 @@ export class ApiService {
       })
     });
   }
+  
+  cartIn(req) {
+
+  }
 
   mainPage() {
     return new Promise((resolve, reject) => {
