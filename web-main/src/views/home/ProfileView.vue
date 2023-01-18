@@ -13,8 +13,8 @@
   ```
 -->
 <template>
-  <form class="space-y-8 divide-y divide-gray-200 p-20">
-    <div class="space-y-8 divide-y divide-gray-200">
+  <form class="space-y-8 divide-y divide-gray-200">
+    <div class="space-y-8 divide-y divide-gray-200 p-20">
       <div class="pt-8">
         <div>
           <h3 class="text-lg font-medium leading-6 text-gray-900">회원정보수정</h3>
@@ -108,7 +108,6 @@
               :value="userInfo.phone"
               placeholder="전화번호"
               maxlength="13"
-              @keyup="getPhoneMask(phone)"
               required/>
             </div>
           </div>
@@ -157,8 +156,8 @@
       </div>
     </div>
 
-    <div class="pt-5">
-      <div class="flex justify-end">
+    <div class="pt-5 p-20">
+      <div class="flex justify-center">
         <button type="button" 
         class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         @click="$router.back()">취소</button>
@@ -229,10 +228,11 @@ export default {
         console.error(e);
       }
     },
-    beforeDestroy() {
+   
+   },
+   beforeDestroy() {
       console.log("beforeDestroy");
-    },
-  },
+   },
   created() {
     console.log("ProfileView.vue..", this.accessToken);
     if (this.accessToken == null || this.accessToken == "") {
