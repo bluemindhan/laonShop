@@ -77,20 +77,10 @@ public class SellerController extends BaseController {
   /* 등록 상품 불러오기 */
   @RequestMapping(method = RequestMethod.GET, value = "product/modify")
   @ApiOperation(value = "Get Product Detail")
-  GetProductDetailResponse GetProductDetail(@AuthenticationPrincipal Authentication auth, @RequestBody GetProductDetailRequest req, HttpServletRequest request) {
+  GetProductDetailResponse GetProductDetail(GetProductDetailRequest req, HttpServletRequest request) {
     getProductDetailHandler.setHttpServletRequest(request);
-    CustomUserDetails user = null;
-    if (auth == null) {
-      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
-    }
-    user = (CustomUserDetails) auth.getPrincipal();
-    if (user == null) {
-      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
-    }
-    if (checkRoute(RequestMethod.GET, "/api/v1/seller/product/modify", user) == false) {
-      throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
-    }
-    return getProductDetailHandler.execute(user, req);
+
+    return getProductDetailHandler.execute(req);
   }
 
   @Autowired

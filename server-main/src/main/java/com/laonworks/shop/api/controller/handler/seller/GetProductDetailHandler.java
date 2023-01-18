@@ -9,7 +9,6 @@ import com.laonworks.shop.api.jihyeon.mapper.ProductMapper;
 import com.laonworks.shop.api.jihyeon.vo.ProductVo;
 import com.laonworks.shop.api.mapper.AuthMapper;
 import com.laonworks.shop.api.mapper.vo.UserVo;
-import com.laonworks.shop.api.service.CustomUserDetails;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,44 +16,33 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class GetProductDetailHandler extends BaseHandler {
-    @Autowired
-    AuthMapper authMapper;
+
     @Autowired
     ProductMapper productMapper;
     
-    public GetProductDetailResponse execute (CustomUserDetails user, GetProductDetailRequest req) {
+    public GetProductDetailResponse execute (GetProductDetailRequest req) {
+
         GetProductDetailResponse res = new GetProductDetailResponse();
-        if(user == null) {
-            res.setCode(ResultCode.Unauthorized);
-            return res;
+        int prdtNo = 0;
+
+        if (req != null || !req.equals("")){
+            prdtNo = (int) req.getPrdtNo();
         }
-        if(req.invalid()) {
-            res.setCode(ResultCode.InvalidParameter);
-            return res;
-        }
-        String email = user.getUsername();
-        int userType = user.getUserType();
+
         try {
-            UserVo sellerVo = authMapper.selectSellerInfo(email);
-            if(sellerVo == null) {
-                res.setCode(ResultCode.NotFoundSeller);
-                return res;
-            }
-            if (userType == UserType.Seller.getValue()) {
-                sellerVo = authMapper.selectSellerInfo(email);
-            }
-            int prdtNo = 0;
             ProductVo productVo = productMapper.selectProductDetail(prdtNo);
             if(productVo == null) {
-                res.setCode(ResultCode.InternalServerError);
+                res.setCode(ResultCode.Failed);
                 return res;
             }
-            res.setCode(ResultCode.Success);
-            return res;
+            res.productVo = productVo;
+
         }
         catch(Exception e) {
             res.setCode(ResultCode.InternalServerError);
         }
+        res.setCode(ResultCode.Success);
+
         return res;
     }
 }
