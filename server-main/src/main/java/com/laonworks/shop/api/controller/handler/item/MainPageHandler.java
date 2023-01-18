@@ -17,12 +17,16 @@ public class MainPageHandler extends BaseHandler {
     ItemMapper itemMapper;
 
     public MainPageResponse excute() {
-
-
         MainPageResponse res = new MainPageResponse();
+        List<ItemVo> voList = null;
 
-        List<ItemVo> voList = itemMapper.selectMainPage();
-        res.setCode(ResultCode.Success);
+        try{
+            voList = itemMapper.selectMainPage();
+            res.setCode(ResultCode.Success);
+        } catch (Exception e) {
+            res.setCode(ResultCode.InternalServerError);
+            return res;
+        }
 
         res.volist = voList;
 

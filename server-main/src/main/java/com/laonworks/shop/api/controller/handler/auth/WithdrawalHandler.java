@@ -10,7 +10,6 @@ import com.laonworks.shop.api.controller.vo.UserType;
 import com.laonworks.shop.api.mapper.AuthMapper;
 import com.laonworks.shop.api.mapper.vo.UserVo;
 import com.laonworks.shop.api.service.CustomUserDetails;
-import jdk.internal.vm.compiler.collections.EconomicMap;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
