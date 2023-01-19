@@ -75,11 +75,10 @@ export default {
     return {
       id: this.$route.params.id,
       productVo: {},
-      productImageVoList: {},
       productName: "",
       productDesc: "",
       productPrice: 0,
-      imageList: [],
+      productImageVoList: [],
     };
   },
   computed: {
@@ -180,12 +179,13 @@ export default {
     async productsDetail() {
       let req = new GetProductDetailRequest();
       req.prdtNo = this.id;
+
       try {
         let res = await this.api.productsDetail(req);
         if (res.resultCode === ResultCode.SUCCESS) {
           console.log(res);
           this.productVo = res.productVo;
-          this.productImageVoList = res.productImageVoList; 
+          this.productImageVoList = res.productImageVoList;
         } else {
           alert(res.resultMsg);
         }
