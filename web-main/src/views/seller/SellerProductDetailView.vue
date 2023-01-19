@@ -27,8 +27,8 @@
           <div class="sm:col-span-12">
             <label class="block text-sm font-medium text-gray-700">상품 이미지</label>
             <div class="grid grid-cols-4 gap-2">
-              <div v-for="item in imageList" :key="item.name" class="w-32 h-32 bg-red-100">
-                <img :src="item.src" :alt="item.name" class="w-32 h-32" />
+              <div v-for="(item,i) in productImageVoList" :key="item.prdtNo" class="w-32 h-32 bg-red-100">
+                <img :src="item.prdtImgUrl[i]" :alt="item.prdtImgUrl" class="w-32 h-32" />
               </div>
             </div>
             <div class="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
@@ -78,7 +78,7 @@ export default {
       productName: "",
       productDesc: "",
       productPrice: 0,
-      imageList: [],
+      productImageVoList: [],
     };
   },
   computed: {
