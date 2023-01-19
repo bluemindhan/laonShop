@@ -82,7 +82,10 @@
               <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                 <MagnifyingGlassIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
               </div>
-              <input id="search" name="search" class="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 leading-5 placeholder-gray-500 focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm" placeholder="Search" type="search" />
+              <input id="search" name="search" class="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 leading-5 placeholder-gray-500 focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm" 
+              placeholder="검색할 상품을 입력하세요" 
+              type="search" 
+              required/>
             </div>
           </div>
         </div>
@@ -259,21 +262,29 @@ const sortOptions = [
 ]
 const filters = [
   {
-    id: 'category',
-    name: '카테고리',
+    id: 'digital',
+    name: '디지털',
     options: [
-      { value: 'tees', label: 'Tees' },
-      { value: 'crewnecks', label: 'Crewnecks' },
-      { value: 'hats', label: 'Hats' },
+      { value: '102', label: '핸드폰' },
+      { value: '103', label: '태블릿' },
+      { value: '104', label: '블루투스' },
+      { value: '105', label: '음향기기' },
     ],
   },
   {
     id: 'brand',
-    name: '브랜드',
+    name: '제조사',
     options: [
-      { value: 'clothing-company', label: 'Clothing Company' },
-      { value: 'fashion-inc', label: 'Fashion Inc.' },
-      { value: 'shoes-n-more', label: "Shoes 'n More" },
+      { value: '201', label: '삼성' },
+      { value: '202', label: '애플' },
+    ],
+  },
+  {
+    id: 'computer',
+    name: '컴퓨터',
+    options: [
+      { value: '301', label: '모니터' },
+      { value: '302', label: '노트북' },
     ],
   },
 ]
