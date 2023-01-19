@@ -35,6 +35,7 @@ public class ModifyProductHandler extends BaseHandler {
     ProductMapper productMapper;
     
     public ModifyProductResponse execute (CustomUserDetails user, ModifyProductRequest req) {
+        int delete = 0;
         ModifyProductResponse res = new ModifyProductResponse();
         if(user == null) {
             res.setCode(ResultCode.Unauthorized);
@@ -50,7 +51,6 @@ public class ModifyProductHandler extends BaseHandler {
         String productName = req.getProductName();
         String productDesc = req.getProductDesc();
         int productPrice = req.getProductPrice();
-        List<String> imageList = req.getImageList();
 
         try {
             UserVo sellerVo;
@@ -69,11 +69,11 @@ public class ModifyProductHandler extends BaseHandler {
             productVo.setPrdtNm(productName);
             productVo.setPrdtDesc(productDesc);
             productVo.setPrdtPrce(productPrice);
+            delete = productMapper.deleteProductImg(productNum);
             List<String> urlList = awsService.uploadProductImageList(req.imageList);
 
             if(req != null || !req.equals("")){
                result=productService.modifyProduct(productVo, urlList);
-               //result=productMapper.modifyProduct(productVo);
                log.info("result:" +result);
                res.setResult(result);
                res.setCode(ResultCode.Success);

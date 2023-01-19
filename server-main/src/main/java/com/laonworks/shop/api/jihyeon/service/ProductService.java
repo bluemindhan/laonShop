@@ -33,7 +33,6 @@ public class ProductService {
         }
         return n;
     }
-
     /* 상품 수정*/
     public int modifyProduct(ProductVo productVo, List<String> urlList) {
         int n = productMapper.modifyProduct(productVo);
