@@ -57,7 +57,7 @@
             TB_PRODUCT A,
             TB_PRODUCT_IMAGE B
         WHERE
-            A.PRDT_NO=B.PRDT_NO
+            A.PRDT_NO=B.PRDT_NO AND B.PRDT_IMG_NO =1
     </select>
 
     <select id = "selectMainPage" resultMap="itemDetailInfo">

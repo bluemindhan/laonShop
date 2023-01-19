@@ -33,8 +33,6 @@ public class ItemController extends BaseController {
     @RequestMapping(method = RequestMethod.GET , value = "item-details")
     ItemDetailResponse getItemDetail(ItemDetailRequest req,HttpServletRequest request){
 
-
-
         itemDetailHandler.setHttpServletRequest(request);
 
         return itemDetailHandler.excute(req);
@@ -57,11 +55,11 @@ public class ItemController extends BaseController {
         if (user == null) {
             throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
         }
-        GetItemsRequest req = new GetItemsRequest();
+
         if (checkRoute(RequestMethod.GET,"/api/v1/item/user-items", user) == false) {
             throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
         }
-        return getItemsHandler.execute(user,req);
+        return getItemsHandler.execute(user);
     }
 
     @Autowired

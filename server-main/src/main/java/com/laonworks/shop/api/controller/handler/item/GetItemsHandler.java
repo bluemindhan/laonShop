@@ -19,7 +19,7 @@ public class GetItemsHandler extends BaseHandler{
     @Autowired
     ItemMapper itemMapper;
 
-    public GetItemsResponse execute(CustomUserDetails user, GetItemsRequest req) {
+    public GetItemsResponse execute(CustomUserDetails user) {
         GetItemsResponse res = new GetItemsResponse();
         if(user == null) {
             res.setCode(ResultCode.Unauthorized);

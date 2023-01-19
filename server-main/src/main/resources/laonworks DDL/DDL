@@ -51,8 +51,6 @@ ALTER TABLE TB_USER_WISH
 		);
 
 
-
-
 -------------------- TB_PRODUCT_CATEGORY, TB_PRODUCT_BIGCATEGORY DDL(창훈) -----------
 
 -- 상품 카테고리

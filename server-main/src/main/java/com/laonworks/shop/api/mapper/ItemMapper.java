@@ -12,7 +12,7 @@ public interface ItemMapper {
 
     ItemVo selectItemDetailInfo(@Param("pdNum") int productNo);
 
-    List<ProductVo> selectProductList(); // 전체 상품 목록 select
+    List<ProductVo> selectProductList(); // 전체 상품 목록 Select
 
     List<ItemVo> selectMainPage();
 
