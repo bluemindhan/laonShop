@@ -27,8 +27,8 @@
           <div class="sm:col-span-12">
             <label class="block text-sm font-medium text-gray-700">상품 이미지</label>
             <div class="grid grid-cols-4 gap-2">
-              <div v-for="(item,i) in productImageVoList" :key="item.prdtNo" class="w-32 h-32 bg-red-100">
-                <img :src="item.prdtImgUrl[i]" :alt="item.prdtImgUrl" class="w-32 h-32" />
+              <div v-for="item in productImageVoList" :key="item.prdImgNo" class="w-32 h-32 bg-red-100">
+                <img :src="item.prdtImgUrl" :alt="item.prdtImgNo" class="w-32 h-32" />
               </div>
             </div>
             <div class="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
@@ -184,7 +184,8 @@ export default {
         let res = await this.api.productsDetail(req);
         if (res.resultCode === ResultCode.SUCCESS) {
           console.log(res);
-          this.productVo = res.productVo; 
+          this.productVo = res.productVo;
+          this.productImageVoList = res.productImageVoList;
         } else {
           alert(res.resultMsg);
         }
