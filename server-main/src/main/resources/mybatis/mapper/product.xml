@@ -81,15 +81,19 @@
   <![CDATA[
     /* selectProductList */ SELECT * FROM (
     SELECT
-      ROW_NUMBER() OVER (ORDER BY PRDT_NO DESC) - 1 AS RN ,
+      ROW_NUMBER() OVER (ORDER BY A.PRDT_NO DESC) AS RN ,
       A.PRDT_NO as prdtNo ,
       A.PRDT_PRCE as prdtPrce ,
       A.PRDT_NM as prdtNm ,
       A.PRDT_DESC as prdtDesc ,
       A.CRT_DT as crtDt ,
-      A.UPD_DT as updDt
+      A.UPD_DT as updDt ,
+      A.SLLR_ID as sllrId,
+      B.IMG_URL as image
     FROM
       TB_PRODUCT A
+        LEFT JOIN TB_PRODUCT_IMAGE B
+                  ON A.PRDT_NO = B.PRDT_NO
     WHERE
       A.SLLR_ID = #{sllrId}
     ORDER BY
@@ -100,8 +104,8 @@
   ]]>
   </select>
 
-  <!-- 등록된 상품리스트 이미지 불러오기-->
-  <select id="selectProductImageList" resultType="com.laonworks.shop.api.jihyeon.vo.ProductImageVo">
+  <!-- 등록된 이미지 불러오기-->
+  <select id="selectProductDetailImage" resultType="com.laonworks.shop.api.jihyeon.vo.ProductImageVo">
   <![CDATA[
     /* selectProductImageList */ SELECT
     A.PRDT_NO as prdtNo ,
@@ -123,12 +127,9 @@
     A.PRDT_NM as prdtNm ,
     A.PRDT_DESC as prdtDesc ,
     A.CRT_DT as crtDt,
-    A.UPD_DT as updDt,
-    B.IMG_URL as image
+    A.UPD_DT as updDt
   FROM
     TB_PRODUCT A
-    LEFT JOIN TB_PRODUCT_IMAGE B
-        ON A.PRDT_NO = B.PRDT_NO
   WHERE
     A.PRDT_NO = #{prdtNo}
   ]]>
