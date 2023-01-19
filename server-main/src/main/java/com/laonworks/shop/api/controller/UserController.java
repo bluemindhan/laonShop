@@ -67,11 +67,11 @@ public class UserController extends BaseController {
     if (user == null) {
       throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
     }
-    if (checkRoute(RequestMethod.PATCH, "/api/v1/user/profile", user) == false) {
+    if (!checkRoute(RequestMethod.PATCH, "/api/v1/user/profile",user)) {
       throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
     }
     if(errors.hasErrors()){
-      return PatchProfileHandler.validatePutProfile(errors);
+      return PatchProfileHandler.validatePatchProfile(errors);
     }
     return  patchProfileHandler.execute(user,req);
   }
@@ -95,7 +95,7 @@ public class UserController extends BaseController {
       throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
     }
     GetBuysRequest req = new GetBuysRequest();
-    if (checkRoute(RequestMethod.GET, "/api/v1/user/buys", user) == false) {
+    if (!checkRoute(RequestMethod.GET, "/api/v1/user/buys", user)) {
       throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
     }
     return getBuysHandler.execute(user,req);
