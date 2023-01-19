@@ -25,7 +25,7 @@ public class ItemVo {
 
     public int likeCnt; // 좋아요 개수
 
-    public int bookCnt; // 북마크 갯수
+    public int bookCnt; // 북마크 개수
 
     public String createDate; // 생성일자
 

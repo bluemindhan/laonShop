@@ -1,5 +1,6 @@
 package com.laonworks.shop.api.controller;
 
+import com.laonworks.shop.api.controller.handler.user.PatchProfileHandler;
 import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -84,7 +85,34 @@ public class AuthController extends BaseController {
 
     return refreshHandler.excute(req);
   }
-  
+
+    //login User/Seller 비밀번호 변경
+    @Autowired
+    PatchPasswordHandler patchPasswordHandler;
+
+   @RequestMapping(method = RequestMethod.PATCH, value = "password",consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "change password")
+    PatchPasswordResponse changePassword(@AuthenticationPrincipal Authentication auth, @RequestBody @Valid PatchPasswordRequest req,
+                                        @ApiParam(value = "errors", hidden = true, required = false)Errors errors,HttpServletRequest request){
+     patchPasswordHandler.setHttpServletRequest(request);
+     System.out.println("Authoriztion -->  " + request.getHeader("Authorization"));
+     CustomUserDetails user = null;
+     if (auth == null) {
+       throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+     }
+     user = (CustomUserDetails) auth.getPrincipal();
+     if (user == null) {
+       throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+     }
+     if (!checkRoute(RequestMethod.PATCH, "/api/v1/user/profile", user)) {
+       throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
+     }
+     if(errors.hasErrors()){
+       return PatchPasswordHandler.validatePatchPassword(errors);
+     }
+     return patchPasswordHandler.execute(user,req);
+   }
+
   // login User/Seller 계정 탈퇴
   @Autowired
   WithdrawalHandler withdrawalHandler;

@@ -19,7 +19,7 @@ public class CartVo {
 
     public String productName; // 상품 이름
 
-    public int cnt; // 상품 갯수
+    public int cnt; // 상품 개수
 
     public String sum; // 상품의 가격 합
 

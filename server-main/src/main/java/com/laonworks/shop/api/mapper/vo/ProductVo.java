@@ -25,5 +25,5 @@ public class ProductVo { //상품 VO
 
     public int likeCnt; // 좋아요 개수
 
-    public int bookCnt; // 북마크 갯수
+    public int bookCnt; // 북마크 개수
 }
