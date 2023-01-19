@@ -1,24 +1,7 @@
-<!--
-  This example requires some changes to your config:
-
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
 <template>
-  <div class="mt-8 space-y-8 divide-y divide-gray-200">
-    <div class="space-y-8 divide-y divide-gray-200">
-      <div style="width: 800px">
-        <div>
-          <h3 class="text-lg font-medium leading-6 text-gray-900">상품 등록</h3>
-        </div>
+  <div class="mt-10">
+    <div>
+      <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">상품 등록</h1>
         <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
           <div class="sm:col-span-12">
             <label for="product" class="block text-sm font-medium text-gray-700">상품명</label>
@@ -54,18 +37,17 @@
                   <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
                 <div class="flex text-sm text-gray-600">
+                  <span class="pl-1 pr-1">Click to</span>
                   <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500">
                     <span>Upload a file</span>
                     <input id="file-upload" name="file-upload" type="file" class="sr-only" @change="onFilePicked" />
                   </label>
-                  <p class="pl-1">or drag and drop</p>
                 </div>
                 <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
               </div>
             </div>
           </div>
         </div>
-      </div>
     </div>
 
     <div class="pt-5">
