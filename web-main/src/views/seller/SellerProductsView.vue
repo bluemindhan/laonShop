@@ -49,7 +49,7 @@
                     <td class="py-6 pr-8">
                       <div class="flex items-center">
                         <div v-for="item in productList.imageList" :key="item.image">
-                          <img :src="item.image" :alt="item.image" class="mr-6 h-16 w-16 rounded object-cover object-center" />
+                          <img :src="product.image" :alt="item.image" class="mr-6 h-16 w-16 rounded object-cover object-center" />
                         </div>
                         <div>
                           <div class="font-medium text-gray-900">{{ product.prdtNm }} 

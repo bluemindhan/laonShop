@@ -12,6 +12,6 @@ import lombok.EqualsAndHashCode;
 @Data
 public class DeleteProductResponse extends BaseResponse {
 
-    public ProductVo productVo = null;
+    public int result = 0;
 
 }
