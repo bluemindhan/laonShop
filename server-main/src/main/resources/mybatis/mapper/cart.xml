@@ -40,7 +40,7 @@
       A.PRDT_NO AS productNum,
       A.PRDT_CNT AS cnt,
       B.PRDT_PRCE AS price,
-      B.PRDT_NM AS productName,
+      B.PRDT_NM AS productName
     FROM
       TB_CART A, TB_PRODUCT B
     WHERE

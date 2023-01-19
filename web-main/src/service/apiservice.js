@@ -283,7 +283,7 @@ export class ApiService {
 
   deleteCart(req) {
     return new Promise((resolve, reject) => {
-      axios.delete('/api/v1/cart/cart-delete', req).then(res => {
+      axios.delete('/api/v1/cart/cart-delete', {data : req}).then(res => {
         if (res.status === 200) {
           resolve(res.data);
           return;

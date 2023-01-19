@@ -283,6 +283,7 @@ export default {
         commentVoList: [],
       },
       wishList: [],
+      cartVo: [],
       isShow: true,
       show: false,
       cancel: false,
@@ -387,12 +388,14 @@ export default {
     async addCart() {
       let req = new AddCartRequest();
       req.cnt += 1;
-      req.productNum = this.id;
+      req.productNum = parseInt(this.id);
       console.log(req);
       try {
         let res = await this.api.addCart(req);
         if (res.code === ResultCode.Success) {
           console.log(res);
+          this.cartVo = res.cartVo;
+          this.$router.replace({name: "UserCartView"});
         } else {
           alert(res.message);
         }

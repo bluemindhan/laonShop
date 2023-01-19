@@ -24,7 +24,7 @@
           <ul role="list" class="divide-y divide-gray-200 border-t border-b border-gray-200">
             <li v-for="(vo, productIdx) in volist" :key="vo.productNum" class="flex py-6 sm:py-10">
               <div class="flex-shrink-0">
-                <img :src="vo.image" class="h-24 w-24 rounded-lg object-cover object-center sm:h-32 sm:w-32" />
+                <img :src="vo.imageList[0].image" class="h-24 w-24 rounded-lg object-cover object-center sm:h-32 sm:w-32" />
               </div>
 
               <div class="relative ml-4 flex flex-1 flex-col justify-between sm:ml-6">
@@ -56,7 +56,7 @@
                       <option value="10">10</option>
                     </select>
 
-                    <button type="button" @click="deleteCart" :value="vo.productNum" class="ml-4 text-sm font-medium text-indigo-600 hover:text-indigo-500 sm:ml-0 sm:mt-3">
+                    <button type="button" @click="deleteCart(vo.productNum)" :value="vo.productNum" class="ml-4 text-sm font-medium text-indigo-600 hover:text-indigo-500 sm:ml-0 sm:mt-3">
                       <span>Remove</span>
                     </button>
                   </div>
@@ -115,7 +115,6 @@ export default {
   },
   data() {
     return {
-      id: this.$route.params.id,
       volist : [],
     }
   },
@@ -154,9 +153,9 @@ export default {
         console.error(e);
       }
     },
-    async deleteCart() {
+    async deleteCart(val) {
       let req = new DeleteCartRequest();
-      req.productNum = this.id;
+      req.productNum = val;
       console.log(req);
       try {
         let res = await this.api.deleteCart(req);
