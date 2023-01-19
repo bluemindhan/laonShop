@@ -49,7 +49,6 @@ public class AddProductHandler extends BaseHandler {
             productVo.prdtDesc = req.productDesc;
             productVo.prdtPrce = req.productPrice;
             productVo.sllrId = sellerVo.userId;
-            log.debug("image!!!!!!!!!!!!!!!!!!!!! --> " + req.imageList);
             List<String> urlList = awsService.uploadProductImageList(req.imageList);
             System.out.println("urlList --> " + urlList.toString());
 
