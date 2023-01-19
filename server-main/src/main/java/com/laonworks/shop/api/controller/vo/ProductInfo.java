@@ -1,5 +1,6 @@
 package com.laonworks.shop.api.controller.vo;
 
+import com.laonworks.shop.api.jihyeon.vo.ProductImageVo;
 import com.laonworks.shop.api.jihyeon.vo.ProductVo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiParam;
@@ -13,31 +14,30 @@ import java.util.List;
 @Data
 @ToString
 public class ProductInfo {
-    @ApiParam(value = "")
+    @ApiParam(value = "seller id")
     public String sllrId =  "";
     
-    @ApiParam(value = "")
+    @ApiParam(value = "prodcut number")
     public int prdtNo =  0;
     
-    @ApiParam(value = "")
+    @ApiParam(value = "product name")
     public String prdtNm =  "";
     
-    @ApiParam(value = "")
+    @ApiParam(value = "product description")
     public String prdtDesc =  "";
     
-    @ApiParam(value = "")
+    @ApiParam(value = "product price")
     public double prdtPrce =  0.0;
 
-    @ApiParam(value = "")
+    @ApiParam(value = "create date")
     public String crtDt = "";
 
-    @ApiParam(value = "")
+    @ApiParam(value = "update date")
     public String updDt = "";
     
-    @ApiParam(value = "")
-    public List<String> imageList =  null;
-    
-    
+    @ApiParam(value = "image")
+    public String image =  "";
+
     public void set(ProductVo vo) {
         this.sllrId = vo.sllrId;
         this.prdtNo = vo.prdtNo;
@@ -46,5 +46,7 @@ public class ProductInfo {
         this.prdtPrce = vo.prdtPrce;
         this.crtDt = vo.crtDt;
         this.updDt = vo.updDt;
+        this.image = vo.image;
     }
+
 }

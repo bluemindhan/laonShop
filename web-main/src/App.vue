@@ -68,7 +68,7 @@ export default {
       /**
        * accessToken이 없으면 로그인 페이지로 이동한다.
        */
-      this.$router.replace({name: "SignInView"});
+      this.$router.replace({name: "HomeView"});
     } else {
       /**
        * accessToken이 있으면 프로필 정보를 가져온다.
