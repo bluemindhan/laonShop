@@ -118,7 +118,7 @@
       </div>
       <div style="margin-top: 20px">
         <span class="mx-auto mt-3  text-xl font-bold sm:text-1xl" >인기 TOP 3 상품. </span>
-        <span class="mx-auto mt-3  text-xl text-gray-600 font-bold sm:text-1xl">따끈따근한 제품 이야기</span>
+        <span class="mx-auto mt-3  text-xl text-gray-600 font-bold sm:text-1xl">따끈따끈한 제품 이야기</span>
       </div>
       <div class="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
         <div v-for="post in volist" :key="post.itemId" class="flex flex-col overflow-hidden rounded-lg shadow-lg">

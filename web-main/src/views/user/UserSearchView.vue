@@ -59,7 +59,7 @@
           <Menu as="div" class="relative inline-block text-left">
             <div>
               <MenuButton class="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
-                Sort
+                정렬
                 <ChevronDownIcon class="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500" aria-hidden="true" />
               </MenuButton>
             </div>
@@ -74,6 +74,18 @@
               </MenuItems>
             </transition>
           </Menu>
+
+          <div class="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end mr-40">
+          <div class="w-full max-w-lg lg:max-w-xs">
+            <label for="search" class="sr-only">검색</label>
+            <div class="relative">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <MagnifyingGlassIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+              </div>
+              <input id="search" name="search" class="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 leading-5 placeholder-gray-500 focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm" placeholder="Search" type="search" />
+            </div>
+          </div>
+        </div>
 
           <button type="button" class="inline-block text-sm font-medium text-gray-700 hover:text-gray-900 sm:hidden" @click="open = true">Filters</button>
 
@@ -232,18 +244,23 @@ import {
   TransitionChild,
   TransitionRoot,
 } from '@headlessui/vue'
+
 import { XMarkIcon } from '@heroicons/vue/24/outline'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
+import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid'
 
 const sortOptions = [
-  { name: 'Most Popular', href: '#' },
-  { name: 'Best Rating', href: '#' },
-  { name: 'Newest', href: '#' },
+  { name: '좋아요 높은순', href: '#' },
+  { name: '좋아요 낮은순', href: '#' },
+  { name: '이름 오름차순', href: '#' },
+  { name: '이름 내림차순', href: '#' },
+  { name: '가격 높은순', href: '#' },
+  { name: '가격 낮은순', href: '#' },
 ]
 const filters = [
   {
     id: 'category',
-    name: 'Category',
+    name: '카테고리',
     options: [
       { value: 'tees', label: 'Tees' },
       { value: 'crewnecks', label: 'Crewnecks' },
@@ -252,29 +269,11 @@ const filters = [
   },
   {
     id: 'brand',
-    name: 'Brand',
+    name: '브랜드',
     options: [
       { value: 'clothing-company', label: 'Clothing Company' },
       { value: 'fashion-inc', label: 'Fashion Inc.' },
       { value: 'shoes-n-more', label: "Shoes 'n More" },
-    ],
-  },
-  {
-    id: 'color',
-    name: 'Color',
-    options: [
-      { value: 'white', label: 'White' },
-      { value: 'black', label: 'Black' },
-      { value: 'grey', label: 'Grey' },
-    ],
-  },
-  {
-    id: 'sizes',
-    name: 'Sizes',
-    options: [
-      { value: 's', label: 'S' },
-      { value: 'm', label: 'M' },
-      { value: 'l', label: 'L' },
     ],
   },
 ]
