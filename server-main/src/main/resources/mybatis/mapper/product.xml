@@ -79,46 +79,34 @@
   <!-- 등록된 상품리스트 불러오기-->
   <select id="selectProductList" resultType="com.laonworks.shop.api.jihyeon.vo.ProductVo">
   <![CDATA[
-    /* selectProductList */ SELECT * FROM (
-    SELECT
-      ROW_NUMBER() OVER (ORDER BY A.PRDT_NO DESC) AS RN ,
-      A.PRDT_NO as prdtNo ,
-      A.PRDT_PRCE as prdtPrce ,
-      A.PRDT_NM as prdtNm ,
-      A.PRDT_DESC as prdtDesc ,
-      A.CRT_DT as crtDt ,
-      A.UPD_DT as updDt ,
-      A.SLLR_ID as sllrId,
-      B.IMG_URL as image
+    /* selectProductList */ SELECT * FROM
+  (
+    SELECT ROWNUM rn, a.*
     FROM
-      TB_PRODUCT A
-        LEFT JOIN TB_PRODUCT_IMAGE B
-                  ON A.PRDT_NO = B.PRDT_NO
-    WHERE
-      A.SLLR_ID = #{sllrId}
-    ORDER BY
-      A.CRT_DT DESC
+      (
+
+        SELECT    A.PRDT_NO as prdtNo ,
+                  B.PRDT_IMG_NO as imageNo,
+                  A.PRDT_PRCE as prdtPrce ,
+                  A.PRDT_NM as prdtNm ,
+                  A.PRDT_DESC as prdtDesc ,
+                  A.CRT_DT as crtDt ,
+                  A.UPD_DT as updDt,
+                  GET_PRODUCT_IMAGE(B.PRDT_NO,B.PRDT_IMG_NO) as image
+        FROM
+          TB_PRODUCT A
+            LEFT JOIN ( SELECT PRDT_NO, MIN(PRDT_IMG_NO) PRDT_IMG_NO
+                        FROM   TB_PRODUCT_IMAGE
+                        GROUP BY PRDT_NO
+          ) B
+                      ON        A.PRDT_NO = B.PRDT_NO
+      ) a
   )
-  WHERE #{start} <= RN AND RN < #{end}
-  ORDER BY prdtNo DESC
+  WHERE rn BETWEEN #{start} AND #{end}
   ]]>
   </select>
 
-  <!-- 등록된 이미지 불러오기-->
-  <select id="selectProductDetailImage" resultType="com.laonworks.shop.api.jihyeon.vo.ProductImageVo">
-  <![CDATA[
-    /* selectProductImageList */ SELECT
-    A.PRDT_NO as prdtNo ,
-    A.PRDT_IMG_NO as prdtImgNo ,
-    A.IMG_URL as prdtImgUrl
-  FROM
-    TB_PRODUCT_IMAGE A
-  WHERE
-    A.PRDT_NO = #{prdtNo}
-  ]]>
-  </select>
-
-  <!-- 등록된 상품 불러오기-->
+  <!-- 수정할 상품 불러오기-->
   <select id="selectProductDetail" resultType="com.laonworks.shop.api.jihyeon.vo.ProductVo">
   <![CDATA[
     /* selectProductDetail */ SELECT
@@ -133,6 +121,20 @@
   WHERE
     A.PRDT_NO = #{prdtNo}
   ]]>
+  </select>
+
+  <!-- 수정할 상품 이미지 불러오기-->
+  <select id="selectProductDetailImage" resultType="com.laonworks.shop.api.jihyeon.vo.ProductImageVo">
+  <![CDATA[
+    /* selectProductImageList */ SELECT
+    A.PRDT_NO as prdtNo ,
+    A.PRDT_IMG_NO as prdtImgNo ,
+    A.IMG_URL as prdtImgUrl
+  FROM
+    TB_PRODUCT_IMAGE A
+  WHERE
+    A.PRDT_NO = #{prdtNo}
+    ]]>
   </select>
 
   <!-- 등록된 상품 수정 -->
@@ -173,5 +175,16 @@
     WHERE PRDT_NO = #{vo.prdtNo}
     ]]>
   </delete>
+
+  <select id="selectProductprdtImgNo" resultType="int">
+  <![CDATA[
+    /* selectProductCount */ SELECT
+                               PRDT_IMG_NO
+                             FROM
+                               TB_PRODUCT_IMAGE
+                             WHERE PRDT_NO = #{prdtNo}
+
+    ]]>
+  </select>
 
 </mapper>
