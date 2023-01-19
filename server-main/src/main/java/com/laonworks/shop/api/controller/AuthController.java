@@ -34,7 +34,7 @@ public class AuthController extends BaseController {
 
   @RequestMapping(method = RequestMethod.POST, value = "signin", consumes = MediaType.APPLICATION_JSON_VALUE)
   @ApiOperation(value = "sing in")
-  SignInResponse signIn(@AuthenticationPrincipal Authentication auth, @RequestBody SignInRequest req, HttpServletRequest request, HttpServletResponse reponse) {
+  SignInResponse signIn(@AuthenticationPrincipal Authentication auth, @RequestBody SignInRequest req, HttpServletRequest request) {
     signInHandler.setHttpServletRequest(request);
     CustomUserDetails user = null;
     if (auth != null) {
@@ -43,7 +43,7 @@ public class AuthController extends BaseController {
     if (!checkRoute(RequestMethod.POST, "/api/v1/auth/signin", user)) {
       throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
     }
-    return signInHandler.execute(req, reponse);
+    return signInHandler.execute(req);
   }
 
   // signUp

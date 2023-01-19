@@ -29,7 +29,7 @@ public class SignInHandler extends BaseHandler {
     @Autowired
     AuthMapper authMapper;
     
-    public SignInResponse execute (SignInRequest req, HttpServletResponse reponse) {
+    public SignInResponse execute (SignInRequest req) {
         SignInResponse res = new SignInResponse();
         HashMap<String,Object> map = new HashMap<>();
         Map<String,String> tokens = new HashMap<>();
