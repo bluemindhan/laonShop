@@ -37,7 +37,7 @@ public class ProductMapperService {
     return mapper.selectProductList(sllrId, start, end);
   }
 
-  public List<ProductImageVo> selectProductImageList(int prdtNo) {
-    return mapper.selectProductImageList(prdtNo);
-  }
+//  public List<ProductImageVo> selectProductImageList(int prdtNo) {
+//    return mapper.selectProductImageList(prdtNo);
+//  }
 }

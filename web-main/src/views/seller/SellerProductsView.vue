@@ -26,13 +26,8 @@
       </div>
     </div>
 
-    <div class="mt-1" style="width: 1300px; ">
-      <div class="bg-white">
-      <div class="mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:px-8 lg:pb-24">
-        <div class="max-w-xl">
-          <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">상품 목록</h1>
-        </div>
-        <div class="mt-16">
+    <div class="mt-10">
+      <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">상품 목록</h1>
           <div class="space-y-20">
               <table class="mt-4 w-full text-gray-500 sm:mt-6">
                 <thead class="sr-only text-left text-sm text-gray-500 sm:not-sr-only">
@@ -48,13 +43,9 @@
                   <tr v-for="product in productList" :key="product.productId">
                     <td class="py-6 pr-8">
                       <div class="flex items-center">
-                        <div v-for="item in productList.imageList" :key="item.image">
-                          <img :src="item.image" :alt="item.image" class="mr-6 h-16 w-16 rounded object-cover object-center" />
-                        </div>
-                        <div>
-                          <div class="font-medium text-gray-900">{{ product.prdtNm }} 
-                            <input type="hidden" :value="product.prdtNo">
-                          </div>
+                        <img :src="product.image" :alt="product.image" class="mr-6 h-16 w-16 rounded object-cover object-center" />
+                        <div class="font-medium text-gray-900">{{ product.prdtNm }} 
+                          <input type="hidden" :value="product.prdtNo">
                         </div>
                       </div>
                     </td>
@@ -77,9 +68,6 @@
                 </tbody>
               </table>
             </div>
-          </div>
-        </div>
-      </div>
     </div>
       
       <nav class="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6"

@@ -2,6 +2,7 @@ package com.laonworks.shop.api.controller.response.seller;
 
 import com.laonworks.shop.api.controller.response.BaseResponse;
 import com.laonworks.shop.api.controller.vo.ProductInfo;
+import com.laonworks.shop.api.jihyeon.vo.ProductImageVo;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,4 +21,5 @@ public class GetProductListResponse extends BaseResponse {
   public int pageSize = 0;
 
   public List<ProductInfo> productList = null;
+
 }

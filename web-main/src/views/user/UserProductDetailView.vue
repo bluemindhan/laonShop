@@ -134,7 +134,7 @@
 
               <!-- <button type="submit" class="mt-8 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add to cart</button> -->
               <div class="sm:flex-col1 mt-10 flex">
-                <button type="submit" class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full">Add to bag</button>
+                <button type="button" @click="addCart" class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full">Add to bag</button>
 
                 <button 
                 type="button" 
@@ -175,7 +175,7 @@
               <div>
                 <div class="border-t border-gray-200">
                  <!-- 리뷰 작성 -->
-                 <div class="flex items-start space-x-4  mt-4">
+                 <!-- <div class="flex items-start space-x-4  mt-4">
                   <div class="flex-shrink-0">
                     <img class="inline-block h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
                   </div>
@@ -183,12 +183,12 @@
                     <form action="#" class="relative">
                       <div class="overflow-hidden rounded-lg border border-gray-300 shadow-sm focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
                         <label for="comment" class="sr-only">Add your comment</label>
-                        <textarea rows="3" name="comment" id="comment" class="block w-full resize-none border-0 py-3 focus:ring-0 sm:text-sm" placeholder="상품의 후기를 작성해주세요" />
+                        <textarea rows="3" name="comment" id="comment" class="block w-full resize-none border-0 py-3 focus:ring-0 sm:text-sm" placeholder="상품의 후기를 작성해주세요" /> -->
 
                         <!-- Spacer element to match the height of the toolbar -->
-                        <div class="py-2" aria-hidden="true">
+                        <!-- <div class="py-2" aria-hidden="true"> -->
                           <!-- Matches height of button in toolbar (1px border + 36px content height) -->
-                          <div class="py-px">
+                          <!-- <div class="py-px">
                             <div class="h-9" />
                           </div>
                         </div>
@@ -239,7 +239,7 @@
                       </div>
                     </form>
                   </div>
-                </div>
+                </div> -->
                 </div>
               </div>
               <div class="mt-6 space-y-10 divide-y divide-gray-200 border-t border-b border-gray-200 pb-10">
@@ -267,6 +267,7 @@ import GetLikeListRequest from '@/service/request/GetLikeListRequest.js';
 import DeleteLikeRequest from '@/service/request/DeleteLikeRequest.js';
 import {mapGetters, mapMutations} from "vuex";
 import ResultCode from "@/service/ResultCode";
+import AddCartRequest from "@/service/request/AddCartRequest.js";
 
 export default {
   name: 'UserProductDetailView',
@@ -282,6 +283,7 @@ export default {
         commentVoList: [],
       },
       wishList: [],
+      cartVo: [],
       isShow: true,
       show: false,
       cancel: false,
@@ -381,7 +383,27 @@ export default {
       } catch (e) {
         console.error(e);
       }
-    }
+    },
+
+    async addCart() {
+      let req = new AddCartRequest();
+      req.cnt += 1;
+      req.productNum = parseInt(this.id);
+      console.log(req);
+      try {
+        let res = await this.api.addCart(req);
+        if (res.code === ResultCode.Success) {
+          console.log(res);
+          this.cartVo = res.cartVo;
+          this.$router.replace({name: "UserCartView"});
+        } else {
+          alert(res.message);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    },
+
   },
   created() {
     console.log("ItemDetail.vue..", this.accessToken);

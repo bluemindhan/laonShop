@@ -27,4 +27,5 @@ public interface AuthMapper {
 
   String selectRefreshToken(HashMap<String, String> map);
 
+  int updatePassword(HashMap<String, Object> map); // 비밀번호 변경
 }

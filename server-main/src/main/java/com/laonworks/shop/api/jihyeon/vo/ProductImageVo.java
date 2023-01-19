@@ -7,11 +7,11 @@ import lombok.ToString;
 @ToString
 public class ProductImageVo {
 
-  public int prdtNo;
+  public int prdtNo; // 상품 번호
 
-  public int prdtImgNo;
+  public int prdtImgNo; // 상품 이미지 번호
 
-  public String prdtImgNm;
+  public String prdtImgNm; // 상품 이미지 이름
 
-  public String prdtImgUrl;
+  public String prdtImgUrl; // 상품 이미지 URL
 }

@@ -264,8 +264,38 @@ export class ApiService {
     });
   }
   
-  cartIn(req) {
+  addCart(req) {
+    return new Promise((resolve, reject) => {
+      axios.post('/api/v1/cart/cartin', req).then(res => {
+        if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
 
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
+
+  deleteCart(req) {
+    return new Promise((resolve, reject) => {
+      axios.delete('/api/v1/cart/cart-delete', {data : req}).then(res => {
+        if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
   }
 
   mainPage() {

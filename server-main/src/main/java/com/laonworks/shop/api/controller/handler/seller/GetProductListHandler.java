@@ -7,6 +7,7 @@ import com.laonworks.shop.api.controller.response.seller.GetProductListResponse;
 import com.laonworks.shop.api.controller.vo.ProductInfo;
 import com.laonworks.shop.api.controller.vo.UserType;
 import com.laonworks.shop.api.jihyeon.mapper.ProductMapper;
+import com.laonworks.shop.api.jihyeon.vo.ProductImageVo;
 import com.laonworks.shop.api.jihyeon.vo.ProductVo;
 import com.laonworks.shop.api.mapper.AuthMapper;
 import com.laonworks.shop.api.mapper.vo.UserVo;
@@ -53,6 +54,7 @@ public class  GetProductListHandler extends BaseHandler {
             int begin = (pageNo - 1) * pageSize;
             int end = begin + pageSize;
             List<ProductVo> productVos = productMapper.selectProductList(sellerVo.userId, begin, end);
+
             if(productVos == null) {
                 res.setCode(ResultCode.InternalServerError);
                 return res;
