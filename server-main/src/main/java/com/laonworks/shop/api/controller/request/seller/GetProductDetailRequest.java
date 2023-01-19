@@ -12,6 +12,9 @@ public class GetProductDetailRequest {
 
     @ApiParam(value = "제품번호")
     public int prdtNo = 0;
+
+    @ApiParam
+    public String accessToken = null;
     
     
     public boolean valid() {

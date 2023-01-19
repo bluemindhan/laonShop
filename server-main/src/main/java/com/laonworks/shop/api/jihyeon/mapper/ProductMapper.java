@@ -21,9 +21,11 @@ public interface ProductMapper {
 
   List<ProductVo> selectProductList(@Param("sllrId") String sllrId, @Param("start") int start, @Param("end") int end); // 상품 리스트 불러오기
 
-  List<ProductImageVo> selectProductImageList(@Param("prdtNo") int prdtNo);
+  // ProductImage selectProductImageList(@Param("prdtNo") int prdtNo); %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   ProductVo selectProductDetail(@Param("prdtNo") int prdtNo); // 등록 상품 상세 불러오기
+
+  List<ProductImageVo> selectProductDetailImage(@Param("prdtNo") int prdtNo);
 
   int modifyProduct(@Param("vo") ProductVo vo); // 등록 상품 수정
 
