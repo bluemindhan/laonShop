@@ -133,6 +133,27 @@
       WHERE
       SLLR_ID = #{userId}
     </if>
-
   </select>
+  
+  <update id="updatePassword" parameterType="Map">
+   /*updatePassword*/ UPDATE
+   <if test="userType==1">
+     TB_USER
+     SET
+     SALT =#{salt},
+     USR_PSSWRD=#{password}
+     WHERE
+     USR_ID=#{userId}
+   </if>
+
+    <if test="userType==2">
+      TB_SELLER
+      SET
+      SALT =#{salt},
+      PSSWRD=#{password}
+      WHERE
+      SLLR_ID=#{userId}
+    </if>
+  </update>
+
 </mapper>

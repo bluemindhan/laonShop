@@ -93,8 +93,8 @@ public class PatchProfileHandler extends BaseHandler {
             else {
                 result = userMapper.updateSellerInfo(map);
             }
-            res.userInfo=new UserInfo();
-            res.userInfo.set(userVo);
+            result=1;
+            res.result=result;
             res.setCode(ResultCode.Success);
             return res;
         }
@@ -104,7 +104,7 @@ public class PatchProfileHandler extends BaseHandler {
         return res;
     }
 
-    public static PatchProfileResponse validatePutProfile(Errors errors) {
+    public static PatchProfileResponse validatePatchProfile(Errors errors) {
         Map<String, String> errorList = new HashMap<>();
         PatchProfileResponse res = new PatchProfileResponse();
 

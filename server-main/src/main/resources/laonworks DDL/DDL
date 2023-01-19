@@ -1,7 +1,7 @@
 
 -------------TB_USER_WISH DDL(jiwoong)-------------
 
-/* 찜 목록 */
+/* 찜 TABLE */
 CREATE TABLE TB_USER_WISH (
 	USR_ID VARCHAR2(64) NOT NULL, /* 사용자 아이디 */
 	PRDT_NO NUMBER NOT NULL, /* 상품 번호 */
