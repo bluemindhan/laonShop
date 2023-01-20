@@ -38,24 +38,26 @@
                       <p v-if="product.size" class="mt-1 text-sm text-gray-500">{{ product.size }}</p> -->
                     </div>
 
-                    <p class="text-right text-sm font-medium text-gray-900">{{ vo.price }} 원</p>
+                    <p class="text-right text-sm font-medium text-gray-900">$ {{ vo.price }}</p>
                   </div>
 
                   <div class="mt-4 flex items-center sm:absolute sm:top-0 sm:left-1/2 sm:mt-0 sm:block">
                     <label :for="`quantity-${productIdx}`" class="sr-only">Quantity, {{ vo.productName }}</label>
-                    <select :id="`quantity-${productIdx}`" :name="`quantity-${productIdx}`" :value="vo.cnt" class="block max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                      <option value="7">7</option>
-                      <option value="8">8</option>
-                      <option value="9">9</option>
-                      <option value="10">10</option>
+                    <select :id="`quantity-${productIdx}`" @change="onChange($event)" :name="`quantity-${productIdx}`" value="1" class="block max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
                     </select>
-
+                    <button type="button" @click="updateCart(count, vo.productNum)" :value="vo.productNum" class="ml-4 text-sm font-medium text-indigo-600 hover:text-indigo-500 sm:ml-0 sm:mt-3" style="margin-right: 10px;">
+                      <span>수량 변경</span>
+                    </button>
                     <button type="button" @click="deleteCart(vo.productNum)" :value="vo.productNum" class="ml-4 text-sm font-medium text-indigo-600 hover:text-indigo-500 sm:ml-0 sm:mt-3">
                       <span>Remove</span>
                     </button>
@@ -65,6 +67,7 @@
                 
               </div>
             </li>
+            
           </ul>
         </div>
 
@@ -77,7 +80,7 @@
               <dl class="-my-4 divide-y divide-gray-200 text-sm">
                 <div class="flex items-center justify-between py-4">
                   <dt class="text-base font-medium text-gray-900">Order total</dt>
-                  <dd class="text-base font-medium text-gray-900">$112.32</dd>
+                  <dd class="text-base font-medium text-gray-900">$ 122.2</dd>
                 </div>
               </dl>
             </div>
@@ -89,10 +92,12 @@
           <div class="mt-6 text-center text-sm text-gray-500">
             <p>
               or
-              <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
-                Continue Shopping
+              <router-link to="/user/search">
+                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                  Continue Shopping
                 <span aria-hidden="true"> &rarr;</span>
-              </a>
+                </a>
+              </router-link>
             </p>
           </div>
         </div>
@@ -106,6 +111,8 @@ import GetCartRequest from "@/service/request/GetCartRequest.js";
 import {mapGetters, mapMutations} from "vuex";
 import ResultCode from "@/service/ResultCode";
 import DeleteCartRequest from "@/service/request/DeleteCartRequest.js";
+import UserSearchView from '@/views/user/UserSearchView.vue';
+import UpdateCartRequest from '@/service/request/UpdateCartRequest.js';
 
 export default {
   name: 'UserCartView',
@@ -116,6 +123,8 @@ export default {
   data() {
     return {
       volist : [],
+      key: "",
+      count: "",
     }
   },
   computed: {
@@ -167,7 +176,30 @@ export default {
       } catch (e) {
         console.error(e);
       }
-    }
+    },
+    async updateCart(count, val) {
+      let req = new UpdateCartRequest();
+      req.cnt = parseInt(count);
+      req.productNum = parseInt(val);
+      console.log(req);
+      try {
+        let res = await this.api.addCart(req);
+        if (res.code === ResultCode.Success) {
+          console.log(res);
+          this.cartVo = res.cartVo;
+          this.$router.replace({name: "UserCartView"});
+        } else {
+          alert(res.message);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    },
+    onChange(event) {
+      console.log(event.target.value)
+      this.count = event.target.value;
+    },
+    
   },
   created() {
     console.log("UserMainView.vue..", this.accessToken);
