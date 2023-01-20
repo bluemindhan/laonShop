@@ -85,7 +85,8 @@
     FROM
       (
 
-        SELECT    A.PRDT_NO as prdtNo ,
+        SELECT    A.SLLR_ID as sellerId,
+                  A.PRDT_NO as prdtNo ,
                   B.PRDT_IMG_NO as imageNo,
                   A.PRDT_PRCE as prdtPrce ,
                   A.PRDT_NM as prdtNm ,
@@ -100,6 +101,7 @@
                         GROUP BY PRDT_NO
           ) B
                       ON        A.PRDT_NO = B.PRDT_NO
+                      WHERE A.SLLR_ID = #{sllrId}
       ) a
   )
   WHERE rn BETWEEN #{start} AND #{end}

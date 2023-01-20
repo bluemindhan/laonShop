@@ -2,6 +2,7 @@ package com.laonworks.shop.api.controller.vo;
 
 import com.laonworks.shop.api.jihyeon.vo.ProductImageVo;
 import com.laonworks.shop.api.jihyeon.vo.ProductVo;
+import com.laonworks.shop.api.mapper.vo.UserVo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiParam;
 import lombok.Data;
