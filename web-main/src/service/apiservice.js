@@ -119,6 +119,23 @@ export class ApiService {
       })
     });
   }
+  search(req) {
+    const url = '/api/v1/search/search?' + qs.stringify(req);
+    return new Promise((resolve, reject) => {
+      axios.get(url).then(res => {
+        if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
   itemDetail(req) {
     const url = '/api/v1/item/item-details?' + qs.stringify(req);
     return new Promise((resolve, reject) => {
@@ -216,7 +233,7 @@ export class ApiService {
   } 
   deleteProduct(req) {
     return new Promise((resolve, reject) => {
-      axios.delete("/api/v1/seller/product/delete", {req}).then(res => {
+      axios.delete("/api/v1/seller/product/delete", {data : req}).then(res => {
        if (res.status === 200) {
           resolve(res.data);
           return;
@@ -229,7 +246,7 @@ export class ApiService {
       })
     });
   }
-  productsDetail(req) {
+  productDetail(req) {
     const url = "/api/v1/seller/product/modify?" + qs.stringify(req);
     return new Promise((resolve, reject) => {
       axios.get(url).then(res => {
@@ -246,7 +263,7 @@ export class ApiService {
       })
     });
   }
-  productsUpdate(req) {
+  updateProduct(req) {
     return new Promise((resolve, reject) => {
       axios.put('/api/v1/seller/product/modify', req).then(res => {
         if (res.status === 200) {

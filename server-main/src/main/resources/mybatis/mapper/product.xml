@@ -85,7 +85,8 @@
     FROM
       (
 
-        SELECT    A.PRDT_NO as prdtNo ,
+        SELECT    A.SLLR_ID as sellerId,
+                  A.PRDT_NO as prdtNo ,
                   B.PRDT_IMG_NO as imageNo,
                   A.PRDT_PRCE as prdtPrce ,
                   A.PRDT_NM as prdtNm ,
@@ -100,6 +101,8 @@
                         GROUP BY PRDT_NO
           ) B
                       ON        A.PRDT_NO = B.PRDT_NO
+                      WHERE A.SLLR_ID = #{sllrId}
+                      ORDER BY A.CRT_DT DESC
       ) a
   )
   WHERE rn BETWEEN #{start} AND #{end}
@@ -148,18 +151,6 @@
     ]]>
   </update>
 
-  <!-- 등록된 상품 이미지 수정 -->
-<!--  <update id="modifyProductImage" parameterType="com.laonworks.shop.api.jihyeon.vo.ProductImageVo">-->
-<!--  <![CDATA[-->
-<!--    /* modifyProductImage */ UPDATE TB_PRODUCT_IMAGE SET-->
-<!--    PRDT_NO = #{vo.prdtNo} ,-->
-<!--    PRDT_IMG_NO = #{vo.prdtImagNo} ,-->
-<!--    IMG_URL = #{vo.prdtImgUrl},-->
-<!--    CRT_DT = SYSDATE,-->
-<!--    UPD_DT = SYSDATE-->
-<!--  ]]>-->
-<!--  </update>-->
-
   <!-- 등록된 상품 삭제-->
   <delete id="deleteProduct" parameterType="com.laonworks.shop.api.jihyeon.vo.ProductVo">
   <![CDATA[
@@ -175,16 +166,5 @@
     WHERE PRDT_NO = #{vo.prdtNo}
     ]]>
   </delete>
-
-  <select id="selectProductprdtImgNo" resultType="int">
-  <![CDATA[
-    /* selectProductCount */ SELECT
-                               PRDT_IMG_NO
-                             FROM
-                               TB_PRODUCT_IMAGE
-                             WHERE PRDT_NO = #{prdtNo}
-
-    ]]>
-  </select>
 
 </mapper>
