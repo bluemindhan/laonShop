@@ -6,13 +6,13 @@
           <div class="sm:col-span-12">
             <label for="product" class="block text-sm font-medium text-gray-700">상품명</label>
             <div class="mt-1 flex rounded-md shadow-sm">
-              <input type="text" :value="productVo.prdtNm" name="productName" id="productName" :v-model="productName" class="block w-full min-w-0 flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+              <input type="text" :value="productVo.prdtNm" name="productName" id="productName" autocomplete="productName" class="block w-full min-w-0 flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
             </div>
           </div>
           <div class="sm:col-span-12">
             <label for="about" class="block text-sm font-medium text-gray-700">상품설명</label>
             <div class="mt-1">
-              <textarea id="about" name="about" rows="3" :value="productVo.prdtDesc" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+              <textarea rows="3" :value="productVo.prdtDesc" id="productDesc" name="productDesc" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
             </div>
           </div>
 
@@ -20,15 +20,15 @@
             <label for="price" class="block text-sm font-medium text-gray-700">상품가격</label>
             <div class="mt-1 flex rounded-md shadow-sm">
               <!-- <input type="text" name="price" id="price" v-model.number="productPrice" class="block w-full min-w-0 flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" /> -->
-              <input type="text" name="price" id="price" :value="productVo.prdtPrce"  class="block w-full min-w-0 flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+              <input type="text" :value="productVo.prdtPrce" name="productPrice" id="productPrice" class="block w-full min-w-0 flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
             </div>
           </div>
 
           <div class="sm:col-span-12">
             <label class="block text-sm font-medium text-gray-700">상품 이미지</label>
             <div class="grid grid-cols-4 gap-2">
-              <div v-for="item in productImageVoList" :key="item.prdImgNo" class="w-32 h-32 bg-red-100">
-                <img :src="item.prdtImgUrl" :alt="item.prdtImgNo" class="w-32 h-32" />
+              <div v-for="item in imgList" :key="item.name" class="w-32 h-32 bg-red-100">
+                <img :src="item.src" :alt="item.name" class="w-32 h-32" @click="removeImage" :name="item.name"/>
               </div>
             </div>
             <div class="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
@@ -40,7 +40,7 @@
                   <span class="pl-1 pr-1">Click to</span>
                   <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500">
                     <span>Upload a file</span>
-                    <input id="file-upload" name="file-upload" type="file" class="sr-only" @change="onFilePicked" />
+                    <input id="file-upload" name="file-upload" type="file" class="sr-only" v-if="uploadReady" @change="onFilePicked" />
                   </label>
                 </div>
                 <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
@@ -52,8 +52,8 @@
 
     <div class="pt-5">
       <div class="flex justify-end">
-        <button type="button" class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Cancel</button>
-        <button @click="save" class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Save</button>
+        <button @click="$router.back()" type="button" class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Cancel</button>
+        <button @click="update" class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Save</button>
       </div>
     </div>
   </div>
@@ -75,10 +75,11 @@ export default {
     return {
       id: this.$route.params.id,
       productVo: {},
+      imageList: [],
       productName: "",
       productDesc: "",
       productPrice: 0,
-      productImageVoList: [],
+      uploadReady: true,
     };
   },
   computed: {
@@ -126,13 +127,37 @@ export default {
               src: b64,
             };
             console.log(item);
-            vm.imageList.push(item);
+            vm.imgList.push(item);
           };
           img.src = b64;
         };
       }
     },
-    async save() {
+    removeImage(e) {
+      const name = e.target.getAttribute('name');
+      this.imgList = this.imgList.filter(data => data.name != name);
+      // 렌더링 되고 마지막에 실행이 되도록 $nextTick()을 사용한다.
+      this.$nextTick(() => {
+        this.uploadReady = true;
+      })
+    },
+    async productsDetail() {
+      let req = new GetProductDetailRequest();
+      req.prdtNo = this.id;
+
+      try {
+        let res = await this.api.productDetail(req);
+        if (res.resultCode === ResultCode.SUCCESS) {
+          console.log(res);
+          this.productVo = res.productVo;
+        } else {
+          alert(res.resultMsg);
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    },
+    async update() {
       if (this.productName === "") {
         alert("상품명을 입력해주세요.");
         return;
@@ -148,7 +173,7 @@ export default {
         return;
       }
 
-      if (this.imageList.length === 0) {
+      if (this.productImageVoList.length === 0) {
         alert("상품 이미지를 등록해주세요.");
         return;
       }
@@ -166,26 +191,8 @@ export default {
       try {
         let res = await this.api.productsUpdate(req);
         if (res.resultCode === ResultCode.SUCCESS) {
-          alert("상품이 수정되었습니다.");
+          alert("상품 수정 성공");
           this.$router.replace("/seller/products");
-        } else {
-          alert(res.resultMsg);
-        }
-      } catch (err) {
-        console.error(err);
-      }
-    },
-
-    async productsDetail() {
-      let req = new GetProductDetailRequest();
-      req.prdtNo = this.id;
-
-      try {
-        let res = await this.api.productsDetail(req);
-        if (res.resultCode === ResultCode.SUCCESS) {
-          console.log(res);
-          this.productVo = res.productVo;
-          this.productImageVoList = res.productImageVoList;
         } else {
           alert(res.resultMsg);
         }
@@ -203,6 +210,9 @@ export default {
       this.api.setAccessToken(this.accessToken);
       this.productsDetail();
       }
+  },
+  mounted() {
+
   },
 };
 </script>
