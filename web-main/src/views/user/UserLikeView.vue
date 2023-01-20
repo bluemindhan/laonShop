@@ -1,4 +1,7 @@
 <template>
+  <div>
+    <!-- <HeroSection/> -->
+  </div>
   <div class="px-4 sm:px-6 lg:px-8 p-10 mx-40">
     <div class="sm:flex sm:items-center">
       <div class="sm:flex-auto">

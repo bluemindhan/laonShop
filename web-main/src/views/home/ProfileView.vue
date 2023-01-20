@@ -326,7 +326,7 @@ const pages = [
   { name: '회원정보수정', href: '/profile', current: false },
   // { name: '회원탈퇴', href: '/withdraw', current: true },
   { name: '비밀번호 수정', href: '#', current: false },
-  { name: '회원탈퇴', href: '#', current: false },
+  { name: '회원탈퇴', href: '/delete', current: false },
 ]
 </script>
 <style>

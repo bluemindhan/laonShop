@@ -16,6 +16,7 @@ import UserCheckoutView from '../views/user/UserCheckoutView.vue';
 import ProfileView from '../views/home/ProfileView.vue';
 import UserSearchView from '../views/user/UserSearchView.vue';
 import UserLikeView from '../views/user/UserLikeView.vue';
+import DeleteView from '../views/home/DeleteView.vue';
 
 const routes = [
   {
@@ -34,6 +35,11 @@ const routes = [
         name: 'ProfileView',
         component: ProfileView,
       },
+      {
+        path: '/delete',
+        name: 'DeleteView',
+        component: DeleteView,
+      },
     ],
   },
   {
@@ -51,7 +57,7 @@ const routes = [
         path: 'signup',
         name: 'SignUpView',
         component: SignUpView,
-      },
+      },   
     ],
   },
   {
