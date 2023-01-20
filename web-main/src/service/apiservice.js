@@ -104,6 +104,23 @@ export class ApiService {
       })
     });
   }
+  search(req) {
+    const url = '/api/v1/search/search?' + qs.stringify(req);
+    return new Promise((resolve, reject) => {
+      axios.get(url).then(res => {
+        if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
   itemDetail(req) {
     const url = '/api/v1/item/item-details?' + qs.stringify(req);
     return new Promise((resolve, reject) => {
