@@ -92,6 +92,9 @@
                     <a @click="profile" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">회원 정보 수정</a>
                   </MenuItem>
                   <MenuItem v-slot="{ active }">
+                    <a @click="deleteUser" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">회원 탈퇴</a>
+                  </MenuItem>
+                  <MenuItem v-slot="{ active }">
                     <a @click="logout" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">로그아웃</a>
                   </MenuItem>
                 </MenuItems>
@@ -200,23 +203,26 @@ export default {
       req.accessToken = this.accessToken;
 
       try {
-        let res = await this.api.getProfile(req);
-        if (res.code == ResultCode.Success) {
-          const userInfo = res.userInfo;
-          this.setUserInfo(userInfo);
-          
-          if (userInfo.userType == 1) {
-            // 일반 사용자
-            this.isShow = true;
-            this.url = "/user";
-          } else if (userInfo.userType == 2) {
-            // 판매자
-            this.isShow = false;
-            this.url = "/seller";
-          } else {
-            console.log(userInfo);
+        if(this.accessToken != null) {
+          let res = await this.api.getProfile(req);
+          if (res.code == ResultCode.Success) {
+            const userInfo = res.userInfo;
+            this.setUserInfo(userInfo);
+            
+            if (userInfo.userType == 1) {
+              // 일반 사용자
+              this.isShow = true;
+              this.url = "/user";
+            } else if (userInfo.userType == 2) {
+              // 판매자
+              this.isShow = false;
+              this.url = "/seller";
+            } else {
+              console.log(userInfo);
+            }
           }
-        }
+        } 
+        
       } catch (e) {
         console.error(e);
       } 
@@ -226,7 +232,11 @@ export default {
     },
     like() {
       this.$router.replace({ name : "UserLikeView" });
-    }
+    },
+    deleteUser() {
+      console.log("delete")
+      this.$router.replace({ name : "DeleteView" });
+    },
   },
   created() {
     this.getProfile();
