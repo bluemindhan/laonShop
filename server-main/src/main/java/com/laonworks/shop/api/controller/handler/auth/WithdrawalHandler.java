@@ -58,7 +58,7 @@ public class WithdrawalHandler extends BaseHandler {
                 return res;
             }
             String encryptedPassword = CryptoUtils.encryptPassword(plainPassword,uservo.salt);
-            if(!uservo.password.equals(encryptedPassword)){
+            if(!uservo.password.equals(encryptedPassword)){ // 로그인 User/Seller 비밀번호 확인
                 res.setCode(ResultCode.InvalidPassword);
                 return res;
             }
@@ -66,7 +66,7 @@ public class WithdrawalHandler extends BaseHandler {
                 result =authMapper.deleteUserInfo(email);
 
             } else {
-               result =authMapper.deleteSellerInfo(email);
+                result =authMapper.deleteSellerInfo(email);
             }
             return res;
         }catch (Exception e){

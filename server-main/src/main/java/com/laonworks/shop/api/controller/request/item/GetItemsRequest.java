@@ -13,8 +13,7 @@ import java.util.List;
 @Data
 @ToString
 public class GetItemsRequest {
-    @ApiParam(value = "items")
-    public List<ItemInfo> items =  null;
+
 
 
     public boolean valid() {

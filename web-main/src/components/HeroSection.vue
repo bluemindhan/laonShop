@@ -217,20 +217,21 @@ const collections = [
     'Payment application dashboard screenshot with transaction table, financial highlights, and main clients on colorful purple background.',
   },{
     id: 5,
+    name: '블루투스 이어폰',
+    category: '',
+    href: '#',
+    price: '',
+    imageSrc: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/store-card-13-airpods-nav-202209?wid=400&hei=260&fmt=png-alpha&.v=1660676485885',
+    imageAlt:
+    'Payment application dashboard screenshot with transaction table, financial highlights, and main clients on colorful purple background.',
+  },
+  {
+    id: 6,
     name: '악세서리',
     category: '',
     href: '#',
     price: '',
     imageSrc: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/store-card-13-accessories-nav-202209?wid=400&hei=260&fmt=png-alpha&.v=1660677092974',
-    imageAlt:
-    'Payment application dashboard screenshot with transaction table, financial highlights, and main clients on colorful purple background.',
-  },{
-    id: 6,
-    name: 'Airpods',
-    category: '',
-    href: '#',
-    price: '',
-    imageSrc: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/store-card-13-airpods-nav-202209?wid=400&hei=260&fmt=png-alpha&.v=1660676485885',
     imageAlt:
     'Payment application dashboard screenshot with transaction table, financial highlights, and main clients on colorful purple background.',
   },

@@ -369,10 +369,11 @@ const filters = [
     id: 'digital',
     name: '디지털',
     options: [
-      { value: '102', label: '핸드폰' },
-      { value: '103', label: '태블릿' },
-      { value: '104', label: '블루투스' },
-      { value: '105', label: '음향기기' },
+      { value: '101', label: '핸드폰' },
+      { value: '102', label: '태블릿' },
+      { value: '103', label: '스마트워치' },
+      { value: '104', label: '블루투스 이어폰' },
+      { value: '105', label: '악세서리' },
     ],
   },
   {
@@ -381,6 +382,7 @@ const filters = [
     options: [
       { value: '201', label: '삼성' },
       { value: '202', label: '애플' },
+      { value: '203', label: '기타' },
     ],
   },
   {

@@ -98,6 +98,17 @@
       END;
   </select>
 
+  <select id="deleteSellerInfo" parameterType="String" statementType="CALLABLE">
+    DECLARE
+    BEGIN
+      DELETE FROM TB_PRODUCT
+      WHERE SLLR_id = #{userId,jdbcType=VARCHAR };
+
+      DELETE FROM TB_SELLER
+      WHERE SLLR_id = #{userId,jdbcType=VARCHAR };
+    END;
+  </select>
+
   <update id="updateRefreshToken" parameterType="Map">
     /*insertRefreshToken*/
     <if test="map.userVo.userType == 1">
