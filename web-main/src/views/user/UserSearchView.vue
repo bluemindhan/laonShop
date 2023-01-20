@@ -142,9 +142,7 @@
             <p class="mt-4 text-base font-medium text-gray-900">{{ product.price }}</p>
             <!-- 장바구니 / 구매하기 버튼 -->
             <span class="isolate inline-flex rounded-md shadow-sm mt-4">
-              <router-link :to="`/user/cart`">
-                <button type="button" class="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">장바구니</button>
-              </router-link>
+              <button type="button" @click="addCart(product.productId)" class="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">장바구니</button>
               <button type="button" class="relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">구매하기</button>
             </span>
           </div>
@@ -159,6 +157,7 @@
 import GetItemsRequest from "@/service/request/GetItemsRequest.js";
 import {mapGetters, mapMutations} from "vuex";
 import ResultCode from "@/service/ResultCode";
+import AddCartRequest from "@/service/request/AddCartRequest.js";
 
 export default {
   name: 'UserSearchView',
@@ -169,6 +168,7 @@ export default {
   data() {
     return {
       products: [],
+      cartVo: [],
     }
   },
   computed: {
@@ -205,7 +205,26 @@ export default {
         console.error(e);
       }
     },
+    async addCart(val) {
+      let req = new AddCartRequest();
+      req.cnt += 1;
+      req.productNum = parseInt(val);
+      console.log(req);
+      try {
+        let res = await this.api.addCart(req);
+        if (res.code === ResultCode.Success) {
+          console.log(res);
+          this.cartVo = res.cartVo;
+          this.$router.replace({name: "UserCartView"});
+        } else {
+          alert(res.message);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    },
   },
+  
   created() {
     console.log("UserMainView.vue..", this.accessToken);
     if (this.accessToken == null || this.accessToken == "") {
@@ -221,6 +240,7 @@ export default {
       this.getItemsList();
     }  
   },
+  
   mounted() {
   },
   beforeUnmount() {

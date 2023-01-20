@@ -298,6 +298,23 @@ export class ApiService {
     });
   }
 
+  updateCart(req) {
+    return new Promise((resolve, reject) => {
+      axios.patch('/api/v1/cart/cart-update', req).then(res => {
+        if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
+
   mainPage() {
     return new Promise((resolve, reject) => {
       axios.get('/api/v1/item/mainpage').then(res => {
