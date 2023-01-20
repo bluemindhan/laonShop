@@ -26,9 +26,7 @@ public class ProductVo {
 
   public String updDt;   // 수정날짜
 
-  public List<String> imageList;  // 이미지
-
-  public List<ImageVo> imageVoList; // 상품 이미지 리스트
+  public String image; // 상품 이미지 URL
 
   public void set(UserVo vo) {
     this.sllrId = vo.userId;

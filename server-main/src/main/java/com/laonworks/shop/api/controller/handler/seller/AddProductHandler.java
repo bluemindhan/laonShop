@@ -53,7 +53,6 @@ public class AddProductHandler extends BaseHandler {
             System.out.println("urlList --> " + urlList.toString());
 
             int n = productService.addProduct(productVo,urlList);
-            //int n = productService.addProduct(productVo);
             if(n == 0) {
                 res.setCode(ResultCode.InternalServerError);
                 return res;
