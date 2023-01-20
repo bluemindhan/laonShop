@@ -74,14 +74,7 @@ public class ModifyProductHandler extends BaseHandler {
             productVo.setPrdtPrce(productPrice);
             logger.info("1. productVo 확인" + productVo);
             delete = productMapper.deleteProductImg(productNum);
-//            List<String> urlList = awsService.uploadProductImageList(req.imageList);
-
-            List<String> urlList = new ArrayList<String>();
-            //urlList.add("https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/838de7e3-f274-4ea1-8b42-c340e2495406.jpg"); // 파인애플
-            urlList.add("https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/538b81b5-a7fa-44e1-9774-10c0be0a03a5.jpg"); //수박
-            // [https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/9a9b49bc-a778-40bc-aafd-9d3544a4c965.jpg,
-            // https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/838de7e3-f274-4ea1-8b42-c340e2495406.jpg,
-            // https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/538b81b5-a7fa-44e1-9774-10c0be0a03a5.jpg]
+            List<String> urlList = awsService.uploadProductImageList(req.imageList);
 
             int n = productService.modifyProduct(productVo, urlList);
             logger.info("2. n" + n);

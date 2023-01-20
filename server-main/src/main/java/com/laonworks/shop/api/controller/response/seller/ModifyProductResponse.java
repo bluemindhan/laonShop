@@ -11,6 +11,7 @@ import lombok.EqualsAndHashCode;
 @ApiModel(description = "Product Modification")
 @Data
 public class ModifyProductResponse extends BaseResponse {
+    
     public int result = 0;
 
 }
