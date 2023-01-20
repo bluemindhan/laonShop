@@ -38,12 +38,13 @@
                       <p v-if="product.size" class="mt-1 text-sm text-gray-500">{{ product.size }}</p> -->
                     </div>
 
-                    <p class="text-right text-sm font-medium text-gray-900">$ {{ vo.price }}</p>
+                    <p class="text-right text-sm font-medium text-gray-900">$ {{ vo.price * vo.cnt }}</p>
                   </div>
 
                   <div class="mt-4 flex items-center sm:absolute sm:top-0 sm:left-1/2 sm:mt-0 sm:block">
                     <label :for="`quantity-${productIdx}`" class="sr-only">Quantity, {{ vo.productName }}</label>
-                    <select :id="`quantity-${productIdx}`" @change="onChange($event)" :name="`quantity-${productIdx}`" value="1" class="block max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
+                    <select :id="`quantity-${productIdx}`" @change="onChange(`quantity-${productIdx}`)" :name="`quantity-${productIdx}`" :value=vo.cnt class="block max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
+                      <!-- <select :id="`quantity-${productIdx}`" @change="onChange($event)" :name="`quantity-${productIdx}`" value="1" class="block max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">   -->
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -55,7 +56,7 @@
                       <option>9</option>
                       <option>10</option>
                     </select>
-                    <button type="button" @click="updateCart(count, vo.productNum)" :value="vo.productNum" class="ml-4 text-sm font-medium text-indigo-600 hover:text-indigo-500 sm:ml-0 sm:mt-3" style="margin-right: 10px;">
+                    <button type="button" @click="[vo.cnt=count ,updateCart(count, vo.productNum)]" :value="vo.productNum" class="ml-4 text-sm font-medium text-indigo-600 hover:text-indigo-500 sm:ml-0 sm:mt-3" style="margin-right: 10px;">
                       <span>수량 변경</span>
                     </button>
                     <button type="button" @click="deleteCart(vo.productNum)" :value="vo.productNum" class="ml-4 text-sm font-medium text-indigo-600 hover:text-indigo-500 sm:ml-0 sm:mt-3">
@@ -80,7 +81,7 @@
               <dl class="-my-4 divide-y divide-gray-200 text-sm">
                 <div class="flex items-center justify-between py-4">
                   <dt class="text-base font-medium text-gray-900">Order total</dt>
-                  <dd class="text-base font-medium text-gray-900">$ 122.2</dd>
+                  <dd class="text-base font-medium text-gray-900">$ {{ total }}</dd>
                 </div>
               </dl>
             </div>
@@ -124,7 +125,8 @@ export default {
     return {
       volist : [],
       key: "",
-      count: "",
+      count: 1,
+      total: 0,
     }
   },
   computed: {
@@ -154,9 +156,13 @@ export default {
 
       try {
         let res = await this.api.getCartList(req);
+
+
+
         if (res.code === ResultCode.Success) {
           this.volist = res.volist;
           console.log(res);
+          this.getTotal();
         }
       } catch (e) {
         console.error(e);
@@ -170,6 +176,7 @@ export default {
         let res = await this.api.deleteCart(req);
         if (res.code === ResultCode.Success) {
           console.log(res);
+          this.$router.go();
         } else {
           alert(res.message);
         }
@@ -183,11 +190,12 @@ export default {
       req.productNum = parseInt(val);
       console.log(req);
       try {
-        let res = await this.api.addCart(req);
+        let res = await this.api.updateCart(req);
         if (res.code === ResultCode.Success) {
           console.log(res);
           this.cartVo = res.cartVo;
-          this.$router.replace({name: "UserCartView"});
+          //this.$router.replace({name: "UserCartView"});
+          this.$router.go();
         } else {
           alert(res.message);
         }
@@ -195,11 +203,40 @@ export default {
         console.error(e);
       }
     },
-    onChange(event) {
-      console.log(event.target.value)
-      this.count = event.target.value;
+    // onChange(event) {
+    //   console.log(event.target.value)
+    //   this.count = event.target.value;
+    // },
+    onChange(val) {
+      let target = document.getElementById(val);
+      this.count = target.options[target.selectedIndex].value;
     },
-    
+    // sum() {
+    //   console.log("start");
+    //   let sum = 0;
+    //   console.log(this.volist.length);
+    //   console.log(this.volist);
+    //   for(let i = 0; i < this.volist.length; i++) {
+    //     console.log(this.volist.price[i]);
+    //     console.log(this.volist.cnt[i]);
+    //     sum += this.volist.price[i] * this.volist.cnt[i];
+    //   }
+
+    //   this.total = sum;
+    //   console.log(sum);
+    // }
+    getTotal() {
+      console.log("total start");
+      console.log(this.volist.length);
+      console.log(this.volist);
+      this.total = 0;
+      for(var i = 0; i < this.volist.length; i++) {
+        console.log("start for");
+        console.log(this.volist[i].sum);
+        this.total += parseInt(this.volist[i].sum);
+      }
+      console.log(this.total);
+    }
   },
   created() {
     console.log("UserMainView.vue..", this.accessToken);
@@ -215,6 +252,7 @@ export default {
       this.api.setAccessToken(this.accessToken);
       this.getCartList();
     }  
+    
   },
   mounted() {
   },

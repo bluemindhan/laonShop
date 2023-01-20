@@ -300,7 +300,7 @@ export class ApiService {
 
   updateCart(req) {
     return new Promise((resolve, reject) => {
-      axios.post('/api/v1/cart/cart-update', req).then(res => {
+      axios.patch('/api/v1/cart/cart-update', req).then(res => {
         if (res.status === 200) {
           resolve(res.data);
           return;
