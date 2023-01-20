@@ -157,3 +157,30 @@ ALTER TABLE TB_PRODUCT
 		REFERENCES TB_PRODUCT_CATEGORY (
 			CATECODE
 		);
+
+
+------------------------------ 상품 이미지 처리 (지현) ----------------------------
+CREATE SEQUENCE SQ_PRDT_IMG_NO;
+
+-- 함수 생성
+create or replace FUNCTION  GET_PRODUCT_IMAGE
+( p_PRDT_NO          IN      TB_PRODUCT_IMAGE.PRDT_NO%TYPE ,
+  p_PRDT_IMG_NO      IN      TB_PRODUCT_IMAGE.PRDT_IMG_NO%TYPE
+)
+
+-- 1) Parameter : 상품번호
+RETURN             varchar2
+IS
+   v_IMG_URL            TB_PRODUCT_IMAGE.IMG_URL%TYPE;
+ BEGIN
+
+-- 2) 상품번호와 이미지번호로 이미지URL
+   SELECT          IMG_URL
+   INTO            v_IMG_URL
+   FROM           TB_PRODUCT_IMAGE
+   WHERE         PRDT_NO = p_PRDT_NO
+   AND           PRDT_IMG_NO = p_PRDT_IMG_NO;
+
+-- 3)이미지 전달
+   RETURN(v_IMG_URL);
+END GET_PRODUCT_IMAGE;

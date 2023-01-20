@@ -29,7 +29,7 @@ public interface ProductMapper {
 
   int modifyProduct(@Param("vo") ProductVo vo); // 상품 수정
 
-  int modifyProductImage(ProductImageVo vo); // 상품 이미지 수정
+ // int modifyProductImage(ProductImageVo vo);
 
   int deleteProduct(@Param("vo") ProductVo vo); // 상품 삭제
 

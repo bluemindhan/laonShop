@@ -11,6 +11,8 @@ import com.laonworks.shop.api.mapper.AuthMapper;
 import com.laonworks.shop.api.mapper.vo.UserVo;
 import com.laonworks.shop.api.service.CustomUserDetails;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,6 +21,7 @@ import java.util.List;
 @Slf4j
 @Component // 재사용이 가능한 독립된 모듈
 public class AddProductHandler extends BaseHandler {
+    private Logger logger= LoggerFactory.getLogger(this.getClass());
     @Autowired
     AuthMapper authMapper;
     @Autowired
@@ -50,7 +53,6 @@ public class AddProductHandler extends BaseHandler {
             productVo.prdtPrce = req.productPrice;
             productVo.sllrId = sellerVo.userId;
             List<String> urlList = awsService.uploadProductImageList(req.imageList);
-            System.out.println("urlList --> " + urlList.toString());
 
             int n = productService.addProduct(productVo,urlList);
             if(n == 0) {
