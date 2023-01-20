@@ -75,20 +75,26 @@
             </transition>
           </Menu>
 
-          <div class="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end mr-40">
+          <div class="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end mr-40 flex">
           <div class="w-full max-w-lg lg:max-w-xs">
             <label for="search" class="sr-only">검색</label>
             <div class="relative">
               <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <MagnifyingGlassIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+                <MagnifyingGlassIcon class="h-5 w-5 text-gray-400" aria-hidden="true"/>
               </div>
-              <input id="search" name="search" class="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 leading-5 placeholder-gray-500 focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm" 
+              <input id="keyWord" name="keyWord" class="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 leading-5 placeholder-gray-500 focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
               placeholder="검색할 상품을 입력하세요" 
-              type="search" 
-              required/>
+              type="text"
+              required
+              v-model="keyWord"
+              @keyup.enter="search"
+              />
             </div>
+
           </div>
-        </div>
+            <button type="button" @click="search" class="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            >검색</button>
+          </div>
 
           <button type="button" class="inline-block text-sm font-medium text-gray-700 hover:text-gray-900 sm:hidden" @click="open = true">Filters</button>
 
@@ -106,7 +112,7 @@
                 <PopoverPanel class="absolute right-0 z-10 mt-2 origin-top-right rounded-md bg-white p-4 shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <form class="space-y-4">
                     <div v-for="(option, optionIdx) in section.options" :key="option.value" class="flex items-center">
-                      <input :id="`filter-${section.id}-${optionIdx}`" :name="`${section.id}[]`" :value="option.value" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
+                      <input :id="`filter-${section.id}-${optionIdx}`" :name="`${section.id}[]`" v-model="checkedValues"  :value="option.value" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
                       <label :for="`filter-${section.id}-${optionIdx}`" class="ml-3 whitespace-nowrap pr-6 text-sm font-medium text-gray-900">{{ option.label }}</label>
                     </div>
                   </form>
@@ -151,13 +157,15 @@
     </div>
   </div>
   </div>
+  <!-- {{ checkedValues }}
+  {{ keyWord }} -->
 </template>
 
 <script>
 import GetItemsRequest from "@/service/request/GetItemsRequest.js";
+import GetSearchRequest from "@/service/request/GetSearchRequest.js";
 import {mapGetters, mapMutations} from "vuex";
 import ResultCode from "@/service/ResultCode";
-import AddCartRequest from "@/service/request/AddCartRequest.js";
 
 export default {
   name: 'UserSearchView',
@@ -169,6 +177,12 @@ export default {
     return {
       products: [],
       cartVo: [],
+      categoryList: [],
+      checkedValues: [],
+      keyWord: '',
+      cateCode: 0,
+      filter: '',
+      page: 1,
     }
   },
   computed: {
@@ -223,8 +237,33 @@ export default {
         console.error(e);
       }
     },
+    async search() {
+      let req = new GetSearchRequest();
+
+      console.log(this.checkedValues);
+      console.log(this.keyWord);
+      console.log(this.page);
+      console.log(this.filter);
+      req.cateCode = this.checkedValues;
+      // req.cateCode = '';
+      req.keyWord = this.keyWord;
+      req.page = this.page;
+      req.filter = '';
+      console.log(req);
+      try {
+        let res = await this.api.search(req);
+        if (res.code === ResultCode.Success) {
+          this.products = res.products;
+          this.categoryList = res.categoryList;
+          console.log(res);
+        }
+      } catch (e) {
+        alert('검색어를 입력해주세요!');
+        console.error(e);
+      }
+    },
   },
-  
+
   created() {
     console.log("UserMainView.vue..", this.accessToken);
     if (this.accessToken == null || this.accessToken == "") {
@@ -238,9 +277,10 @@ export default {
        */
       this.api.setAccessToken(this.accessToken);
       this.getItemsList();
-    }  
+      // this.search();
+    }
   },
-  
+
   mounted() {
   },
   beforeUnmount() {
