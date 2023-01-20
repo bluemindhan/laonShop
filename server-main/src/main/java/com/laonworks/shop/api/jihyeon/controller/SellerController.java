@@ -4,7 +4,6 @@ import com.laonworks.shop.api.controller.BaseController;
 import com.laonworks.shop.api.controller.handler.seller.*;
 import com.laonworks.shop.api.controller.request.seller.*;
 import com.laonworks.shop.api.controller.response.seller.*;
-import com.laonworks.shop.api.jihyeon.vo.ProductVo;
 import com.laonworks.shop.api.service.CustomUserDetails;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
