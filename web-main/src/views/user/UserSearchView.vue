@@ -49,14 +49,14 @@
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:max-w-7xl lg:px-8">
       <div class="py-24">
         <h1 class="text-4xl font-bold tracking-tight text-gray-900">New Arrivals</h1>
-        <p class="mx-auto mt-4 max-w-3xl text-base text-gray-500">Thoughtfully designed objects for the workspace, home, and travel.</p>
+        <p v-if="isShow" class="mx-auto mt-4 max-w-3xl text-base text-gray-500"> "{{ searchWord }}" 에 대한 검색 결과 입니다.</p>
       </div>
 
       <section aria-labelledby="filter-heading" class="border-t border-gray-200 py-6">
         <h2 id="filter-heading" class="sr-only">Product filters</h2>
 
         <div class="flex items-center justify-between">
-          <Menu as="div" class="relative inline-block text-left">
+          <!-- <Menu as="div" class="relative inline-block text-left">
             <div>
               <MenuButton class="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
                 정렬
@@ -73,7 +73,7 @@
                 </div>
               </MenuItems>
             </transition>
-          </Menu>
+          </Menu> -->
 
           <div class="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end mr-40 flex">
           <div class="w-full max-w-lg lg:max-w-xs">
@@ -98,12 +98,35 @@
 
           <button type="button" class="inline-block text-sm font-medium text-gray-700 hover:text-gray-900 sm:hidden" @click="open = true">Filters</button>
 
+          <PopoverGroup class="hidden sm:flex sm:items-baseline sm:space-x-8 mx-8">
+            <Popover as="div" v-for="(section, sectionIdx) in sort" :key="section.name" :id="`desktop-menu-${sectionIdx}`" class="relative inline-block text-left">
+              <div>
+                <PopoverButton class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                  <span>{{ section.name }}</span>
+                  <!-- <span v-if="sectionIdx === 0" class="ml-1.5 rounded bg-gray-200 py-0.5 px-1.5 text-xs font-semibold tabular-nums text-gray-700">1</span> -->
+                  <ChevronDownIcon class="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500" aria-hidden="true" />
+                </PopoverButton>
+              </div>
+
+              <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
+                <PopoverPanel class="absolute right-0 z-10 mt-2 origin-top-right rounded-md bg-white p-4 shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <form class="space-y-4">
+                    <div v-for="(option, optionIdx) in section.options" :key="option.value" class="flex items-center">
+                      <input :id="`filter-${section.id}-${optionIdx}`" :name="`${section.id}[]`" v-model="sortValue"  :value="option.value" type="radio" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
+                      <label :for="`filter-${section.id}-${optionIdx}`" class="ml-3 whitespace-nowrap pr-6 text-sm font-medium text-gray-900">{{ option.label }}</label>
+                    </div>
+                  </form>
+                </PopoverPanel>
+              </transition>
+            </Popover>
+          </PopoverGroup>
+
           <PopoverGroup class="hidden sm:flex sm:items-baseline sm:space-x-8">
             <Popover as="div" v-for="(section, sectionIdx) in filters" :key="section.name" :id="`desktop-menu-${sectionIdx}`" class="relative inline-block text-left">
               <div>
                 <PopoverButton class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
                   <span>{{ section.name }}</span>
-                  <span v-if="sectionIdx === 0" class="ml-1.5 rounded bg-gray-200 py-0.5 px-1.5 text-xs font-semibold tabular-nums text-gray-700">1</span>
+                  <!-- <span v-if="sectionIdx === 0" class="ml-1.5 rounded bg-gray-200 py-0.5 px-1.5 text-xs font-semibold tabular-nums text-gray-700">1</span> -->
                   <ChevronDownIcon class="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500" aria-hidden="true" />
                 </PopoverButton>
               </div>
@@ -158,7 +181,8 @@
   </div>
   </div>
   <!-- {{ checkedValues }}
-  {{ keyWord }} -->
+  {{ keyWord }}
+  {{ sortValue }} -->
 </template>
 
 <script>
@@ -179,10 +203,13 @@ export default {
       cartVo: [],
       categoryList: [],
       checkedValues: [],
+      sortValue: '',
       keyWord: '',
       cateCode: 0,
       filter: '',
       page: 1,
+      searchWord: '',
+      isShow : false,
     }
   },
   computed: {
@@ -243,18 +270,19 @@ export default {
       console.log(this.checkedValues);
       console.log(this.keyWord);
       console.log(this.page);
-      console.log(this.filter);
+      console.log(this.sortValue);
       req.cateCode = this.checkedValues;
-      // req.cateCode = '';
       req.keyWord = this.keyWord;
       req.page = this.page;
-      req.filter = '';
+      req.filter = this.sortValue;
       console.log(req);
       try {
         let res = await this.api.search(req);
         if (res.code === ResultCode.Success) {
           this.products = res.products;
           this.categoryList = res.categoryList;
+          this.isShow = true;
+          this.searchWord = this.keyWord;
           console.log(res);
         }
       } catch (e) {
@@ -312,13 +340,29 @@ import { XMarkIcon } from '@heroicons/vue/24/outline'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
 import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid'
 
-const sortOptions = [
-  { name: '좋아요 높은순', href: '#' },
-  { name: '좋아요 낮은순', href: '#' },
-  { name: '이름 오름차순', href: '#' },
-  { name: '이름 내림차순', href: '#' },
-  { name: '가격 높은순', href: '#' },
-  { name: '가격 낮은순', href: '#' },
+// const sortOptions = [
+//   { name: '좋아요 높은순', href: '#' },
+//   { name: '좋아요 낮은순', href: '#' },
+//   { name: '이름 오름차순', href: '#' },
+//   { name: '이름 내림차순', href: '#' },
+//   { name: '가격 높은순', href: '#' },
+//   { name: '가격 낮은순', href: '#' },
+// ]
+
+const sort = [
+  {
+    id: 'sort',
+    name: '정렬',
+    options: [
+      { value: '', label: '선택 안함' },
+      { value: 'likeASC', label: '좋아요 높은순' },
+      { value: 'likeDESC', label: '좋아요 낮은순' },
+      { value: 'nameASC', label: '이름 오름차순' },
+      { value: 'nameDESC', label: '이름 내림차순' },
+      { value: 'priceASC', label: '가격 높은순' },
+      { value: 'priceDESC', label: '가격 낮은순' },
+    ],
+  },
 ]
 const filters = [
   {
