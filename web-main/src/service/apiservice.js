@@ -55,6 +55,21 @@ export class ApiService {
       })
     });
   }
+  deleteUser(req) {
+    return new Promise((resolve, reject) => {
+      axios.delete("/api/v1/auth/withdrawal", {data : req}).then(res => {
+       if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
   getProfile(req) {
     const url = '/api/v1/user/profile?' + qs.stringify(req);
     return new Promise((resolve, reject) => {
