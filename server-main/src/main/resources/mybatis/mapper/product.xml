@@ -102,6 +102,7 @@
           ) B
                       ON        A.PRDT_NO = B.PRDT_NO
                       WHERE A.SLLR_ID = #{sllrId}
+                      ORDER BY A.CRT_DT DESC
       ) a
   )
   WHERE rn BETWEEN #{start} AND #{end}
