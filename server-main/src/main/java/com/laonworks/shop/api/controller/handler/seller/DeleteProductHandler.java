@@ -60,8 +60,10 @@ public class DeleteProductHandler extends BaseHandler {
             productMapper.deleteProduct(productVo);
             if(sellerVo == null) {
                 res.setCode(ResultCode.InternalServerError);
+                res.result = 0;
                 return res;
             }
+            res.result = 1;
             res.setCode(ResultCode.Success);
             return res;
         }

@@ -14,14 +14,18 @@ import com.laonworks.shop.api.mapper.AuthMapper;
 import com.laonworks.shop.api.mapper.vo.UserVo;
 import com.laonworks.shop.api.service.CustomUserDetails;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
 @Component // 재사용이 가능한 독립된 모듈
 public class ModifyProductHandler extends BaseHandler {
+    private Logger logger= LoggerFactory.getLogger(this.getClass());
     @Autowired
     AuthMapper authMapper;
 
@@ -54,7 +58,6 @@ public class ModifyProductHandler extends BaseHandler {
 
         try {
             UserVo sellerVo;
-            int result=0;
             if(userType == UserType.Seller.getValue()) {
                 sellerVo = authMapper.selectSellerInfo(email);
             }
@@ -64,24 +67,25 @@ public class ModifyProductHandler extends BaseHandler {
             }
             ProductVo productVo = new ProductVo();
             // 파라미터 setting
-            productVo.setSllrId(email);
+            productVo.setSllrId(sellerVo.userId);
             productVo.setPrdtNo(productNum);
             productVo.setPrdtNm(productName);
             productVo.setPrdtDesc(productDesc);
             productVo.setPrdtPrce(productPrice);
+            logger.info("1. productVo 확인" + productVo);
             delete = productMapper.deleteProductImg(productNum);
             List<String> urlList = awsService.uploadProductImageList(req.imageList);
 
-            if(req != null || !req.equals("")){
-               result=productService.modifyProduct(productVo, urlList);
-               log.info("result:" +result);
-               res.setResult(result);
-               res.setCode(ResultCode.Success);
-            }
-            else if(result == 0) {
+            int n = productService.modifyProduct(productVo, urlList);
+            logger.info("2. n" + n);
+            if(n == 0) {
                 res.setCode(ResultCode.InternalServerError);
+                res.result = 0;
                 return res;
             }
+            res.result = 1;
+            res.setCode(ResultCode.Success);
+            return res;
         }
         catch(Exception e) {
             res.setCode(ResultCode.InternalServerError);
