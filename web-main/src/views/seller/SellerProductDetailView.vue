@@ -76,6 +76,7 @@ export default {
       id: this.$route.params.id,
       productVo: {},
       imageList: [],
+      imgList: [],
       productName: "",
       productDesc: "",
       productPrice: 0,
@@ -137,6 +138,7 @@ export default {
       const name = e.target.getAttribute('name');
       this.imgList = this.imgList.filter(data => data.name != name);
       // 렌더링 되고 마지막에 실행이 되도록 $nextTick()을 사용한다.
+      this.uploadReady = false
       this.$nextTick(() => {
         this.uploadReady = true;
       })
@@ -158,38 +160,38 @@ export default {
       }
     },
     async update() {
-      if (this.productName === "") {
+      if (document.getElementById("productName").value == "") {
         alert("상품명을 입력해주세요.");
         return;
       }
 
-      if (this.productDesc === "") {
+      if (document.getElementById("productDesc").value == "") {
         alert("상품설명을 입력해주세요.");
         return;
       }
 
-      if (this.productPrice <= 0) {
+      if (document.getElementById("productPrice").value <= 0) {
         alert("상품가격을 입력해주세요.");
         return;
       }
 
-      if (this.productImageVoList.length === 0) {
+      if (this.imgList.length === 0) {
         alert("상품 이미지를 등록해주세요.");
         return;
       }
 
       let req = new UpdateProductRequest();
       req.productNum = this.id;
-      req.productName = this.productName;
-      req.productDesc = this.productDesc;
-      req.productPrice = this.productPrice;
+      req.productName = document.getElementById("productName").value;
+      req.productDesc = document.getElementById("productDesc").value;
+      req.productPrice = document.getElementById("productPrice").value;
       req.imageList = [];
-      this.imageList.forEach((item) => {
+      this.imgList.forEach((item) => {
         req.imageList.push(item.src);
       });
 
       try {
-        let res = await this.api.productsUpdate(req);
+        let res = await this.api.updateProduct(req);
         if (res.resultCode === ResultCode.SUCCESS) {
           alert("상품 수정 성공");
           this.$router.replace("/seller/products");
