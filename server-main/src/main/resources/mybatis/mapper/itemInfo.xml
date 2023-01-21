@@ -42,22 +42,40 @@
         A.PRDT_NO = #{pdNum, jdbcType=VARCHAR}
     </select>
 
+    <!--상품 갯수-->
+    <select id="selectItemCount" resultType="int">
+      <![CDATA[
+            /* selectProductCount */ SELECT
+                                         COUNT(1)
+                                     FROM
+                                         TB_PRODUCT A
+            ]]>
+  </select>
 
+    <!--상품 목록 출력-->
     <select id="selectProductList" resultType="ProductVo">
-        SELECT
-            A.PRDT_NO as productId,
-            A.CRT_DT as createDate,
-            A.UPD_DT as updateDate,
-            A.SLLR_ID as sellerId,
-            A.PRDT_NM as name,
-            A.PRDT_PRCE as price,
-            A.PRDT_DESC as detail,
-            B.IMG_URL as image
-        FROM
-            TB_PRODUCT A,
-            TB_PRODUCT_IMAGE B
-        WHERE
-            A.PRDT_NO=B.PRDT_NO AND B.PRDT_IMG_NO =1
+        SELECT * FROM
+            (
+                SELECT ROWNUM rn, a.*
+                FROM
+                    ( SELECT    A.PRDT_NO as productId,
+                                B.PRDT_IMG_NO as imageNo,
+                                A.PRDT_PRCE as price ,
+                                A.PRDT_NM as name ,
+                                A.PRDT_DESC as detail ,
+                                A.CRT_DT as createDate ,
+                                A.UPD_DT as updateDate,
+                                GET_PRODUCT_IMAGE(B.PRDT_NO,B.PRDT_IMG_NO) as image
+                      FROM
+                          TB_PRODUCT A
+                              LEFT JOIN ( SELECT PRDT_NO, MIN(PRDT_IMG_NO) PRDT_IMG_NO
+                                          FROM   TB_PRODUCT_IMAGE
+                                          GROUP BY PRDT_NO
+                          ) B     ON        A.PRDT_NO = B.PRDT_NO
+                      ORDER BY A.CRT_DT DESC
+                    ) a
+            )
+        WHERE rn BETWEEN #{start} AND #{end}
     </select>
 
     <select id = "selectMainPage" resultMap="itemDetailInfo">

@@ -12,11 +12,14 @@ public interface ItemMapper {
 
     ItemVo selectItemDetailInfo(@Param("pdNum") int productNo);
 
-    List<ProductVo> selectProductList(); // 전체 상품 목록 Select
+    int selectItemCount(); // 전체 상품 개수 total get
+
+    List<ProductVo> selectProductList(@Param("start") int start,@Param("end") int end); // 전체 상품 목록 Select
 
     List<ItemVo> selectMainPage();
 
     int selectWishFlag(String userid, int productNum);
+
 
 
 }

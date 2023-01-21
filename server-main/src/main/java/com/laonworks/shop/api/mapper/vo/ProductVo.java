@@ -16,12 +16,16 @@ public class ProductVo { //상품 VO
     public String sellerId; // 판매자 아이디
 
     public String price; // 상품 가격
+    
+    public String imageNo; // 이미지 번호
 
     public String image; // 이미지 url
 
     public String name; // 상품 이름
 
     public String detail; // 상품 설명
+
+    public int cateCode; // 카테고리 번호
 
     public int likeCnt; // 좋아요 개수
 

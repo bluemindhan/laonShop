@@ -4,6 +4,7 @@ import com.laonworks.shop.api.controller.ResultCode;
 import com.laonworks.shop.api.controller.handler.BaseHandler;
 import com.laonworks.shop.api.controller.request.item.GetItemsRequest;
 import com.laonworks.shop.api.controller.response.item.GetItemsResponse;
+import com.laonworks.shop.api.controller.utils.PagingUtils;
 import com.laonworks.shop.api.controller.vo.UserType;
 import com.laonworks.shop.api.mapper.ItemMapper;
 import com.laonworks.shop.api.mapper.UserMapper;
@@ -19,16 +20,27 @@ public class GetItemsHandler extends BaseHandler{
     @Autowired
     ItemMapper itemMapper;
 
-    public GetItemsResponse execute(CustomUserDetails user) {
+    public GetItemsResponse execute(CustomUserDetails user,GetItemsRequest req) {
         GetItemsResponse res = new GetItemsResponse();
         if(user == null) {
             res.setCode(ResultCode.Unauthorized);
             return res;
         }
+        if(req.invalid()){
+            res.setCode(ResultCode.InvalidParameter);
+            return res;
+        }
+        int pageNo = req.pageNo; // 현재 페이지
+        int pageSize = req.pageSize;
         int userType = user.getUserType();
         try {
             if(userType == UserType.User.getValue()){
-                res.products= itemMapper.selectProductList();
+                int totalCount = itemMapper.selectItemCount();
+                int begin = (pageNo - 1) * pageSize;
+                int end = begin + pageSize;
+
+                res.products= itemMapper.selectProductList(begin,end);
+
                 if(res.products!=null && res.products.size()!=0) {
                     res.setCode(ResultCode.Success);
                 }else {
