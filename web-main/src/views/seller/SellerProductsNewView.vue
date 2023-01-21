@@ -135,6 +135,7 @@ export default {
       const name = e.target.getAttribute('name');
       this.imgList = this.imgList.filter(data => data.name != name);
       // 렌더링 되고 마지막에 실행이 되도록 $nextTick()을 사용한다.
+      this.uploadReady = false
       this.$nextTick(() => {
         this.uploadReady = true;
       })
