@@ -44,7 +44,10 @@ public class ItemController extends BaseController {
 
     @RequestMapping(method = RequestMethod.GET, value = "user-items")
     @ApiOperation(value = "get items")
-    GetItemsResponse getItems(@AuthenticationPrincipal Authentication auth, @RequestParam(value = "pageNo", required = true) int pageNo, @RequestParam(value = "pageSize", required = true) int pageSize,  HttpServletRequest request) {
+    GetItemsResponse getItems(@AuthenticationPrincipal Authentication auth, @RequestParam(value = "pageNo", required = true) int pageNo,
+                                                                            @RequestParam(value = "pageSize", required = true) int pageSize,
+                                                                            @RequestParam(value = "cateCode", required = true) int cateCode,
+                                                                            HttpServletRequest request) {
         getItemsHandler.setHttpServletRequest(request);
         System.out.println("Authoriztion -->  " + request.getHeader("Authorization"));
         CustomUserDetails user=null;
@@ -62,6 +65,7 @@ public class ItemController extends BaseController {
         GetItemsRequest req =new GetItemsRequest();
         req.setPageNo(pageNo);
         req.setPageSize(pageSize);
+        req.setCateCode(cateCode);
         return getItemsHandler.execute(user,req);
     }
 

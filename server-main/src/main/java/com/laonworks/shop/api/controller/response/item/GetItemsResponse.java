@@ -1,13 +1,9 @@
 package com.laonworks.shop.api.controller.response.item;
 
 import com.laonworks.shop.api.controller.response.BaseResponse;
-import com.laonworks.shop.api.controller.vo.ProductInfo;
 import com.laonworks.shop.api.mapper.vo.BigCategoryVo;
-import com.laonworks.shop.api.mapper.vo.ProductVo;
+import com.laonworks.shop.api.mapper.vo.ProductVo1;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -19,7 +15,13 @@ import java.util.List;
 @Data
 public class GetItemsResponse extends BaseResponse {
 
-    public List<ProductVo> products=null;
+    public int totalCount = 0;
+
+    public int pageNo = 0;
+
+    public int pageSize = 0;
+
+    public List<ProductVo1> products=null;
 
     public List<BigCategoryVo> categoryList = null;
 

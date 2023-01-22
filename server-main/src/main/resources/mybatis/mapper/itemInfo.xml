@@ -44,17 +44,22 @@
 
     <!--상품 갯수-->
     <select id="selectItemCount" resultType="int">
-      <![CDATA[
             /* selectProductCount */ SELECT
                                          COUNT(1)
                                      FROM
                                          TB_PRODUCT A
-            ]]>
+                                         <if test='cateCode!=0 and cateCode!=301'>
+                                            WHERE A.CATECODE=#{cateCode}
+                                         </if>
+                                         <if test='cateCode==301'>
+                                            WHERE A.CATECODE=301 OR
+                                            A.CATECODE=302
+                                         </if>
   </select>
 
     <!--상품 목록 출력-->
-    <select id="selectProductList" resultType="ProductVo">
-        SELECT * FROM
+    <select id="selectItemList" resultType="ProductVo1">
+            SELECT * FROM
             (
                 SELECT ROWNUM rn, a.*
                 FROM
@@ -65,17 +70,25 @@
                                 A.PRDT_DESC as detail ,
                                 A.CRT_DT as createDate ,
                                 A.UPD_DT as updateDate,
+                                A.CATECODE AS cateCode,
                                 GET_PRODUCT_IMAGE(B.PRDT_NO,B.PRDT_IMG_NO) as image
                       FROM
                           TB_PRODUCT A
                               LEFT JOIN ( SELECT PRDT_NO, MIN(PRDT_IMG_NO) PRDT_IMG_NO
                                           FROM   TB_PRODUCT_IMAGE
                                           GROUP BY PRDT_NO
-                          ) B     ON        A.PRDT_NO = B.PRDT_NO
-                      ORDER BY A.CRT_DT DESC
-                    ) a
+                          ) B  ON         A.PRDT_NO = B.PRDT_NO
+                                          <if test='cateCode!=0 and cateCode!=300'>
+                                              WHERE A.CATECODE=#{cateCode}
+                                          </if>
+                                          <if test='cateCode==300'>
+                                                WHERE A.CATECODE=301 OR
+                                                      A.CATECODE=302
+                                          </if>
+                                          ORDER BY A.CRT_DT DESC
+                    ) A
             )
-        WHERE rn BETWEEN #{start} AND #{end}
+                                          WHERE rn BETWEEN #{start} AND #{end}
     </select>
 
     <select id = "selectMainPage" resultMap="itemDetailInfo">

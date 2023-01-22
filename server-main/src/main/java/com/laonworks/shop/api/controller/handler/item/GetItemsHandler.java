@@ -32,19 +32,27 @@ public class GetItemsHandler extends BaseHandler{
         }
         int pageNo = req.pageNo; // 현재 페이지
         int pageSize = req.pageSize;
+        int cateCode = req.cateCode;
         int userType = user.getUserType();
+        if(cateCode > 300){
+            res.setCode(ResultCode.InvalidParameter);
+            return res;
+        }
         try {
             if(userType == UserType.User.getValue()){
-                int totalCount = itemMapper.selectItemCount();
+                int totalCount = itemMapper.selectItemCount(cateCode);
                 int begin = (pageNo - 1) * pageSize;
                 int end = begin + pageSize;
 
-                res.products= itemMapper.selectProductList(begin,end);
+                res.products= itemMapper.selectItemList(begin,end,cateCode);
 
                 if(res.products!=null && res.products.size()!=0) {
+                    res.totalCount = totalCount;
+                    res.pageNo = pageNo;
+                    res.pageSize = pageSize;
                     res.setCode(ResultCode.Success);
                 }else {
-                    res.setCode(ResultCode.Failed);
+                    res.setCode(ResultCode.NonContent);
                     return res;
                 }
             } else if (userType==UserType.Seller.getValue()) {

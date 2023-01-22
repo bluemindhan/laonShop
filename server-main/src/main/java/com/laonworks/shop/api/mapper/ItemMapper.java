@@ -1,6 +1,5 @@
 package com.laonworks.shop.api.mapper;
 
-import com.laonworks.shop.api.controller.vo.ItemInfo;
 import org.apache.ibatis.annotations.Mapper;
 import com.laonworks.shop.api.mapper.vo.*;
 import org.apache.ibatis.annotations.Param;
@@ -12,9 +11,9 @@ public interface ItemMapper {
 
     ItemVo selectItemDetailInfo(@Param("pdNum") int productNo);
 
-    int selectItemCount(); // 전체 상품 개수 total get
+    int selectItemCount(@Param("cateCode") int cateCode); // 전체 상품 개수 total get
 
-    List<ProductVo> selectProductList(@Param("start") int start,@Param("end") int end); // 전체 상품 목록 Select
+    List<ProductVo1> selectItemList(@Param("start") int start, @Param("end") int end, @Param("cateCode") int cateCode); // 전체 카테고리 상품 목록 Select
 
     List<ItemVo> selectMainPage();
 

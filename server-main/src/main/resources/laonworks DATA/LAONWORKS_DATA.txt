@@ -1,0 +1,280 @@
+--------------------------------------------------------
+--  파일이 생성됨 - 일요일-1월-22-2023   
+--------------------------------------------------------
+REM INSERTING into LAONWORKS.TB_PRODUCT
+SET DEFINE OFF;
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (1,to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),'yelim2001@gmail.com',1545490,'Apple 맥북 에어 미드나이트/M2 8코어/256GB/8GB/MAC OS ','CPU 모델 번호: M2
+저장장치: SSD
+저장장치 인터페이스: M.2 NVMe
+코어 종류: 옥타코어
+모델 라인: 맥북 에어',302);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (2,to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),'yelim2001@gmail.com',315920,'Apple 2022 애플워치 SE 2세대','가전 모델: 애플워치 SE 2세대
+케이스 재질: 알루미늄
+방수 여부: 방수가능',103);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (3,to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),'yelim2001@gmail.com',838700,'아이폰 13 미니 256gb 스타라이트','색상:스타라이트
+자급제 여부:예
+덱스플레이(인치):5.4
+용량:256GB
+기종:iPhone 13 mini
+발매 시기:2021
+',101);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (4,to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),'yelim2001@gmail.com',312310,'Apple 에어팟 프로 2세대','유무선 여부: 무선
+가전 모델: 에어팟 프로 2세대
+내장마이크 탑재여부: 내장마이크
+색상계열: 화이트계열',104);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (5,to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),'yelim2001@gmail.com',1569900,'Apple 아이패드 Pro 12.9 6세대 M2 WIfi 128gb','품명 및 모델명:	iPad Pro 12.9 M2 Wi-Fi 128GB 스페이스 그레이 [MNXP3KH/A]
+제조자/수입자:	Apple Inc. / 애플
+정격전압/소비전력:	업체 미제공
+제조국:	중국
+동일모델의  출시년월	:2022.07
+크기, 무게	길이: 2650mm 높이: 82mm 넓이: 331mm 무게: 1500g',102);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (6,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'jihyeon2002@gmail.com',1092750,'삼성 갤럭시 Z플립4 256G 자급제 SM-F721N','휴대폰 통신사: 공기계
+가전 모델: 갤럭시 Z 플립
+코어 종류: 옥타코어
+모델명/품번: SM-F721N
+5G 지원여부: 5G Support',101);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (7,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'jihyeon2002@gmail.com',141330,'삼성 갤럭시 워치4 40mm,3.04cm','모델명/품번: SM-R860N
+방수방진 등급: IP68
+모델 라인: 갤럭시워치
+가전 모델: Galaxy Watch4
+웨어러블 종류: 스마트워치',103);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (8,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'jihyeon2002@gmail.com',1499000,'삼성 갤럭시북 프로 360 미스틱 실버(i5-1135G7 WIN 10 탑재)','CPU 모델 번호: 1135G7
+GPU 모델명: 인텔 Iris Xe 그래픽스
+화면크기: 39.6cm
+화면크기(인치): 15.6
+CPU 기본속도: 2.4GHz',302);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (9,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'jihyeon2002@gmail.com',162970,'삼성전자 갤럭시 버즈2 프로','내장마이크 탑재여부: 내장마이크
+색상계열: 화이트계열',104);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (10,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'jihyeon2002@gmail.com',14000,'루아러블 갤럭시워치 충전 케이블 무선 충전기 충전독','적용모델:갤럭시워치 5/워치4/액티브2/액티브1
+색상:블랙',105);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (11,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'jihyeon2002@gmail.com',206910,'삼성 갤럭시탭 A7 Lite 8.7 그레이,64gb,wi-fi','화면크기: 22.05cm
+화면크기(인치): 약 8.7인치에 해당함
+코어 종류: 옥타코어
+RAM용량: 4GB
+중량: 366g',102);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (12,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'son2003@gmail.com',1725090,'에이수스 2022 ZenBook Duo 14','해상도 (해상도 등급): FHD
+저장장치: SSD
+색상계열: 블루
+중량: 1.57kg
+SSD용량: 1TB',302);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (13,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'son2003@gmail.com',61740,'샤오미 미밴드 7','밴드 형태: 밴드 분리형
+심박측정기능: 심박측정 가능
+방수 여부: 방수가능',103);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (14,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'son2003@gmail.com',556840,'레노버 Tab P11 Pro 2세대 OLED 태블릿 PC','중량: 480g
+해상도 (해상도 등급): QHD
+용량: 8200mAh
+스피커 개수: 4개
+무선지원 규격: Wi-Fi 6 (802.11ax)',102);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (15,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'son2003@gmail.com',339000,'삼성전자 68.4cm QHD 오디세이 G5 게이밍 모니터','화면크기: 68.4cm
+해상도 (해상도 등급): QHD
+화면 재생빈도(Hz): 144Hz
+모니터 형태: 커브드
+화면비율: 와이드(16:9)',301);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (16,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'son2003@gmail.com',264950,'LG모니터 81.28cm모니터 컴퓨터모니터 32MN500MW IPS FHD','패널: ips
+응답속도:5Ms
+시야각: 178''/178''
+주사율: 75hz',301);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (17,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'minjae2004@gmail.com',139000,'한성컴퓨터 1500R 커브드 게이밍 리얼 75 모니터','출시년월: 2019.09
+화면크기: 68.58cm
+해상도 (해상도 등급): FHD
+화면 재생빈도(Hz): 75Hz
+화면비율: 와이드(16:9)',301);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (18,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'minjae2004@gmail.com',7900,'신지모루 변색방지 풀커버 강화유리 하드커버 갤럭시워치 케이스','시계판 사이즈: 40mm
+스마트워치 케이스 종류: 풀커버형
+색상계열: 블랙계열',105);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (19,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'minjae2004@gmail.com',449000,'샤오미 패드 5','화면크기: 27.94cm
+화면크기(인치): 약 11인치에 해당함
+코어 종류: 옥타코어
+RAM용량: 6GB
+중량: 511g',102);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (20,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'minjae2004@gmail.com',199000,'HP 60.5cm FHD X24ih 게이밍 모니터','화면크기: 60.45cm
+해상도 (해상도 등급): FHD
+화면 재생빈도(Hz): 144Hz
+모니터 형태: 평면
+화면비율: 와이드(16:9)',301);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (21,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'minjae2004@gmail.com',590000,'Apple 2022 아이폰 SE 3세대 자급제','모델명/품번: MMXH3KH/A
+코어 종류: 헥사코어
+가전 모델: 아이폰 SE 3세대
+화면크기: 4.7형
+휴대폰 통신사: 공기계',101);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (22,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'gyusueng2005@gmail.com',7100,'로랜텍 아이폰 강화유리 액정 보호필름 2개','기종: 아이폰 XS
+방탄/강화유리 여부: 방탄/강화유리',105);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (23,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'gyusueng2005@gmail.com',175000,'소니 링크버즈 S Truly 블루투스 이어버드 무선 이어폰 노이즈 캔슬링 WFLS900N W Sony LinkBuds','유무선 여부: 유선
+내장마이크 탑재여부: 내장마이크
+색상계열: 화이트계열',104);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (24,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'gyusueng2005@gmail.com',870000,'삼성전자 갤럭시 S22 자급제 SM-S901N','휴대폰 통신사: 공기계
+색상: 퍼플
+모델명/품번: SM-S901NLVEKOO
+코어 종류: 옥타코어
+가전 모델: 갤럭시 S22',101);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (25,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'gyusueng2005@gmail.com',1175000,'Apple 정품 아이폰 14 자급제','화면크기: 15.4cm
+화면크기(인치): 약 6인치에 해당함
+탈착 방식: 배터리 일체형
+RAM용량: 6GB
+코어 종류: 헥사코어',101);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (26,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'gyusueng2005@gmail.com',1643610,'삼성 갤럭시 Z 폴드4 5G 자급제 SM-F936N','휴대폰 통신사: 공기계
+가전 모델: 갤럭시 Z 폴드
+코어 종류: 옥타코어
+모델명/품번: SM-F936N
+5G 지원여부: 5G Support',101);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (27,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'gyusueng2005@gmail.com',149000,'알파스캔 60.5cm FHD AOC 보더리스 시력보호 모니터 IPS 75','화면크기(인치): 약 24인치에 해당함
+화면크기: 60.5cm
+해상도 (해상도 등급): FHD
+화면 재생빈도(Hz): 75Hz
+화면비율: 와이드(16:9)',301);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (28,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'minjae2004@gmail.com',39790,'펜톤 TSX 다이아팟 블루투스 5.3 이어폰 커널형 버즈','색상계열: 블랙계열
+노이즈캔슬링 여부: 노이즈캔슬링 포함
+최대시간: 10시간
+유무선 여부: 무선
+유닛형태: 커널형',104);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (29,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'minjae2004@gmail.com',649000,'레노버 2022 ideaPad 노트북 15.6','해상도 (해상도 등급): FHD
+패널: IPS
+저장장치: NVMe
+색상계열: 기타색상
+화면크기: 39.6cm',302);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (30,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'minjae2004@gmail.com',15800,'토이스토리4 하드 갤럭스 버즈 케이스 (키링포함) 정품 라이센스 갤럭시 버즈케이스','모델명: 토이스토리 4 버즈 케이스
+제조국: 국내
+기타: 디즈니 플러스 협약 정품
+주의사항: 갤럭시 버즈 4  전용케이스 다른 버즈와 호한 불가능
+',105);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (31,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'jihyeon2002@gmail.com',329000,'레노버 Tab M10 Plus 3세대 태블릿PC','화면크기: 26.94cm
+코어 종류: 옥타코어
+RAM용량: 4GB
+중량: 465g
+해상도 (해상도 등급): 2K',102);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (32,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'jihyeon2002@gmail.com',71000,'SW200 스포츠 스마트 워치','방수 여부: 방수가능
+심박측정기능: 심박측정 가능
+색상계열: 실버계열',103);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (33,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'jihyeon2002@gmail.com',1349000,'LG전자 그램15 12세대 i5/16GB/256GB/FreeDos','저장장치: SSD
+색상계열: 화이트
+내장마이크 탑재여부: 내장마이크
+그래픽카드 형태: 미장착
+가전 모델: LG 그램',302);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (34,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'jihyeon2002@gmail.com',359000,'보스 QC 이어버드 2 블루투스 이어폰','유무선 여부: 무선
+블루투스 버전: 5.0이상
+노이즈캔슬링 여부: 노이즈캔슬링 포함
+최대시간: 6시간
+유닛형태: 커널형',104);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (35,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'son2003@gmail.com',687000,'애플 아이패드 10세대 27.5cm WiFi 64GB / 256GB ','상표: 애플
+무게: 1..98 파운드
+색상: 핑크
+애플팬슬: 별도',102);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (36,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'son2003@gmail.com',337460,'Apple 2022 애플워치 SE 2세대 알루미늄 케이스','가전 모델: 애플워치 SE 2세대
+케이스 재질: 알루미늄
+방수 여부: 방수가능',103);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (37,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'son2003@gmail.com',88850,'샤오미 미 워치','모델명/품번: XMWTCL02
+밴드 형태: 밴드 분리형',103);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (38,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'son2003@gmail.com',12900,'엘라고 에어팟프로2 실리콘 케이스','led,더스트캡,랜야드 루프 탑재
+페어링 버튼 도출 확인 가능',105);
+REM INSERTING into LAONWORKS.TB_PRODUCT_BIGCATEGORY
+SET DEFINE OFF;
+Insert into LAONWORKS.TB_PRODUCT_BIGCATEGORY (CATECODEREF,CATENAME) values (100,'디지털');
+Insert into LAONWORKS.TB_PRODUCT_BIGCATEGORY (CATECODEREF,CATENAME) values (200,'제조사');
+Insert into LAONWORKS.TB_PRODUCT_BIGCATEGORY (CATECODEREF,CATENAME) values (300,'컴퓨터');
+REM INSERTING into LAONWORKS.TB_PRODUCT_CATEGORY
+SET DEFINE OFF;
+Insert into LAONWORKS.TB_PRODUCT_CATEGORY (CATECODE,CATENAME,CATECODEREF) values (101,'핸드폰',100);
+Insert into LAONWORKS.TB_PRODUCT_CATEGORY (CATECODE,CATENAME,CATECODEREF) values (102,'태블릿',100);
+Insert into LAONWORKS.TB_PRODUCT_CATEGORY (CATECODE,CATENAME,CATECODEREF) values (103,'스마트워치',100);
+Insert into LAONWORKS.TB_PRODUCT_CATEGORY (CATECODE,CATENAME,CATECODEREF) values (104,'블루투스 이어폰',100);
+Insert into LAONWORKS.TB_PRODUCT_CATEGORY (CATECODE,CATENAME,CATECODEREF) values (201,'삼성',200);
+Insert into LAONWORKS.TB_PRODUCT_CATEGORY (CATECODE,CATENAME,CATECODEREF) values (202,'애플',200);
+Insert into LAONWORKS.TB_PRODUCT_CATEGORY (CATECODE,CATENAME,CATECODEREF) values (203,'기타',200);
+Insert into LAONWORKS.TB_PRODUCT_CATEGORY (CATECODE,CATENAME,CATECODEREF) values (301,'모니터',300);
+Insert into LAONWORKS.TB_PRODUCT_CATEGORY (CATECODE,CATENAME,CATECODEREF) values (302,'노트북',300);
+Insert into LAONWORKS.TB_PRODUCT_CATEGORY (CATECODE,CATENAME,CATECODEREF) values (105,'악세서리',100);
+REM INSERTING into LAONWORKS.TB_PRODUCT_IMAGE
+SET DEFINE OFF;
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),1,1,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/c4f2fac7-91ef-4299-a4c4-ce68411ee7bd.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),2,2,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/70e06209-2755-4c6d-9d26-98050cad4546.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),3,3,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/397be5cf-13ab-4bfd-8a97-bd526fcffabb.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),4,4,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/5fc544fc-60ed-4ebc-96af-019d6f7e0baa.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),4,5,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/e3140953-7cee-45fc-b994-9a2e9b062c05.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),5,6,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/4ea759bb-adaa-42ce-9ef4-2eaf0825e62a.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),6,7,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/ad6b6828-d20d-4d8b-a702-85c8f83bd072.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),7,8,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/ae7c41b9-b554-4817-baf4-ff813ae73bb1.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),8,9,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/d2f442e3-3509-40ec-8af3-f2e21a6e25f9.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),9,10,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/77853012-9abd-4f9e-98d0-3fcb01ab03a2.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),10,11,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/142324bf-b073-4f66-98e5-ff50ae000349.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),11,12,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/4fd81155-97e4-4da3-a636-895fc6bb637f.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),12,13,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/46664ec9-1759-4886-a904-8129e6bde3fd.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),13,14,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/753b3a27-e9bc-414c-846d-26dee63472de.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),14,15,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/f09b20b4-768b-4151-a5d6-2eddee3ac0b7.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),15,16,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/47456e77-6717-44ca-9e8f-013c34e93585.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),16,17,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/13400698-18f7-4825-9b47-9f7a85fc39e4.png');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),17,18,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/6193e7ce-7e4d-4f9f-8893-d4e114c03e21.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),18,19,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/70682c2a-3080-4bd6-8a29-1bfb155c94c4.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),19,20,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/1d100038-64d5-48ce-b23c-bd96da6a40da.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),20,21,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/9a8a1c02-ab12-447a-af16-543e79f95514.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),21,22,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/a9147925-7960-445e-bbb9-56ea4428a5dc.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),22,23,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/46c72602-748f-48ef-b3ca-db3da16816d2.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),23,24,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/346d8e87-fa72-45e7-96f0-fc69e26e5ef8.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),24,25,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/731b0d3e-9341-4b09-971f-c2b055d6bc4f.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),25,26,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/3c68e18a-af8f-4ca5-bbec-22d019d8b4f9.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),26,27,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/e61e0d54-ca88-420d-841b-66db4adce42a.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),27,28,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/12711f41-88ba-4ee2-bbbf-cbaf9d7f4df9.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),28,29,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/8dfd30e1-4dcd-49c5-afef-d161df54443e.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),29,30,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/fdb3b783-96e2-4cac-9551-2539b3151fbe.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),30,31,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/640f0f7f-cbde-4e7b-9a40-b1a3d207bb30.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),31,32,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/f90a2bfc-9b61-48c5-962f-2331e4c8d9cc.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),32,33,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/2167d82c-55c9-4930-9f22-43fe48a778f5.png');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),33,34,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/f57da62d-156c-4a67-913e-1a10364aee90.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),34,35,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/5eda1963-b3fa-41e9-bd15-21d314447e4f.png');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),35,36,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/ea925abb-9842-4ec4-858d-3e1a1f778658.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),36,37,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/ccb780f7-bfb9-4dcb-b5b5-f2e1b82f1f15.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),37,38,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/c7b67efc-a409-4b88-ab28-42e64ddcdc28.jpg');
+Insert into LAONWORKS.TB_PRODUCT_IMAGE (CRT_DT,UPD_DT,PRDT_NO,PRDT_IMG_NO,IMG_URL) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),38,39,'https://btswallet-dev.s3.ap-northeast-2.amazonaws.com/product/c8532c94-544b-4cdf-b0ec-d31f6de11208.jpg');
+REM INSERTING into LAONWORKS.TB_PRODUCT_SOCIAL
+SET DEFINE OFF;
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),6,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),21,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),24,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),25,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),26,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),3,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),19,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),5,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),11,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),35,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),31,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),14,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),13,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),7,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),2,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),37,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),36,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),32,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),23,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),4,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),34,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),9,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),28,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),18,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),22,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),10,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),38,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),30,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),27,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),15,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),20,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),16,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),17,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),8,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),12,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),33,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),1,0,0);
+Insert into LAONWORKS.TB_PRODUCT_SOCIAL (CRT_DT,UPD_DT,PRDT_NO,LIKE_CNT,MBK_CNT) values (to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),29,0,0);
+REM INSERTING into LAONWORKS.TB_SELLER
+SET DEFINE OFF;
+Insert into LAONWORKS.TB_SELLER (SLLR_ID,SLLR_NM,PSSWRD,SALT,CRT_DT,UPD_DT,REFRESH,SLLR_GD,SLLR_BIR,SLLR_PN) values ('son2003@gmail.com','손흥민','c3ec8a499457b64bcc9cdd75b7e0006547b9962135c1db8100b3821a39b18fac15e29cc0a399b9bff714da659068f24b84e4d2d994ebdf060b364d3641adeedc51e573a5781355d86b5cb768ff6ef7553dc598a658407bd7970cf89c2443b272af82ad816161be0f4cf4c6625189381c7485b125cece06b8bdca07526c4140fa','1c75e3fa6c2623a4ad700e480c553d0d',to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),'eyJ1c2VyIjoic29uMjAwM0BnbWFpbC5jb206MiIsImFsZyI6IkhTMjU2In0.eyJpYXQiOjE2NzQyOTgyODAsImV4cCI6MTY3NTUwNzg4MH0.RhenWhskPwGJp6GhTiQe5hgfXyCnt7dgZ1xC1N7jWpg','남자','1992-06-05','010-2912-9312');
+Insert into LAONWORKS.TB_SELLER (SLLR_ID,SLLR_NM,PSSWRD,SALT,CRT_DT,UPD_DT,REFRESH,SLLR_GD,SLLR_BIR,SLLR_PN) values ('yelim2001@gmail.com','선예림','09edf08c31718db95f1b003b87584c9c40ef062f2e4747b795df13be10c96b849813c2bf4d7261e5080471334b1c309605f7b18c6d4e320621cf3ebcba3bb6e7df876cd6f822acaaf989944038b83c3c024f5a715f29bd7e5a9bfbde7562e8739893e3b33b8b26f4b6ed308aa8d6e09417b8b40dfd27ea378b5a357583f076ce','5b0f1b2a013488152e39ada537e552bb',to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),'eyJ1c2VyIjoieWVsaW0yMDAxQGdtYWlsLmNvbToyIiwiYWxnIjoiSFMyNTYifQ.eyJpYXQiOjE2NzQyODkxMTQsImV4cCI6MTY3NTQ5ODcxNH0.ejJD1XQ6DHY61mdavj_0v68-53UeBV0nlojx1ME9LVw','여자','1999-09-23','010-3483-1233');
+Insert into LAONWORKS.TB_SELLER (SLLR_ID,SLLR_NM,PSSWRD,SALT,CRT_DT,UPD_DT,REFRESH,SLLR_GD,SLLR_BIR,SLLR_PN) values ('jihyeon2002@gmail.com','김지현','b61bc1c54f99133b85605d3559b99e581226e6b19582abe63f7482468b4797eef909616392e96726dfeeddca21d87cdd169ffc9a3b817364b19a99bd4c847fb388d00d3cbc254ecfa001d20916bbd2a2d46c4bad89793d6b0c7fa22c8db637c06c5cadf7789443a14d9ca0eea246a5d8965f2ece5563eb3d5716722d0f76d318','14d7d10c4e2cd46815e60f6feef8d6c3',to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),'eyJ1c2VyIjoiamloeWVvbjIwMDJAZ21haWwuY29tOjIiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzQyOTc1MzcsImV4cCI6MTY3NTUwNzEzN30.E7xU0beYQZ9W7VdviOmqGDmLIHvqTb-15kRv5mbiRq4','여자','1998-06-09','010-1238-1259');
+Insert into LAONWORKS.TB_SELLER (SLLR_ID,SLLR_NM,PSSWRD,SALT,CRT_DT,UPD_DT,REFRESH,SLLR_GD,SLLR_BIR,SLLR_PN) values ('minjae2004@gmail.com','김민재','afb615911854f0e5512684377f3b224c972ae8ee269321be7b70a001ce985e6a74874645fc56020bf4d983423c87e648d46613c0c798a82fc0010448bfdfa4a2981234b8a5b014ee81a99275dc79b7eacf05ca26e4859a3406bbb14b3c3941970cc9ba4d67bf59c1e29cca3d11ea83df2071016d0320b71f3b739aaed34b50ae','61204c3ceb72196a618057a5c655257c',to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),'eyJ1c2VyIjoibWluamFlMjAwNEBnbWFpbC5jb206MiIsImFsZyI6IkhTMjU2In0.eyJpYXQiOjE2NzQyOTcwNjIsImV4cCI6MTY3NTUwNjY2Mn0.pstDen9tSuU_WtsF2MwDOtWADq2kGMM-abVr24hN0gI','남자','1996-10-17','010-2912-9312');
+Insert into LAONWORKS.TB_SELLER (SLLR_ID,SLLR_NM,PSSWRD,SALT,CRT_DT,UPD_DT,REFRESH,SLLR_GD,SLLR_BIR,SLLR_PN) values ('gyusueng2005@gmail.com','조규성','713a8ab70083c1032c12be258dd57f2b6563548b9f9cecbc0deba1add12d4456bad6145724fc29b58bf769ed5f6715fe621d854addb071659f38325f1e3a4ea897389f178345eaa5b6cf06bcde4a5d8d26527db118b3b7c8a40746a388fbb5d0209246cd3052d9ee09a9010d1e53f543f458f779e4244c7a635d7496aaab4299','6f7b296155b44b79ea9b5cbc9e85f43b',to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),'eyJ1c2VyIjoiZ3l1c3VlbmcyMDA1QGdtYWlsLmNvbToyIiwiYWxnIjoiSFMyNTYifQ.eyJpYXQiOjE2NzQzMDIwOTIsImV4cCI6MTY3NTUxMTY5Mn0.LCPqkUolth0tnBV5JIP0yNhswsaNgtK7mWG1r06layY','남자','1998-10-15','010-6123-9121');
+REM INSERTING into LAONWORKS.TB_USER
+SET DEFINE OFF;
+Insert into LAONWORKS.TB_USER (CRT_DT,UPD_DT,USR_ID,USR_NM,USR_EML,USR_PSSWRD,SALT,USR_GD,USR_BIR,USR_PN,REFRESH) values (to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),'jiwoong1003@naver.com','최지웅','jiwoong1003@naver.com','d2597cc645b4de5bcac9cd9aa40c599a94dc185956db4752f2bceae0ded273713c1c5f1f3fba3787ad308e46a54bb98610c1887d1d5047abca1f273de0e7412c8ddd7e8815e9e912b5f82095c2cbc64ef395bd290a771d4555bf734762d0991aac0781cd27be81183b2b0fc8093baa64683057671dd566f71e15d364f8487da6','da2517b714a7c0193abeebb76f449d22','남자','1993-04-23','010-5913-2123','eyJ1c2VyIjoiaml3b29uZzEwMDNAbmF2ZXIuY29tOjEiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzQyMDE1NjMsImV4cCI6MTY3NTQxMTE2M30.c74vI-Le9oz9S-uzGpCMb6C_vqGlUxZves6ntxTrwJ0');
+Insert into LAONWORKS.TB_USER (CRT_DT,UPD_DT,USR_ID,USR_NM,USR_EML,USR_PSSWRD,SALT,USR_GD,USR_BIR,USR_PN,REFRESH) values (to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),'changhoon1001@gmail.com','한창훈','changhoon1001@gmail.com','dfd22af7ed923e48d0dbd58de99eafcde2341f4e15d787b27b7e9abafe07c6376febd971d205a94170f651eda0c1b36c89795829616bb92b8d2f819821ba0a92af3343fa6b690ad904d16ac266f6149960b7d237732488ad8793dc8eba437b505998f6cbf94431b62b819c554979b8a66d95490146461d00c1b9a83ad1e2e50d','324c597cf9866794972a9090c464a17e','남자','1996-05-15','010-1234-1234','eyJ1c2VyIjoiY2hhbmdob29uMTAwMUBnbWFpbC5jb206MSIsImFsZyI6IkhTMjU2In0.eyJpYXQiOjE2NzQzNTAwMjQsImV4cCI6MTY3NTU1OTYyNH0.jGw-IFR0JxouMFnC8vRynrW21d4aJy-hvezTNEjPoKQ');
+Insert into LAONWORKS.TB_USER (CRT_DT,UPD_DT,USR_ID,USR_NM,USR_EML,USR_PSSWRD,SALT,USR_GD,USR_BIR,USR_PN,REFRESH) values (to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),'hyeseon1002@gmail.com','최혜선','hyeseon1002@gmail.com','d100c1fceaa931933c89e2a1a63dd7b0794aaaad489ea38e0240b9068d0b7b14073f97033e5296222f4678dcaefc6f5ac87e2fd20c39522a6392e49a9f83aba50901de767bd12a6aeace473280d22d1bc3c5d8a1dc94dcde8219b7e8adb698cb54801e7cbb408d2f205984acf8e3bbc733403c35aa5b86da562f86e78d995590','de27306038c91a845de90f1f33e9a5cf','여자','1995-01-20','010-3424-2342',null);
+Insert into LAONWORKS.TB_USER (CRT_DT,UPD_DT,USR_ID,USR_NM,USR_EML,USR_PSSWRD,SALT,USR_GD,USR_BIR,USR_PN,REFRESH) values (to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),'minji1004@nate.com','조민지','minji1004@nate.com','bdc541cce313a75cbe2e617379a0244cd5a030604d66859eb3a03cf58baa3275b9971d9a333b63be832a151b615a557536b33b7b0a56698bfc43cae355e7cb321d4bde798f8ac6964b1a58a885b94afed1a87c87e8f69d2c7e86422a3c270ae587168d26c25e7995d1b2e4d8722c749a669be17b2de9c74ee8b456f31fe66778','4b79cdcb91b0d333d222928f65f2727d','여자','1996-10-02','010-4576-2232',null);
+Insert into LAONWORKS.TB_USER (CRT_DT,UPD_DT,USR_ID,USR_NM,USR_EML,USR_PSSWRD,SALT,USR_GD,USR_BIR,USR_PN,REFRESH) values (to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),'taekwang1005@gmail.com','강태광','taekwang1005@gmail.com','ff3da52e59ac5c875cd2dead9df20fa5afd3a5153eb3ba6fd8ccdc3845b6d868ea6209276f685abadfac6ea564ed6008eb13063c9ee2370101e563ecd77d210a1643bb81b2ef50fb65126e8a9d6c21f9cff860dade536ec9bef889489b47e6b13993fc084ac9fd2ebce3bf23c26e9ad92bd843d8e8849a2a7ab608980c0f8e0b','254bb16a1ab5a7331e359b7dc00e54c2','남자','1972-06-08','010-1234-1234','eyJ1c2VyIjoidGFla3dhbmcxMDA1QGdtYWlsLmNvbToxIiwiYWxnIjoiSFMyNTYifQ.eyJpYXQiOjE2NzQzNTE5MzMsImV4cCI6MTY3NTU2MTUzM30.M0Hdq2H5dbNZnA4LCEwtbzD6NN5AgH4VyWyKPcx8MeA');

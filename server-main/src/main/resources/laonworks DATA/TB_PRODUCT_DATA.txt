@@ -1,0 +1,169 @@
+--------------------------------------------------------
+--  파일이 생성됨 - 일요일-1월-22-2023   
+--------------------------------------------------------
+REM INSERTING into LAONWORKS.TB_PRODUCT
+SET DEFINE OFF;
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (1,to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),'yelim2001@gmail.com',1545490,'Apple 맥북 에어 미드나이트/M2 8코어/256GB/8GB/MAC OS ','CPU 모델 번호: M2
+저장장치: SSD
+저장장치 인터페이스: M.2 NVMe
+코어 종류: 옥타코어
+모델 라인: 맥북 에어',302);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (2,to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),'yelim2001@gmail.com',315920,'Apple 2022 애플워치 SE 2세대','가전 모델: 애플워치 SE 2세대
+케이스 재질: 알루미늄
+방수 여부: 방수가능',103);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (3,to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),'yelim2001@gmail.com',838700,'아이폰 13 미니 256gb 스타라이트','색상:스타라이트
+자급제 여부:예
+덱스플레이(인치):5.4
+용량:256GB
+기종:iPhone 13 mini
+발매 시기:2021
+',101);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (4,to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),'yelim2001@gmail.com',312310,'Apple 에어팟 프로 2세대','유무선 여부: 무선
+가전 모델: 에어팟 프로 2세대
+내장마이크 탑재여부: 내장마이크
+색상계열: 화이트계열',104);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (5,to_date('23/01/20','RR/MM/DD'),to_date('23/01/20','RR/MM/DD'),'yelim2001@gmail.com',1569900,'Apple 아이패드 Pro 12.9 6세대 M2 WIfi 128gb','품명 및 모델명:	iPad Pro 12.9 M2 Wi-Fi 128GB 스페이스 그레이 [MNXP3KH/A]
+제조자/수입자:	Apple Inc. / 애플
+정격전압/소비전력:	업체 미제공
+제조국:	중국
+동일모델의  출시년월	:2022.07
+크기, 무게	길이: 2650mm 높이: 82mm 넓이: 331mm 무게: 1500g',102);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (6,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'jihyeon2002@gmail.com',1092750,'삼성 갤럭시 Z플립4 256G 자급제 SM-F721N','휴대폰 통신사: 공기계
+가전 모델: 갤럭시 Z 플립
+코어 종류: 옥타코어
+모델명/품번: SM-F721N
+5G 지원여부: 5G Support',101);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (7,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'jihyeon2002@gmail.com',141330,'삼성 갤럭시 워치4 40mm,3.04cm','모델명/품번: SM-R860N
+방수방진 등급: IP68
+모델 라인: 갤럭시워치
+가전 모델: Galaxy Watch4
+웨어러블 종류: 스마트워치',103);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (8,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'jihyeon2002@gmail.com',1499000,'삼성 갤럭시북 프로 360 미스틱 실버(i5-1135G7 WIN 10 탑재)','CPU 모델 번호: 1135G7
+GPU 모델명: 인텔 Iris Xe 그래픽스
+화면크기: 39.6cm
+화면크기(인치): 15.6
+CPU 기본속도: 2.4GHz',302);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (9,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'jihyeon2002@gmail.com',162970,'삼성전자 갤럭시 버즈2 프로','내장마이크 탑재여부: 내장마이크
+색상계열: 화이트계열',104);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (10,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'jihyeon2002@gmail.com',14000,'루아러블 갤럭시워치 충전 케이블 무선 충전기 충전독','적용모델:갤럭시워치 5/워치4/액티브2/액티브1
+색상:블랙',105);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (11,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'jihyeon2002@gmail.com',206910,'삼성 갤럭시탭 A7 Lite 8.7 그레이,64gb,wi-fi','화면크기: 22.05cm
+화면크기(인치): 약 8.7인치에 해당함
+코어 종류: 옥타코어
+RAM용량: 4GB
+중량: 366g',102);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (12,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'son2003@gmail.com',1725090,'에이수스 2022 ZenBook Duo 14','해상도 (해상도 등급): FHD
+저장장치: SSD
+색상계열: 블루
+중량: 1.57kg
+SSD용량: 1TB',302);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (13,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'son2003@gmail.com',61740,'샤오미 미밴드 7','밴드 형태: 밴드 분리형
+심박측정기능: 심박측정 가능
+방수 여부: 방수가능',103);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (14,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'son2003@gmail.com',556840,'레노버 Tab P11 Pro 2세대 OLED 태블릿 PC','중량: 480g
+해상도 (해상도 등급): QHD
+용량: 8200mAh
+스피커 개수: 4개
+무선지원 규격: Wi-Fi 6 (802.11ax)',102);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (15,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'son2003@gmail.com',339000,'삼성전자 68.4cm QHD 오디세이 G5 게이밍 모니터','화면크기: 68.4cm
+해상도 (해상도 등급): QHD
+화면 재생빈도(Hz): 144Hz
+모니터 형태: 커브드
+화면비율: 와이드(16:9)',301);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (16,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'son2003@gmail.com',264950,'LG모니터 81.28cm모니터 컴퓨터모니터 32MN500MW IPS FHD','패널: ips
+응답속도:5Ms
+시야각: 178''/178''
+주사율: 75hz',301);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (17,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'minjae2004@gmail.com',139000,'한성컴퓨터 1500R 커브드 게이밍 리얼 75 모니터','출시년월: 2019.09
+화면크기: 68.58cm
+해상도 (해상도 등급): FHD
+화면 재생빈도(Hz): 75Hz
+화면비율: 와이드(16:9)',301);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (18,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'minjae2004@gmail.com',7900,'신지모루 변색방지 풀커버 강화유리 하드커버 갤럭시워치 케이스','시계판 사이즈: 40mm
+스마트워치 케이스 종류: 풀커버형
+색상계열: 블랙계열',105);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (19,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'minjae2004@gmail.com',449000,'샤오미 패드 5','화면크기: 27.94cm
+화면크기(인치): 약 11인치에 해당함
+코어 종류: 옥타코어
+RAM용량: 6GB
+중량: 511g',102);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (20,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'minjae2004@gmail.com',199000,'HP 60.5cm FHD X24ih 게이밍 모니터','화면크기: 60.45cm
+해상도 (해상도 등급): FHD
+화면 재생빈도(Hz): 144Hz
+모니터 형태: 평면
+화면비율: 와이드(16:9)',301);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (21,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'minjae2004@gmail.com',590000,'Apple 2022 아이폰 SE 3세대 자급제','모델명/품번: MMXH3KH/A
+코어 종류: 헥사코어
+가전 모델: 아이폰 SE 3세대
+화면크기: 4.7형
+휴대폰 통신사: 공기계',101);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (22,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'gyusueng2005@gmail.com',7100,'로랜텍 아이폰 강화유리 액정 보호필름 2개','기종: 아이폰 XS
+방탄/강화유리 여부: 방탄/강화유리',105);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (23,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'gyusueng2005@gmail.com',175000,'소니 링크버즈 S Truly 블루투스 이어버드 무선 이어폰 노이즈 캔슬링 WFLS900N W Sony LinkBuds','유무선 여부: 유선
+내장마이크 탑재여부: 내장마이크
+색상계열: 화이트계열',104);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (24,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'gyusueng2005@gmail.com',870000,'삼성전자 갤럭시 S22 자급제 SM-S901N','휴대폰 통신사: 공기계
+색상: 퍼플
+모델명/품번: SM-S901NLVEKOO
+코어 종류: 옥타코어
+가전 모델: 갤럭시 S22',101);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (25,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'gyusueng2005@gmail.com',1175000,'Apple 정품 아이폰 14 자급제','화면크기: 15.4cm
+화면크기(인치): 약 6인치에 해당함
+탈착 방식: 배터리 일체형
+RAM용량: 6GB
+코어 종류: 헥사코어',101);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (26,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'gyusueng2005@gmail.com',1643610,'삼성 갤럭시 Z 폴드4 5G 자급제 SM-F936N','휴대폰 통신사: 공기계
+가전 모델: 갤럭시 Z 폴드
+코어 종류: 옥타코어
+모델명/품번: SM-F936N
+5G 지원여부: 5G Support',101);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (27,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'gyusueng2005@gmail.com',149000,'알파스캔 60.5cm FHD AOC 보더리스 시력보호 모니터 IPS 75','화면크기(인치): 약 24인치에 해당함
+화면크기: 60.5cm
+해상도 (해상도 등급): FHD
+화면 재생빈도(Hz): 75Hz
+화면비율: 와이드(16:9)',301);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (28,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'minjae2004@gmail.com',39790,'펜톤 TSX 다이아팟 블루투스 5.3 이어폰 커널형 버즈','색상계열: 블랙계열
+노이즈캔슬링 여부: 노이즈캔슬링 포함
+최대시간: 10시간
+유무선 여부: 무선
+유닛형태: 커널형',104);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (29,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'minjae2004@gmail.com',649000,'레노버 2022 ideaPad 노트북 15.6','해상도 (해상도 등급): FHD
+패널: IPS
+저장장치: NVMe
+색상계열: 기타색상
+화면크기: 39.6cm',302);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (30,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'minjae2004@gmail.com',15800,'토이스토리4 하드 갤럭스 버즈 케이스 (키링포함) 정품 라이센스 갤럭시 버즈케이스','모델명: 토이스토리 4 버즈 케이스
+제조국: 국내
+기타: 디즈니 플러스 협약 정품
+주의사항: 갤럭시 버즈 4  전용케이스 다른 버즈와 호한 불가능
+',105);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (31,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'jihyeon2002@gmail.com',329000,'레노버 Tab M10 Plus 3세대 태블릿PC','화면크기: 26.94cm
+코어 종류: 옥타코어
+RAM용량: 4GB
+중량: 465g
+해상도 (해상도 등급): 2K',102);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (32,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'jihyeon2002@gmail.com',71000,'SW200 스포츠 스마트 워치','방수 여부: 방수가능
+심박측정기능: 심박측정 가능
+색상계열: 실버계열',103);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (33,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'jihyeon2002@gmail.com',1349000,'LG전자 그램15 12세대 i5/16GB/256GB/FreeDos','저장장치: SSD
+색상계열: 화이트
+내장마이크 탑재여부: 내장마이크
+그래픽카드 형태: 미장착
+가전 모델: LG 그램',302);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (34,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'jihyeon2002@gmail.com',359000,'보스 QC 이어버드 2 블루투스 이어폰','유무선 여부: 무선
+블루투스 버전: 5.0이상
+노이즈캔슬링 여부: 노이즈캔슬링 포함
+최대시간: 6시간
+유닛형태: 커널형',104);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (35,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'son2003@gmail.com',687000,'애플 아이패드 10세대 27.5cm WiFi 64GB / 256GB ','상표: 애플
+무게: 1..98 파운드
+색상: 핑크
+애플팬슬: 별도',102);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (36,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'son2003@gmail.com',337460,'Apple 2022 애플워치 SE 2세대 알루미늄 케이스','가전 모델: 애플워치 SE 2세대
+케이스 재질: 알루미늄
+방수 여부: 방수가능',103);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (37,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'son2003@gmail.com',88850,'샤오미 미 워치','모델명/품번: XMWTCL02
+밴드 형태: 밴드 분리형',103);
+Insert into LAONWORKS.TB_PRODUCT (PRDT_NO,CRT_DT,UPD_DT,SLLR_ID,PRDT_PRCE,PRDT_NM,PRDT_DESC,CATECODE) values (38,to_date('23/01/21','RR/MM/DD'),to_date('23/01/21','RR/MM/DD'),'son2003@gmail.com',12900,'엘라고 에어팟프로2 실리콘 케이스','led,더스트캡,랜야드 루프 탑재
+페어링 버튼 도출 확인 가능',105);
+
