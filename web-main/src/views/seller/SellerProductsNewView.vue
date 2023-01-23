@@ -24,6 +24,27 @@
             </div>
           </div>
 
+          <!-- <div class="sm:col-span-12">
+            <label for="category" class="block text-sm font-medium text-gray-700">카테고리</label>
+            <div class="mt-1 flex rounded-md shadow-sm">
+            <select id="category" name="category" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                  <option selected>디지털</option>
+                  <option>컴퓨터</option>              
+            </select>           
+           </div>
+          </div>
+
+          <div class="sm:col-span-12">
+            <label for="type" class="block text-sm font-medium text-gray-700">종류</label>
+            <div class="mt-1 flex rounded-md shadow-sm">
+            <select id="" name="location" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                  <option>United States</option>
+                  <option selected="">Canada</option>
+                  <option>Mexico</option>
+            </select>           
+           </div>
+          </div> -->
+
           <div class="sm:col-span-12">
             <label class="block text-sm font-medium text-gray-700">상품 이미지</label>
             <div class="grid grid-cols-4 gap-2">
@@ -46,6 +67,7 @@
                 <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
               </div>
             </div>
+            
           </div>
         </div>
     </div>

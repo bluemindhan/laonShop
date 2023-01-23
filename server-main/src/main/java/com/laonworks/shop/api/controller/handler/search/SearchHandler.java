@@ -6,8 +6,7 @@ import com.laonworks.shop.api.controller.request.search.SearchRequest;
 import com.laonworks.shop.api.controller.response.item.GetItemsResponse;
 import com.laonworks.shop.api.mapper.SearchMapper;
 import com.laonworks.shop.api.mapper.vo.BigCategoryVo;
-import com.laonworks.shop.api.mapper.vo.ItemVo;
-import com.laonworks.shop.api.mapper.vo.ProductVo;
+import com.laonworks.shop.api.mapper.vo.ProductVo1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,7 +23,7 @@ public class SearchHandler extends BaseHandler {
 
         GetItemsResponse res = new GetItemsResponse();
         List<BigCategoryVo> catelist = null;
-        List<ProductVo> searchList = null;
+        List<ProductVo1> searchList = null;
 
         int currentpage = req.page;
         int pagesize = 10;

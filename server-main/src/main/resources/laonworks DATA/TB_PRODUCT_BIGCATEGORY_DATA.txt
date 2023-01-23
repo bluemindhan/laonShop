@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  파일이 생성됨 - 일요일-1월-22-2023   
+--------------------------------------------------------
+REM INSERTING into LAONWORKS.TB_PRODUCT_BIGCATEGORY
+SET DEFINE OFF;
+Insert into LAONWORKS.TB_PRODUCT_BIGCATEGORY (CATECODEREF,CATENAME) values (100,'디지털');
+Insert into LAONWORKS.TB_PRODUCT_BIGCATEGORY (CATECODEREF,CATENAME) values (200,'제조사');
+Insert into LAONWORKS.TB_PRODUCT_BIGCATEGORY (CATECODEREF,CATENAME) values (300,'컴퓨터');

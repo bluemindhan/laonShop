@@ -39,15 +39,7 @@ public class DeleteWishHandler extends BaseHandler {
             wishVo.setProductNum(productNum);
             if(userType== UserType.User.getValue()){
                 wishVoList=wishMapper.selectWishList(email);
-
                 int result = wishMapper.deleteWishProduct(wishVo);
-                if(result==1){
-                    res.setResult(result);
-                    res.setCode(ResultCode.Success);
-                }else {
-                    res.setCode(ResultCode.InternalServerError);
-                    return res;
-                }
             }
             else if(userType==UserType.Seller.getValue()) {
                 res.setCode(ResultCode.Unauthorized);
@@ -60,6 +52,8 @@ public class DeleteWishHandler extends BaseHandler {
         }catch (Exception e){
             res.setCode(ResultCode.InternalServerError);
         }
+        res.setResult(1);
+        res.setCode(ResultCode.Success);
         return res;
     }
 }

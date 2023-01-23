@@ -52,27 +52,17 @@ public class PostWishHandler extends BaseHandler {
                       }
                   }
                 }
-
-                int result = wishMapper.insertWishProduct(wishVo);
-                if (result == 1) {
-                    res.setResult(result);
-                    res.setCode(ResultCode.Success);
+              int result = wishMapper.insertWishProduct(wishVo);
                 } else {
                     res.setCode(ResultCode.InternalServerError);
                     return res;
                 }
+            } catch (Exception e) {
+                    res.setCode(ResultCode.InternalServerError);
             }
-            else if(userType==UserType.Seller.getValue()) {
-                res.setCode(ResultCode.Unauthorized);
-                return res;
-            }
-            else{
-                res.setCode(ResultCode.InvalidParameter);
-                return res;
-            }
-        } catch (Exception e) {
-            res.setCode(ResultCode.InternalServerError);
-        }
-        return  res;
+            res.setResult(1);
+            res.setCode(ResultCode.Success);
+            return res;
+
     }
 }

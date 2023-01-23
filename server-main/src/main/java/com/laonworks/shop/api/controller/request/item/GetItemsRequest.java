@@ -14,6 +14,14 @@ import java.util.List;
 @ToString
 public class GetItemsRequest {
 
+    @ApiParam(value = "")
+    public int pageNo=0;
+
+    @ApiParam(value = "")
+    public int pageSize=0;
+
+    @ApiParam(value = "")
+    public int cateCode=0;
 
 
     public boolean valid() {

@@ -44,7 +44,10 @@ public class ItemController extends BaseController {
 
     @RequestMapping(method = RequestMethod.GET, value = "user-items")
     @ApiOperation(value = "get items")
-    GetItemsResponse getItems(@AuthenticationPrincipal Authentication auth, HttpServletRequest request) {
+    GetItemsResponse getItems(@AuthenticationPrincipal Authentication auth, @RequestParam(value = "pageNo", required = true) int pageNo,
+                                                                            @RequestParam(value = "pageSize", required = true) int pageSize,
+                                                                            @RequestParam(value = "cateCode", required = true) int cateCode,
+                                                                            HttpServletRequest request) {
         getItemsHandler.setHttpServletRequest(request);
         System.out.println("Authoriztion -->  " + request.getHeader("Authorization"));
         CustomUserDetails user=null;
@@ -56,10 +59,14 @@ public class ItemController extends BaseController {
             throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
         }
 
-        if (checkRoute(RequestMethod.GET,"/api/v1/item/user-items", user) == false) {
+        if (!checkRoute(RequestMethod.GET, "/api/v1/item/user-items", user)) {
             throw new RestClientResponseException("", HttpStatus.UNAUTHORIZED.value(), "", null, null, null);
         }
-        return getItemsHandler.execute(user);
+        GetItemsRequest req =new GetItemsRequest();
+        req.setPageNo(pageNo);
+        req.setPageSize(pageSize);
+        req.setCateCode(cateCode);
+        return getItemsHandler.execute(user,req);
     }
 
     @Autowired

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.laonworks.shop.api.mapper.WishMapper">
-      <insert id="insertWishProduct" parameterType="WishVo">
-         <![CDATA[
+      <select id="insertWishProduct" parameterType="WishVo" statementType="CALLABLE">
+        DECLARE
+        BEGIN
          INSERT INTO TB_USER_WISH(
                  USR_ID ,
                  PRDT_NO ,
@@ -11,9 +12,31 @@
                  #{wish.userId} ,
                  #{wish.productNum} ,
                  SYSDATE
-             )
-        ]]>
-      </insert>
+             );
+         update TB_PRODUCT_SOCIAL
+         SET
+             LIKE_CNT =LIKE_CNT+1
+         WHERE
+             PRDT_NO=#{wish.productNum};
+         END;
+      </select>
+
+        <select id="deleteWishProduct" parameterType="WishVo">
+            DECLARE
+            BEGIN
+                DELETE FROM
+                    TB_USER_WISH
+                WHERE
+                    USR_ID = #{wish.userId} AND
+                    PRDT_NO = #{wish.productNum};
+
+                update TB_PRODUCT_SOCIAL
+                SET
+                    LIKE_CNT =LIKE_CNT-1
+                WHERE
+                    PRDT_NO=#{wish.productNum};
+            END;
+        </select>
 
       <select id="selectWishList" resultType="WishVo">
         <![CDATA[
@@ -33,15 +56,7 @@
         ]]>
     </select>
 
-    <delete id="deleteWishProduct" parameterType="WishVo">
-        <![CDATA[
-         DELETE FROM
-             TB_USER_WISH
-         WHERE
-            USR_ID = #{wish.userId} AND
-            PRDT_NO = #{wish.productNum}
-         ]]>
-    </delete>
+
 
 
 </mapper>

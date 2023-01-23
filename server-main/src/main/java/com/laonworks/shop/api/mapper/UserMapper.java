@@ -1,10 +1,6 @@
 package com.laonworks.shop.api.mapper;
 
-import com.laonworks.shop.api.controller.vo.ProductInfo;
 import com.laonworks.shop.api.mapper.vo.BuyVO;
-import com.laonworks.shop.api.mapper.vo.ProductVo;
-import com.laonworks.shop.api.mapper.vo.UserVo;
-import com.laonworks.shop.api.mapper.vo.WishVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
