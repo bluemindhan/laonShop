@@ -87,11 +87,31 @@
           <div class="mt-8 lg:col-span-7 lg:col-start-1 lg:row-span-3 lg:row-start-1 lg:mt-0">
             <h2 class="sr-only">Images</h2>
 
-            <div 
+            <!-- <div 
             class="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-3 lg:gap-8"
             v-for="item in itemVo.imageVoList" :key="item.image">
               <img :src="item.image" :class="['lg:col-span-2 lg:row-span-2']" />
-            </div>
+            </div> -->
+            <!-- Image gallery -->
+            <TabGroup as="div" class="flex flex-col-reverse">
+              <!-- Image selector -->
+              <div class="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
+                <TabList class="grid grid-cols-4 gap-6">
+                  <Tab v-for="item in itemVo.imageVoList" :key="item.image" class="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4" v-slot="{ selected }">
+                    <span class="absolute inset-0 overflow-hidden rounded-md">
+                      <img :src="item.image" alt="" class="h-full w-full object-cover object-center" />
+                    </span>
+                    <span :class="[selected ? 'ring-indigo-500' : 'ring-transparent', 'pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2']" aria-hidden="true" />
+                  </Tab>
+                </TabList>
+              </div>
+
+              <TabPanels class="aspect-w-1 aspect-h-1 w-full">
+                <TabPanel v-for="item in itemVo.imageVoList" :key="item.image">
+                  <img :src="item.image" class="h-full w-full object-cover object-center sm:rounded-lg" />
+                </TabPanel>
+              </TabPanels>
+            </TabGroup>
           </div>
 
           <div class="mt-8 lg:col-span-5">
@@ -444,7 +464,17 @@ import {
   HandThumbUpIcon,
   PaperClipIcon,
 } from '@heroicons/vue/20/solid'
-import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/vue'
+import { 
+  Listbox, 
+  ListboxButton, 
+  ListboxLabel, 
+  ListboxOption, 
+  ListboxOptions,  
+  Tab,
+  TabGroup,
+  TabList,
+  TabPanel,
+  TabPanels, } from '@headlessui/vue'
 
 
 const moods = [

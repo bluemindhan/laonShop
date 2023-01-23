@@ -183,8 +183,34 @@
           </div>
         </div>
       </div>
+      <!-- 페이징 -->
+      <div class="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+        <div class="flex flex-1 justify-between sm:hidden">
+          <a href="#" class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Previous</a>
+          <a href="#" class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Next</a>
+        </div>
+        <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+          <div>
+            <p class="text-sm text-gray-700">
+              {{ ' ' }}
+              <span class="font-medium">{{ pageNo }}</span>
+              /
+              {{ ' ' }}
+              <span class="font-medium">{{ totalPages }}</span>
+              {{ ' ' }}
+              페이지
+            </p>
+          </div>
+          <div class="flex flex-1 justify-between sm:justify-end">
+            <button v-if="hasPrev" @click="prevPage" class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">이전</button>
+            <button v-if="hasNext" @click="nextPage" class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">다음</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
+  
   </div>
   <!-- {{ checkedValues }}
   {{ keyWord }}
@@ -210,13 +236,17 @@ export default {
   },
   data() {
     return {
+      pageNo: 1,
+      pageSize: 5,
+      totalPages: 0,
+      totalCount: 0,
+      cateCode: 0,
       products: [],
       cartVo: [],
       categoryList: [],
       checkedValues: [],
       sortValue: '',
       keyWord: '',
-      cateCode: 0,
       filter: '',
       page: 1,
       searchWord: '',
@@ -224,10 +254,17 @@ export default {
     }
   },
   computed: {
+    hasNext() {
+      return this.pageNo < this.totalPages;
+    },
+    hasPrev() {
+      return this.pageNo > 1;
+    },
     ...mapGetters({
       accessToken: "appStore/accessToken",
       refreshToken: "appStore/refreshToken",
     }),
+    
   },
   watch: {
     accessToken: function (val) {
@@ -245,11 +282,27 @@ export default {
       setRefreshToken: "appStore/refreshToken",
       setUserInfo: "appStore/userInfo",
     }),
+    async nextPage() {
+      this.pageNo++;
+      await this.getItemsList();
+    },
+    async prevPage() {
+      this.pageNo--;
+      await this.getItemsList();
+    },
     async getItemsList() {
       let req = new GetItemsRequest();
+      req.pageNo = this.pageNo;
+      req.pageSize = this.pageSize;
+      req.cateCode = 0;
       try {
         let res = await this.api.getItemsList(req);
         if (res.code === ResultCode.Success) {
+          this.totalCount = res.totalCount;
+          this.pageNo = res.pageNo;
+          this.pageSize = res.pageSize;
+          this.totalPages = Math.ceil(this.totalCount / this.pageSize);
+          this.categoryList = res.categoryList;
           this.products = res.products;
           console.log(res);
         }
@@ -351,6 +404,7 @@ import { XMarkIcon } from '@heroicons/vue/24/outline'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
 import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid'
 import { HeartIcon } from '@heroicons/vue/24/outline'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/20/solid'
 
 // const sortOptions = [
 //   { name: '좋아요 높은순', href: '#' },
