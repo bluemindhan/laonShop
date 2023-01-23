@@ -163,6 +163,12 @@
                 <span aria-hidden="true" class="absolute inset-0" />
                 {{ product.name }}
               </router-link> -->
+            <div class="space-x-1 text-sm text-gray-500 text-right mb-4">
+              <HeartIcon 
+                  class="h-6 w-6 flex-shrink-0 inline-block" 
+                  aria-hidden="true" />
+              <span class="ml-4">{{ product.likeCnt }}</span>
+            </div>
               <div @click="$router.push(`/user/items/${ product.productId }`)">
                 <span aria-hidden="true" class="absolute inset-0" />
                 {{ product.name }}
@@ -183,6 +189,11 @@
   <!-- {{ checkedValues }}
   {{ keyWord }}
   {{ sortValue }} -->
+  <!-- <span class="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800 mr-3">{{ sortValue }}</span>
+  <div v-for="check in checkedValues" :key="check.target" class="inline-block">
+    <span class="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800 mr-3">{{ check }}</span>
+  </div> -->
+
 </template>
 
 <script>
@@ -339,6 +350,7 @@ import {
 import { XMarkIcon } from '@heroicons/vue/24/outline'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
 import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid'
+import { HeartIcon } from '@heroicons/vue/24/outline'
 
 // const sortOptions = [
 //   { name: '좋아요 높은순', href: '#' },
