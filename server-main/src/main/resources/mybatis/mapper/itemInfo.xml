@@ -70,7 +70,8 @@
                                 A.PRDT_DESC as detail ,
                                 A.CRT_DT as createDate ,
                                 A.UPD_DT as updateDate,
-                                A.CATECODE AS cateCode,
+                                A.CATECODE as cateCode,
+                                C.LIKE_CNT as likeCnt,
                                 GET_PRODUCT_IMAGE(B.PRDT_NO,B.PRDT_IMG_NO) as image
                       FROM
                           TB_PRODUCT A
@@ -78,6 +79,11 @@
                                           FROM   TB_PRODUCT_IMAGE
                                           GROUP BY PRDT_NO
                           ) B  ON         A.PRDT_NO = B.PRDT_NO
+
+                              LEFT JOIN ( SELECT PRDT_NO,LIKE_CNT
+                                          FROM   TB_PRODUCT_SOCIAL
+                                          GROUP BY PRDT_NO, LIKE_CNT
+                          ) C  ON         A.PRDT_NO = C.PRDT_NO
                                           <if test='cateCode!=0 and cateCode!=300'>
                                               WHERE A.CATECODE=#{cateCode}
                                           </if>
