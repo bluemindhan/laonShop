@@ -103,9 +103,10 @@ export class ApiService {
       })
     });
   }
-  getItemsList() {
+  getItemsList(req) {
+    const url = '/api/v1/item/user-items?' + qs.stringify(req);
     return new Promise((resolve, reject) => {
-      axios.get('/api/v1/item/user-items').then(res => {
+      axios.get(url).then(res => {
         if (res.status === 200) {
           resolve(res.data);
           return;
