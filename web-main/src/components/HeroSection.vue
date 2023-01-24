@@ -104,10 +104,10 @@
               </div>
               <div class="mt-4 flex items-center justify-between space-x-8 text-base font-medium text-gray-900">
                 <h3>
-                  <a href="#">
+                  <router-link :to="`/user/search?cateCode=${product.value}`">
                     <span aria-hidden="true" class="absolute inset-0" />
                     {{ product.name }}
-                  </a>
+                  </router-link >
                 </h3>
                 <p>{{ product.price }}</p>
               </div>
@@ -179,9 +179,9 @@ const collections = [
   const products = [
   {
     id: 1,
-    name: 'Computer',
+    name: '컴퓨터',
     category: '',
-    href: '#',
+    value: 300,
     price: '',
     imageSrc: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/store-card-14-16-mac-nav-202301?wid=400&hei=260&fmt=png-alpha&.v=1670959891635',
     imageAlt:
@@ -189,9 +189,9 @@ const collections = [
   },
     {
     id: 2,
-    name: 'Phone',
+    name: '핸드폰',
     category: '',
-    href: '#',
+    value: 101,
     price: '',
     imageSrc: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/store-card-13-iphone-nav-202209?wid=400&hei=260&fmt=png-alpha&.v=1661027785804',
     imageAlt:
@@ -199,18 +199,18 @@ const collections = [
   },
     {
     id: 3,
-    name: 'Tablet',
+    name: '태블릿',
     category: '',
-    href: '#',
+    value: 103,
     price: '',
     imageSrc: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/store-card-13-ipad-nav-202210?wid=400&hei=260&fmt=png-alpha&.v=1664912135437',
     imageAlt:
     'Payment application dashboard screenshot with transaction table, financial highlights, and main clients on colorful purple background.',
   }, {
     id: 4,
-    name: 'Watch',
+    name: '시계',
     category: '',
-    href: '#',
+    value: 104,
     price: '',
     imageSrc: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/store-card-13-watch-nav-202209_GEO_KR?wid=400&hei=260&fmt=png-alpha&.v=1661796453921',
     imageAlt:
@@ -219,7 +219,7 @@ const collections = [
     id: 5,
     name: '블루투스 이어폰',
     category: '',
-    href: '#',
+    value: 105,
     price: '',
     imageSrc: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/store-card-13-airpods-nav-202209?wid=400&hei=260&fmt=png-alpha&.v=1660676485885',
     imageAlt:
@@ -229,7 +229,7 @@ const collections = [
     id: 6,
     name: '악세서리',
     category: '',
-    href: '#',
+    value: 203,
     price: '',
     imageSrc: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/store-card-13-accessories-nav-202209?wid=400&hei=260&fmt=png-alpha&.v=1660677092974',
     imageAlt:
