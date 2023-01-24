@@ -51,6 +51,8 @@ public class SearchHandler extends BaseHandler {
         res.products = searchList;
         res.categoryList = catelist;
         res.totalCount = totalCount;
+        res.pageNo = currentpage;
+        res.pageSize = pagesize;
         res.setCode(ResultCode.Success);
 
         return res;
