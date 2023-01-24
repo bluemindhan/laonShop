@@ -49,11 +49,11 @@
               </when>
               <when test='search.filter.equals("priceASC")'>
                   ORDER BY
-                  D.PRDT_PRCE ASC
+                  price ASC
               </when>
               <when test='search.filter.equals("priceDESC")'>
                   ORDER BY
-                  D.PRDT_PRCE DESC
+                  price DESC
               </when>
             </choose>
             ) A

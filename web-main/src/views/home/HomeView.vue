@@ -102,33 +102,33 @@
       </div>
       <div class="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
         <div v-for="post in volist" :key="post.itemId" class="flex flex-col overflow-hidden rounded-lg shadow-lg">
-          <div class="flex-shrink-0">
-            <img class="h-48 w-full object-cover" :src="post.imageVoList[0].image" alt="" />
-          </div>
-          <div class="flex flex-1 flex-col justify-between bg-white p-6">
-            <div class="flex-1">
-              <p class="text-sm font-medium text-indigo-600">
-                {{post.cateName}}
-              </p>
-              <div class="mt-2 block">
-                <p class="text-xl font-semibold text-gray-900">{{ post.name }}</p>
-                <p class="mt-3 text-base text-gray-500">{{ post.itemDetail }}</p>
-              </div>
+            <div @click="$router.push(`/user/items/${ post.itemId }`)" class="flex-shrink-0">
+              <img class="h-48 w-full object-cover" :src="post.imageVoList[0].image" alt="" />
             </div>
-            <div class="mt-6 flex items-center">
-              <div class="flex-shrink-0">
-                  <span class="sr-only">{{ post.price }}</span>
-              </div>
-              <div class="ml-3">
-                <p class="text-sm font-medium text-gray-900">
-                  {{ post.sellerId }}
+            <div class="flex flex-1 flex-col justify-between bg-white p-6">
+              <div class="flex-1">
+                <p class="text-sm font-medium text-indigo-600">
+                  {{post.cateName}}
                 </p>
-                <div class="flex space-x-1 text-sm text-gray-500">
-                  <span>{{ post.likeCnt }} like</span>
+                <div class="mt-2 block">
+                  <p class="text-xl font-semibold text-gray-900">{{ post.name }}</p>
+                  <p class="mt-3 text-base text-gray-500">{{ post.itemDetail }}</p>
+                </div>
+              </div>
+              <div class="mt-6 flex items-center">
+                <div class="flex-shrink-0">
+                    <span class="sr-only">{{ post.price }}</span>
+                </div>
+                <div class="ml-3">
+                  <p class="text-sm font-medium text-gray-900">
+                    {{ post.sellerId }}
+                  </p>
+                  <div class="flex space-x-1 text-sm text-gray-500">
+                    <span>{{ post.likeCnt }} like</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
@@ -139,7 +139,7 @@
 const collections = [
   {
     name: "Computer",
-    href: '#',
+    href: 'search/',
     imageSrc: 'https://cdn.pixabay.com/photo/2015/01/08/18/25/desk-593327__480.jpg',
     imageAlt: 'Woman wearing an off-white cotton t-shirt.',
   },

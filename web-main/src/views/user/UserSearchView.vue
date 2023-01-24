@@ -237,7 +237,7 @@ export default {
   data() {
     return {
       pageNo: 1,
-      pageSize: 5,
+      pageSize: 8,
       totalPages: 0,
       totalCount: 0,
       cateCode: 0,
@@ -421,12 +421,12 @@ const sort = [
     name: '정렬',
     options: [
       { value: '', label: '선택 안함' },
-      { value: 'likeASC', label: '좋아요 높은순' },
-      { value: 'likeDESC', label: '좋아요 낮은순' },
+      { value: 'likeDESC', label: '좋아요 높은순' },
+      { value: 'likeASC', label: '좋아요 낮은순' },
       { value: 'nameASC', label: '이름 오름차순' },
       { value: 'nameDESC', label: '이름 내림차순' },
-      { value: 'priceASC', label: '가격 높은순' },
-      { value: 'priceDESC', label: '가격 낮은순' },
+      { value: 'priceDESC', label: '가격 높은순' },
+      { value: 'priceASC', label: '가격 낮은순' },
     ],
   },
 ]

@@ -120,7 +120,7 @@
                 INNER JOIN TB_PRODUCT_BIGCATEGORY F
                           ON D.CATECODEREF = F.CATECODEREF
         GROUP BY A.PRDT_NO
-        ORDER BY likeCnt ASC
+        ORDER BY likeCnt DESC
         ) A
     WHERE ROWNUM <= 3
     ]]>

@@ -41,8 +41,8 @@ public class GetItemsHandler extends BaseHandler{
         try {
             if(userType == UserType.User.getValue()){
                 int totalCount = itemMapper.selectItemCount(cateCode);
-                int begin = (pageNo - 1) * pageSize;
-                int end = begin + pageSize;
+                int begin = (pageNo - 1) * pageSize + 1;
+                int end = begin + pageSize - 1;
 
                 res.products= itemMapper.selectItemList(begin,end,cateCode);
 

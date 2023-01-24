@@ -26,7 +26,7 @@ public class SearchHandler extends BaseHandler {
         List<ProductVo1> searchList = null;
 
         int currentpage = req.page;
-        int pagesize = 10;
+        int pagesize = 8;
         int start = (currentpage - 1) * pagesize + 1;
         int end = start + pagesize - 1;
 
