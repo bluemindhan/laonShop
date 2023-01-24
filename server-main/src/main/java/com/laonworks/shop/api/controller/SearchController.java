@@ -21,14 +21,9 @@ public class SearchController extends BaseController{
     @RequestMapping(method = RequestMethod.GET,value = "search")
     public GetItemsResponse search(SearchRequest req){
 
-        GetItemsResponse res = new GetItemsResponse();
-        res = searchHandler.excute(req);
+        GetItemsResponse res = new GetItemsResponse();;
 
-        if(res.getCode() == 204){
-            throw new RestClientResponseException("", HttpStatus.NO_CONTENT.value(), "", null, null, null);
-        }
-
-        return res;
+        return searchHandler.excute(req);
     }
 
 
