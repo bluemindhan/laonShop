@@ -14,4 +14,6 @@ public interface SearchMapper {
     List<ProductVo1> findByKeyword(@Param(value = "search") SearchRequest req, int start, int end);
 
     List<BigCategoryVo> selectCateList();
+
+    int selectSearchCount(@Param(value = "search") SearchRequest req);
 }

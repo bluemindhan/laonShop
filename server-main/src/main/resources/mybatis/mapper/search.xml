@@ -154,4 +154,30 @@
                      ON A.CATECODEREF = B.CATECODEREF
     ORDER BY A.CATECODEREF
     </select>
+
+    <select id="selectSearchCount" resultType="int">
+        SELECT COUNT(*)
+        FROM(
+            SELECT
+            MAX(A.PRDT_NO) as productId,
+            MAX(A.PRDT_PRCE) as price,
+            MAX(A.PRDT_NM) as name,
+            MAX(B.IMG_URL) as image,
+            MAX(C.LIKE_CNT) as likeCnt
+            FROM
+            TB_PRODUCT A
+            LEFT JOIN TB_PRODUCT_IMAGE B
+            ON A.PRDT_NO = B.PRDT_NO
+            LEFT JOIN TB_PRODUCT_SOCIAL C
+            ON B.PRDT_NO = C.PRDT_NO
+            WHERE
+            A.PRDT_NM LIKE '%'||#{search.keyWord}||'%'
+            <if test="search.cateCode != 0">AND
+                A.CATECODE =
+                #{search.cateCode}
+            </if>
+            GROUP BY
+            A.PRDT_NO
+            )
+    </select>
 </mapper>

@@ -27,12 +27,22 @@ public class SearchHandler extends BaseHandler {
 
         int currentpage = req.page;
         int pagesize = 8;
+        int totalCount = 0;
         int start = (currentpage - 1) * pagesize + 1;
         int end = start + pagesize - 1;
 
         try {
             catelist = searchMapper.selectCateList();
-            searchList = searchMapper.findByKeyword(req,start,end);
+            totalCount = searchMapper.selectSearchCount(req);
+
+            if(totalCount != 0){
+                searchList = searchMapper.findByKeyword(req,start,end);
+            }
+            else{
+                res.setCode(ResultCode.NonContent);
+                return res;
+            }
+
         } catch (Exception e){
             res.setCode(ResultCode.InternalServerError);
             return res;
@@ -40,6 +50,7 @@ public class SearchHandler extends BaseHandler {
 
         res.products = searchList;
         res.categoryList = catelist;
+        res.totalCount = totalCount;
         res.setCode(ResultCode.Success);
 
         return res;
