@@ -8,9 +8,7 @@ import com.laonworks.shop.api.mapper.SearchMapper;
 import com.laonworks.shop.api.mapper.vo.BigCategoryVo;
 import com.laonworks.shop.api.mapper.vo.ProductVo1;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestClientResponseException;
 
 import java.util.List;
 
@@ -41,7 +39,8 @@ public class SearchHandler extends BaseHandler {
                 searchList = searchMapper.findByKeyword(req,start,end);
             }
             else{
-                throw new RestClientResponseException("", HttpStatus.NO_CONTENT.value(), "", null, null, null);
+                res.setCode(ResultCode.NonContent);
+                return res;
             }
 
         } catch (Exception e){

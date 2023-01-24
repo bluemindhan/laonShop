@@ -5,9 +5,11 @@ import com.laonworks.shop.api.controller.request.search.SearchRequest;
 
 import com.laonworks.shop.api.controller.response.item.GetItemsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestClientResponseException;
 
 @RestController
 @RequestMapping(value = "/api/v1/search")
@@ -20,9 +22,13 @@ public class SearchController extends BaseController{
     public GetItemsResponse search(SearchRequest req){
 
         GetItemsResponse res = new GetItemsResponse();
+        res = searchHandler.excute(req);
 
-        return searchHandler.excute(req);
+        if(res.getCode() == 204){
+            throw new RestClientResponseException("", HttpStatus.NO_CONTENT.value(), "", null, null, null);
+        }
 
+        return res;
     }
 
 
