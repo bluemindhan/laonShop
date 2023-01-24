@@ -92,7 +92,7 @@
             </div>
 
           </div>
-            <button type="button" @click="search" class="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            <button type="button" @click="search" class="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ml-3"
             >검색</button>
           </div>
 
@@ -150,7 +150,23 @@
   <div class="bg-white mt-2">
     <div class="mx-auto max-w-7xl overflow-hidden sm:px-6 lg:px-8">
       <div>
-        
+        <!-- 검색 오류 페이지 -->
+        <div v-if="errorMsg" class="min-h-full bg-white py-16 px-6 sm:py-24 md:grid md:place-items-center lg:px-8">
+          <div class="mx-auto max-w-max">
+            <main class="sm:flex">
+              <div class="sm:ml-6">
+                <div class="sm:pl-6">
+                  <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-3xl">찾으시는 상품이 없습니다.</h1>
+                  <p class="mt-1 text-base text-gray-500">다른 상품을 검색해주세요.</p>
+                </div>
+                <div class="mt-10 flex space-x-3 sm:border-l sm:border-transparent sm:pl-6">
+                  <button @click="home"  type="button" class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">홈으로</button>
+                  <button @click="items" type="button" class="inline-flex items-center rounded-md border border-transparent bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-700 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">전체상품 목록으로</button>
+                </div>
+              </div>
+            </main>
+          </div>
+        </div>
       </div>
       <div class="-mx-px grid grid-cols-2 border-l border-gray-200 sm:mx-0 md:grid-cols-3 lg:grid-cols-4">
         <div v-for="product in products" :key="product.productId" class="group relative border-r border-b border-gray-200 p-4 sm:p-6">
@@ -181,24 +197,6 @@
               <button type="button" class="relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">구매하기</button>
             </span>
           </div>
-        </div>
-      </div>
-
-      <!-- 검색 오류 페이지 -->
-      <div v-if="errorMsg" class="min-h-full bg-white py-16 px-6 sm:py-24 md:grid md:place-items-center lg:px-8">
-        <div class="mx-auto max-w-max">
-          <main class="sm:flex">
-            <div class="sm:ml-6">
-              <div class="sm:pl-6">
-                <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-3xl">찾으시는 상품이 없습니다.</h1>
-                <p class="mt-1 text-base text-gray-500">Please check the URL in the address bar and try again.</p>
-              </div>
-              <div class="mt-10 flex space-x-3 sm:border-l sm:border-transparent sm:pl-6">
-                <a href="#" class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Go back home</a>
-                <a href="#" class="inline-flex items-center rounded-md border border-transparent bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-700 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Contact support</a>
-              </div>
-            </div>
-          </main>
         </div>
       </div>
       <!-- 페이징 -->
@@ -243,6 +241,7 @@
 <script>
 import GetItemsRequest from "@/service/request/GetItemsRequest.js";
 import GetSearchRequest from "@/service/request/GetSearchRequest.js";
+import AddCartRequest from "@/service/request/AddCartRequest.js";
 import {mapGetters, mapMutations} from "vuex";
 import ResultCode from "@/service/ResultCode";
 
@@ -255,7 +254,7 @@ export default {
   data() {
     return {
       pageNo: 1,
-      pageSize: 4,
+      pageSize: 8,
       totalPages: 0,
       totalCount: 0,
       cateCode: 0,
@@ -301,19 +300,32 @@ export default {
       setRefreshToken: "appStore/refreshToken",
       setUserInfo: "appStore/userInfo",
     }),
+    home() {
+      this.$router.replace("/user");
+    },
+    items() {
+      this.$router.go();
+      // this.$router.push("/user/search");
+    },
     async nextPage() {
       this.pageNo++;
       await this.getItemsList();
+      await this.search();
     },
     async prevPage() {
       this.pageNo--;
       await this.getItemsList();
+      await this.search();
     },
     async getItemsList() {
       let req = new GetItemsRequest();
       req.pageNo = this.pageNo;
       req.pageSize = this.pageSize;
-      req.cateCode = 0;
+      if(this.$route.query.cateCode == null || this.$route.query.cateCode == "") {
+        req.cateCode = 0;
+      } else {
+        req.cateCode = this.$route.query.cateCode;
+      }
       try {
         let res = await this.api.getItemsList(req);
         if (res.code === ResultCode.Success) {
@@ -323,7 +335,16 @@ export default {
           this.totalPages = Math.ceil(this.totalCount / this.pageSize);
           this.categoryList = res.categoryList;
           this.products = res.products;
+          this.errorMsg = false;
           console.log(res);
+        } else {
+          this.products = null;
+          this.pageNo = 1;
+          this.pageSize = 1;
+          this.totalPages = 1;
+          this.categoryList = null;
+          this.searchWord = null;
+          this.errorMsg = true;
         }
       } catch (e) {
         console.error(e);
@@ -368,7 +389,7 @@ export default {
           this.totalPages = Math.ceil(this.totalCount / this.pageSize);
           this.categoryList = res.categoryList;
           this.isShow = true;
-          this.errorMst = false;
+          this.errorMsg = false;
           this.searchWord = this.keyWord;
           if( this.searchWord == "") {
             alert("검색어를 입력해주세요.");
@@ -378,17 +399,19 @@ export default {
             this.totalPages = 1;
             this.categoryList = null;
             this.searchWord = null;
+            this.errorMsg = true;
           }       
           console.log(res);
         } else {
-          alert(res.message);
+          this.errorMsg = true;
         }
       } catch (e) {
         console.error(e);
       }
     },
   },
-
+  beforeDestroy(){  
+  },
   created() {
     console.log("UserMainView.vue..", this.accessToken);
     if (this.accessToken == null || this.accessToken == "") {
@@ -405,7 +428,6 @@ export default {
       // this.search();
     }
   },
-
   mounted() {
   },
   beforeUnmount() {
