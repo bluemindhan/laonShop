@@ -190,7 +190,7 @@
                 {{ product.name }}
               </div>
             </h3>
-            <p class="mt-4 text-base font-medium text-gray-900">{{ product.price }}</p>
+            <p class="mt-4 text-base font-medium text-gray-900">￦{{ Number(product.price).toLocaleString() }}</p>
             <!-- 장바구니 / 구매하기 버튼 -->
             <span class="isolate inline-flex rounded-md shadow-sm mt-4">
               <button type="button" @click="addCart(product.productId)" class="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">장바구니</button>

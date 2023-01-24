@@ -62,8 +62,8 @@
         <div class="lg:grid lg:auto-rows-min lg:grid-cols-12 lg:gap-x-8">
           <div class="lg:col-span-5 lg:col-start-8">
             <div class="flex justify-between">
-              <h1 class="text-xl font-medium text-gray-900">{{ itemVo.name }}</h1>
-              <p class="text-xl font-medium text-gray-900">$ {{ itemVo.price }}</p>
+              <h1 class="text-base font-medium text-gray-900">{{ itemVo.name }}</h1>
+              <p class="text-xl font-medium text-gray-900">￦{{ Number(itemVo.price ).toLocaleString() }}</p>
             </div>
             <!-- Reviews -->
             <div class="mt-4">

@@ -38,7 +38,7 @@
                       <p v-if="product.size" class="mt-1 text-sm text-gray-500">{{ product.size }}</p> -->
                     </div>
 
-                    <p class="text-right text-sm font-medium text-gray-900">$ {{ vo.price * vo.cnt }}</p>
+                    <p class="text-right text-sm font-medium text-gray-900">￦{{ Number(vo.price * vo.cnt).toLocaleString() }}</p>
                   </div>
 
                   <div class="mt-4 flex items-center sm:absolute sm:top-0 sm:left-1/2 sm:mt-0 sm:block">
@@ -81,7 +81,7 @@
               <dl class="-my-4 divide-y divide-gray-200 text-sm">
                 <div class="flex items-center justify-between py-4">
                   <dt class="text-base font-medium text-gray-900">Order total</dt>
-                  <dd class="text-base font-medium text-gray-900">$ {{ total }}</dd>
+                  <dd class="text-base font-medium text-gray-900">￦{{ Number(total).toLocaleString() }}</dd>
                 </div>
               </dl>
             </div>
