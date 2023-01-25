@@ -70,6 +70,21 @@ export class ApiService {
       })
     });
   }
+  updateUser(req) {
+    return new Promise((resolve, reject) => {
+      axios.patch("/api/v1/auth/password", req).then(res => {
+       if (res.status === 200) {
+          resolve(res.data);
+          return;
+        }
+        console.error(res.status, res.statusText);
+        reject(null);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    });
+  }
   getProfile(req) {
     const url = '/api/v1/user/profile?' + qs.stringify(req);
     return new Promise((resolve, reject) => {
