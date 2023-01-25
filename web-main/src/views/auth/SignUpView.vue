@@ -224,8 +224,22 @@ export default {
         return;
       }
 
+      if (this.valid.email == true) {
+        alert('이메일 형식이 아닙니다.');
+        return;
+      }
+
       if (this.password == "") {
         alert("비밀번호를 입력해주세요.");
+        return;
+      }
+      if (this.valid.password == true) {
+        alert('영문자, 숫자, 특수문자를 조합하여 최소 8자리를 입력해주세요.');
+        return;
+      }
+
+      if (!this.passwordCheckFlag) {
+        alert('비밀번호가 동일하지 않습니다.');
         return;
       }
 

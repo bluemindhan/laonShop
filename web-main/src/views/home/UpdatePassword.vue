@@ -41,19 +41,19 @@
             <p class="mt-1 text-sm text-gray-500">여기는 비밀번호 수정 페이지 입니다.</p>
         </div>
             <div class="sm:col-span-4 my-5">
-            <label for="confirmPassword" class="block text-sm font-medium text-gray-700">기존 비밀번호 확인</label>
+            <label for="password" class="block text-sm font-medium text-gray-700">기존 비밀번호 확인</label>
             <div class="mt-1">
                 <input 
-                id="confirmPassword" 
-                name="confirmPassword" 
+                id="password" 
+                name="password" 
                 type="password"
-                autocomplete="confirmPassword" 
-                v-model="confirmPassword"
+                autocomplete="password" 
+                v-model="password"
                 class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
                 required/>
             </div>
-            
             </div>
+
             <div class="sm:col-span-4 my-5">
             <label for="newPassword" class="block text-sm font-medium text-gray-700">새 비밀번호</label>
             <div class="mt-1">
@@ -74,24 +74,25 @@
                 영문자, 숫자, 특수문자를 조합하여 최소 8자리를 입력해주세요.
             </p>
             </div>
+            
             <div class="sm:col-span-4 my-5">
-            <label for="password" class="block text-sm font-medium text-gray-700">비밀번호 확인</label>
+            <label for="confirmPassword" class="block text-sm font-medium text-gray-700">새 비밀번호 확인</label>
             <div class="mt-1">
                 <input 
-                id="password" 
-                name="password" 
+                id="confirmPassword" 
+                name="confirmPassword" 
                 type="password"
-                autocomplete="password" 
-                v-model="password"
+                autocomplete="confirmPassword" 
+                v-model="confirmPassword"
                 @blur="passwordCheckValid"
                 class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
                 required/>
             </div>
-            <p 
+              <p 
                 v-if="!passwordCheckFlag"
                 class="input-error">
                 비밀번호가 동일하지 않습니다.
-            </p>
+              </p>
             </div>
         </div>
         </div>
@@ -157,18 +158,26 @@ import ResultCode from "@/service/ResultCode";
        setUserInfo: "appStore/userInfo",
      }),
      async updateUser() {
-        if (this.confirmPassword == "") {
-        alert("새 비밀번호 확인 해주세요.");
+        if (this.password == "") {
+        alert("기존 비밀번호 입력해주세요.");
         return;
          }
       if (this.newPassword == "") {
-        alert("새 비밀번호 확인 해주세요.");
+        alert("새 비밀번호 입력해주세요.");
         return;
         }  
-      if (this.password == "") {
+      if (this.valid.newPassword == true) {
+        alert('영문자, 숫자, 특수문자를 조합하여 최소 8자리를 입력해주세요.');
+        return;
+      }
+      if (this.confirmPassword == "") {
         alert("새 비밀번호 확인 해주세요.");
         return;
         }
+      if (this.passwordCheckFlag == false) {
+        alert('비밀번호가 동일하지 않습니다.');
+        return;
+      }
 
         const req = new UpdatePasswordRequest();
         req.confirmPassword = this.confirmPassword;
@@ -184,7 +193,6 @@ import ResultCode from "@/service/ResultCode";
             this.$router.replace({ name: "UserMainView" });
         } else {
           alert(res.message);
-          this.$router.replace({name: "UpdatePassword"});
         }
       } catch (e) {
         console.error(e);
@@ -202,7 +210,7 @@ import ResultCode from "@/service/ResultCode";
         this.passwordHasError = false
     },
     passwordCheckValid () {
-      if (this.newPassword === this.password) {
+      if (this.newPassword === this.confirmPassword) {
         this.passwordCheckFlag = true
         return
       } else {
@@ -215,7 +223,7 @@ import ResultCode from "@/service/ResultCode";
        console.log("beforeDestroy");
     },
    created() {
-     console.log("DeleteView.vue..", this.accessToken);
+     console.log("UpdateView.vue..", this.accessToken);
      if (this.accessToken == null || this.accessToken == "") {
        /**
         * accessToken이 없으면 로그인 페이지로 이동한다.
