@@ -267,10 +267,12 @@ export default {
 
           if (userInfo.userType === UserType.User) {
             // 일반 사용자
+            alert("회원가입을 축하합니다.");
             this.$router.replace({name: "UserMainView"});
           } else if (userInfo.userType === UserType.Seller) {
             // 판매자
-            this.$router.replace({name: "SellerMainView"});
+            alert("회원가입을 축하합니다.");
+            this.$router.replace({name: "SellerProductsView"});
           } else {
             // error
           }
@@ -313,9 +315,8 @@ export default {
       }
     },
     getPhoneMask(val) {
-        let res = this.getMask(val)
+      let res = this.getMask(val)
       this.phone = res;
-      this.model.phone =  this.phone.replace(/[^0-9]/g, '')
     },
     getMask( phoneNumber ) {
         if(!phoneNumber) return phoneNumber
