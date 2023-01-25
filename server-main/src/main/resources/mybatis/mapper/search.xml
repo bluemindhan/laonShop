@@ -7,7 +7,7 @@
     /*findByKeyword*/  SELECT *
     FROM(
         SELECT
-            ROWNUM, A.*
+            ROWNUM rm, A.*
         FROM(
             SELECT
                 MAX(A.PRDT_NO) as productId,
@@ -57,11 +57,8 @@
               </when>
             </choose>
             ) A
-        <![CDATA[
-        WHERE ROWNUM <= #{end}
         )
-      WHERE ROWNUM >= #{start}
-    ]]>
+      WHERE rm BETWEEN #{start} and #{end}
   </select>
 
 <!--    <select id="findByKeyword" resultType="ProductVo">-->
