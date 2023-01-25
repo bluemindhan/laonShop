@@ -22,7 +22,7 @@
                         </div>
                       </div>
                     </td>
-                    <td class="hidden py-6 pr-8 sm:table-cell">{{ product.prdtPrce }} 원</td>
+                    <td class="hidden py-6 pr-8 sm:table-cell">{{ Number(product.prdtPrce).toLocaleString() }}원</td>
                     <td class="hidden py-6 pr-8 sm:table-cell">{{ product.crtDt }}</td>
                     <td class="hidden py-6 pr-8 sm:table-cell">{{ product.updDt }}</td>
                     <td class="whitespace-nowrap py-6 text-right font-medium">

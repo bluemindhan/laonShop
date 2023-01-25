@@ -49,7 +49,7 @@
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:max-w-7xl lg:px-8">
       <div class="py-24">
         <h1 class="text-4xl font-bold tracking-tight text-gray-900">New Arrivals</h1>
-        <p v-if="isShow" class="mx-auto mt-4 max-w-3xl text-base text-gray-500"> "{{ searchWord }}" 에 대한 검색 결과 입니다.</p>
+        <p v-if="isShow" class="mx-auto mt-4 max-w-3xl text-base text-gray-500"> "{{ searchWord }}" 에 대한 {{ totalCount || 0 }}건의 검색 결과 입니다.</p>
       </div>
 
       <section aria-labelledby="filter-heading" class="border-t border-gray-200 py-6">
@@ -190,7 +190,7 @@
                 {{ product.name }}
               </div>
             </h3>
-            <p class="mt-4 text-base font-medium text-gray-900">{{ product.price }}</p>
+            <p class="mt-4 text-base font-medium text-gray-900">￦{{ Number(product.price).toLocaleString() }}</p>
             <!-- 장바구니 / 구매하기 버튼 -->
             <span class="isolate inline-flex rounded-md shadow-sm mt-4">
               <button type="button" @click="addCart(product.productId)" class="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">장바구니</button>
@@ -217,9 +217,13 @@
               페이지
             </p>
           </div>
-          <div class="flex flex-1 justify-between sm:justify-end">
+          <div v-if="list" class="flex flex-1 justify-between sm:justify-end">
             <button v-if="hasPrev" @click="prevPage" class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">이전</button>
             <button v-if="hasNext" @click="nextPage" class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">다음</button>
+          </div>
+          <div v-else class="flex flex-1 justify-between sm:justify-end">
+            <button v-if="hasPrev" @click="searchPrevPage" class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">이전</button>
+            <button v-if="hasNext" @click="searchNextPage" class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">다음</button>
           </div>
         </div>
       </div>
@@ -267,8 +271,9 @@ export default {
       filter: '',
       page: 1,
       searchWord: '',
-      isShow : false,
-      errorMsg: false,
+      isShow : false,  // 검색창
+      errorMsg: false, // 에러페이지
+      list: true,      // 페이징
     }
   },
   computed: {
@@ -310,11 +315,17 @@ export default {
     async nextPage() {
       this.pageNo++;
       await this.getItemsList();
-      await this.search();
     },
     async prevPage() {
       this.pageNo--;
       await this.getItemsList();
+    },
+    async searchNextPage() {
+      this.pageNo++;
+      await this.search();
+    },
+    async searchPrevPage() {
+      this.pageNo--;
       await this.search();
     },
     async getItemsList() {
@@ -329,6 +340,7 @@ export default {
       try {
         let res = await this.api.getItemsList(req);
         if (res.code === ResultCode.Success) {
+          this.list = true;
           this.totalCount = res.totalCount;
           this.pageNo = res.pageNo;
           this.pageSize = res.pageSize;
@@ -337,7 +349,7 @@ export default {
           this.products = res.products;
           this.errorMsg = false;
           console.log(res);
-        } else {
+        } else { // 메인에서 찾는 상품이 없을 때
           this.products = null;
           this.pageNo = 1;
           this.pageSize = 1;
@@ -370,39 +382,39 @@ export default {
     },
     async search() {
       let req = new GetSearchRequest();
-
-      console.log(this.checkedValues);
-      console.log(this.keyWord);
-      console.log(this.page);
-      console.log(this.sortValue);
       req.cateCode = this.checkedValues;
       req.keyWord = this.keyWord;
-      req.page = this.page;
+      req.page = this.pageNo;
       req.filter = this.sortValue;
+      this.isShow = true;
       console.log(req);
       try {
         let res = await this.api.search(req);
         if (res.code === ResultCode.Success) {
+          this.list = false;
+          this.totalCount = res.totalCount;
           this.products = res.products;
           this.pageNo = res.pageNo;
           this.pageSize = res.pageSize;
           this.totalPages = Math.ceil(this.totalCount / this.pageSize);
           this.categoryList = res.categoryList;
-          this.isShow = true;
           this.errorMsg = false;
           this.searchWord = this.keyWord;
-          if( this.searchWord == "") {
+          if( this.searchWord == "") { // 검색어가 없을 때
             alert("검색어를 입력해주세요.");
             this.products = null;
             this.pageNo = 1;
             this.pageSize = 1;
             this.totalPages = 1;
+            this.totalCount = 0;
             this.categoryList = null;
             this.searchWord = null;
             this.errorMsg = true;
           }       
           console.log(res);
-        } else {
+        } else { // 찾는 상품이 없을 때
+          this.totalCount = 0;
+          this.searchWord = this.keyWord;
           this.errorMsg = true;
         }
       } catch (e) {
@@ -413,7 +425,7 @@ export default {
   beforeDestroy(){  
   },
   created() {
-    console.log("UserMainView.vue..", this.accessToken);
+    console.log("UserSearchView.vue..", this.accessToken);
     if (this.accessToken == null || this.accessToken == "") {
       /**
        * accessToken이 없으면 로그인 페이지로 이동한다.

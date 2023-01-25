@@ -201,7 +201,7 @@ const collections = [
     id: 3,
     name: '태블릿',
     category: '',
-    value: 103,
+    value: 102,
     price: '',
     imageSrc: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/store-card-13-ipad-nav-202210?wid=400&hei=260&fmt=png-alpha&.v=1664912135437',
     imageAlt:
@@ -210,7 +210,7 @@ const collections = [
     id: 4,
     name: '시계',
     category: '',
-    value: 104,
+    value: 103,
     price: '',
     imageSrc: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/store-card-13-watch-nav-202209_GEO_KR?wid=400&hei=260&fmt=png-alpha&.v=1661796453921',
     imageAlt:
@@ -219,7 +219,7 @@ const collections = [
     id: 5,
     name: '블루투스 이어폰',
     category: '',
-    value: 105,
+    value: 104,
     price: '',
     imageSrc: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/store-card-13-airpods-nav-202209?wid=400&hei=260&fmt=png-alpha&.v=1660676485885',
     imageAlt:
@@ -229,7 +229,7 @@ const collections = [
     id: 6,
     name: '악세서리',
     category: '',
-    value: 203,
+    value: 105,
     price: '',
     imageSrc: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/store-card-13-accessories-nav-202209?wid=400&hei=260&fmt=png-alpha&.v=1660677092974',
     imageAlt:
